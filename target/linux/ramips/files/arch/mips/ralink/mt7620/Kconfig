@@ -1,0 +1,11 @@
+if RALINK_MT7620
+
+menu "Ralink MT7620 machine selection"
+
+config MT7620_MACH_WIFI_ROUTER
+	bool "Demo WifiRouter support"
+	select RALINK_DEV_GPIO_BUTTONS
+	select RALINK_DEV_GPIO_LEDS
+endmenu
+
+endif
