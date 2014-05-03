@@ -232,12 +232,17 @@ static const struct nla_policy switch_policy[SWITCH_ATTR_MAX+1] = {
 	[SWITCH_ATTR_OP_VALUE_INT] = { .type = NLA_U32 },
 	[SWITCH_ATTR_OP_VALUE_STR] = { .type = NLA_NUL_STRING },
 	[SWITCH_ATTR_OP_VALUE_PORTS] = { .type = NLA_NESTED },
+	[SWITCH_ATTR_OP_VALUE_REGISTER] = { .type = NLA_NESTED },
 	[SWITCH_ATTR_TYPE] = { .type = NLA_U32 },
 };
 
 static const struct nla_policy port_policy[SWITCH_PORT_ATTR_MAX+1] = {
 	[SWITCH_PORT_ID] = { .type = NLA_U32 },
 	[SWITCH_PORT_FLAG_TAGGED] = { .type = NLA_FLAG },
+};
+static const struct nla_policy register_policy[SWITCH_REG_ATTR_MAX+1] = {
+	[SWITCH_REG_ADDR] = { .type = NLA_U32 },
+	[SWITCH_REG_DATA] = { .type = NLA_U32 },
 };
 
 static inline void
@@ -251,6 +256,37 @@ swconfig_unlock(void)
 {
 	spin_unlock(&swdevs_lock);
 }
+
+struct switch_dev *
+swconfig_get_dev_bydevname(char *devname)
+{
+	struct switch_dev *dev = NULL;
+	struct switch_dev *p;
+
+	swconfig_lock();
+	list_for_each_entry(p, &swdevs, dev_list) {
+		if (memcmp(devname,p->devname,strlen(devname)) != 0 )
+			continue;
+
+		dev = p;
+		break;
+	}
+	if (dev)
+		spin_lock(&dev->lock);
+	else
+		DPRINTF("device %s is not found\n", devname);
+	swconfig_unlock();
+done:
+	return dev;
+}
+EXPORT_SYMBOL_GPL(swconfig_get_dev_bydevname);
+void
+swconfig_byname_unlock(void)
+{
+	spin_unlock(&swdevs_lock);
+}
+EXPORT_SYMBOL_GPL(swconfig_byname_unlock);
+
 
 static struct switch_dev *
 swconfig_get_dev(struct genl_info *info)
@@ -517,6 +553,31 @@ done:
 }
 
 static int
+swconfig_parse_register(struct sk_buff *msg, struct nlattr *head,
+		struct switch_val *val )
+{
+	struct nlattr *nla;
+	int rem;
+
+	val->len = 0;
+	nla_for_each_nested(nla, head, rem) {
+		struct nlattr *tb[SWITCH_REG_ATTR_MAX+1];
+		struct switch_reg *regrw= val->value.regrw;
+
+		if (nla_parse_nested(tb, SWITCH_REG_ATTR_MAX, nla,
+				register_policy))
+			return -EINVAL;
+
+		if (!tb[SWITCH_REG_ADDR])
+			return -EINVAL;
+
+		regrw->addr = nla_get_u32(tb[SWITCH_REG_ADDR]);
+		regrw->data = nla_get_u32(tb[SWITCH_REG_DATA]);
+	}
+
+	return 0;
+}
+static int
 swconfig_parse_ports(struct sk_buff *msg, struct nlattr *head,
 		struct switch_val *val, int max)
 {
@@ -589,6 +650,22 @@ swconfig_set_attr(struct sk_buff *skb, struct genl_info *info)
 		if (info->attrs[SWITCH_ATTR_OP_VALUE_PORTS]) {
 			err = swconfig_parse_ports(skb,
 				info->attrs[SWITCH_ATTR_OP_VALUE_PORTS], &val, dev->ports);
+			if (err < 0)
+				goto error;
+		} else {
+			val.len = 0;
+			err = 0;
+		}
+		break;
+	case SWITCH_TYPE_REGISTER:
+		val.value.regrw = &dev->regrw;
+		memset(&dev->regrw, 0,
+			sizeof(struct switch_reg) );
+
+		/* TODO: implement multipart? */
+		if (info->attrs[SWITCH_ATTR_OP_VALUE_REGISTER]) {
+			err = swconfig_parse_register(skb,
+				info->attrs[SWITCH_ATTR_OP_VALUE_REGISTER], &val);
 			if (err < 0)
 				goto error;
 		} else {
@@ -677,6 +754,73 @@ done:
 }
 
 static int
+swconfig_close_registerlist(struct swconfig_callback *cb, void *arg)
+{
+	if (cb->nest[0])
+		nla_nest_end(cb->msg, cb->nest[0]);
+	return 0;
+}
+static int
+swconfig_send_register_mem(struct swconfig_callback *cb, void *arg)
+{
+	const struct switch_reg *regrw = arg;
+	struct nlattr *p = NULL;
+
+	if (!cb->nest[0]) {
+		cb->nest[0] = nla_nest_start(cb->msg, cb->cmd);
+		if (!cb->nest[0])
+			return -1;
+	}
+
+	p = nla_nest_start(cb->msg, SWITCH_ATTR_REGISTER);
+	if (!p)
+		goto error;
+
+	NLA_PUT_U32(cb->msg, SWITCH_REG_ADDR, regrw->addr);
+	NLA_PUT_U32(cb->msg, SWITCH_REG_DATA, regrw->data);
+
+	nla_nest_end(cb->msg, p);
+	return 0;
+
+nla_put_failure:
+		nla_nest_cancel(cb->msg, p);
+error:
+	nla_nest_cancel(cb->msg, cb->nest[0]);
+	return -1;
+}
+
+static int
+swconfig_send_register(struct sk_buff **msg, struct genl_info *info, int attr,
+		const struct switch_val *val)
+{
+	struct swconfig_callback cb;
+	int err = 0;
+
+	if (!val->value.regrw)
+		return -EINVAL;
+
+	memset(&cb, 0, sizeof(cb));
+	cb.cmd = attr;
+	cb.msg = *msg;
+	cb.info = info;
+	cb.fill = swconfig_send_register_mem;
+	cb.close = swconfig_close_registerlist;
+
+	cb.nest[0] = nla_nest_start(cb.msg, cb.cmd);
+
+	err = swconfig_send_multipart(&cb, val->value.regrw);
+	if (err)
+		goto done;
+
+	err = 1;
+	swconfig_close_registerlist(&cb, NULL);
+	*msg = cb.msg;
+
+done:
+	return err;
+}
+
+static int
 swconfig_get_attr(struct sk_buff *skb, struct genl_info *info)
 {
 	struct genlmsghdr *hdr = nlmsg_data(info->nlhdr);
@@ -695,6 +839,17 @@ swconfig_get_attr(struct sk_buff *skb, struct genl_info *info)
 	attr = swconfig_lookup_attr(dev, info, &val);
 	if (!attr || !attr->get)
 		goto error;
+
+	if (attr->type == SWITCH_TYPE_REGISTER) {
+		if ( !info->attrs[SWITCH_ATTR_OP_REGISTER] )
+			goto error;
+
+		val.value.regrw = &dev->regrw;
+		memset(&dev->regrw, 0,
+			sizeof(struct switch_reg) );
+		/*update the message of register*/
+		val.value.regrw->addr = nla_get_u32(info->attrs[SWITCH_ATTR_OP_REGISTER]);
+	}
 
 	if (attr->type == SWITCH_TYPE_PORTS) {
 		val.value.ports = dev->portbuf;
@@ -725,6 +880,12 @@ swconfig_get_attr(struct sk_buff *skb, struct genl_info *info)
 	case SWITCH_TYPE_PORTS:
 		err = swconfig_send_ports(&msg, info,
 				SWITCH_ATTR_OP_VALUE_PORTS, &val);
+		if (err < 0)
+			goto nla_put_failure;
+		break;
+	case SWITCH_TYPE_REGISTER:
+		err = swconfig_send_register(&msg, info,
+				SWITCH_ATTR_OP_VALUE_REGISTER, &val);
 		if (err < 0)
 			goto nla_put_failure;
 		break;
@@ -879,6 +1040,7 @@ register_switch(struct switch_dev *dev, struct net_device *netdev)
 		if (!dev->portbuf)
 			return -ENOMEM;
 	}
+	
 	swconfig_defaults_init(dev);
 	spin_lock_init(&dev->lock);
 	swconfig_lock();

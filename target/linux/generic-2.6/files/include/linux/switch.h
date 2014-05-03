@@ -48,12 +48,15 @@ enum {
 	SWITCH_ATTR_OP_NAME,
 	SWITCH_ATTR_OP_PORT,
 	SWITCH_ATTR_OP_VLAN,
+	SWITCH_ATTR_OP_REGISTER,
 	SWITCH_ATTR_OP_VALUE_INT,
 	SWITCH_ATTR_OP_VALUE_STR,
 	SWITCH_ATTR_OP_VALUE_PORTS,
+	SWITCH_ATTR_OP_VALUE_REGISTER,
 	SWITCH_ATTR_OP_DESCRIPTION,
 	/* port lists */
 	SWITCH_ATTR_PORT,
+	SWITCH_ATTR_REGISTER,
 	SWITCH_ATTR_MAX
 };
 
@@ -79,6 +82,7 @@ enum switch_val_type {
 	SWITCH_TYPE_INT,
 	SWITCH_TYPE_STRING,
 	SWITCH_TYPE_PORTS,
+	SWITCH_TYPE_REGISTER,
 	SWITCH_TYPE_NOVAL,
 };
 
@@ -90,6 +94,13 @@ enum {
 	SWITCH_PORT_ATTR_MAX
 };
 
+/* register nested attributes */
+enum {
+	SWITCH_REG_UNSPEC,
+	SWITCH_REG_ADDR,
+	SWITCH_REG_DATA,
+	SWITCH_REG_ATTR_MAX
+};
 #define SWITCH_ATTR_DEFAULTS_OFFSET	0x1000
 
 #ifdef __KERNEL__
@@ -102,6 +113,7 @@ struct switch_attrlist;
 
 int register_switch(struct switch_dev *dev, struct net_device *netdev);
 void unregister_switch(struct switch_dev *dev);
+struct switch_dev * swconfig_get_dev_bydevname(char *devname);
 
 /**
  * struct switch_attrlist - attribute list
@@ -145,6 +157,12 @@ struct switch_dev_ops {
 	int (*reset_switch)(struct switch_dev *dev);
 };
 
+/*switch register and switch phy register*/
+struct switch_reg {
+	u32 addr;
+	u32 data;
+};
+
 struct switch_dev {
 	const struct switch_dev_ops *ops;
 	/* will be automatically filled */
@@ -166,6 +184,7 @@ struct switch_dev {
 
 	spinlock_t lock;
 	struct switch_port *portbuf;
+	struct switch_reg regrw;
 };
 
 struct switch_port {
@@ -181,6 +200,7 @@ struct switch_val {
 		const char *s;
 		u32 i;
 		struct switch_port *ports;
+		struct switch_reg *regrw;
 	} value;
 };
 
