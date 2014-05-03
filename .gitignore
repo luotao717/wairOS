@@ -1,7 +1,10 @@
 .svn
-/.config
+/.config*
 /dl
 /bin
 /build_dir
 /staging_dir
 /tmp
+cscope.*
+tags
+compile_log*
