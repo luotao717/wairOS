@@ -16,7 +16,7 @@ enable_console_login() {
 }
 
 inittab_console_fixup() {
-	for cons in ttyS0 ttyS1 ttyATH0; do
+	for cons in ttyS0  ttyS1 ttyATH0; do
 		echo "fixup $cons"
 		grep -qs "console=$cons" /proc/cmdline && {
 			enable_console_login $cons
