@@ -1,0 +1,107 @@
+if AR79
+
+menu "Atheros AR7XXX/AR9XXX machine selection"
+
+config AR79_MACH_WAFI_R1001
+	bool "Atheros 9341 : WAWIFI wafi_r1001 reference board"
+	select SOC_AR934X
+	select AR79_DEV_AP9X_PCI if PCI
+	select AR79_DEV_ETH
+	select AR79_DEV_GPIO_BUTTONS
+	select AR79_DEV_LEDS_GPIO
+	select AR79_DEV_M25P80
+	select AR79_DEV_NFC
+	select AR79_DEV_USB
+	#select AR79_DEV_WMAC
+	help
+	  Say 'Y' here if you want your kernel to support the
+	  Atheros 9341 : WAWIFI wafi_r1001 reference board.
+
+endmenu
+
+config SOC_AR71XX
+	select USB_ARCH_HAS_EHCI
+	select USB_ARCH_HAS_OHCI
+	select HW_HAS_PCI
+	def_bool n
+
+config SOC_AR724X
+	select USB_ARCH_HAS_EHCI
+	select USB_ARCH_HAS_OHCI
+	select HW_HAS_PCI
+	select PCI_AR724X if PCI
+	def_bool n
+
+config SOC_AR913X
+	select USB_ARCH_HAS_EHCI
+	def_bool n
+
+config SOC_AR933X
+	select USB_ARCH_HAS_EHCI
+	def_bool n
+
+config SOC_AR934X
+	select USB_ARCH_HAS_EHCI
+	select HW_HAS_PCI
+	select PCI_AR724X if PCI
+	def_bool n
+
+config SOC_QCA955X
+	select USB_ARCH_HAS_EHCI
+	select HW_HAS_PCI
+	select PCI_AR724X if PCI
+	def_bool n
+
+config AR79_DEV_AP9X_PCI
+	select AR79_PCI_ATH9K_FIXUP
+	def_bool n
+
+config AR79_DEV_DSA
+	def_bool n
+
+config AR79_DEV_ETH
+	def_bool n
+
+config AR79_DEV_M25P80
+	select AR79_DEV_SPI
+	def_bool n
+
+config AR79_DEV_DSA
+	def_bool n
+
+config AR79_DEV_ETH
+	def_bool n
+
+config AR79_DEV_GPIO_BUTTONS
+	def_bool n
+
+config AR79_DEV_LEDS_GPIO
+	def_bool n
+
+config AR79_DEV_NFC
+	depends on (SOC_AR934X)
+	def_bool n
+
+config AR79_DEV_SPI
+	def_bool n
+
+config AR79_DEV_USB
+	def_bool n
+
+config AR79_DEV_WMAC
+	depends on (SOC_AR913X || SOC_AR933X || SOC_AR934X || SOC_QCA955X)
+	def_bool n
+
+config AR79_NVRAM
+	def_bool n
+
+config AR79_PCI_ATH9K_FIXUP
+	def_bool n
+
+config AR79_ROUTERBOOT
+	def_bool n
+
+config PCI_AR724X
+	def_bool n
+
+endif

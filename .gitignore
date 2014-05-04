@@ -1,5 +1,6 @@
 .svn
 /.config
+/.config.old
 /dl
 /bin
 /build_dir

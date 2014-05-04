@@ -15,7 +15,7 @@ tools-$(CONFIG_GCC_VERSION_4_3)$(CONFIG_GCC_VERSION_4_4) += gmp mpfr
 endif
 tools-y += m4 libtool autoconf automake flex bison pkg-config sed mklibs
 tools-y += sstrip ipkg-utils genext2fs libuuid mtd-utils mkimage
-tools-y += firmware-utils patch-cmdline quilt yaffs2 xz cmake
+tools-y += firmware-utils patch-cmdline quilt yaffs2 xz cmake padjffs2
 tools-y += mm-macros xorg-macros xfce-macros missing-macros
 tools-$(CONFIG_TARGET_orion) += wrt350nv2-builder upslug2
 tools-$(CONFIG_TARGET_x86) += qemu

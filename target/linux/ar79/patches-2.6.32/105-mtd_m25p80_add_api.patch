@@ -1,0 +1,37 @@
+Index: linux-2.6.32.27/drivers/mtd/devices/m25p80.c
+===================================================================
+--- linux-2.6.32.27.orig/drivers/mtd/devices/m25p80.c	2013-01-15 15:16:22.000000000 +0800
++++ linux-2.6.32.27/drivers/mtd/devices/m25p80.c	2013-01-15 15:17:12.000000000 +0800
+@@ -947,6 +947,27 @@
+ 	 */
+ };
+ 
++/* READ mtd data by mtd name */
++#include <linux/err.h>
++int rl_mtd_read(char *name, loff_t from, size_t len, u_char *buf)
++{
++	int ret;
++	size_t rdlen;
++	struct mtd_info *mtd;
++    //printk("%s: [%d] read mtd section %s\n", __func__, __LINE__, name);
++	mtd = get_mtd_device_nm(name);
++	if (IS_ERR(mtd))
++		return (int)mtd;
++
++	ret = mtd->read(mtd, from, len, &rdlen, buf);
++	if (rdlen != len)
++		printk("warning: %s [%d] rdlen is not equal to len\n", __func__, __LINE__);
++
++	put_mtd_device(mtd);
++	return ret;
++}
++
++
+ 
+ static int __init m25p80_init(void)
+ {
+@@ -966,3 +987,4 @@
+ MODULE_LICENSE("GPL");
+ MODULE_AUTHOR("Mike Lavender");
+ MODULE_DESCRIPTION("MTD SPI driver for ST M25Pxx flash chips");
++EXPORT_SYMBOL(rl_mtd_read); /* john add for wifi read art data */

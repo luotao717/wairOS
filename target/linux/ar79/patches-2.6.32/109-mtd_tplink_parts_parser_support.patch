@@ -1,0 +1,44 @@
+--- a/drivers/mtd/Kconfig
++++ b/drivers/mtd/Kconfig
+@@ -181,6 +181,12 @@ config MTD_AR7_PARTS
+ 	---help---
+ 	  TI AR7 partitioning support
+ 
++config MTD_TPLINK_PARTS
++	tristate "TPLINK partitioning support"
++	depends on MTD_PARTITIONS || ATH79
++	---help---
++	  TPLINK partitioning support
++
+ config MTD_MYLOADER_PARTS
+ 	tristate "MyLoader partition parsing"
+ 	depends on MTD_PARTITIONS && (ADM5120 || ATHEROS_AR231X || ATHEROS_AR71XX || ATH79 || RAMIPS )
+--- a/drivers/mtd/Makefile
++++ b/drivers/mtd/Makefile
+@@ -10,6 +10,7 @@ mtd-$(CONFIG_MTD_PARTITIONS)	+= mtdpart.
+ obj-$(CONFIG_MTD_CONCAT)	+= mtdconcat.o
+ obj-$(CONFIG_MTD_REDBOOT_PARTS) += redboot.o
+ obj-$(CONFIG_MTD_CMDLINE_PARTS) += cmdlinepart.o
++obj-$(CONFIG_MTD_TPLINK_PARTS)  += tplinkpart.o
+ obj-$(CONFIG_MTD_AFS_PARTS)	+= afs.o
+ obj-$(CONFIG_MTD_AR7_PARTS)	+= ar7part.o
+ obj-$(CONFIG_MTD_OF_PARTS)      += ofpart.o
+--- a/drivers/mtd/devices/m25p80.c
++++ b/drivers/mtd/devices/m25p80.c
+@@ -890,6 +890,16 @@ static int __devinit m25p_probe(struct s
+ 					part_probes, &parts, 0);
+ 		}
+ #endif
++
++#ifdef CONFIG_MTD_TPLINK_PARTS
++		if (nr_parts <= 0) {
++			static const char *part_probes[]
++					= { "tp-link", NULL, };
++
++			nr_parts = parse_mtd_partitions(&flash->mtd,
++					part_probes, &parts, 0);
++		}
++#endif
+ 		if (nr_parts <= 0 && data && data->parts) {
+ 			parts = data->parts;
+ 			nr_parts = data->nr_parts;

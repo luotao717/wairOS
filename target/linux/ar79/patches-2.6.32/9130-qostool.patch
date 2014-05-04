@@ -1,0 +1,141 @@
+Index: linux-2.6.32.27/include/linux/netfilter/xt_classify.h
+===================================================================
+--- /dev/null
++++ linux-2.6.32.27/include/linux/netfilter/xt_classify.h
+@@ -0,0 +1,12 @@
++#ifndef _XT_CLASSIFY_M_H
++#define _XT_CLASSIFY_M_H
++
++#include <linux/types.h>
++
++/* match info */
++struct xt_classify_match_info {
++     __u32 priority;
++};
++
++#endif /* _XT_CLASSIFY_M_H */
++
+Index: linux-2.6.32.27/net/8021q/vlan.h
+===================================================================
+--- linux-2.6.32.27.orig/net/8021q/vlan.h
++++ linux-2.6.32.27/net/8021q/vlan.h
+@@ -87,9 +87,15 @@ void unregister_vlan_dev(struct net_devi
+ static inline u32 vlan_get_ingress_priority(struct net_device *dev,
+ 					    u16 vlan_tci)
+ {
+-	struct vlan_dev_info *vip = vlan_dev_info(dev);
++#if 0
++     struct vlan_dev_info *vip = vlan_dev_info(dev);
+ 
+-	return vip->ingress_priority_map[(vlan_tci >> 13) & 0x7];
++     return vip->ingress_priority_map[(vlan_tci >> 13) & 0x7];
++#else
++     unsigned int skb_priority_map[] = {0x0, 0x4, 0x8, 0xb, 0x10, 0x14, 0x18, 0x1b};
++
++     return skb_priority_map[(vlan_tci >> 13) & 0x7];
++#endif
+ }
+ 
+ #ifdef CONFIG_VLAN_8021Q_GVRP
+Index: linux-2.6.32.27/net/netfilter/Kconfig
+===================================================================
+--- linux-2.6.32.27.orig/net/netfilter/Kconfig
++++ linux-2.6.32.27/net/netfilter/Kconfig
+@@ -636,6 +636,18 @@ config NETFILTER_XT_MATCH_DSCP
+ 
+ 	  To compile it as a module, choose M here.  If unsure, say N.
+ 
++config NETFILTER_XT_MATCH_CLASSIFY
++	tristate '"CLASSIFY" match support'
++	depends on NETFILTER_ADVANCED
++	help
++	  This option adds a `CLASSIFY' match, which allows you to match
++	  the priority of a packet. Some qdiscs can use this value for
++	  classification, among these are:
++	
++	  atm, cbq, dsmark, pfifo_fast, htb, prio
++
++	  To compile it as a module, choose M here.  If unsure, say N.
++
+ config NETFILTER_XT_MATCH_ESP
+ 	tristate '"esp" match support'
+ 	depends on NETFILTER_ADVANCED
+Index: linux-2.6.32.27/net/netfilter/Makefile
+===================================================================
+--- linux-2.6.32.27.orig/net/netfilter/Makefile
++++ linux-2.6.32.27/net/netfilter/Makefile
+@@ -68,6 +68,7 @@ obj-$(CONFIG_NETFILTER_XT_MATCH_CONNMARK
+ obj-$(CONFIG_NETFILTER_XT_MATCH_CONNTRACK) += xt_conntrack.o
+ obj-$(CONFIG_NETFILTER_XT_MATCH_DCCP) += xt_dccp.o
+ obj-$(CONFIG_NETFILTER_XT_MATCH_DSCP) += xt_dscp.o
++obj-$(CONFIG_NETFILTER_XT_MATCH_CLASSIFY) += xt_classify.o
+ obj-$(CONFIG_NETFILTER_XT_MATCH_ESP) += xt_esp.o
+ obj-$(CONFIG_NETFILTER_XT_MATCH_HASHLIMIT) += xt_hashlimit.o
+ obj-$(CONFIG_NETFILTER_XT_MATCH_HELPER) += xt_helper.o
+Index: linux-2.6.32.27/net/netfilter/xt_classify.c
+===================================================================
+--- /dev/null
++++ linux-2.6.32.27/net/netfilter/xt_classify.c
+@@ -0,0 +1,62 @@
++
++#include <linux/module.h>
++#include <linux/skbuff.h>
++
++#include <linux/ip.h>
++
++#include <net/checksum.h>
++
++
++#include <linux/netfilter_ipv4.h>
++
++#include <linux/netfilter_ipv6.h>
++
++#include <linux/netfilter/x_tables.h>
++#include <linux/netfilter/xt_classify.h>
++
++MODULE_AUTHOR("Tyler");
++MODULE_DESCRIPTION("Xtables: CLASSIFY match");
++MODULE_LICENSE("GPL");
++MODULE_ALIAS("ipt_classify");
++
++static bool
++classify_mt(const struct sk_buff *skb, struct xt_match_param *par)
++{
++     int ret = false;
++     const struct xt_classify_match_info *info = par->matchinfo;
++ 
++     if (skb->priority == info->priority) {
++         ret = true;
++     }
++     return ret;
++}
++
++static int classify_mt_check(const struct xt_mtchk_param *par)
++{
++    return 0;
++}
++
++static struct xt_match classify_mt_reg __read_mostly = {
++ 
++     .name       = "classify",
++     .family     = NFPROTO_UNSPEC,
++     .checkentry = classify_mt_check,
++     .match      = classify_mt,
++     .table      = "mangle",
++     .matchsize  = sizeof(struct xt_classify_match_info),
++     .me         = THIS_MODULE,
++};
++
++static int __init classify_mt_init(void)
++{
++     return xt_register_match(&classify_mt_reg);
++}
++
++static void __exit classify_mt_exit(void)
++{
++     xt_unregister_match(&classify_mt_reg);
++}
++
++module_init(classify_mt_init);
++module_exit(classify_mt_exit);
++

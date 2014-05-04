@@ -1,0 +1,206 @@
+Index: linux-2.6.32.27/include/linux/netfilter_bridge/ebt_mark_t.h
+===================================================================
+--- linux-2.6.32.27.orig/include/linux/netfilter_bridge/ebt_mark_t.h
++++ linux-2.6.32.27/include/linux/netfilter_bridge/ebt_mark_t.h
+@@ -12,7 +12,7 @@
+ #define MARK_OR_VALUE  (0xffffffe0)
+ #define MARK_AND_VALUE (0xffffffd0)
+ #define MARK_XOR_VALUE (0xffffffc0)
+-
++#define RMARK_SET_VALUE (0xffffffb0)
+ struct ebt_mark_t_info
+ {
+ 	unsigned long mark;
+Index: linux-2.6.32.27/include/linux/skbuff.h
+===================================================================
+--- linux-2.6.32.27.orig/include/linux/skbuff.h
++++ linux-2.6.32.27/include/linux/skbuff.h
+@@ -404,6 +404,7 @@ struct sk_buff {
+ #endif
+ 
+ 	__u32			mark;
++	__u32                   rnfmark;
+ 
+ 	__u16			vlan_tci;
+ 
+Index: linux-2.6.32.27/net/bridge/br_input.c
+===================================================================
+--- linux-2.6.32.27.orig/net/bridge/br_input.c
++++ linux-2.6.32.27/net/bridge/br_input.c
+@@ -129,6 +129,13 @@ struct sk_buff *br_handle_frame(struct n
+ 	if (!is_valid_ether_addr(eth_hdr(skb)->h_source))
+ 		goto drop;
+ 
++	/*fix conflict between pppoe proxy and eth0 bridge*/
++	if (skb->protocol == __constant_htons(ETH_P_PPP_SES) ||
++		skb->protocol == __constant_htons(ETH_P_PPP_DISC)) {
++		if (!memcmp(skb->mac_header,skb->dev->dev_addr,ETH_ALEN))
++			return skb;
++	}
++
+ 	skb = skb_share_check(skb, GFP_ATOMIC);
+ 	if (!skb)
+ 		return NULL;
+Index: linux-2.6.32.27/net/bridge/netfilter/ebt_mark.c
+===================================================================
+--- linux-2.6.32.27.orig/net/bridge/netfilter/ebt_mark.c
++++ linux-2.6.32.27/net/bridge/netfilter/ebt_mark.c
+@@ -26,6 +26,8 @@ ebt_mark_tg(struct sk_buff *skb, const s
+ 
+ 	if (action == MARK_SET_VALUE)
+ 		skb->mark = info->mark;
++	else if (action == RMARK_SET_VALUE)
++		skb->rnfmark = info->mark;
+ 	else if (action == MARK_OR_VALUE)
+ 		skb->mark |= info->mark;
+ 	else if (action == MARK_AND_VALUE)
+@@ -47,7 +49,7 @@ static bool ebt_mark_tg_check(const stru
+ 	if (tmp < -NUM_STANDARD_TARGETS || tmp >= 0)
+ 		return false;
+ 	tmp = info->target & ~EBT_VERDICT_BITS;
+-	if (tmp != MARK_SET_VALUE && tmp != MARK_OR_VALUE &&
++	if (tmp != MARK_SET_VALUE && tmp != RMARK_SET_VALUE && tmp != MARK_OR_VALUE &&
+ 	    tmp != MARK_AND_VALUE && tmp != MARK_XOR_VALUE)
+ 		return false;
+ 	return true;
+Index: linux-2.6.32.27/net/core/skbuff.c
+===================================================================
+--- linux-2.6.32.27.orig/net/core/skbuff.c
++++ linux-2.6.32.27/net/core/skbuff.c
+@@ -649,6 +649,7 @@ static void __copy_skb_header(struct sk_
+ #endif
+ 	new->protocol		= old->protocol;
+ 	new->mark		= old->mark;
++	new->rnfmark		= old->rnfmark;
+ 	new->iif		= old->iif;
+ 	__nf_copy(new, old);
+ #if defined(CONFIG_NETFILTER_XT_TARGET_TRACE) || \
+Index: linux-2.6.32.27/net/decnet/dn_route.c
+===================================================================
+--- linux-2.6.32.27.orig/net/decnet/dn_route.c
++++ linux-2.6.32.27/net/decnet/dn_route.c
+@@ -1214,7 +1214,7 @@ static int dn_route_input_slow(struct sk
+ 				       .saddr = cb->src,
+ 				       .scope = RT_SCOPE_UNIVERSE,
+ 				    } },
+-			    .mark = skb->mark,
++			    .mark = skb->rnfmark,
+ 			    .iif = skb->dev->ifindex };
+ 	struct dn_fib_res res = { .fi = NULL, .type = RTN_UNREACHABLE };
+ 	int err = -EINVAL;
+@@ -1434,7 +1434,7 @@ static int dn_route_input(struct sk_buff
+ 		if ((rt->fl.fld_src == cb->src) &&
+ 		    (rt->fl.fld_dst == cb->dst) &&
+ 		    (rt->fl.oif == 0) &&
+-		    (rt->fl.mark == skb->mark) &&
++		    (rt->fl.mark == skb->rnfmark) &&
+ 		    (rt->fl.iif == cb->iif)) {
+ 			dst_use(&rt->u.dst, jiffies);
+ 			rcu_read_unlock();
+Index: linux-2.6.32.27/net/ipv4/netfilter.c
+===================================================================
+--- linux-2.6.32.27.orig/net/ipv4/netfilter.c
++++ linux-2.6.32.27/net/ipv4/netfilter.c
+@@ -35,7 +35,7 @@ int ip_route_me_harder(struct sk_buff *s
+ 			fl.nl_u.ip4_u.saddr = iph->saddr;
+ 		fl.nl_u.ip4_u.tos = RT_TOS(iph->tos);
+ 		fl.oif = skb->sk ? skb->sk->sk_bound_dev_if : 0;
+-		fl.mark = skb->mark;
++		fl.mark = skb->rnfmark;
+ 		fl.flags = skb->sk ? inet_sk_flowi_flags(skb->sk) : 0;
+ 		if (ip_route_output_key(net, &rt, &fl) != 0)
+ 			return -1;
+@@ -143,7 +143,7 @@ static void nf_ip_saveroute(const struct
+ 		rt_info->tos = iph->tos;
+ 		rt_info->daddr = iph->daddr;
+ 		rt_info->saddr = iph->saddr;
+-		rt_info->mark = skb->mark;
++		rt_info->mark = skb->rnfmark;
+ 	}
+ }
+ 
+@@ -156,7 +156,7 @@ static int nf_ip_reroute(struct sk_buff 
+ 		const struct iphdr *iph = ip_hdr(skb);
+ 
+ 		if (!(iph->tos == rt_info->tos
+-		      && skb->mark == rt_info->mark
++		      && skb->rnfmark == rt_info->mark
+ 		      && iph->daddr == rt_info->daddr
+ 		      && iph->saddr == rt_info->saddr))
+ 			return ip_route_me_harder(skb, RTN_UNSPEC);
+Index: linux-2.6.32.27/net/ipv4/route.c
+===================================================================
+--- linux-2.6.32.27.orig/net/ipv4/route.c
++++ linux-2.6.32.27/net/ipv4/route.c
+@@ -1870,7 +1870,7 @@ static int ip_route_input_mc(struct sk_b
+ 	rth->fl.fl4_dst	= daddr;
+ 	rth->rt_dst	= daddr;
+ 	rth->fl.fl4_tos	= tos;
+-	rth->fl.mark    = skb->mark;
++	rth->fl.mark    = skb->rnfmark;
+ 	rth->fl.fl4_src	= saddr;
+ 	rth->rt_src	= saddr;
+ #ifdef CONFIG_NET_CLS_ROUTE
+@@ -1967,7 +1967,7 @@ static int __mkroute_input(struct sk_buf
+ 
+ 
+ 	err = fib_validate_source(saddr, daddr, tos, FIB_RES_OIF(*res),
+-				  in_dev->dev, &spec_dst, &itag, skb->mark);
++				  in_dev->dev, &spec_dst, &itag, skb->rnfmark);
+ 	if (err < 0) {
+ 		ip_handle_martian_source(in_dev->dev, in_dev, skb, daddr,
+ 					 saddr);
+@@ -2010,7 +2010,7 @@ static int __mkroute_input(struct sk_buf
+ 	rth->fl.fl4_dst	= daddr;
+ 	rth->rt_dst	= daddr;
+ 	rth->fl.fl4_tos	= tos;
+-	rth->fl.mark    = skb->mark;
++	rth->fl.mark    = skb->rnfmark;
+ 	rth->fl.fl4_src	= saddr;
+ 	rth->rt_src	= saddr;
+ 	rth->rt_gateway	= daddr;
+@@ -2085,7 +2085,7 @@ static int ip_route_input_slow(struct sk
+ 					.tos = tos,
+ 					.scope = RT_SCOPE_UNIVERSE,
+ 				      } },
+-			    .mark = skb->mark,
++			    .mark = skb->rnfmark,
+ 			    .iif = dev->ifindex };
+ 	unsigned	flags = 0;
+ 	u32		itag = 0;
+@@ -2141,7 +2141,7 @@ static int ip_route_input_slow(struct sk
+ 		int result;
+ 		result = fib_validate_source(saddr, daddr, tos,
+ 					     net->loopback_dev->ifindex,
+-					     dev, &spec_dst, &itag, skb->mark);
++					     dev, &spec_dst, &itag, skb->rnfmark);
+ 		if (result < 0)
+ 			goto martian_source;
+ 		if (result)
+@@ -2170,7 +2170,7 @@ brd_input:
+ 		spec_dst = inet_select_addr(dev, 0, RT_SCOPE_LINK);
+ 	else {
+ 		err = fib_validate_source(saddr, 0, tos, 0, dev, &spec_dst,
+-					  &itag, skb->mark);
++					  &itag, skb->rnfmark);
+ 		if (err < 0)
+ 			goto martian_source;
+ 		if (err)
+@@ -2195,7 +2195,7 @@ local_input:
+ 	rth->fl.fl4_dst	= daddr;
+ 	rth->rt_dst	= daddr;
+ 	rth->fl.fl4_tos	= tos;
+-	rth->fl.mark    = skb->mark;
++	rth->fl.mark    = skb->rnfmark;
+ 	rth->fl.fl4_src	= saddr;
+ 	rth->rt_src	= saddr;
+ #ifdef CONFIG_NET_CLS_ROUTE
+@@ -2280,7 +2280,7 @@ int ip_route_input(struct sk_buff *skb, 
+ 		     (rth->fl.iif ^ iif) |
+ 		     rth->fl.oif |
+ 		     (rth->fl.fl4_tos ^ tos)) == 0 &&
+-		    rth->fl.mark == skb->mark &&
++		    rth->fl.mark == skb->rnfmark &&
+ 		    net_eq(dev_net(rth->u.dst.dev), net) &&
+ 		    !rt_is_expired(rth)) {
+ 			dst_use(&rth->u.dst, jiffies);
