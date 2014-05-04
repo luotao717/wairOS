@@ -1,4 +1,6 @@
 *.o
-conf
-mconf
+lxdialog
+conf*
+mconf*
 mconf_check
+*.*.c
