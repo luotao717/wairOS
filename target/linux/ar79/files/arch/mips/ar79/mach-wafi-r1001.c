@@ -176,5 +176,5 @@ static void __init rl_ans5001_setup(void)
 	ath79_register_nfc();
 }
 
-MIPS_MACHINE(ATH79_MACH_RL_ANS5001, "RL-ANS5001", "Richerlink RL-ANS5001 reference board",
+MIPS_MACHINE(AR79_MACH_WAFI_R1001, "WAFI-R1001", "WIAIROS WAFI-R1001 reference board",
 	     rl_ans5001_setup);

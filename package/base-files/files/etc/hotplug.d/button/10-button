@@ -1,0 +1,53 @@
+#!/bin/sh
+
+# Copyright (C) 2009 OpenWrt.org
+# Reset default button
+local reset_button="BTN_0"
+local reset_button_des="reset button"
+local reset_stat_file="/tmp/.reset_button"
+local uptime_file="/proc/uptime"
+local reset_r_interval=3
+
+func_reset_button_press(){
+	/bin/cat $uptime_file > $reset_stat_file 
+}
+func_reset_button_released(){
+	local oldtime=0
+	local ctime=0
+	local delaytime=0
+
+	if [ -f "$reset_stat_file" ] ;then
+		oldtime=`awk -F '.' '{print $1}' $reset_stat_file`
+		ctime=`awk -F '.' '{ print $1}' $uptime_file` 
+		delaytime=$(($ctime - $oldtime))	
+
+		rm -rf $reset_stat_file
+
+		if [ $delaytime -ge $reset_r_interval ] ; then
+			# reset default the system
+			echo "reset_default -p -n -r command" >>/tmp/reset_test
+			reset_default -p -n -r
+		fi
+	else
+		echo "unkown logic to press button $reset_button_des"
+	fi 
+
+}
+case "$ACTION" in
+	pressed)
+		if [ "$BUTTON" = "$reset_button" ] ; then
+			func_reset_button_press	
+		fi
+		# pressed the button 
+		;;
+	released)
+		if [ "$BUTTON" = "$reset_button" ] ; then
+			func_reset_button_released	
+		fi
+		# released the button 
+		;;
+	*)
+		echo "error $BUTTON action : $ACTION"
+		;;
+esac	
+		

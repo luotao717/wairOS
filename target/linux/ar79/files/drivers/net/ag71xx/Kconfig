@@ -1,6 +1,6 @@
 config AG71XX
 	tristate "Atheros AR7XXX/AR9XXX built-in ethernet mac support"
-	depends on ATH79
+	depends on AR79
 	select PHYLIB
 	help
 	  If you wish to compile a kernel for AR7XXX/91XXX and enable

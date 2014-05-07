@@ -33,9 +33,9 @@
 
 #include <linux/bitops.h>
 
-#include <asm/mach-ath79/ar71xx_regs.h>
-#include <asm/mach-ath79/ath79.h>
-#include <asm/mach-ath79/ag71xx_platform.h>
+#include <asm/mach-ar79/ar71xx_regs.h>
+#include <asm/mach-ar79/ath79.h>
+#include <asm/mach-ar79/ag71xx_platform.h>
 #ifdef CONFIG_AG71XX_ATHEROS_HEADER
 #include "rlvr_multi_dev.h"
 #endif /*CONFIG_AG71XX_ATHEROS_HEADER*/

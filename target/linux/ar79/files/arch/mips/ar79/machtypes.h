@@ -121,7 +121,7 @@ enum ath79_mach_type {
 	ATH79_MACH_ZCN_1523H_2,		/* Zcomax ZCN-1523H-2-xx */
 	ATH79_MACH_ZCN_1523H_5,		/* Zcomax ZCN-1523H-5-xx */
 	ATH79_MACH_RL_ANS5004,		/* RicherLink EOC board*/
-	ATH79_MACH_RL_ANS5001,		/* RicherLink WIFI board*/
+	AR79_MACH_WAFI_R1001,		/* RicherLink WIFI board*/
 };
 
 #endif /* _ATH79_MACHTYPE_H */

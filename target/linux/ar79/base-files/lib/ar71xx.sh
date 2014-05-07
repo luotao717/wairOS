@@ -180,6 +180,9 @@ ar71xx_board_detect() {
 	*RL-ANS5001*)
 		name="rl-ans5001"
 		;;
+	*WAFI-R1001*)
+		name="wafi-r1001"
+		;;
 	*"AP136 reference board")
 		name="ap136"
 		;;

@@ -13,10 +13,11 @@ config AR79_MACH_WAFI_R1001
 	select AR79_DEV_NFC
 	select AR79_DEV_USB
 	#select AR79_DEV_WMAC
+	select SOC_AR71XX
+	select AR79_DEV_ETH
 	help
 	  Say 'Y' here if you want your kernel to support the
 	  Atheros 9341 : WAWIFI wafi_r1001 reference board.
-
 endmenu
 
 config SOC_AR71XX
