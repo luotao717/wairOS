@@ -1,0 +1,42 @@
+--- a/arch/mips/Kconfig
++++ b/arch/mips/Kconfig
+@@ -43,6 +43,9 @@ config AR7
+ 	  Support for the Texas Instruments AR7 System-on-a-Chip
+ 	  family: TNETD7100, 7200 and 7300.
+ 
++config RAMIPS 
++	bool "Ralink MIPS based on board "
++
+ config BASLER_EXCITE
+ 	bool "Basler eXcite smart camera"
+ 	select CEVT_R4K
+@@ -674,6 +677,7 @@ config CAVIUM_OCTEON_REFERENCE_BOARD
+ endchoice
+ 
+ source "arch/mips/alchemy/Kconfig"
++source "arch/mips/ralink/Kconfig"
+ source "arch/mips/basler/excite/Kconfig"
+ source "arch/mips/bcm63xx/Kconfig"
+ source "arch/mips/jazz/Kconfig"
+--- a/arch/mips/Makefile
++++ b/arch/mips/Makefile
+@@ -179,6 +179,19 @@ libs-y				+= arch/mips/fw/lib/
+ #
+ 
+ #
++# Ralink SoC common stuff
++#
++core-$(CONFIG_RAMIPS)     += arch/mips/ralink/common/
++cflags-$(CONFIG_RAMIPS)   += -I$(srctree)/arch/mips/include/asm/mach-ralink
++
++#
++# Ralink MT7620
++#
++core-$(CONFIG_RALINK_MT7620)   += arch/mips/ralink/mt7620/
++cflags-$(CONFIG_RALINK_MT7620) += -I$(srctree)/arch/mips/include/asm/mach-ralink/mt7620
++load-$(CONFIG_RALINK_MT7620)   += 0xffffffff80000000
++
++#
+ # Texas Instruments AR7
+ #
+ core-$(CONFIG_AR7)		+= arch/mips/ar7/

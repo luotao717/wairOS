@@ -1,0 +1,12 @@
+#
+# Ralink SoC common stuff
+#
+core-$(CONFIG_RAMIPS)     += arch/mips/ralink/common/
+cflags-$(CONFIG_RAMIPS)   += -I$(srctree)/arch/mips/include/asm/mach-ralink
+
+#
+# Ralink MT7620
+#
+core-$(CONFIG_RALINK_MT7620)   += arch/mips/ralink/mt7620/
+cflags-$(CONFIG_RALINK_MT7620) += -I$(srctree)/arch/mips/include/asm/mach-ralink/mt7620
+load-$(CONFIG_RALINK_MT7620)   += 0xffffffff80000000

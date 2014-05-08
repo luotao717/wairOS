@@ -1,0 +1,22 @@
+config NET_RAMIPS
+       tristate "Ralink MT7620 ethernet driver"
+       depends on RAMIPS 
+       select SWCONFIG if SOC_MT7620
+       help
+         This driver supports the etehrnet mac inside the ralink wisocs
+
+if NET_RAMIPS
+
+config NET_ESW_EXTERN_PHY_BASE
+	int "configuration the phy4 ,phy5 or both base address ID (0-31)"
+	range 0 31
+	default 4
+
+config NET_RAMIPS_DEBUG
+       bool "Enable debug messages in the Ralink ethernet driver"
+
+config NET_RAMIPS_DEBUG_FS
+	bool "Enable debugfs support for the Ralink ethernet driver"
+	depends on DEBUG_FS
+
+endif
