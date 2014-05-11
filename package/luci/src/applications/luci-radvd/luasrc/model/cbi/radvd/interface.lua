@@ -9,7 +9,7 @@ You may obtain a copy of the License at
 
 	http://www.apache.org/licenses/LICENSE-2.0
 
-$Id: interface.lua 6808 2011-01-29 03:27:37Z jow $
+$Id$
 ]]--
 
 local sid = arg[1]

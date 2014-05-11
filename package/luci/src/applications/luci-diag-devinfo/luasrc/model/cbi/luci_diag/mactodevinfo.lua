@@ -9,7 +9,7 @@ You may obtain a copy of the License at
 
 	http://www.apache.org/licenses/LICENSE-2.0
 
-$Id: mactodevinfo.lua 5448 2009-10-31 15:54:11Z jow $
+$Id$
 ]]--
 
 m = Map("mactodevinfo", luci.i18n.translate("MAC Device Info Overrides"), translate("Override the information returned by the MAC to Device Info Script (mac-to-devinfo) for a specified range of MAC Addresses"))

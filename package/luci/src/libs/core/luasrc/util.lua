@@ -4,6 +4,9 @@ LuCI - Utility library
 Description:
 Several common useful Lua functions
 
+FileId:
+$Id$
+
 License:
 Copyright 2008 Steven Barth <steven@midlink.org>
 
@@ -33,7 +36,7 @@ local tparser = require "luci.template.parser"
 local getmetatable, setmetatable = getmetatable, setmetatable
 local rawget, rawset, unpack = rawget, rawset, unpack
 local tostring, type, assert = tostring, type, assert
-local ipairs, pairs, next, loadstring = ipairs, pairs, next, loadstring
+local ipairs, pairs, loadstring = ipairs, pairs, loadstring
 local require, pcall, xpcall = require, pcall, xpcall
 local collectgarbage, get_memory_limit = collectgarbage, get_memory_limit
 
@@ -179,18 +182,27 @@ end
 -- String and data manipulation routines
 --
 
+--- Escapes all occurrences of the given character in given string.
+-- @param s	String value containing unescaped characters
+-- @param c	String value with character to escape (optional, defaults to "\")
+-- @return	String value with each occurrence of character escaped with "\"
+function escape(s, c)
+	c = c or "\\"
+	return s:gsub(c, "\\" .. c)
+end
+
 --- Create valid XML PCDATA from given string.
 -- @param value	String value containing the data to escape
 -- @return		String value containing the escaped data
 function pcdata(value)
-	return value and tparser.pcdata(tostring(value))
+	return value and tparser.sanitize_pcdata(tostring(value))
 end
 
 --- Strip HTML tags from given string.
 -- @param value	String containing the HTML text
 -- @return	String with HTML tags stripped of
-function striptags(value)
-	return value and tparser.striptags(tostring(value))
+function striptags(s)
+	return pcdata(tostring(s):gsub("</?[A-Za-z][A-Za-z0-9:_%-]*[^>]*>", " "):gsub("%s+", " "))
 end
 
 --- Splits given string on a defined separator sequence and return a table
@@ -261,27 +273,15 @@ end
 -- @param val		The value to scan (table, string or nil)
 -- @return			Iterator which returns one token per call
 function imatch(v)
-	if type(v) == "table" then
-		local k = nil
-		return function()
-			k = next(v, k)
-			return v[k]
-		end
-
-	elseif type(v) == "number" or type(v) == "boolean" then
-		local x = true
-		return function()
-			if x then
-				x = false
-				return tostring(v)
-			end
-		end
-
-	elseif type(v) == "userdata" or type(v) == "string" then
-		return tostring(v):gmatch("%S+")
+	if v == nil then
+		v = ""
+	elseif type(v) == "table" then
+		v = table.concat(v, " ")
+	elseif type(v) ~= "string" then
+		v = tostring(v)
 	end
 
-	return function() end
+	return v:gmatch("%S+")
 end
 
 --- Parse certain units from the given string and return the canonical integer
@@ -344,6 +344,7 @@ function parse_units(ustr)
 end
 
 -- also register functions above in the central string class for convenience
+string.escape      = escape
 string.pcdata      = pcdata
 string.striptags   = striptags
 string.split       = split
@@ -606,7 +607,6 @@ end
 function _sortiter( t, f )
 	local keys = { }
 
-	local k, v
 	for k, v in pairs(t) do
 		keys[#keys+1] = k
 	end
@@ -618,7 +618,7 @@ function _sortiter( t, f )
 	return function()
 		_pos = _pos + 1
 		if _pos <= #keys then
-			return keys[_pos], t[keys[_pos]], _pos
+			return keys[_pos], t[keys[_pos]]
 		end
 	end
 end

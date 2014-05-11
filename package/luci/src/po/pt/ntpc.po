@@ -11,45 +11,42 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Pootle 1.1.0\n"
 
-msgid "Clock Adjustment"
-msgstr "Ajuste do Relógio"
-
-#, fuzzy
-msgid "Count of time measurements"
-msgstr "Quantas vezes irá atualizar"
-
-msgid "Current system time"
-msgstr "Hora actual do sistema"
-
-msgid "General"
-msgstr ""
-
-msgid "Hostname"
-msgstr ""
-
-#, fuzzy
-msgid "Offset frequency"
-msgstr "Frequência do Offset"
-
-msgid "Port"
-msgstr ""
+msgid "Time Synchronisation"
+msgstr "Sincronização de Horário"
 
 msgid "Synchronizes the system time"
 msgstr "Sincroniza a hora do sistema"
 
-msgid "Time Server"
+msgid "General"
 msgstr ""
 
-#, fuzzy
-msgid "Time Servers"
-msgstr "Servidor de Hora"
-
-msgid "Time Synchronisation"
-msgstr "Sincronização de Horário"
+msgid "Current system time"
+msgstr "Hora actual do sistema"
 
 #, fuzzy
 msgid "Update interval (in seconds)"
 msgstr "Intervalo de Actualização (em s)"
 
+#, fuzzy
+msgid "Count of time measurements"
+msgstr "Quantas vezes irá atualizar"
+
 msgid "empty = infinite"
 msgstr "vazio = infinito"
+
+msgid "Clock Adjustment"
+msgstr "Ajuste do Relógio"
+
+#, fuzzy
+msgid "Offset frequency"
+msgstr "Frequência do Offset"
+
+#, fuzzy
+msgid "Time Servers"
+msgstr "Servidor de Hora"
+
+msgid "Hostname"
+msgstr ""
+
+msgid "Port"
+msgstr ""

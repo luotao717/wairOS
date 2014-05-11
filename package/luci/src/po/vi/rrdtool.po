@@ -15,510 +15,269 @@ msgstr ""
 
 #. %H: Wireless - Signal Noise Ratio
 #: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:1
-msgid "stat_dg_title_wireless__signal_noise"
-msgstr ""
+msgid "%H: Wireless - Signal Noise Ratio"
+msgstr "%H: Wireless - Signal Noise Ratio"
 
 #. dBm
 #: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:2
-msgid "stat_dg_label_wireless__signal_noise"
-msgstr ""
+msgid "dBm"
+msgstr "dBm"
 
 #. Noise Level
 #: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:3
-msgid "stat_ds_signal_noise"
-msgstr ""
+msgid "Noise Level"
+msgstr "Noise Level"
 
 #. Signal Strength
 #: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:4
-msgid "stat_ds_signal_power"
-msgstr ""
+msgid "Signal Strength"
+msgstr "Độ mạnh của tín hiệu"
 
 #. %H: Wireless - Signal Quality
 #: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:5
-msgid "stat_dg_title_wireless__signal_quality"
-msgstr ""
+msgid "%H: Wireless - Signal Quality"
+msgstr "%H: Wireless -Chất lượng tín hiệu"
 
 #. n
 #: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:6
-msgid "stat_dg_label_wireless__signal_quality"
-msgstr ""
+msgid "n"
+msgstr "n"
 
 #. Signal Quality
 #: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:7
-msgid "stat_ds_signal_quality"
-msgstr ""
+msgid "Signal Quality"
+msgstr "Chất lượng tín hiệu "
 
 #. %H: ICMP Roundtrip Times
 #: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:8
-msgid "stat_dg_title_ping"
-msgstr ""
+msgid "%H: ICMP Roundtrip Times"
+msgstr "%H: ICMP thời gian đi một vòng"
 
 #. ms
 #: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:9
-msgid "stat_dg_label_ping"
-msgstr ""
-
-#. %di
-#: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:10
-msgid "stat_ds_ping"
-msgstr ""
+msgid "ms"
+msgstr "ms"
 
 #. %H: Firewall - Processed Packets
 #: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:11
-msgid "stat_dg_title_iptables__ipt_packets"
-msgstr ""
-
-#. Packets/s
-#: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:12
-msgid "stat_dg_label_iptables__ipt_packets"
-msgstr ""
+msgid "%H: Firewall - Processed Packets"
+msgstr "%H: Firewall - Gói đã xử lý"
 
 #. Chain \"%di\"
 #: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:13
-msgid "stat_ds_ipt_packets"
-msgstr ""
+msgid "Chain \"%di\""
+msgstr "Chuỗi \"%di\""
 
 #. %H: Netlink - Transfer on %pi
 #: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:14
-msgid "stat_dg_title_netlink__if_octets"
-msgstr ""
-
-#. Bytes/s
-#: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:15
-msgid "stat_dg_label_netlink__if_octets"
-msgstr ""
+msgid "%H: Netlink - Transfer on %pi"
+msgstr "%H: Netlink - chuyển về %pi"
 
 #. Bytes (%ds)
 #: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:16
-msgid "stat_ds_if_octets"
-msgstr ""
+msgid "Bytes (%ds)"
+msgstr "Bytes (%ds)"
 
 #. %H: Netlink - Packets on %pi
 #: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:17
-msgid "stat_dg_title_netlink__if_packets"
-msgstr ""
-
-#. Packets/s
-#: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:18
-msgid "stat_dg_label_netlink__if_packets"
-msgstr ""
+msgid "%H: Netlink - Packets on %pi"
+msgstr "%H: Netlink - Đóng gói trên %pi"
 
 #. Processed (%ds)
 #: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:19
-msgid "stat_ds_if_packets"
-msgstr ""
+msgid "Processed (%ds)"
+msgstr "Đã xử lý (%ds)"
 
 #. Dropped   (%ds)
 #: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:20
-msgid "stat_ds_if_dropped"
+msgid "Dropped (%ds)"
 msgstr ""
+"Dropped<span class=\"translation-space\"> </span>\n"
+"<span class=\"translation-space\"> </span>\n"
+"<span class=\"translation-space\"> </span>\n"
+"(%ds)"
 
 #. Errors    (%ds)
 #: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:21
-msgid "stat_ds_if_errors"
+msgid "Errors (%ds)"
 msgstr ""
+"Lỗi<span class=\"translation-space\"> </span>\n"
+"<span class=\"translation-space\"> </span>\n"
+"<span class=\"translation-space\"> </span>\n"
+"<span class=\"translation-space\"> </span>\n"
+"(%ds)"
 
 #. %H: Netlink - Multicast on %pi
 #: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:22
-msgid "stat_dg_title_netlink__if_multicast"
-msgstr ""
-
-#. Packets/s
-#: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:23
-msgid "stat_dg_label_netlink__if_multicast"
-msgstr ""
+msgid "%H: Netlink - Multicast on %pi"
+msgstr "%H: Netlink - Multicast on %pi"
 
 #. Packets
 #: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:24
-msgid "stat_ds_if_multicast"
-msgstr ""
+msgid "Packets"
+msgstr "Gói"
 
 #. %H: Netlink - Collisions on %pi
 #: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:25
-msgid "stat_dg_title_netlink__if_collisions"
-msgstr ""
+msgid "%H: Netlink - Collisions on %pi"
+msgstr "%H: Netlink - Collisions on %pi"
 
 #. Collisions/s
 #: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:26
-msgid "stat_dg_label_netlink__if_collisions"
-msgstr ""
+msgid "Collisions/s"
+msgstr "Collisions/s"
 
 #. Collisions
 #: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:27
-msgid "stat_ds_if_collisions"
-msgstr ""
+msgid "Collisions"
+msgstr "Collisions"
 
 #. %H: Netlink - Errors on %pi
 #: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:28
-msgid "stat_dg_title_netlink__if_tx_errors"
-msgstr ""
+msgid "%H: Netlink - Errors on %pi"
+msgstr "%H: Netlink - lỗi trên %pi"
 
 #. Errors/s
 #: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:29
-msgid "stat_dg_label_netlink__if_tx_errors"
-msgstr ""
-
-#. %di
-#: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:30
-msgid "stat_ds_if_tx_errors"
-msgstr ""
-
-#. %di
-#: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:31
-msgid "stat_ds_if_rx_errors"
-msgstr ""
+msgid "Errors/s"
+msgstr "Lỗi"
 
 #. %H: Processes
 #: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:32
-msgid "stat_dg_title_processes"
-msgstr ""
+msgid "%H: Processes"
+msgstr "%H: Quá trình"
 
 #. Processes/s
 #: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:33
-msgid "stat_dg_label_processes"
-msgstr ""
-
-#. %di
-#: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:34
-msgid "stat_ds_ps_state"
-msgstr ""
+msgid "Processes/s"
+msgstr "Quy trình"
 
 #. %H: Process %pi - used cpu time
 #: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:35
-msgid "stat_dg_title_processes__ps_cputime"
-msgstr ""
+msgid "%H: Process %pi - used cpu time"
+msgstr "%H: Quá trình %pi - thời gian cpu đã sử dụng"
 
 #. Jiffies
 #: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:36
-msgid "stat_dg_label_processes__ps_cputime"
-msgstr ""
+msgid "Jiffies"
+msgstr "Jiffies"
 
 #. system
 #: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:37
-msgid "stat_ds_ps_cputime__syst"
-msgstr ""
+msgid "System"
+msgstr "Hệ thống"
 
 #. user
 #: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:38
-msgid "stat_ds_ps_cputime__user"
-msgstr ""
+msgid "user"
+msgstr "Người dùng"
 
 #. %H: Process %pi - threads and processes
 #: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:39
-msgid "stat_dg_title_processes__ps_count"
-msgstr ""
+msgid "%H: Process %pi - threads and processes"
+msgstr "%H: quá trình %pi - các luồng và quá trình"
 
 #. Count
 #: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:40
-msgid "stat_dg_label_processes__ps_count"
-msgstr ""
-
-#. %ds
-#: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:41
-msgid "stat_ds_ps_count"
-msgstr ""
+msgid "Count"
+msgstr "Đếm"
 
 #. %H: Process %pi - page faults
 #: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:42
-msgid "stat_dg_title_processes__ps_pagefaults"
-msgstr ""
+msgid "%H: Process %pi - page faults"
+msgstr "%H: quá trình %pi - lỗi trang"
 
 #. Pagefaults
 #: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:43
-msgid "stat_dg_label_processes__ps_pagefaults"
-msgstr ""
+msgid "Pagefaults"
+msgstr "Pagefaults"
 
 #. page faults
 #: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:44
-msgid "stat_ds_ps_pagefaults"
-msgstr ""
+msgid "page faults"
+msgstr "page faults"
 
 #. %H: Process %pi - virtual memory size
 #: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:45
-msgid "stat_dg_title_processes__ps_rss"
-msgstr ""
-
-#. Bytes
-#: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:46
-msgid "stat_dg_label_processes__ps_rss"
-msgstr ""
+msgid "%H: Process %pi - virtual memory size"
+msgstr "%H: quá trình %pi - dung lượng bộ nhớ ảo "
 
 #. virtual memory
 #: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:47
-msgid "stat_ds_ps_rss"
-msgstr ""
+msgid "virtual memory"
+msgstr "Bộ nhớ ảo"
 
 #. %H: Usage on Processor #%pi
 #: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:48
-msgid "stat_dg_title_cpu"
-msgstr ""
+msgid "%H: Usage on Processor #%pi"
+msgstr "%H: sử dụng trên bộ xử lý #%pi"
 
 #. %
 #: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:49
-msgid "stat_dg_label_cpu"
-msgstr ""
-
-#. %di
-#: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:50
-msgid "stat_ds_cpu"
-msgstr ""
+msgid "%"
+msgstr "%"
 
 #. %H: Transfer on %di
 #: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:51
-msgid "stat_dg_title_interface__if_octets"
-msgstr ""
-
-#. Bytes/s
-#: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:52
-msgid "stat_dg_label_interface__if_octets"
-msgstr ""
+msgid "%H: Transfer on %di"
+msgstr "%H: Chuyển tải trên %di"
 
 #. %H: Packets on %di
 #: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:53
-msgid "stat_dg_title_interface__if_packets"
-msgstr ""
-
-#. Packets/s
-#: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:54
-msgid "stat_dg_label_interface__if_packets"
-msgstr ""
+msgid "%H: Packets on %di"
+msgstr "%H: Gói trên %di"
 
 #. %H: TCP-Connections to Port %pi
 #: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:55
-msgid "stat_dg_title_tcpconns"
-msgstr ""
+msgid "%H: TCP-Connections to Port %pi"
+msgstr "%H: TCP-kết nối tới cổng %pi"
 
 #. Connections/s
 #: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:56
-msgid "stat_dg_label_tcpconns"
-msgstr ""
-
-#. %di
-#: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:57
-msgid "stat_ds_tcp_connections"
-msgstr ""
+msgid "Connections/s"
+msgstr "Kết nối"
 
 #. %H: Disk Space Usage on %di
 #: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:58
-msgid "stat_dg_title_df"
-msgstr ""
-
-#. Bytes
-#: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:59
-msgid "stat_dg_label_df"
-msgstr ""
-
-#. %ds
-#: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:60
-msgid "stat_ds_df__free"
-msgstr ""
-
-#. %ds
-#: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:61
-msgid "stat_ds_df__used"
-msgstr ""
+msgid "%H: Disk Space Usage on %di"
+msgstr "%H: sử dụng không gian trên đĩa ở %di"
 
 #. %H: Interrupts
 #: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:62
-msgid "stat_dg_title_irq"
-msgstr ""
+msgid "%H: Interrupts"
+msgstr "%H: Cắt ngang"
 
 #. Issues/s
 #: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:63
-msgid "stat_dg_label_irq"
-msgstr ""
+msgid "Issues/s"
+msgstr "Vấn đề"
 
 #. IRQ %di
 #: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:64
-msgid "stat_ds_irq"
-msgstr ""
+msgid "IRQ %di"
+msgstr "IRQ %di"
 
 #. %H: System Load
 #: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:65
-msgid "stat_dg_title_load"
-msgstr ""
+msgid "%H: System Load"
+msgstr "%H: Tải hệ thống"
 
 #. Load
 #: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:66
-msgid "stat_dg_label_load"
-msgstr ""
+msgid "Load"
+msgstr "Tải"
 
 #. 1 min
 #: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:67
-msgid "stat_ds_load__shortterm"
-msgstr ""
+msgid "1 min"
+msgstr "1 phút"
 
 #. 5 min
 #: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:68
-msgid "stat_ds_load__midterm"
-msgstr ""
+msgid "5 min"
+msgstr "5 phút"
 
 #. 15 min
 #: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:69
-msgid "stat_ds_load__longterm"
-msgstr ""
-
-#~ msgid "%H: Wireless - Signal Noise Ratio"
-#~ msgstr "%H: Wireless - Signal Noise Ratio"
-
-#~ msgid "dBm"
-#~ msgstr "dBm"
-
-#~ msgid "Noise Level"
-#~ msgstr "Noise Level"
-
-#~ msgid "Signal Strength"
-#~ msgstr "Độ mạnh của tín hiệu"
-
-#~ msgid "%H: Wireless - Signal Quality"
-#~ msgstr "%H: Wireless -Chất lượng tín hiệu"
-
-#~ msgid "n"
-#~ msgstr "n"
-
-#~ msgid "Signal Quality"
-#~ msgstr "Chất lượng tín hiệu "
-
-#~ msgid "%H: ICMP Roundtrip Times"
-#~ msgstr "%H: ICMP thời gian đi một vòng"
-
-#~ msgid "ms"
-#~ msgstr "ms"
-
-#~ msgid "%H: Firewall - Processed Packets"
-#~ msgstr "%H: Firewall - Gói đã xử lý"
-
-#~ msgid "Chain \"%di\""
-#~ msgstr "Chuỗi \"%di\""
-
-#~ msgid "%H: Netlink - Transfer on %pi"
-#~ msgstr "%H: Netlink - chuyển về %pi"
-
-#~ msgid "Bytes (%ds)"
-#~ msgstr "Bytes (%ds)"
-
-#~ msgid "%H: Netlink - Packets on %pi"
-#~ msgstr "%H: Netlink - Đóng gói trên %pi"
-
-#~ msgid "Processed (%ds)"
-#~ msgstr "Đã xử lý (%ds)"
-
-#~ msgid "Dropped (%ds)"
-#~ msgstr ""
-#~ "Dropped<span class=\"translation-space\"> </span>\n"
-#~ "<span class=\"translation-space\"> </span>\n"
-#~ "<span class=\"translation-space\"> </span>\n"
-#~ "(%ds)"
-
-#~ msgid "Errors (%ds)"
-#~ msgstr ""
-#~ "Lỗi<span class=\"translation-space\"> </span>\n"
-#~ "<span class=\"translation-space\"> </span>\n"
-#~ "<span class=\"translation-space\"> </span>\n"
-#~ "<span class=\"translation-space\"> </span>\n"
-#~ "(%ds)"
-
-#~ msgid "%H: Netlink - Multicast on %pi"
-#~ msgstr "%H: Netlink - Multicast on %pi"
-
-#~ msgid "Packets"
-#~ msgstr "Gói"
-
-#~ msgid "%H: Netlink - Collisions on %pi"
-#~ msgstr "%H: Netlink - Collisions on %pi"
-
-#~ msgid "Collisions/s"
-#~ msgstr "Collisions/s"
-
-#~ msgid "Collisions"
-#~ msgstr "Collisions"
-
-#~ msgid "%H: Netlink - Errors on %pi"
-#~ msgstr "%H: Netlink - lỗi trên %pi"
-
-#~ msgid "Errors/s"
-#~ msgstr "Lỗi"
-
-#~ msgid "%H: Processes"
-#~ msgstr "%H: Quá trình"
-
-#~ msgid "Processes/s"
-#~ msgstr "Quy trình"
-
-#~ msgid "%H: Process %pi - used cpu time"
-#~ msgstr "%H: Quá trình %pi - thời gian cpu đã sử dụng"
-
-#~ msgid "Jiffies"
-#~ msgstr "Jiffies"
-
-#~ msgid "System"
-#~ msgstr "Hệ thống"
-
-#~ msgid "user"
-#~ msgstr "Người dùng"
-
-#~ msgid "%H: Process %pi - threads and processes"
-#~ msgstr "%H: quá trình %pi - các luồng và quá trình"
-
-#~ msgid "Count"
-#~ msgstr "Đếm"
-
-#~ msgid "%H: Process %pi - page faults"
-#~ msgstr "%H: quá trình %pi - lỗi trang"
-
-#~ msgid "Pagefaults"
-#~ msgstr "Pagefaults"
-
-#~ msgid "page faults"
-#~ msgstr "page faults"
-
-#~ msgid "%H: Process %pi - virtual memory size"
-#~ msgstr "%H: quá trình %pi - dung lượng bộ nhớ ảo "
-
-#~ msgid "virtual memory"
-#~ msgstr "Bộ nhớ ảo"
-
-#~ msgid "%H: Usage on Processor #%pi"
-#~ msgstr "%H: sử dụng trên bộ xử lý #%pi"
-
-#~ msgid "%"
-#~ msgstr "%"
-
-#~ msgid "%H: Transfer on %di"
-#~ msgstr "%H: Chuyển tải trên %di"
-
-#~ msgid "%H: Packets on %di"
-#~ msgstr "%H: Gói trên %di"
-
-#~ msgid "%H: TCP-Connections to Port %pi"
-#~ msgstr "%H: TCP-kết nối tới cổng %pi"
-
-#~ msgid "Connections/s"
-#~ msgstr "Kết nối"
-
-#~ msgid "%H: Disk Space Usage on %di"
-#~ msgstr "%H: sử dụng không gian trên đĩa ở %di"
-
-#~ msgid "%H: Interrupts"
-#~ msgstr "%H: Cắt ngang"
-
-#~ msgid "Issues/s"
-#~ msgstr "Vấn đề"
-
-#~ msgid "IRQ %di"
-#~ msgstr "IRQ %di"
-
-#~ msgid "%H: System Load"
-#~ msgstr "%H: Tải hệ thống"
-
-#~ msgid "Load"
-#~ msgstr "Tải"
-
-#~ msgid "1 min"
-#~ msgstr "1 phút"
-
-#~ msgid "5 min"
-#~ msgstr "5 phút"
-
-#~ msgid "15 min"
-#~ msgstr "15 phút"
+msgid "15 min"
+msgstr "15 phút"

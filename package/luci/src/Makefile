@@ -3,8 +3,6 @@ include build/config.mk
 MODULES = contrib/* applications/* libs/* modules/* themes/* i18n/*
 
 OS:=$(shell uname)
-MODULES:=$(foreach item,$(wildcard $(MODULES)),$(if $(realpath $(wildcard $(item)/Makefile)),$(item)))
-
 export OS
 
 .PHONY: all build gccbuild luabuild clean host gcchost luahost hostcopy hostclean
@@ -14,7 +12,7 @@ all: build
 build: gccbuild luabuild
 
 gccbuild:
-	make -C libs/web CC="cc" CFLAGS="" LDFLAGS="" SDK="$(shell test -f .running-sdk && echo 1)" host-install
+	make -C libs/lmo CC="cc" CFLAGS="" LDFLAGS="" SDK="$(shell test -f .running-sdk && echo 1)" host-install
 	for i in $(MODULES); do \
 		make -C$$i SDK="$(shell test -f .running-sdk && echo 1)" compile || { \
 			echo "*** Compilation of $$i failed!"; \

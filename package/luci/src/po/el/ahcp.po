@@ -1,18 +1,15 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
-"PO-Revision-Date: 2012-03-18 16:25+0200\n"
-"Last-Translator: Vasilis <acinonyx@openwrt.gr>\n"
-"Language-Team: none\n"
-"Language: el\n"
-"MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
+"Project-Id-Version: PACKAGE VERSION\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"MIME-Version: 1.0\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.0.4\n"
 
 msgid "AHCP Server"
-msgstr "Εξυπηρετητής AHCP"
+msgstr ""
 
 msgid ""
 "AHCP is an autoconfiguration protocol for IPv6 and dual-stack IPv6/IPv4 "
@@ -22,10 +19,10 @@ msgid ""
 msgstr ""
 
 msgid "Active AHCP Leases"
-msgstr "Ενεργά AHCP Leases"
+msgstr ""
 
 msgid "Address"
-msgstr "Διεύθυνση"
+msgstr ""
 
 msgid "Advanced Settings"
 msgstr ""
@@ -43,72 +40,61 @@ msgid "Announced prefixes"
 msgstr ""
 
 msgid "Collecting data..."
-msgstr "Συλλέγονται δεδομένα..."
+msgstr ""
 
 msgid "Forwarder"
-msgstr "Προωθητής"
+msgstr ""
 
 msgid "General Setup"
-msgstr "Γενικές ρυθμίσεις"
+msgstr ""
 
 msgid "IPv4 and IPv6"
-msgstr "IPv4 και IPv6"
+msgstr ""
 
 msgid "IPv4 only"
-msgstr "μόνο IPv4"
+msgstr ""
 
 msgid "IPv6 only"
-msgstr "μόνο IPv6"
+msgstr ""
 
-#, fuzzy
 msgid "Lease directory"
-msgstr "Κατάλογος leases"
+msgstr ""
 
 msgid "Lease validity time"
-msgstr "Χρόνος εγκυρότητας lease"
+msgstr ""
 
 msgid "Log file"
-msgstr "Αρχείο καταγραφής"
+msgstr ""
 
 msgid "Multicast address"
-msgstr "Διεύθυνση multicast"
+msgstr ""
 
 msgid "Operation mode"
 msgstr ""
 
 msgid "Port"
-msgstr "Θύρα"
+msgstr ""
 
 msgid "Protocol family"
-msgstr "Οικογένεια πρωτοκόλλου"
+msgstr ""
 
 msgid "Served interfaces"
-msgstr "Εξυπηρετούμενες διεπαφές"
+msgstr ""
 
 msgid "Server"
-msgstr "Εξυπηρετητής"
+msgstr ""
 
 msgid "Specifies the announced IPv4 and IPv6 NTP servers"
-msgstr "Καθορίζει τους εξυπηρετητές NTP σε IPv4 και IPv6 που ανακοινώνονται"
+msgstr ""
 
 msgid "Specifies the announced IPv4 and IPv6 name servers"
-msgstr "Καθορίζει τους εξυπηρετητές DNS σε IPv4 και IPv6 που ανακοινώνονται"
+msgstr ""
 
-#, fuzzy
 msgid "Specifies the announced IPv4 and IPv6 network prefixes in CIDR notation"
 msgstr ""
-"Καθορίζει τα προθέματα διευθύνσεων IPv4 και IPv6 που ανακοινώνονται, σε "
-"μορφή CIDR"
 
-msgid "The AHCP Service is not running."
-msgstr ""
-
-msgid "The AHCP Service is running with ID %s."
-msgstr ""
-
-#, fuzzy
 msgid "There are no active leases."
-msgstr "Δεν υπάρχουν ενεργά leases"
+msgstr ""
 
 msgid "Unique ID file"
-msgstr "Αρχείο μοναδικού αναγνωριστικού"
+msgstr ""

@@ -541,6 +541,12 @@ msgstr "Escriu l'estat al fitxer cada n segons"
 msgid "no"
 msgstr "no"
 
+msgid "openvpn_%s"
+msgstr ""
+
+msgid "openvpn_%s_desc"
+msgstr ""
+
 msgid "tun/tap device"
 msgstr "dispositiu tun/tap"
 

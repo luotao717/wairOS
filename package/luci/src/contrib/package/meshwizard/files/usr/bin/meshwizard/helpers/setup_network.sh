@@ -2,13 +2,12 @@
 # Argument $1: network interface
  
 net="$1"
-. /lib/functions.sh
+. /etc/functions.sh
 . $dir/functions.sh
 
 # Setup a (new) interface section for $net
 
-ipaddr=$(uci -q get meshwizard.netconfig.$net\_ip4addr)
-ip6addr=$(uci -q get meshwizard.netconfig.$net\_ip6addr)
+ipaddr=$(uci get meshwizard.netconfig.$net\_ip4addr)
 [ -z "$ipaddr" ] && msg_missing_value meshwizard $net\_ip4addr
 
 netmask=$(uci -q get meshwizard.netconfig.$net\_netmask)
@@ -23,18 +22,6 @@ uci batch << EOF
 	set network.$netrenamed.ipaddr="$ipaddr"
 	set network.$netrenamed.netmask="$netmask"
 EOF
-
-# Setup IPv6 for the interface
-local ip6addr
-if [ "$ipv6_enabled" = 1 ]; then
-	if [ "$ipv6_config" = "auto-ipv6-dhcpv6" ]; then
-		ip6addr="$($dir/helpers/gen_auto-ipv6-dhcpv6-ip.sh $netrenamed)"
-		uci set network.$netrenamed.ip6addr="${ip6addr}/112"
-	fi
-	if [ "$ipv6_config" = "static" ] && [ -n "$ip6addr" ]; then
-		uci set network.$netrenamed.ip6addr="$ip6addr"
-	fi
-fi
 
 uci_commitverbose "Setup interface $netrenamed" network
 

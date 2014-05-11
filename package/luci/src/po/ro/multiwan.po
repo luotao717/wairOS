@@ -21,9 +21,6 @@ msgstr ""
 msgid "Auto"
 msgstr ""
 
-msgid "Collecting data..."
-msgstr ""
-
 msgid ""
 "Configure rules for directing outbound traffic through specified WAN Uplinks."
 msgstr ""
@@ -43,9 +40,6 @@ msgstr "Dezactiveaza"
 msgid "Enable"
 msgstr "Activeaza"
 
-msgid "Failing"
-msgstr ""
-
 msgid "Failover Traffic Destination"
 msgstr ""
 
@@ -62,9 +56,6 @@ msgid ""
 "Health Monitor detects and corrects network changes and failed connections."
 msgstr ""
 
-msgid "KO"
-msgstr ""
-
 msgid "Load Balancer Distribution"
 msgstr ""
 
@@ -75,9 +66,6 @@ msgid "Load Balancer(Performance)"
 msgstr ""
 
 msgid "Multi-WAN"
-msgstr ""
-
-msgid "Multi-WAN Status"
 msgstr ""
 
 msgid "Multi-WAN Traffic Rules"
@@ -91,23 +79,14 @@ msgstr ""
 msgid "None"
 msgstr ""
 
-msgid "OK"
-msgstr ""
-
 msgid "Ports"
 msgstr "Porturi"
 
 msgid "Protocol"
 msgstr "Protocol"
 
-msgid "Recovering"
-msgstr ""
-
 msgid "Source Address"
 msgstr "Adresa sursei"
-
-msgid "Unknown"
-msgstr ""
 
 msgid "WAN Interfaces"
 msgstr "Interfete WAN"

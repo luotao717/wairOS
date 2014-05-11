@@ -3,7 +3,7 @@
 # If wan/lan is used for olsr then remove these networks from wan/lan zones
 # Also setup rules defined in /etc/config/freifunk and /etc/config/profile_<community>
 
-. /lib/functions.sh
+. /etc/functions.sh
 . $dir/functions.sh
 
 wan_is_olsr=$(uci -q get meshwizard.netconfig.wan_config)
@@ -97,43 +97,4 @@ for config in freifunk profile_$community; do
 		config_foreach handle_firewall $section
 	done
 done
-
-# If we use auto-ipv6-dhcp then allow 547/udp on the freifunk zone
-if [ "$ipv6_config" = "auto-ipv6-dhcpv6" ]; then
-	uci batch <<- EOF
-		set firewall.dhcpv6=rule
-		set firewall.dhcpv6.src=freifunk
-		set firewall.dhcpv6.target=ACCEPT
-		set firewall.dhcpv6.dest_port=547
-		set firewall.dhcpv6.proto=udp
-	EOF
-fi
-
-# Firewall rules to allow incoming ssh and web if enabled
-
-if [ "$wan_allowssh" == 1 ]; then
-	uci batch <<- EOF
-		set firewall.wanssh=rule
-		set firewall.wanssh.src=wan
-		set firewall.wanssh.target=ACCEPT
-		set firewall.wanssh.proto=tcp
-		set firewall.wanssh.dest_port=22
-	EOF
-fi
-
-if [ "$wan_allowweb" == 1 ]; then
-	uci batch <<- EOF
-		set firewall.wanweb=rule
-		set firewall.wanweb.src=wan
-		set firewall.wanweb.target=ACCEPT
-		set firewall.wanweb.proto=tcp
-		set firewall.wanweb.dest_port=80
-		set firewall.wanwebhttps=rule
-		set firewall.wanwebhttps.src=wan
-		set firewall.wanwebhttps.target=ACCEPT
-		set firewall.wanwebhttps.proto=tcp
-		set firewall.wanwebhttps.dest_port=443
-	EOF
-fi
-
 uci_commitverbose "Setup rules, forwardings, advanced config and includes." firewall

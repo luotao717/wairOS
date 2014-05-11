@@ -9,7 +9,7 @@ You may obtain a copy of the License at
 
 	http://www.apache.org/licenses/LICENSE-2.0
 
-$Id: routes.lua 6447 2010-11-16 19:06:51Z jow $
+$Id$
 ]]--
 
 require("luci.tools.webadmin")

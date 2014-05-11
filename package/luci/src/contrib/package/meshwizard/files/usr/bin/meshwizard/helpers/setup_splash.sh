@@ -1,7 +1,7 @@
 #!/bin/sh
 # Setup_splash, takes 1 argument: 1=net
 
-. /lib/functions.sh
+. /etc/functions.sh
 . $dir/functions.sh
 
 net=$1
@@ -10,9 +10,6 @@ if [ ! "$has_luci_splash" == TRUE ]; then
 	echo "    Luci Splash is not installed, skipping setup of it."
 	exit
 fi
-
-set_defaults "luci_splash_" luci_splash.general
-uci_commitverbose "Setup general splash settings" luci_splash
 
 dhcprange=$(uci -q get meshwizard.netconfig.$net\_dhcprange)
 

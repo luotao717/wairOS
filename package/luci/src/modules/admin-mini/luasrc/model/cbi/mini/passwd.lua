@@ -10,7 +10,7 @@ You may obtain a copy of the License at
 
 	http://www.apache.org/licenses/LICENSE-2.0
 
-$Id: passwd.lua 5448 2009-10-31 15:54:11Z jow $
+$Id$
 ]]--
 f = SimpleForm("password", translate("Admin Password"), translate("Change the password of the system administrator (User <code>root</code>)"))
 

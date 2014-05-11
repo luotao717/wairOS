@@ -10,12 +10,11 @@ You may obtain a copy of the License at
 
 	http://www.apache.org/licenses/LICENSE-2.0
 
-$Id: ifaces.lua 9067 2012-08-17 08:24:24Z jow $
+$Id$
 ]]--
 
 local fs = require "nixio.fs"
 local ut = require "luci.util"
-local pt = require "luci.tools.proto"
 local nw = require "luci.model.network"
 local fw = require "luci.model.firewall"
 
@@ -390,6 +389,59 @@ end
 
 
 --
+-- Display IP Aliases
+--
+
+if not net:is_floating() then
+	s2 = m:section(TypedSection, "alias", translate("IP-Aliases"))
+	s2.addremove = true
+
+	s2:depends("interface", arg[1])
+	s2.defaults.interface = arg[1]
+
+	s2:tab("general", translate("General Setup"))
+	s2.defaults.proto = "static"
+
+	ip = s2:taboption("general", Value, "ipaddr", translate("<abbr title=\"Internet Protocol Version 4\">IPv4</abbr>-Address"))
+	ip.optional = true
+	ip.datatype = "ip4addr"
+
+	nm = s2:taboption("general", Value, "netmask", translate("<abbr title=\"Internet Protocol Version 4\">IPv4</abbr>-Netmask"))
+	nm.optional = true
+	nm.datatype = "ip4addr"
+	nm:value("255.255.255.0")
+	nm:value("255.255.0.0")
+	nm:value("255.0.0.0")
+
+	gw = s2:taboption("general", Value, "gateway", translate("<abbr title=\"Internet Protocol Version 4\">IPv4</abbr>-Gateway"))
+	gw.optional = true
+	gw.datatype = "ip4addr"
+
+	if has_ipv6 then
+		s2:tab("ipv6", translate("IPv6 Setup"))
+
+		ip6 = s2:taboption("ipv6", Value, "ip6addr", translate("<abbr title=\"Internet Protocol Version 6\">IPv6</abbr>-Address"), translate("<abbr title=\"Classless Inter-Domain Routing\">CIDR</abbr>-Notation: address/prefix"))
+		ip6.optional = true
+		ip6.datatype = "ip6addr"
+
+		gw6 = s2:taboption("ipv6", Value, "ip6gw", translate("<abbr title=\"Internet Protocol Version 6\">IPv6</abbr>-Gateway"))
+		gw6.optional = true
+		gw6.datatype = "ip6addr"
+	end
+
+	s2:tab("advanced", translate("Advanced Settings"))
+
+	bcast = s2:taboption("advanced", Value, "bcast", translate("<abbr title=\"Internet Protocol Version 4\">IPv4</abbr>-Broadcast"))
+	bcast.optional = true
+	bcast.datatype = "ip4addr"
+
+	dns = s2:taboption("advanced", Value, "dns", translate("<abbr title=\"Domain Name System\">DNS</abbr>-Server"))
+	dns.optional = true
+	dns.datatype = "ip4addr"
+end
+
+
+--
 -- Display DNS settings if dnsmasq is available
 --
 
@@ -436,7 +488,7 @@ if has_dnsmasq and net:proto() == "static" then
 		local start = s:taboption("general", Value, "start", translate("Start"),
 			translate("Lowest leased address as offset from the network address."))
 		start.optional = true
-		start.datatype = "or(uinteger,ip4addr)"
+		start.datatype = "uinteger"
 		start.default = "100"
 
 		local limit = s:taboption("general", Value, "limit", translate("Limit"),

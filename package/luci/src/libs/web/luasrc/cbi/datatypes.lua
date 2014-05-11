@@ -9,7 +9,7 @@ You may obtain a copy of the License at
 
         http://www.apache.org/licenses/LICENSE-2.0
 
-$Id: datatypes.lua 9352 2012-10-06 23:50:52Z jow $
+$Id$
 
 ]]--
 
@@ -17,62 +17,11 @@ local fs = require "nixio.fs"
 local ip = require "luci.ip"
 local math = require "math"
 local util = require "luci.util"
-local tonumber, tostring, type, unpack, select = tonumber, tostring, type, unpack, select
+local tonumber, type = tonumber, type
 
 
 module "luci.cbi.datatypes"
 
-
-_M['or'] = function(v, ...)
-	local i
-	for i = 1, select('#', ...), 2 do
-		local f = select(i, ...)
-		local a = select(i+1, ...)
-		if type(f) ~= "function" then
-			if f == v then
-				return true
-			end
-			i = i - 1
-		elseif f(v, unpack(a)) then
-			return true
-		end
-	end
-	return false
-end
-
-_M['and'] = function(v, ...)
-	local i
-	for i = 1, select('#', ...), 2 do
-		local f = select(i, ...)
-		local a = select(i+1, ...)
-		if type(f) ~= "function" then
-			if f ~= v then
-				return false
-			end
-			i = i - 1
-		elseif not f(v, unpack(a)) then
-			return false
-		end
-	end
-	return true
-end
-
-function neg(v, ...)
-	return _M['or'](v:gsub("^%s*!%s*", ""), ...)
-end
-
-function list(v, subvalidator, subargs)
-	if type(subvalidator) ~= "function" then
-		return false
-	end
-	local token
-	for token in v:gmatch("%S+") do
-		if not subvalidator(token, unpack(subargs)) then
-			return false
-		end
-	end
-	return true
-end
 
 function bool(val)
 	if val == "1" or val == "yes" or val == "on" or val == "true" then
@@ -117,12 +66,26 @@ function ipaddr(val)
 	return ip4addr(val) or ip6addr(val)
 end
 
+function neg_ipaddr(v)
+	if type(v) == "string" then
+		v = v:gsub("^%s*!", "")
+	end
+	return v and ipaddr(v)
+end
+
 function ip4addr(val)
 	if val then
 		return ip.IPv4(val) and true or false
 	end
 
 	return false
+end
+
+function neg_ip4addr(v)
+	if type(v) == "string" then
+		v = v:gsub("^%s*!", "")
+	end
+		return v and ip4addr(v)
 end
 
 function ip4prefix(val)
@@ -179,8 +142,8 @@ end
 
 function hostname(val)
 	if val and (#val < 254) and (
-	   val:match("^[a-zA-Z_]+$") or
-	   (val:match("^[a-zA-Z0-9_][a-zA-Z0-9_%-%.]*[a-zA-Z0-9]$") and
+	   val:match("^[a-zA-Z]+$") or
+	   (val:match("^[a-zA-Z0-9][a-zA-Z0-9%-%.]*[a-zA-Z0-9]$") and
 	    val:match("[^0-9%.]"))
 	) then
 		return true
@@ -272,6 +235,13 @@ function uciname(val)
 	return (val:match("^[a-zA-Z0-9_]+$") ~= nil)
 end
 
+function neg_network_ip4addr(val)
+	if type(v) == "string" then
+		v = v:gsub("^%s*!", "")
+		return (uciname(v) or ip4addr(v))
+	end
+end
+
 function range(val, min, max)
 	val = tonumber(val)
 	min = tonumber(min)
@@ -306,40 +276,24 @@ function max(val, max)
 	return false
 end
 
-function rangelength(val, min, max)
-	val = tostring(val)
-	min = tonumber(min)
-	max = tonumber(max)
-
-	if val ~= nil and min ~= nil and max ~= nil then
-		return ((#val >= min) and (#val <= max))
+function neg(val, what)
+	if what and type(_M[what]) == "function" then
+		return _M[what](val:gsub("^%s*!%s*", ""))
 	end
 
 	return false
 end
 
-function minlength(val, min)
-	val = tostring(val)
-	min = tonumber(min)
+function list(val, what, ...)
+	if type(val) == "string" and what and type(_M[what]) == "function" then
+		for val in val:gmatch("%S+") do
+			if not _M[what](val, ...) then
+				return false
+			end
+		end
 
-	if val ~= nil and min ~= nil then
-		return (#val >= min)
+		return true
 	end
 
 	return false
-end
-
-function maxlength(val, max)
-	val = tostring(val)
-	max = tonumber(max)
-
-	if val ~= nil and max ~= nil then
-		return (#val <= max)
-	end
-
-	return false
-end
-
-function phonedigit(val)
-	return (val:match("^[0-9\*#]+$") ~= nil)
 end

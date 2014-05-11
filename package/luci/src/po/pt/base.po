@@ -6,7 +6,6 @@ msgstr ""
 "PO-Revision-Date: 2009-05-19 17:20+0200\n"
 "Last-Translator: Jose Monteiro <jm@unimos.net>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -52,6 +51,13 @@ msgid "<abbr title=\"Basic Service Set Identifier\">BSSID</abbr>"
 msgstr ""
 "<abbr title=\"Identificador de Conjunto Básico de Serviços\">BSSID</abbr>"
 
+msgid ""
+"<abbr title=\"Classless Inter-Domain Routing\">CIDR</abbr>-Notation: address/"
+"prefix"
+msgstr ""
+"Notação <abbr title=\"Roteamento entre Domínios sem Classe\">CIDR</abbr>: "
+"endereço/prefixo"
+
 msgid "<abbr title=\"Domain Name System\">DNS</abbr> query port"
 msgstr ""
 
@@ -63,6 +69,12 @@ msgid ""
 "order of the resolvfile"
 msgstr ""
 
+msgid "<abbr title=\"Domain Name System\">DNS</abbr>-Server"
+msgstr "Servidor <abbr title=\"Sistema de Nomes de Domínios\">DNS</abbr>"
+
+msgid "<abbr title=\"Encrypted\">Encr.</abbr>"
+msgstr "<abbr title=\"Encriptado\">Encr.</abbr>"
+
 msgid "<abbr title=\"Extended Service Set Identifier\">ESSID</abbr>"
 msgstr ""
 "<abbr title=\"Identificador de Conjunto de Serviços Estendidos\">ESSID</abbr>"
@@ -70,12 +82,18 @@ msgstr ""
 msgid "<abbr title=\"Internet Protocol Version 4\">IPv4</abbr>-Address"
 msgstr "Endereço <abbr title=\"Protocolo de Internet Versão 4\">IPv4</abbr>"
 
+msgid "<abbr title=\"Internet Protocol Version 4\">IPv4</abbr>-Broadcast"
+msgstr "Broadcast <abbr title=\"Protocolo de Internet Versão 4\">IPv4</abbr>"
+
 msgid "<abbr title=\"Internet Protocol Version 4\">IPv4</abbr>-Gateway"
 msgstr "Gateway <abbr title=\"Protocolo de Internet Versão 4\">IPv4</abbr>"
 
 msgid "<abbr title=\"Internet Protocol Version 4\">IPv4</abbr>-Netmask"
 msgstr ""
 "Máscara de rede <abbr title=\"Protocolo de Internet Versão 4\">IPv4</abbr>"
+
+msgid "<abbr title=\"Internet Protocol Version 6\">IPv6</abbr>-Address"
+msgstr "Endereço <abbr title=\"Protocolo de Internet Versão 6\">IPv6</abbr>"
 
 msgid ""
 "<abbr title=\"Internet Protocol Version 6\">IPv6</abbr>-Address or Network "
@@ -96,6 +114,9 @@ msgstr ""
 msgid "<abbr title=\"Media Access Control\">MAC</abbr>-Address"
 msgstr "Endereço <abbr title=\"Controle de Acesso ao Meio\">MAC</abbr>"
 
+msgid "<abbr title=\"Wireless Local Area Network\">WLAN</abbr>-Scan"
+msgstr "<abbr title=\"Rede Local Wireless\">WLAN</abbr>-Pesquisa"
+
 msgid ""
 "<abbr title=\"maximal\">Max.</abbr> <abbr title=\"Dynamic Host Configuration "
 "Protocol\">DHCP</abbr> leases"
@@ -103,13 +124,10 @@ msgstr ""
 
 msgid ""
 "<abbr title=\"maximal\">Max.</abbr> <abbr title=\"Extension Mechanisms for "
-"Domain Name System\">EDNS0</abbr> packet size"
+"Domain Name System\">EDNS0</abbr> paket size"
 msgstr ""
 
 msgid "<abbr title=\"maximal\">Max.</abbr> concurrent queries"
-msgstr ""
-
-msgid "<abbr title='Pairwise: %s / Group: %s'>%s - %s</abbr>"
 msgstr ""
 
 msgid "APN"
@@ -168,11 +186,8 @@ msgstr ""
 msgid "Active Connections"
 msgstr "Ligações Activas"
 
-msgid "Active DHCP Leases"
-msgstr ""
-
-msgid "Active DHCPv6 Leases"
-msgstr ""
+msgid "Active Leases"
+msgstr "Atribuições Activas"
 
 msgid "Ad-Hoc"
 msgstr "Ad-Hoc"
@@ -239,11 +254,6 @@ msgstr ""
 msgid "Allowed range is 1 to 65535"
 msgstr ""
 
-msgid ""
-"Always use 40MHz channels even if the secondary channel overlaps. Using this "
-"option does not comply with IEEE 802.11n-2009!"
-msgstr ""
-
 msgid "An additional network will be created if you leave this unchecked."
 msgstr ""
 
@@ -253,25 +263,13 @@ msgstr ""
 msgid "Antenna 2"
 msgstr ""
 
-msgid "Antenna Configuration"
-msgstr ""
-
-msgid "Any zone"
-msgstr ""
-
 msgid "Apply"
 msgstr "Aplicar"
 
 msgid "Applying changes"
 msgstr "A aplicar as alterações"
 
-msgid "Assign interfaces..."
-msgstr ""
-
 msgid "Associated Stations"
-msgstr ""
-
-msgid "Atheros 802.11%s Wireless Controller"
 msgstr ""
 
 msgid "Authentication"
@@ -334,6 +332,9 @@ msgid ""
 "defined backup patterns."
 msgstr ""
 
+msgid "Bit Rate"
+msgstr ""
+
 msgid "Bitrate"
 msgstr ""
 
@@ -350,12 +351,6 @@ msgid "Bridge unit number"
 msgstr ""
 
 msgid "Bring up on boot"
-msgstr ""
-
-msgid "Broadcom 802.11%s Wireless Controller"
-msgstr ""
-
-msgid "Broadcom BCM%04x 802.11 Wireless Controller"
 msgstr ""
 
 msgid "Buffered"
@@ -405,8 +400,9 @@ msgid ""
 msgstr "Esta interface ainda não pertence a nenhuma zona de firewall."
 
 msgid ""
-"Choose the network(s) you want to attach to this wireless interface or fill "
-"out the <em>create</em> field to define a new network."
+"Choose the network you want to attach to this wireless interface. Select "
+"<em>unspecified</em> to not attach any network or fill out the <em>create</"
+"em> field to define a new network."
 msgstr ""
 
 msgid "Cipher"
@@ -446,6 +442,15 @@ msgstr "Compressão"
 
 msgid "Configuration"
 msgstr "Configuração"
+
+msgid "Configuration / Apply"
+msgstr ""
+
+msgid "Configuration / Changes"
+msgstr ""
+
+msgid "Configuration / Revert"
+msgstr ""
 
 msgid "Configuration applied."
 msgstr ""
@@ -489,6 +494,9 @@ msgstr "Criar / Atribuir a uma zona de firewall"
 msgid "Create Interface"
 msgstr ""
 
+msgid "Create Network"
+msgstr "Criar Rede"
+
 msgid "Create a bridge over multiple interfaces"
 msgstr ""
 
@@ -523,16 +531,10 @@ msgstr ""
 msgid "DHCP-Options"
 msgstr "Opções DHCP"
 
-msgid "DHCPv6 Leases"
-msgstr ""
-
 msgid "DNS"
 msgstr ""
 
 msgid "DNS forwardings"
-msgstr ""
-
-msgid "DUID"
 msgstr ""
 
 msgid "Debug"
@@ -713,13 +715,16 @@ msgstr ""
 msgid "Enable Jumbo Frame passthrough"
 msgstr ""
 
-msgid "Enable NTP client"
-msgstr ""
-
 msgid "Enable TFTP server"
 msgstr ""
 
 msgid "Enable VLAN functionality"
+msgstr ""
+
+msgid "Enable buffering"
+msgstr ""
+
+msgid "Enable builtin NTP server"
 msgstr ""
 
 msgid "Enable learning and aging"
@@ -840,9 +845,6 @@ msgstr ""
 msgid "Force"
 msgstr "Forçar"
 
-msgid "Force 40MHz mode"
-msgstr ""
-
 msgid "Force CCMP (AES)"
 msgstr ""
 
@@ -879,12 +881,6 @@ msgstr ""
 msgid "Frequency Hopping"
 msgstr "Salto de Frequência"
 
-msgid "GHz"
-msgstr ""
-
-msgid "GPRS only"
-msgstr ""
-
 msgid "Gateway"
 msgstr ""
 
@@ -898,9 +894,6 @@ msgid "General Setup"
 msgstr ""
 
 msgid "Generate archive"
-msgstr ""
-
-msgid "Generic 802.11%s Wireless Controller"
 msgstr ""
 
 msgid "Given password confirmation did not match, password not changed!"
@@ -942,9 +935,6 @@ msgid ""
 "authentication."
 msgstr ""
 
-msgid "Hermes 802.11b Wireless Controller"
-msgstr ""
-
 msgid "Hide <abbr title=\"Extended Service Set Identifier\">ESSID</abbr>"
 msgstr ""
 "Ocultar <abbr title=\"Identificador de Conjunto de Serviços Estendidos"
@@ -971,6 +961,9 @@ msgstr "Hostnames"
 
 msgid "IP address"
 msgstr "Endereço IP"
+
+msgid "IP-Aliases"
+msgstr ""
 
 msgid "IPv4"
 msgstr ""
@@ -999,9 +992,6 @@ msgstr ""
 msgid "IPv4 only"
 msgstr ""
 
-msgid "IPv4 prefix length"
-msgstr ""
-
 msgid "IPv4-Address"
 msgstr ""
 
@@ -1009,6 +999,9 @@ msgid "IPv6"
 msgstr "Configuração IPv6"
 
 msgid "IPv6 Firewall"
+msgstr ""
+
+msgid "IPv6 Setup"
 msgstr ""
 
 msgid "IPv6 WAN Status"
@@ -1023,22 +1016,10 @@ msgstr ""
 msgid "IPv6 only"
 msgstr ""
 
-msgid "IPv6 prefix"
-msgstr ""
-
-msgid "IPv6 prefix length"
-msgstr ""
-
-msgid "IPv6-Address"
-msgstr ""
-
 msgid "IPv6-in-IPv4 (RFC4213)"
 msgstr ""
 
-msgid "IPv6-over-IPv4 (6rd)"
-msgstr ""
-
-msgid "IPv6-over-IPv4 (6to4)"
+msgid "IPv6-over-IPv4"
 msgstr ""
 
 msgid "Identity"
@@ -1142,9 +1123,6 @@ msgstr ""
 msgid "Interfaces"
 msgstr "Interfaces"
 
-msgid "Internal Server Error"
-msgstr ""
-
 msgid "Invalid"
 msgstr "Valor inválido"
 
@@ -1194,12 +1172,6 @@ msgstr ""
 msgid "Kill"
 msgstr "Matar"
 
-msgid "L2TP"
-msgstr ""
-
-msgid "L2TP Server"
-msgstr ""
-
 msgid "LCP echo failure threshold"
 msgstr ""
 
@@ -1241,6 +1213,9 @@ msgstr ""
 
 msgid "Limit"
 msgstr "Limite"
+
+msgid "Link"
+msgstr "Link"
 
 msgid "Link On"
 msgstr "Link Activo"
@@ -1326,6 +1301,12 @@ msgstr "Logout"
 msgid "Lowest leased address as offset from the network address."
 msgstr ""
 
+msgid "MAC"
+msgstr "MAC"
+
+msgid "MAC Address"
+msgstr ""
+
 msgid "MAC-Address"
 msgstr ""
 
@@ -1337,12 +1318,6 @@ msgstr "Filtro de MAC"
 
 msgid "MAC-List"
 msgstr "Lista de MAC"
-
-msgid "MB/s"
-msgstr ""
-
-msgid "MHz"
-msgstr ""
 
 msgid "MTU"
 msgstr ""
@@ -1366,9 +1341,6 @@ msgid "Maximum hold time"
 msgstr "Taxa Máxima"
 
 msgid "Maximum number of leased addresses."
-msgstr ""
-
-msgid "Mbit/s"
 msgstr ""
 
 msgid "Memory"
@@ -1474,8 +1446,8 @@ msgstr ""
 msgid "Network boot image"
 msgstr ""
 
-msgid "Network without interfaces."
-msgstr ""
+msgid "Networks"
+msgstr "Redes"
 
 msgid "Next »"
 msgstr ""
@@ -1525,22 +1497,18 @@ msgstr ""
 msgid "Normal"
 msgstr ""
 
-msgid "Not Found"
-msgstr ""
-
 msgid "Not associated"
-msgstr ""
-
-msgid "Not connected"
 msgstr ""
 
 msgid "Note: Configuration files will be erased."
 msgstr ""
 
-msgid "Notice"
+msgid ""
+"Note: If you choose an interface here which is part of another network, it "
+"will be moved into this network."
 msgstr ""
 
-msgid "Nslookup"
+msgid "Notice"
 msgstr ""
 
 msgid "OK"
@@ -1570,13 +1538,13 @@ msgstr ""
 msgid "On-State Delay"
 msgstr ""
 
-msgid "One of hostname or mac address must be specified!"
-msgstr ""
-
 msgid "One or more fields contain invalid values!"
 msgstr ""
 
 msgid "One or more required fields have no value!"
+msgstr ""
+
+msgid "Open"
 msgstr ""
 
 msgid "Open list..."
@@ -1707,9 +1675,6 @@ msgstr ""
 msgid "Physical Settings"
 msgstr ""
 
-msgid "Ping"
-msgstr ""
-
 msgid "Pkts."
 msgstr ""
 
@@ -1731,8 +1696,8 @@ msgstr ""
 msgid "Port %d is untagged in multiple VLANs!"
 msgstr ""
 
-msgid "Port status:"
-msgstr ""
+msgid "Power"
+msgstr "Potência"
 
 msgid ""
 "Presume peer to be dead after given amount of LCP echo failures, use 0 to "
@@ -1741,9 +1706,6 @@ msgstr ""
 
 msgid "Prevents client-to-client communication"
 msgstr "Impede a comunicação de Cliente para Cliente"
-
-msgid "Prism2/2.5/3 802.11b Wireless Controller"
-msgstr ""
 
 msgid "Proceed"
 msgstr "Proceder"
@@ -1766,29 +1728,17 @@ msgstr ""
 msgid "Protocol support is not installed"
 msgstr ""
 
-msgid "Provide NTP server"
-msgstr ""
-
 msgid "Provide new network"
 msgstr ""
 
 msgid "Pseudo Ad-Hoc (ahdemo)"
 msgstr "Pseudo Ad-Hoc (ahdemo)"
 
-msgid "Quality"
-msgstr ""
-
 msgid "RTS/CTS Threshold"
 msgstr "RTS/CTS Threshold"
 
 msgid "RX"
 msgstr "RX"
-
-msgid "RX Rate"
-msgstr ""
-
-msgid "RaLink 802.11%s Wireless Controller"
-msgstr ""
 
 msgid "Radius-Accounting-Port"
 msgstr ""
@@ -1816,26 +1766,26 @@ msgstr ""
 "\"Protocolo de Configuração Dinâmica de Hosts\">DHCP</abbr>"
 
 msgid ""
-"Really delete this interface? The deletion cannot be undone!\\nYou might "
-"lose access to this device if you are connected via this interface."
+"Really delete this interface? The deletion cannot be undone!\n"
+"You might lose access to this router if you are connected via this interface."
 msgstr ""
 
 msgid ""
-"Really delete this wireless network? The deletion cannot be undone!\\nYou "
-"might lose access to this device if you are connected via this network."
+"Really delete this wireless network? The deletion cannot be undone!\n"
+"You might lose access to this router if you are connected via this network."
 msgstr ""
 
 msgid "Really reset all changes?"
 msgstr ""
 
 msgid ""
-"Really shutdown interface \"%s\" ?\\nYou might lose access to this device if "
-"you are connected via this interface."
+"Really shutdown interface \"%s\" ?\n"
+"You might lose access to this router if you are connected via this interface."
 msgstr ""
 
 msgid ""
-"Really shutdown network ?\\nYou might lose access to this device if you are "
-"connected via this interface."
+"Really shutdown network ?\n"
+"You might lose access to this router if you are connected via this interface."
 msgstr ""
 
 msgid "Really switch protocol?"
@@ -2081,12 +2031,6 @@ msgstr "Software"
 msgid "Some fields are invalid, cannot save values!"
 msgstr ""
 
-msgid "Sorry, the object you requested was not found."
-msgstr ""
-
-msgid "Sorry, the server encountered an unexpected error."
-msgstr ""
-
 msgid ""
 "Sorry, there is no sysupgrade support present, a new firmware image must be "
 "flashed manually. Please refer to the OpenWrt wiki for device specific "
@@ -2217,9 +2161,6 @@ msgstr ""
 msgid "TX"
 msgstr "TX"
 
-msgid "TX Rate"
-msgstr ""
-
 msgid "Table"
 msgstr "Tabela"
 
@@ -2240,10 +2181,6 @@ msgstr ""
 msgid ""
 "The <em>libiwinfo-lua</em> package is not installed. You must install this "
 "component for working wireless configuration!"
-msgstr ""
-
-msgid ""
-"The IPv6 prefix assigned to the provider, usually ends with <code>::</code>"
 msgstr ""
 
 msgid ""
@@ -2291,21 +2228,19 @@ msgid ""
 msgstr ""
 
 msgid ""
-"The length of the IPv4 prefix in bits, the remainder is used in the IPv6 "
-"addresses."
-msgstr ""
-
-msgid "The length of the IPv6 prefix in bits"
-msgstr ""
-
-msgid ""
-"The network ports on this device can be combined to several <abbr title="
+"The network ports on your router can be combined to several <abbr title="
 "\"Virtual Local Area Network\">VLAN</abbr>s in which computers can "
 "communicate directly with each other. <abbr title=\"Virtual Local Area "
 "Network\">VLAN</abbr>s are often used to separate different network "
 "segments. Often there is by default one Uplink port for a connection to the "
 "next greater network like the internet and other ports for a local network."
 msgstr ""
+"As portas de rede do seu router podem ser combinadas com diversas <abbr "
+"title=\"Rede Local Virtual\">VLAN</abbr>s em que os computadores podem "
+"comunicar directamente entre si. As <abbr title=\"Rede Local Virtual\">VLAN</"
+"abbr>s são frequentemente utilizadas para separar segmentos de redes "
+"diferentes. Muitas vezes é padrão uma porta Uplink para a ligação com a "
+"próxima rede, como a Internet e outras portas para uma rede local."
 
 msgid "The selected protocol needs a device assigned"
 msgstr ""
@@ -2353,9 +2288,6 @@ msgstr ""
 msgid ""
 "There is no password set on this router. Please configure a root password to "
 "protect the web interface and enable SSH."
-msgstr ""
-
-msgid "This IPv4 address of the relay"
 msgstr ""
 
 msgid ""
@@ -2423,9 +2355,6 @@ msgstr ""
 msgid "Total Available"
 msgstr ""
 
-msgid "Traceroute"
-msgstr ""
-
 msgid "Traffic"
 msgstr "Tráfego"
 
@@ -2468,9 +2397,6 @@ msgstr "Tipo"
 msgid "UDP:"
 msgstr ""
 
-msgid "UMTS only"
-msgstr ""
-
 msgid "UMTS/GPRS/EV-DO"
 msgstr ""
 
@@ -2478,9 +2404,6 @@ msgid "USB Device"
 msgstr ""
 
 msgid "UUID"
-msgstr ""
-
-msgid "Unable to dispatch"
 msgstr ""
 
 msgid "Unknown"
@@ -2621,10 +2544,7 @@ msgid ""
 "and ad-hoc mode) to be installed."
 msgstr ""
 
-msgid "Waiting for changes to be applied..."
-msgstr ""
-
-msgid "Waiting for command to complete..."
+msgid "Waiting for router..."
 msgstr ""
 
 msgid "Warning"
@@ -2637,6 +2557,9 @@ msgstr ""
 
 msgid "Wifi"
 msgstr "Wifi"
+
+msgid "Wifi networks in your local environment"
+msgstr "Redes Wifi no seu ambiente local"
 
 msgid "Wireless"
 msgstr ""
@@ -2698,23 +2621,11 @@ msgstr ""
 msgid "auto"
 msgstr "automático"
 
-msgid "baseT"
-msgstr ""
-
 msgid "bridged"
-msgstr ""
-
-msgid "create:"
 msgstr ""
 
 msgid "creates a bridge over specified interface(s)"
 msgstr "cria uma ponte sobre determinada(s) interface(s)"
-
-msgid "dB"
-msgstr ""
-
-msgid "dBm"
-msgstr ""
 
 msgid "disable"
 msgstr "desactivar"
@@ -2729,44 +2640,17 @@ msgstr ""
 "Ficheiro onde as atribuições <abbr title=\"Protocolo de Configuração "
 "Dinâmica de Hosts\">DHCP</abbr> são armazenadas"
 
-msgid "forward"
-msgstr ""
-
-msgid "full-duplex"
-msgstr ""
-
-msgid "half-duplex"
-msgstr ""
-
 msgid "help"
-msgstr ""
-
-msgid "hidden"
 msgstr ""
 
 msgid "if target is a network"
 msgstr "se o destino for uma rede"
-
-msgid "input"
-msgstr ""
-
-msgid "kB"
-msgstr ""
-
-msgid "kB/s"
-msgstr ""
-
-msgid "kbit/s"
-msgstr ""
 
 msgid "local <abbr title=\"Domain Name System\">DNS</abbr> file"
 msgstr ""
 "Ficheiro local de <abbr title=\"Sistema de Nomes de Domínios\">DNS</abbr>"
 
 msgid "no"
-msgstr ""
-
-msgid "no link"
 msgstr ""
 
 msgid "none"
@@ -2778,16 +2662,10 @@ msgstr ""
 msgid "on"
 msgstr ""
 
-msgid "open"
-msgstr ""
-
 msgid "routed"
 msgstr ""
 
 msgid "tagged"
-msgstr ""
-
-msgid "unknown"
 msgstr ""
 
 msgid "unlimited"
@@ -2807,66 +2685,6 @@ msgstr ""
 
 msgid "« Back"
 msgstr ""
-
-#~ msgid "Active Leases"
-#~ msgstr "Atribuições Activas"
-
-#~ msgid "MAC"
-#~ msgstr "MAC"
-
-#~ msgid "<abbr title=\"Encrypted\">Encr.</abbr>"
-#~ msgstr "<abbr title=\"Encriptado\">Encr.</abbr>"
-
-#~ msgid "<abbr title=\"Wireless Local Area Network\">WLAN</abbr>-Scan"
-#~ msgstr "<abbr title=\"Rede Local Wireless\">WLAN</abbr>-Pesquisa"
-
-#~ msgid "Create Network"
-#~ msgstr "Criar Rede"
-
-#~ msgid "Link"
-#~ msgstr "Link"
-
-#~ msgid "Networks"
-#~ msgstr "Redes"
-
-#~ msgid "Power"
-#~ msgstr "Potência"
-
-#~ msgid "Wifi networks in your local environment"
-#~ msgstr "Redes Wifi no seu ambiente local"
-
-#~ msgid ""
-#~ "<abbr title=\"Classless Inter-Domain Routing\">CIDR</abbr>-Notation: "
-#~ "address/prefix"
-#~ msgstr ""
-#~ "Notação <abbr title=\"Roteamento entre Domínios sem Classe\">CIDR</abbr>: "
-#~ "endereço/prefixo"
-
-#~ msgid "<abbr title=\"Domain Name System\">DNS</abbr>-Server"
-#~ msgstr "Servidor <abbr title=\"Sistema de Nomes de Domínios\">DNS</abbr>"
-
-#~ msgid "<abbr title=\"Internet Protocol Version 4\">IPv4</abbr>-Broadcast"
-#~ msgstr ""
-#~ "Broadcast <abbr title=\"Protocolo de Internet Versão 4\">IPv4</abbr>"
-
-#~ msgid "<abbr title=\"Internet Protocol Version 6\">IPv6</abbr>-Address"
-#~ msgstr "Endereço <abbr title=\"Protocolo de Internet Versão 6\">IPv6</abbr>"
-
-#~ msgid ""
-#~ "The network ports on your router can be combined to several <abbr title="
-#~ "\"Virtual Local Area Network\">VLAN</abbr>s in which computers can "
-#~ "communicate directly with each other. <abbr title=\"Virtual Local Area "
-#~ "Network\">VLAN</abbr>s are often used to separate different network "
-#~ "segments. Often there is by default one Uplink port for a connection to "
-#~ "the next greater network like the internet and other ports for a local "
-#~ "network."
-#~ msgstr ""
-#~ "As portas de rede do seu router podem ser combinadas com diversas <abbr "
-#~ "title=\"Rede Local Virtual\">VLAN</abbr>s em que os computadores podem "
-#~ "comunicar directamente entre si. As <abbr title=\"Rede Local Virtual"
-#~ "\">VLAN</abbr>s são frequentemente utilizadas para separar segmentos de "
-#~ "redes diferentes. Muitas vezes é padrão uma porta Uplink para a ligação "
-#~ "com a próxima rede, como a Internet e outras portas para uma rede local."
 
 #~ msgid "Files to be kept when flashing a new firmware"
 #~ msgstr "Ficheiros que devem ser mantidos quando gravar um novo firmware."
@@ -3336,7 +3154,7 @@ msgstr ""
 
 #~ msgid ""
 #~ "<abbr title=\"maximal\">max.</abbr> <abbr title=\"Extension Mechanisms "
-#~ "for Domain Name System\">EDNS0</abbr> packet size"
+#~ "for Domain Name System\">EDNS0</abbr> paket size"
 #~ msgstr ""
 #~ "tamanho <abbr title=\"máximo\">max.</abbr> do pacote <abbr title="
 #~ "\"Mecanismos de Extensão do Sistema de Nomes de Domínios\">EDNS0</abbr>"

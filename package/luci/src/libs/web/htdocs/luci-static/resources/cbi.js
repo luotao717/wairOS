@@ -2,7 +2,7 @@
 	LuCI - Lua Configuration Interface
 
 	Copyright 2008 Steven Barth <steven@midlink.org>
-	Copyright 2008-2012 Jo-Philipp Wich <xm@subsignal.org>
+	Copyright 2008-2011 Jo-Philipp Wich <xm@subsignal.org>
 
 	Licensed under the Apache License, Version 2.0 (the "License");
 	you may not use this file except in compliance with the License.
@@ -17,52 +17,59 @@ var cbi_c = [];
 
 var cbi_validators = {
 
-	'integer': function()
+	'integer': function(v)
 	{
-		return (this.match(/^-?[0-9]+$/) != null);
+		return (v.match(/^-?[0-9]+$/) != null);
 	},
 
-	'uinteger': function()
+	'uinteger': function(v)
 	{
-		return (cbi_validators.integer.apply(this) && (this >= 0));
+		return (cbi_validators.integer(v) && (v >= 0));
 	},
 
-	'float': function()
+	'float': function(v)
 	{
-		return !isNaN(parseFloat(this));
+		return !isNaN(parseFloat(v));
 	},
 
-	'ufloat': function()
+	'ufloat': function(v)
 	{
-		return (cbi_validators['float'].apply(this) && (this >= 0));
+		return (cbi_validators['float'](v) && (v >= 0));
 	},
 
-	'ipaddr': function()
+	'ipaddr': function(v)
 	{
-		return cbi_validators.ip4addr.apply(this) ||
-			cbi_validators.ip6addr.apply(this);
+		return cbi_validators.ip4addr(v) || cbi_validators.ip6addr(v);
 	},
 
-	'ip4addr': function()
+	'neg_ipaddr': function(v)
 	{
-		if (this.match(/^(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})(\/(\S+))?$/))
+		return cbi_validators.ip4addr(v.replace(/^\s*!/, "")) || cbi_validators.ip6addr(v.replace(/^\s*!/, ""));
+	},
+
+	'ip4addr': function(v)
+	{
+		if( v.match(/^(\d+)\.(\d+)\.(\d+)\.(\d+)(\/(\d+))?$/) )
 		{
 			return (RegExp.$1 >= 0) && (RegExp.$1 <= 255) &&
 			       (RegExp.$2 >= 0) && (RegExp.$2 <= 255) &&
 			       (RegExp.$3 >= 0) && (RegExp.$3 <= 255) &&
 			       (RegExp.$4 >= 0) && (RegExp.$4 <= 255) &&
-			       ((RegExp.$6.indexOf('.') < 0)
-			          ? ((RegExp.$6 >= 0) && (RegExp.$6 <= 32))
-			          : (cbi_validators.ip4addr.apply(RegExp.$6)))
+			       (!RegExp.$5 || ((RegExp.$6 >= 0) && (RegExp.$6 <= 32)))
 			;
 		}
 
 		return false;
 	},
 
-	'ip6addr': function()
+	'neg_ip4addr': function(v)
 	{
-		if( this.match(/^([a-fA-F0-9:.]+)(\/(\d+))?$/) )
+		return cbi_validators.ip4addr(v.replace(/^\s*!/, ""));
+	},
+
+	'ip6addr': function(v)
+	{
+		if( v.match(/^([a-fA-F0-9:.]+)(\/(\d+))?$/) )
 		{
 			if( !RegExp.$2 || ((RegExp.$3 >= 0) && (RegExp.$3 <= 128)) )
 			{
@@ -77,7 +84,7 @@ var cbi_validators = {
 				{
 					var off = addr.lastIndexOf(':');
 
-					if( !(off && cbi_validators.ip4addr.apply(addr.substr(off+1))) )
+					if( !(off && cbi_validators.ip4addr(addr.substr(off+1))) )
 						return false;
 
 					addr = addr.substr(0, off) + ':0:0';
@@ -110,72 +117,65 @@ var cbi_validators = {
 		return false;
 	},
 
-	'port': function()
+	'port': function(v)
 	{
-		return cbi_validators.integer.apply(this) &&
-			(this >= 0) && (this <= 65535);
+		return cbi_validators.integer(v) && (v >= 0) && (v <= 65535);
 	},
 
-	'portrange': function()
+	'portrange': function(v)
 	{
-		if (this.match(/^(\d+)-(\d+)$/))
+		if( v.match(/^(\d+)-(\d+)$/) )
 		{
 			var p1 = RegExp.$1;
 			var p2 = RegExp.$2;
 
-			return cbi_validators.port.apply(p1) &&
-			       cbi_validators.port.apply(p2) &&
+			return cbi_validators.port(p1) &&
+			       cbi_validators.port(p2) &&
 			       (parseInt(p1) <= parseInt(p2))
 			;
 		}
 		else
 		{
-			return cbi_validators.port.apply(this);
+			return cbi_validators.port(v);
 		}
 	},
 
-	'macaddr': function()
+	'macaddr': function(v)
 	{
-		return (this.match(/^([a-fA-F0-9]{2}:){5}[a-fA-F0-9]{2}$/) != null);
+		return (v.match(/^([a-fA-F0-9]{2}:){5}[a-fA-F0-9]{2}$/) != null);
 	},
 
-	'host': function()
+	'host': function(v)
 	{
-		return cbi_validators.hostname.apply(this) ||
-			cbi_validators.ipaddr.apply(this);
+		return cbi_validators.hostname(v) || cbi_validators.ipaddr(v);
 	},
 
-	'hostname': function()
+	'hostname': function(v)
 	{
-		if (this.length <= 253)
-			return (this.match(/^[a-zA-Z0-9]+$/) != null ||
-			        (this.match(/^[a-zA-Z0-9_][a-zA-Z0-9_\-.]*[a-zA-Z0-9]$/) &&
-			         this.match(/[^0-9.]/)));
+		if (v.length <= 253)
+			return (v.match(/^[a-zA-Z]+$/) != null ||
+			        (v.match(/^[a-zA-Z0-9][a-zA-Z0-9\-.]*[a-zA-Z0-9]$/) &&
+			         v.match(/[^0-9.]/)));
 
 		return false;
 	},
 
-	'network': function()
+	'network': function(v)
 	{
-		return cbi_validators.uciname.apply(this) ||
-			cbi_validators.host.apply(this);
+		return cbi_validators.uciname(v) || cbi_validators.host(v);
 	},
 
-	'wpakey': function()
+	'wpakey': function(v)
 	{
-		var v = this;
-
 		if( v.length == 64 )
 			return (v.match(/^[a-fA-F0-9]{64}$/) != null);
 		else
 			return (v.length >= 8) && (v.length <= 63);
 	},
 
-	'wepkey': function()
+	'wepkey': function(v)
 	{
-		var v = this;
-
-		if ( v.substr(0,2) == 's:' )
+		if( v.substr(0,2) == 's:' )
 			v = v.substr(2);
 
 		if( (v.length == 10) || (v.length == 26) )
@@ -184,122 +184,75 @@ var cbi_validators = {
 			return (v.length == 5) || (v.length == 13);
 	},
 
-	'uciname': function()
+	'uciname': function(v)
 	{
-		return (this.match(/^[a-zA-Z0-9_]+$/) != null);
+		return (v.match(/^[a-zA-Z0-9_]+$/) != null);
 	},
 
-	'range': function(min, max)
+	'neg_network_ip4addr': function(v)
 	{
-		var val = parseFloat(this);
+		v = v.replace(/^\s*!/, "");
+		return cbi_validators.uciname(v) || cbi_validators.ip4addr(v);
+	},
+
+	'range': function(v, args)
+	{
+		var min = parseInt(args[0]);
+		var max = parseInt(args[1]);
+		var val = parseInt(v);
+
 		if (!isNaN(min) && !isNaN(max) && !isNaN(val))
 			return ((val >= min) && (val <= max));
 
 		return false;
 	},
 
-	'min': function(min)
+	'min': function(v, args)
 	{
-		var val = parseFloat(this);
+		var min = parseInt(args[0]);
+		var val = parseInt(v);
+
 		if (!isNaN(min) && !isNaN(val))
 			return (val >= min);
 
 		return false;
 	},
 
-	'max': function(max)
+	'max': function(v, args)
 	{
-		var val = parseFloat(this);
+		var max = parseInt(args[0]);
+		var val = parseInt(v);
+
 		if (!isNaN(max) && !isNaN(val))
 			return (val <= max);
 
 		return false;
 	},
 
-	'rangelength': function(min, max)
+	'neg': function(v, args)
 	{
-		var val = '' + this;
-		if (!isNaN(min) && !isNaN(max))
-			return ((val.length >= min) && (val.length <= max));
+		if (args[0] && typeof cbi_validators[args[0]] == "function")
+			return cbi_validators[args[0]](v.replace(/^\s*!\s*/, ''));
 
 		return false;
 	},
 
-	'minlength': function(min)
+	'list': function(v, args)
 	{
-		var val = '' + this;
-		if (!isNaN(min))
-			return (val.length >= min);
-
-		return false;
-	},
-
-	'maxlength': function(max)
-	{
-		var val = '' + this;
-		if (!isNaN(max))
-			return (val.length <= max);
-
-		return false;
-	},
-
-	'or': function()
-	{
-		for (var i = 0; i < arguments.length; i += 2)
+		var cb = cbi_validators[args[0] || 'string'];
+		if (typeof cb == "function")
 		{
-			if (typeof arguments[i] != 'function')
-			{
-				if (arguments[i] == this)
-					return true;
-				i--;
-			}
-			else if (arguments[i].apply(this, arguments[i+1]))
-			{
-				return true;
-			}
-		}
-		return false;
-	},
+			var cbargs = args.slice(1);
+			var values = v.match(/[^\s]+/g);
 
-	'and': function()
-	{
-		for (var i = 0; i < arguments.length; i += 2)
-		{
-			if (typeof arguments[i] != 'function')
-			{
-				if (arguments[i] != this)
+			for (var i = 0; i < values.length; i++)
+				if (!cb(values[i], cbargs))
 					return false;
-				i--;
-			}
-			else if (!arguments[i].apply(this, arguments[i+1]))
-			{
-				return false;
-			}
+
+			return true;
 		}
-		return true;
-	},
 
-	'neg': function()
-	{
-		return cbi_validators.or.apply(
-			this.replace(/^[ \t]*![ \t]*/, ''), arguments);
-	},
-
-	'list': function(subvalidator, subargs)
-	{
-		if (typeof subvalidator != 'function')
-			return false;
-
-		var tokens = this.match(/[^ \t]+/g);
-		for (var i = 0; i < tokens.length; i++)
-			if (!subvalidator.apply(tokens[i], subargs))
-				return false;
-
-		return true;
-	},
-	'phonedigit': function()
-	{
-		return (this.match(/^[0-9\*#]+$/) != null);
+		return false;
 	}
 };
 
@@ -335,7 +288,7 @@ function cbi_d_checkvalue(target, ref) {
 	if (!t) {
 		var tl = document.getElementsByName(target);
 
-		if( tl.length > 0 && (tl[0].type == 'radio' || tl[0].type == 'checkbox'))
+		if( tl.length > 0 && tl[0].type == 'radio' )
 			for( var i = 0; i < tl.length; i++ )
 				if( tl[i].checked ) {
 					value = tl[i].value;
@@ -441,7 +394,7 @@ function cbi_combobox(id, values, def, man) {
 	var obj = document.getElementById(id)
 	var sel = document.createElement("select");
 		sel.id = selid;
-		sel.className = obj.className.replace(/cbi-input-text/, 'cbi-input-select');
+		sel.className = 'cbi-input-select';
 
 	if (obj.nextSibling) {
 		obj.parentNode.insertBefore(sel, obj.nextSibling);
@@ -504,10 +457,6 @@ function cbi_combobox(id, values, def, man) {
 			//Do nothing
 		}
 	})
-
-	// Retrigger validation in select
-	sel.focus();
-	sel.blur();
 }
 
 function cbi_combobox_init(id, values, def, man) {
@@ -545,107 +494,26 @@ function cbi_browser_init(id, respath, url, defpath)
 	cbi_bind(btn, 'click', cbi_browser_btnclick);
 }
 
-function cbi_dynlist_init(name, respath, datatype, optional, choices)
+function cbi_dynlist_init(name, respath)
 {
-	var input0 = document.getElementsByName(name)[0];
-	var prefix = input0.name;
-	var parent = input0.parentNode;
-	var holder = input0.placeholder;
-
-	var values;
-
-	function cbi_dynlist_redraw(focus, add, del)
+	function cbi_dynlist_renumber(e)
 	{
-		values = [ ];
+		/* in a perfect world, we could just getElementsByName() - but not if
+		 * MSIE is involved... */
+		var inputs = [ ]; // = document.getElementsByName(name);
+		for (var i = 0; i < e.parentNode.childNodes.length; i++)
+			if (e.parentNode.childNodes[i].name == name)
+				inputs.push(e.parentNode.childNodes[i]);
 
-		while (parent.firstChild)
+		for (var i = 0; i < inputs.length; i++)
 		{
-			var n = parent.firstChild;
-			var i = parseInt(n.index);
-
-			if (i != del)
-			{
-				if (n.nodeName.toLowerCase() == 'input')
-					values.push(n.value || '');
-				else if (n.nodeName.toLowerCase() == 'select')
-					values[values.length-1] = n.options[n.selectedIndex].value;
-			}
-
-			parent.removeChild(n);
+			inputs[i].id = name + '.' + (i + 1);
+			inputs[i].nextSibling.src = respath + (
+				(i+1) < inputs.length ? '/cbi/remove.gif' : '/cbi/add.gif'
+			);
 		}
 
-		if (add >= 0)
-		{
-			focus = add+1;
-			values.splice(focus, 0, '');
-		}
-		else if (values.length == 0)
-		{
-			focus = 0;
-			values.push('');
-		}
-
-		for (var i = 0; i < values.length; i++)
-		{
-			var t = document.createElement('input');
-				t.id = prefix + '.' + (i+1);
-				t.name = prefix;
-				t.value = values[i];
-				t.type = 'text';
-				t.index = i;
-				t.className = 'cbi-input-text';
-
-			if (i == 0 && holder)
-			{
-				t.placeholder = holder;
-			}
-
-			var b = document.createElement('img');
-				b.src = respath + ((i+1) < values.length ? '/cbi/remove.gif' : '/cbi/add.gif');
-				b.className = 'cbi-image-button';
-
-			parent.appendChild(t);
-			parent.appendChild(b);
-			parent.appendChild(document.createElement('br'));
-
-			if (datatype)
-			{
-				cbi_validate_field(t.id, ((i+1) == values.length) || optional, datatype);
-			}
-
-			if (choices)
-			{
-				cbi_combobox_init(t.id, choices[0], '', choices[1]);
-				t.nextSibling.index = i;
-
-				cbi_bind(t.nextSibling, 'keydown',  cbi_dynlist_keydown);
-				cbi_bind(t.nextSibling, 'keypress', cbi_dynlist_keypress);
-
-				if (i == focus || -i == focus)
-					t.nextSibling.focus();
-			}
-			else
-			{
-				cbi_bind(t, 'keydown',  cbi_dynlist_keydown);
-				cbi_bind(t, 'keypress', cbi_dynlist_keypress);
-
-				if (i == focus)
-				{
-					t.focus();
-				}
-				else if (-i == focus)
-				{
-					t.focus();
-
-					/* force cursor to end */
-					var v = t.value;
-					t.value = ' '
-					t.value = v;
-				}
-			}
-
-			cbi_bind(b, 'click', cbi_dynlist_btnclick);
-		}
+		e.focus();
 	}
 
 	function cbi_dynlist_keypress(ev)
@@ -702,28 +570,27 @@ function cbi_dynlist_init(name, respath, datatype, optional, choices)
 		while (next && next.name != name)
 			next = next.nextSibling;
 
-		/* advance one further in combobox case */
-		if (next && next.nextSibling.name == name)
-			next = next.nextSibling;
-
 		switch (ev.keyCode)
 		{
 			/* backspace, delete */
 			case 8:
 			case 46:
-				var del = (se.nodeName.toLowerCase() == 'select')
-					? true : (se.value.length == 0);
+				var jump = (ev.keyCode == 8)
+					? (prev || next) : (next || prev);
 
-				if (del)
+				if (se.value.length == 0 && jump)
 				{
+					se.parentNode.removeChild(se.nextSibling.nextSibling);
+					se.parentNode.removeChild(se.nextSibling);
+					se.parentNode.removeChild(se);
+
+					cbi_dynlist_renumber(jump);
+
 					if (ev.preventDefault)
 						ev.preventDefault();
 
-					var focus = se.index;
-					if (ev.keyCode == 8)
-						focus = -focus+1;
-
-					cbi_dynlist_redraw(focus, -1, se.index);
+					/* IE Quirk, needs double focus somehow */
+					jump.focus();
 
 					return false;
 				}
@@ -732,7 +599,36 @@ function cbi_dynlist_init(name, respath, datatype, optional, choices)
 
 			/* enter */
 			case 13:
-				cbi_dynlist_redraw(-1, se.index, -1);
+				var n = document.createElement('input');
+					n.name       = se.name;
+					n.type       = se.type;
+
+				var b = document.createElement('img');
+
+				cbi_bind(n, 'keydown',  cbi_dynlist_keydown);
+				cbi_bind(n, 'keypress', cbi_dynlist_keypress);
+				cbi_bind(b, 'click',    cbi_dynlist_btnclick);
+
+				if (next)
+				{
+					se.parentNode.insertBefore(n, next);
+					se.parentNode.insertBefore(b, next);
+					se.parentNode.insertBefore(document.createElement('br'), next);
+				}
+				else
+				{
+					se.parentNode.appendChild(n);
+					se.parentNode.appendChild(b);
+					se.parentNode.appendChild(document.createElement('br'));
+				}
+
+				var dt = se.getAttribute('cbi_datatype');
+				var op = se.getAttribute('cbi_optional') == 'true';
+
+				if (dt)
+					cbi_validate_field(n, op, dt);
+
+				cbi_dynlist_renumber(n);
 				break;
 
 			/* arrow up */
@@ -779,7 +675,21 @@ function cbi_dynlist_init(name, respath, datatype, optional, choices)
 		return false;
 	}
 
-	cbi_dynlist_redraw(NaN, -1, -1);
+	var inputs = document.getElementsByName(name);
+	for( var i = 0; i < inputs.length; i++ )
+	{
+		var btn = document.createElement('img');
+			btn.className = 'cbi-image-button';
+			btn.src = respath + (
+				(i+1) < inputs.length ? '/cbi/remove.gif' : '/cbi/add.gif'
+			);
+
+		inputs[i].parentNode.insertBefore(btn, inputs[i].nextSibling);
+
+		cbi_bind(inputs[i], 'keydown',  cbi_dynlist_keydown);
+		cbi_bind(inputs[i], 'keypress', cbi_dynlist_keypress);
+		cbi_bind(btn,       'click',    cbi_dynlist_btnclick);
+	}
 }
 
 //Hijacks the CBI form to send via XHR (requires Prototype)
@@ -897,87 +807,20 @@ function cbi_validate_reset(form)
 	return true;
 }
 
-function cbi_validate_compile(code)
-{
-	var pos = 0;
-	var esc = false;
-	var depth = 0;
-	var stack = [ ];
-
-	code += ',';
-
-	for (var i = 0; i < code.length; i++)
-	{
-		if (esc)
-		{
-			esc = false;
-			continue;
-		}
-
-		switch (code.charCodeAt(i))
-		{
-		case 92:
-			esc = true;
-			break;
-
-		case 40:
-		case 44:
-			if (depth <= 0)
-			{
-				if (pos < i)
-				{
-					var label = code.substring(pos, i);
-						label = label.replace(/\\(.)/g, '$1');
-						label = label.replace(/^[ \t]+/g, '');
-						label = label.replace(/[ \t]+$/g, '');
-
-					if (label && !isNaN(label))
-					{
-						stack.push(parseFloat(label));
-					}
-					else if (label.match(/^(['"]).*\1$/))
-					{
-						stack.push(label.replace(/^(['"])(.*)\1$/, '$2'));
-					}
-					else if (typeof cbi_validators[label] == 'function')
-					{
-						stack.push(cbi_validators[label]);
-						stack.push(null);
-					}
-					else
-					{
-						throw "Syntax error, unhandled token '"+label+"'";
-					}
-				}
-				pos = i+1;
-			}
-			depth += (code.charCodeAt(i) == 40);
-			break;
-
-		case 41:
-			if (--depth <= 0)
-			{
-				if (typeof stack[stack.length-2] != 'function')
-					throw "Syntax error, argument list follows non-function";
-
-				stack[stack.length-1] =
-					arguments.callee(code.substring(pos, i));
-
-				pos = i+1;
-			}
-			break;
-		}
-	}
-
-	return stack;
-}
-
 function cbi_validate_field(cbid, optional, type)
 {
 	var field = (typeof cbid == "string") ? document.getElementById(cbid) : cbid;
-	var vstack; try { vstack = cbi_validate_compile(type); } catch(e) { };
+	var vargs;
 
-	if (field && vstack && typeof vstack[0] == "function")
+	if( type.match(/^(\w+)\(([^\(\)]+)\)/) )
+	{
+		type  = RegExp.$1;
+		vargs = RegExp.$2.split(/\s*,\s*/);
+	}
+
+	var vldcb = cbi_validators[type];
+
+	if( field && vldcb )
 	{
 		var validator = function()
 		{
@@ -990,7 +833,7 @@ function cbi_validate_field(cbid, optional, type)
 				var value = (field.options && field.options.selectedIndex > -1)
 					? field.options[field.options.selectedIndex].value : field.value;
 
-				if (!(((value.length == 0) && optional) || vstack[0].apply(value, vstack[1])))
+				if( !(((value.length == 0) && optional) || vldcb(value, vargs)) )
 				{
 					// invalid
 					field.className += ' cbi-input-invalid';
@@ -1097,243 +940,216 @@ function cbi_tag_last(container)
 	}
 }
 
-String.prototype.serialize = function()
-{
-	var o = this;
-	switch(typeof(o))
+if( ! String.serialize )
+	String.serialize = function(o)
 	{
-		case 'object':
-			// null
-			if( o == null )
-			{
-				return 'null';
-			}
-
-			// array
-			else if( o.length )
-			{
-				var i, s = '';
-
-				for( var i = 0; i < o.length; i++ )
-					s += (s ? ', ' : '') + String.serialize(o[i]);
-
-				return '[ ' + s + ' ]';
-			}
-
-			// object
-			else
-			{
-				var k, s = '';
-
-				for( k in o )
-					s += (s ? ', ' : '') + k + ': ' + String.serialize(o[k]);
-
-				return '{ ' + s + ' }';
-			}
-
-			break;
-
-		case 'string':
-			// complex string
-			if( o.match(/[^a-zA-Z0-9_,.: -]/) )
-				return 'decodeURIComponent("' + encodeURIComponent(o) + '")';
-
-			// simple string
-			else
-				return '"' + o + '"';
-
-			break;
-
-		default:
-			return o.toString();
-	}
-}
-
-String.prototype.format = function()
-{
-	if (!RegExp)
-		return;
-
-	var html_esc = [/&/g, '&#38;', /"/g, '&#34;', /'/g, '&#39;', /</g, '&#60;', />/g, '&#62;'];
-	var quot_esc = [/"/g, '&#34;', /'/g, '&#39;'];
-
-	function esc(s, r) {
-		for( var i = 0; i < r.length; i += 2 )
-			s = s.replace(r[i], r[i+1]);
-		return s;
-	}
-
-	var str = this;
-	var out = '';
-	var re = /^(([^%]*)%('.|0|\x20)?(-)?(\d+)?(\.\d+)?(%|b|c|d|u|f|o|s|x|X|q|h|j|t|m))/;
-	var a = b = [], numSubstitutions = 0, numMatches = 0;
-
-	while( a = re.exec(str) )
-	{
-		var m = a[1];
-		var leftpart = a[2], pPad = a[3], pJustify = a[4], pMinLength = a[5];
-		var pPrecision = a[6], pType = a[7];
-
-		numMatches++;
-
-		if (pType == '%')
+		switch(typeof(o))
 		{
-			subst = '%';
-		}
-		else
-		{
-			if (numSubstitutions < arguments.length)
-			{
-				var param = arguments[numSubstitutions++];
-
-				var pad = '';
-				if (pPad && pPad.substr(0,1) == "'")
-					pad = leftpart.substr(1,1);
-				else if (pPad)
-					pad = pPad;
-
-				var justifyRight = true;
-				if (pJustify && pJustify === "-")
-					justifyRight = false;
-
-				var minLength = -1;
-				if (pMinLength)
-					minLength = parseInt(pMinLength);
-
-				var precision = -1;
-				if (pPrecision && pType == 'f')
-					precision = parseInt(pPrecision.substring(1));
-
-				var subst = param;
-
-				switch(pType)
+			case 'object':
+				// null
+				if( o == null )
 				{
-					case 'b':
-						subst = (parseInt(param) || 0).toString(2);
-						break;
+					return 'null';
+				}
 
-					case 'c':
-						subst = String.fromCharCode(parseInt(param) || 0);
-						break;
+				// array
+				else if( o.length )
+				{
+					var i, s = '';
 
-					case 'd':
-						subst = (parseInt(param) || 0);
-						break;
+					for( var i = 0; i < o.length; i++ )
+						s += (s ? ', ' : '') + String.serialize(o[i]);
 
-					case 'u':
-						subst = Math.abs(parseInt(param) || 0);
-						break;
+					return '[ ' + s + ' ]';
+				}
 
-					case 'f':
-						subst = (precision > -1)
-							? ((parseFloat(param) || 0.0)).toFixed(precision)
-							: (parseFloat(param) || 0.0);
-						break;
+				// object
+				else
+				{
+					var k, s = '';
 
-					case 'o':
-						subst = (parseInt(param) || 0).toString(8);
-						break;
+					for( k in o )
+						s += (s ? ', ' : '') + k + ': ' + String.serialize(o[k]);
 
-					case 's':
-						subst = param;
-						break;
+					return '{ ' + s + ' }';
+				}
 
-					case 'x':
-						subst = ('' + (parseInt(param) || 0).toString(16)).toLowerCase();
-						break;
+				break;
 
-					case 'X':
-						subst = ('' + (parseInt(param) || 0).toString(16)).toUpperCase();
-						break;
+			case 'string':
+				// complex string
+				if( o.match(/[^a-zA-Z0-9_,.: -]/) )
+					return 'decodeURIComponent("' + encodeURIComponent(o) + '")';
 
-					case 'h':
-						subst = esc(param, html_esc);
-						break;
+				// simple string
+				else
+					return '"' + o + '"';
 
-					case 'q':
-						subst = esc(param, quot_esc);
-						break;
+				break;
 
-					case 'j':
-						subst = String.serialize(param);
-						break;
+			default:
+				return o.toString();
+		}
+	}
 
-					case 't':
-						var td = 0;
-						var th = 0;
-						var tm = 0;
-						var ts = (param || 0);
 
-						if (ts > 60) {
-							tm = Math.floor(ts / 60);
-							ts = (ts % 60);
-						}
+if( ! String.format )
+	String.format = function()
+	{
+		if (!arguments || arguments.length < 1 || !RegExp)
+			return;
 
-						if (tm > 60) {
-							th = Math.floor(tm / 60);
-							tm = (tm % 60);
-						}
+		var html_esc = [/&/g, '&#38;', /"/g, '&#34;', /'/g, '&#39;', /</g, '&#60;', />/g, '&#62;'];
+		var quot_esc = [/"/g, '&#34;', /'/g, '&#39;'];
 
-						if (th > 24) {
-							td = Math.floor(th / 24);
-							th = (th % 24);
-						}
+		function esc(s, r) {
+			for( var i = 0; i < r.length; i += 2 )
+				s = s.replace(r[i], r[i+1]);
+			return s;
+		}
 
-						subst = (td > 0)
-							? String.format('%dd %dh %dm %ds', td, th, tm, ts)
-							: String.format('%dh %dm %ds', th, tm, ts);
+		var str = arguments[0];
+		var out = '';
+		var re = /^(([^%]*)%('.|0|\x20)?(-)?(\d+)?(\.\d+)?(%|b|c|d|u|f|o|s|x|X|q|h|j|t|m))/;
+		var a = b = [], numSubstitutions = 0, numMatches = 0;
 
-						break;
+		while( a = re.exec(str) )
+		{
+			var m = a[1];
+			var leftpart = a[2], pPad = a[3], pJustify = a[4], pMinLength = a[5];
+			var pPrecision = a[6], pType = a[7];
 
-					case 'm':
-						var mf = pMinLength ? parseInt(pMinLength) : 1000;
-						var pr = pPrecision ? Math.floor(10*parseFloat('0'+pPrecision)) : 2;
+			numMatches++;
 
-						var i = 0;
-						var val = parseFloat(param || 0);
-						var units = [ '', 'K', 'M', 'G', 'T', 'P', 'E' ];
+			if (pType == '%')
+			{
+				subst = '%';
+			}
+			else
+			{
+				if (numSubstitutions++ < arguments.length)
+				{
+					var param = arguments[numSubstitutions];
 
-						for (i = 0; (i < units.length) && (val > mf); i++)
-							val /= mf;
+					var pad = '';
+					if (pPad && pPad.substr(0,1) == "'")
+						pad = leftpart.substr(1,1);
+					else if (pPad)
+						pad = pPad;
 
-						subst = val.toFixed(pr) + ' ' + units[i];
-						break;
+					var justifyRight = true;
+					if (pJustify && pJustify === "-")
+						justifyRight = false;
+
+					var minLength = -1;
+					if (pMinLength)
+						minLength = parseInt(pMinLength);
+
+					var precision = -1;
+					if (pPrecision && pType == 'f')
+						precision = parseInt(pPrecision.substring(1));
+
+					var subst = param;
+
+					switch(pType)
+					{
+						case 'b':
+							subst = (parseInt(param) || 0).toString(2);
+							break;
+
+						case 'c':
+							subst = String.fromCharCode(parseInt(param) || 0);
+							break;
+
+						case 'd':
+							subst = (parseInt(param) || 0);
+							break;
+
+						case 'u':
+							subst = Math.abs(parseInt(param) || 0);
+							break;
+
+						case 'f':
+							subst = (precision > -1)
+								? ((parseFloat(param) || 0.0)).toFixed(precision)
+								: (parseFloat(param) || 0.0);
+							break;
+
+						case 'o':
+							subst = (parseInt(param) || 0).toString(8);
+							break;
+
+						case 's':
+							subst = param;
+							break;
+
+						case 'x':
+							subst = ('' + (parseInt(param) || 0).toString(16)).toLowerCase();
+							break;
+
+						case 'X':
+							subst = ('' + (parseInt(param) || 0).toString(16)).toUpperCase();
+							break;
+
+						case 'h':
+							subst = esc(param, html_esc);
+							break;
+
+						case 'q':
+							subst = esc(param, quot_esc);
+							break;
+
+						case 'j':
+							subst = String.serialize(param);
+							break;
+
+						case 't':
+							var td = 0;
+							var th = 0;
+							var tm = 0;
+							var ts = (param || 0);
+
+							if (ts > 60) {
+								tm = Math.floor(ts / 60);
+								ts = (ts % 60);
+							}
+
+							if (tm > 60) {
+								th = Math.floor(tm / 60);
+								tm = (tm % 60);
+							}
+
+							if (th > 24) {
+								td = Math.floor(th / 24);
+								th = (th % 24);
+							}
+
+							subst = (td > 0)
+								? String.format('%dd %dh %dm %ds', td, th, tm, ts)
+								: String.format('%dh %dm %ds', th, tm, ts);
+
+							break;
+
+						case 'm':
+							var mf = pMinLength ? parseInt(pMinLength) : 1000;
+							var pr = pPrecision ? Math.floor(10*parseFloat('0'+pPrecision)) : 2;
+
+							var i = 0;
+							var val = parseFloat(param || 0);
+							var units = [ '', 'K', 'M', 'G', 'T', 'P', 'E' ];
+
+							for (i = 0; (i < units.length) && (val > mf); i++)
+								val /= mf;
+
+							subst = val.toFixed(pr) + ' ' + units[i];
+							break;
+					}
 				}
 			}
+
+			out += leftpart + subst;
+			str = str.substr(m.length);
 		}
 
-		out += leftpart + subst;
-		str = str.substr(m.length);
+		return out + str;
 	}
-
-	return out + str;
-}
-
-String.prototype.nobr = function()
-{
-	return this.replace(/[\s\n]+/g, '&#160;');
-}
-
-String.serialize = function()
-{
-	var a = [ ];
-	for (var i = 1; i < arguments.length; i++)
-		a.push(arguments[i]);
-	return ''.serialize.apply(arguments[0], a);
-}
-
-String.format = function()
-{
-	var a = [ ];
-	for (var i = 1; i < arguments.length; i++)
-		a.push(arguments[i]);
-	return ''.format.apply(arguments[0], a);
-}
-
-String.nobr = function()
-{
-	var a = [ ];
-	for (var i = 1; i < arguments.length; i++)
-		a.push(arguments[i]);
-	return ''.nobr.apply(arguments[0], a);
-}

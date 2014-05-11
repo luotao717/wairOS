@@ -43,6 +43,9 @@ msgstr "Restartuj VnStat"
 msgid "Summary display"
 msgstr "Podsumowanie"
 
+msgid "The VnStat service has been restarted."
+msgstr "Usługa VnStat została uruchomiona ponownie."
+
 msgid "Top 10 display"
 msgstr "TOP 10"
 
@@ -64,6 +67,3 @@ msgid ""
 msgstr ""
 "VnStat to aplikacja monitorująca ruch sieciowy w Linuxie, który utrzymuje "
 "loga ruchu sieciowego dla określonych interfejsów."
-
-#~ msgid "The VnStat service has been restarted."
-#~ msgstr "Usługa VnStat została uruchomiona ponownie."

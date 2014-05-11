@@ -9,7 +9,7 @@ You may obtain a copy of the License at
 
 	http://www.apache.org/licenses/LICENSE-2.0
 
-$Id: wifi_add.lua 8889 2012-07-24 11:37:38Z jow $
+$Id$
 ]]--
 
 local fs   = require "nixio.fs"
@@ -145,7 +145,7 @@ function newnet.parse(self, section)
 		wconf.encryption = "none"
 	end
 
-	if wconf.mode == "adhoc" or wconf.mode == "sta" then
+	if wconf.mode == "adhoc" then
 		wconf.bssid = m.hidden.bssid
 	end
 

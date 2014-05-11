@@ -539,6 +539,12 @@ msgstr "Viết tình trạng tới tập tin mỗi n giây"
 msgid "no"
 msgstr "không"
 
+msgid "openvpn_%s"
+msgstr ""
+
+msgid "openvpn_%s_desc"
+msgstr ""
+
 msgid "tun/tap device"
 msgstr "Công cụ tun/tap"
 

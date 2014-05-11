@@ -10,7 +10,7 @@ You may obtain a copy of the License at
 
         http://www.apache.org/licenses/LICENSE-2.0
 
-$Id: iptparser.lua 6826 2011-01-29 22:47:40Z jow $
+$Id$
 
 ]]--
 

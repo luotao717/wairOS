@@ -10,10 +10,10 @@ You may obtain a copy of the License at
 
 	http://www.apache.org/licenses/LICENSE-2.0
 
-$Id: upnp.lua 9570 2012-12-25 02:45:42Z jow $
+$Id$
 ]]--
 
-m = Map("upnpd", luci.util.pcdata(translate("Universal Plug & Play")),
+m = Map("upnpd", translate("Universal Plug & Play"),
 	translate("UPnP allows clients in the local network to automatically configure the router."))
 
 m:section(SimpleSection).template  = "upnp_status"

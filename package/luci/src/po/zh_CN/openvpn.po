@@ -538,6 +538,12 @@ msgstr "每n秒后写状态值至文件"
 msgid "no"
 msgstr "否"
 
+msgid "openvpn_%s"
+msgstr ""
+
+msgid "openvpn_%s_desc"
+msgstr ""
+
 msgid "tun/tap device"
 msgstr "tun/tap 设备"
 

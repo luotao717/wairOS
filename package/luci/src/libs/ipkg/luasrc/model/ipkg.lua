@@ -10,6 +10,7 @@ You may obtain a copy of the License at
 
 http://www.apache.org/licenses/LICENSE-2.0
 
+$Id$
 ]]--
 
 local os   = require "os"
@@ -22,7 +23,7 @@ local pairs = pairs
 local error = error
 local table = table
 
-local ipkg = "opkg --force-removal-of-dependent-packages --force-overwrite --nocase"
+local ipkg = "opkg --force-removal-of-dependent-packages --force-overwrite"
 local icfg = "/etc/opkg.conf"
 
 --- LuCI OPKG call abstraction library
@@ -158,7 +159,7 @@ end
 -- List helper
 function _list(action, pat, cb)
 	local fd = io.popen(ipkg .. " " .. action ..
-		(pat and (" '%s'" % pat:gsub("'", "")) or ""))
+		(pat and (" '%s'" % pat:gsub("'", "")) or "")) -- .. " | grep -vE '^ '")
 
 	if fd then
 		local name, version, desc
@@ -166,18 +167,20 @@ function _list(action, pat, cb)
 			local line = fd:read("*l")
 			if not line then break end
 
-			name, version, desc = line:match("^(.-) %- (.-) %- (.+)")
+			if line:sub(1,1) ~= " " then
+				name, version, desc = line:match("^(.-) %- (.-) %- (.+)")
 
-			if not name then
-				name, version = line:match("^(.-) %- (.+)")
-				desc = ""
+				if not name then
+					name, version = line:match("^(.-) %- (.+)")
+					desc = ""
+				end
+
+				cb(name, version, desc)
+
+				name    = nil
+				version = nil
+				desc    = nil
 			end
-
-			cb(name, version, desc)
-
-			name    = nil
-			version = nil
-			desc    = nil
 		end
 
 		fd:close()
@@ -199,15 +202,6 @@ end
 function list_installed(pat, cb)
 	_list("list_installed", pat, cb)
 end
-
---- Find packages that match the given pattern.
--- @param pat	Find packages whose names or descriptions match this pattern, nil results in zero results
--- @param cb	Callback function invoked for each patckage, receives name, version and description as arguments
--- @return	nothing
-function find(pat, cb)
-	_list("find", pat, cb)
-end
-
 
 --- Determines the overlay root used by opkg.
 -- @return		String containing the directory path of the overlay root.

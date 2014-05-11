@@ -9,7 +9,7 @@ You may obtain a copy of the License at
 
         http://www.apache.org/licenses/LICENSE-2.0
 
-$Id: ping.lua 6509 2010-11-18 18:08:23Z soma $
+$Id$
 
 ]]--
 

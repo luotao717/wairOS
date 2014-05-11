@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"PO-Revision-Date: 2012-08-22 21:50+0200\n"
-"Last-Translator: José Vicente <josevteg@gmail.com>\n"
+"PO-Revision-Date: 2011-09-14 15:44+0200\n"
+"Last-Translator: josevteg <josevteg@gmail.com>\n"
 "Language-Team: none\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.0.6\n"
+"X-Generator: Pootle 2.0.4\n"
 
 msgid "AHCP Server"
 msgstr "Servidor AHCP"
@@ -20,41 +20,41 @@ msgid ""
 "networks where it is difficult or impossible to configure a server within "
 "every link-layer broadcast domain, for example mobile ad-hoc networks."
 msgstr ""
-"AHCP es un protocolo de autoconfiguración para redes con IPv6 o duales IPv6/"
-"IPv4 diseñado para ser usado en lugar de router discovery o DHCP en redes en "
-"las que es difícil o imposible configurar un servidor en cada capa de enlace "
-"del dominio de propagación como las redes móviles ad-hoc."
+"AHCP es un protocolo de autoconfiguración para redes con pilas IPv6 o duales "
+"IPv6/IPv4 idseñado para ser usado en lugar de \"router discovery\" o DHCP en "
+"redes en las que es difícil o imposible configurar un servidor en cada capa "
+"de enlace del dominio de difusión, por ejemplo las redes móviles ad-hoc."
 
 # "Lease" en el sentido usado en DHCP no tiene una traducción clara en español y se puede usar la misma palabra en que en inglés.
 msgid "Active AHCP Leases"
-msgstr "Cesiones activas AHCP"
+msgstr "Leases activos AHCP"
 
 msgid "Address"
 msgstr "Dirección"
 
 msgid "Advanced Settings"
-msgstr "Configuración avanzada"
+msgstr "Configuración Avanzada"
 
 msgid "Age"
-msgstr "Vida"
+msgstr "Tiempo de vida"
 
 msgid "Announced DNS servers"
-msgstr "Servidores DNS declarados"
+msgstr "Servidores de DNS conocidos"
 
 msgid "Announced NTP servers"
-msgstr "Servidores NTP declarados"
+msgstr "Servidores de NTP conocidos"
 
 msgid "Announced prefixes"
-msgstr "Prefijos declarados"
+msgstr "Prefijos conocidos"
 
 msgid "Collecting data..."
 msgstr "Obteniendo datos..."
 
 msgid "Forwarder"
-msgstr "Transmisor"
+msgstr "Forwarder"
 
 msgid "General Setup"
-msgstr "Configuración general"
+msgstr "Configuración General"
 
 msgid "IPv4 and IPv6"
 msgstr "IPv4 e IPv6"
@@ -66,16 +66,16 @@ msgid "IPv6 only"
 msgstr "Sólo IPv6"
 
 msgid "Lease directory"
-msgstr "Directorio de cesiones"
+msgstr "Directorio de leases"
 
 msgid "Lease validity time"
-msgstr "Tiempo de validez de la cesión"
+msgstr "Tiempo de validez del lease"
 
 msgid "Log file"
 msgstr "Fichero de registro"
 
 msgid "Multicast address"
-msgstr "Dirección multicast"
+msgstr "Direcciones Multicast"
 
 msgid "Operation mode"
 msgstr "Modo de funcionamiento"
@@ -93,22 +93,16 @@ msgid "Server"
 msgstr "Servidor"
 
 msgid "Specifies the announced IPv4 and IPv6 NTP servers"
-msgstr "Especifica los servidores NTP IPv4 e IPv6 declarados"
+msgstr "Especifica los servidores NTP IPv4 e IPv6 conocidos"
 
 msgid "Specifies the announced IPv4 and IPv6 name servers"
-msgstr "Especifica los servidores de nombres IPv4 e IPv6 declarados"
+msgstr "Especifica los servidores de nombres IPv4 e IPv6 conocidos"
 
 msgid "Specifies the announced IPv4 and IPv6 network prefixes in CIDR notation"
-msgstr "Especifica los prefijos de red IPv4 e IPv6 declarados en notación CIDR"
-
-msgid "The AHCP Service is not running."
-msgstr "El Servicio AHCP no está funcionando."
-
-msgid "The AHCP Service is running with ID %s."
-msgstr "El Servicio AHCP está funcionando con el ID %s."
+msgstr "Especifica los prefijos de red IPv4 e IPv6 conocidos en notación CDIR"
 
 msgid "There are no active leases."
-msgstr "No hay cesiones activas."
+msgstr "No hay leases activos."
 
 msgid "Unique ID file"
-msgstr "ID único de fichero"
+msgstr "Identificador único de fichero"

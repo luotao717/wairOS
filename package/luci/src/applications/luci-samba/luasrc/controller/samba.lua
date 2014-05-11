@@ -10,7 +10,7 @@ You may obtain a copy of the License at
 
 	http://www.apache.org/licenses/LICENSE-2.0
 
-$Id: samba.lua 9558 2012-12-18 13:58:22Z jow $
+$Id$
 ]]--
 
 module("luci.controller.samba", package.seeall)
@@ -23,5 +23,6 @@ function index()
 	local page
 
 	page = entry({"admin", "services", "samba"}, cbi("samba"), _("Network Shares"))
+	page.i18n = "samba"
 	page.dependent = true
 end

@@ -1,22 +1,20 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: LuCI: ahcp\n"
-"POT-Creation-Date: \n"
-"PO-Revision-Date: 2012-08-15 15:30+0300\n"
-"Last-Translator: Roman A. aka BasicXP <x12ozmouse@ya.ru>\n"
-"Language-Team: Russian <x12ozmouse@ya.ru>\n"
+"Project-Id-Version: PACKAGE VERSION\n"
+"PO-Revision-Date: 2011-07-26 12:01+0200\n"
+"Last-Translator: stanislav.fomichev <s@fomichev.me>\n"
+"Language-Team: none\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
 "10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Pootle 2.0.6\n"
-"X-Poedit-SourceCharset: UTF-8\n"
+"X-Generator: Pootle 2.0.4\n"
 
 # Ad-Hoc Configuration Protocol - протокол автоматической конфигурации IPv6 и сетей IPv6/IPv4 двойного стека
 msgid "AHCP Server"
-msgstr "AHCP-сервер"
+msgstr "AHCP Сервер"
 
 msgid ""
 "AHCP is an autoconfiguration protocol for IPv6 and dual-stack IPv6/IPv4 "
@@ -25,13 +23,11 @@ msgid ""
 "every link-layer broadcast domain, for example mobile ad-hoc networks."
 msgstr ""
 "AHCP - это протокол автоматической конфигурации сетей IPv6 и IPv6/IPv4, "
-"разработанный для использования вместо DHCP и протоколов обнаружения "
-"маршрутизаторов в сетях, где сложно или невозможно настроить сервер внутри "
-"каждой широковещательной зоны канального уровня, например, в мобильных ad-"
-"hoc сетях."
+"разработанный для использования вместо DHCP. Например, используется в "
+"мобильных ad-hoc сетях."
 
 msgid "Active AHCP Leases"
-msgstr "Активные арендованные AHCP-адреса"
+msgstr "Активные арендованные AHCP адреса"
 
 msgid "Address"
 msgstr "Адрес"
@@ -43,18 +39,17 @@ msgid "Age"
 msgstr "Возраст"
 
 msgid "Announced DNS servers"
-msgstr "Анонсируемые DNS-серверы"
+msgstr "Объявить DNS серверы"
 
 msgid "Announced NTP servers"
-msgstr "Анонсируемые NTP-серверы"
+msgstr "Объявить NTP серверы"
 
 msgid "Announced prefixes"
-msgstr "Анонсируемые префиксы"
+msgstr "Объявить префиксы"
 
 msgid "Collecting data..."
 msgstr "Сбор данных..."
 
-#, fuzzy
 msgid "Forwarder"
 msgstr "Перенаправление запросов"
 
@@ -71,7 +66,7 @@ msgid "IPv6 only"
 msgstr "Только IPv6"
 
 msgid "Lease directory"
-msgstr "Директория арендованных адресов"
+msgstr "Каталог арендованных адресов"
 
 msgid "Lease validity time"
 msgstr "Срок действия аренды"
@@ -98,22 +93,16 @@ msgid "Server"
 msgstr "Сервер"
 
 msgid "Specifies the announced IPv4 and IPv6 NTP servers"
-msgstr "Определяет IPv4 и IPv6 NTP-серверы"
+msgstr "Определяет IPv4 и IPv6 NTP серверы"
 
 msgid "Specifies the announced IPv4 and IPv6 name servers"
-msgstr "Определяет IPv4 и IPv6 DNS-серверы"
+msgstr "Определяет IPv4 и IPv6 DNS серверы"
 
 msgid "Specifies the announced IPv4 and IPv6 network prefixes in CIDR notation"
-msgstr "Определяет IPv4- и IPv6-префиксы сети в нотации CIDR"
-
-msgid "The AHCP Service is not running."
-msgstr "Служба AHCP не запущена."
-
-msgid "The AHCP Service is running with ID %s."
-msgstr "Служба AHCP запущена с ID %s."
+msgstr "Определяет IPv4 и IPv6 префиксы сети в нотации CIDR"
 
 msgid "There are no active leases."
 msgstr "Нет активных арендованных адресов."
 
 msgid "Unique ID file"
-msgstr "Файл уникального идентификатора"
+msgstr "Файл Unique ID"

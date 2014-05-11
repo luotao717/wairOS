@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-06-10 03:41+0200\n"
-"PO-Revision-Date: 2012-09-27 00:40+0200\n"
+"PO-Revision-Date: 2011-11-02 05:33+0200\n"
 "Last-Translator: Luiz Angelo <luizluca@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: pt_BR\n"
@@ -11,13 +11,10 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Pootle 2.0.6\n"
+"X-Generator: Pootle 2.0.4\n"
 
 msgid "BSSID"
 msgstr "BSSID"
-
-msgid "Bad (ETX > 10)"
-msgstr ""
 
 msgid "Basic Settings"
 msgstr "Configurações Básicas"
@@ -87,9 +84,6 @@ msgstr "ESSID"
 msgid "Edit index page"
 msgstr "Edita a página índice"
 
-msgid "Enable IPv6"
-msgstr ""
-
 msgid "Error"
 msgstr "Erro"
 
@@ -106,16 +100,10 @@ msgid "Freifunk Remote Update"
 msgstr "Atualização Remota do Freifunk"
 
 msgid "Gateway"
-msgstr "Roteador"
+msgstr "Gateway"
 
 msgid "Go to"
 msgstr "Vá para"
-
-msgid "Good (2 < ETX < 4)"
-msgstr ""
-
-msgid "Green"
-msgstr ""
 
 msgid "Hello and welcome in the network of"
 msgstr "Olá e seja bem-vindo à rede do"
@@ -128,15 +116,6 @@ msgstr "Página"
 
 msgid "Hostname"
 msgstr "Nome do equipamento"
-
-msgid "IPv6 Config"
-msgstr ""
-
-msgid "IPv6 Prefix"
-msgstr ""
-
-msgid "IPv6 network in CIDR notation."
-msgstr ""
 
 msgid "If selected then the default content element is not shown."
 msgstr "Se selecionado, o conteúdo padrão não é mostrado."
@@ -168,9 +147,6 @@ msgstr "Manter a configuração"
 msgid "Latitude"
 msgstr "Latitude"
 
-msgid "Legend"
-msgstr ""
-
 msgid "Load"
 msgstr "Carregar"
 
@@ -193,7 +169,7 @@ msgid "Memory"
 msgstr "Memória"
 
 msgid "Mesh prefix"
-msgstr "Prefixo da rede em malha"
+msgstr "Prefixo da Mesh"
 
 msgid "Metric"
 msgstr "Métrica"
@@ -213,6 +189,13 @@ msgstr "Apelido"
 msgid "No default routes known."
 msgstr "Nenhuma rota padrão conhecida."
 
+msgid ""
+"No services can be shown, because olsrd is not running or the olsrd-"
+"nameservice Plugin is not loaded."
+msgstr ""
+"Nenhum serviço pode ser mostrado porque o olsrd não está rodando ou o plugin "
+"do olsrd-nameservice não está carregado."
+
 msgid "Notice"
 msgstr "Aviso"
 
@@ -221,9 +204,6 @@ msgstr "OLSR"
 
 msgid "Operator"
 msgstr "Operador"
-
-msgid "Orange"
-msgstr ""
 
 msgid "Overview"
 msgstr "Visão Geral"
@@ -255,9 +235,6 @@ msgstr "Perfil (Especialista)"
 msgid "Realname"
 msgstr "Nome Real"
 
-msgid "Red"
-msgstr ""
-
 msgid "SSID"
 msgstr "SSID"
 
@@ -268,17 +245,20 @@ msgstr ""
 "Selecione a sua localização com o mouse clicando no mapa. O mapa irá mostrar "
 "se você está conectado na internet."
 
-msgid "Show OpenStreetMap"
-msgstr "Mostrar o OpenStreetMap"
+msgid "Services"
+msgstr "Serviços"
 
 msgid "Show on map"
 msgstr "Mostrar no mapa"
 
+msgid "Show OpenStreetMap"
+msgstr "Mostrar o OpenStreetMap"
+
 msgid "Signal"
 msgstr "Sinal"
 
-msgid "Splash"
-msgstr "Splash"
+msgid "Source"
+msgstr "Origem"
 
 msgid "Start Upgrade"
 msgstr "Iniciar a Atualização"
@@ -289,9 +269,6 @@ msgstr "Estatística"
 msgid "Status"
 msgstr "Estado"
 
-msgid "Still usable (4 < ETX < 10)"
-msgstr ""
-
 msgid "System"
 msgstr "Sistema"
 
@@ -299,10 +276,10 @@ msgid "TX"
 msgstr "TX"
 
 msgid ""
-"The <em>libiwinfo</em> package is not installed. You must install this "
+"The <em>libiwinfo-lua</em> package is not installed. You must install this "
 "component for working wireless configuration!"
 msgstr ""
-"O pacote <em>libiwinfo</em> não está instalado. Você precisa instalar este "
+"O pacote <em>libiwinfo-lua</em> não está instalado. Você deve instalar este "
 "componente para ter uma configuração sem fio funcional!"
 
 msgid ""
@@ -348,24 +325,21 @@ msgstr "Existe uma atualização disponível!"
 msgid "Uptime"
 msgstr "Tempo de atividade"
 
+msgid "Url"
+msgstr "URL"
+
 msgid "Verify downloaded images"
 msgstr "Verifique as imagens baixadas"
-
-msgid "Very good (ETX < 2)"
-msgstr ""
 
 msgid ""
 "We are an initiative to establish a free, independent and open wireless mesh "
 "network."
 msgstr ""
-"Somos uma iniciativa para implementação de uma rede sem fio em malha livre, "
+"Somos uma iniciativa para implementação de uma rede sem fio mesh livre, "
 "independente e não-comercial."
 
 msgid "Wireless Overview"
 msgstr "Visão Geral da Rede Sem Fio"
-
-msgid "Yellow"
-msgstr ""
 
 msgid ""
 "You can display additional content on the public index page by inserting "
@@ -410,30 +384,7 @@ msgid "to disable it."
 msgstr "para desabilitá-lo."
 
 msgid "used"
-msgstr "usado"
+msgstr "não usado"
 
 msgid "wireless settings"
 msgstr "configurações da rede sem fio"
-
-#~ msgid ""
-#~ "No services can be shown, because olsrd is not running or the olsrd-"
-#~ "nameservice Plugin is not loaded."
-#~ msgstr ""
-#~ "Nenhum serviço pode ser mostrado porque o olsrd não está rodando ou o "
-#~ "plugin do olsrd-nameservice não está carregado."
-
-#~ msgid "Services"
-#~ msgstr "Serviços"
-
-#~ msgid "Source"
-#~ msgstr "Origem"
-
-#~ msgid ""
-#~ "The <em>libiwinfo-lua</em> package is not installed. You must install "
-#~ "this component for working wireless configuration!"
-#~ msgstr ""
-#~ "O pacote <em>libiwinfo-lua</em> não está instalado. Você deve instalar "
-#~ "este componente para ter uma configuração sem fio funcional!"
-
-#~ msgid "Url"
-#~ msgstr "URL"

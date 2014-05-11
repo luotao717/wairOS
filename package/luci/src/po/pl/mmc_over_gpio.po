@@ -14,29 +14,7 @@ msgstr ""
 "|| n%100>=20) ? 1 : 2);\n"
 "X-Generator: Pootle 2.0.4\n"
 
-msgid "CLK_pin"
-msgstr "Pin CLK"
-
-msgid "CS_pin"
-msgstr "Pin CS"
-
-msgid "DI_pin"
-msgstr "Pin DI"
-
-msgid "DO_pin"
-msgstr "Pin DO"
-
-msgid "Enable"
-msgstr "Uaktywnij"
-
-msgid "MMC/SD driver configuration"
-msgstr "Konfiguracja sterownika MMC/SD"
-
-msgid "Mode"
-msgstr "Tryb"
-
-msgid "Name"
-msgstr "Nazwa"
-
+#. Settings
+#: applications/luci-mmc_over_gpio/luasrc/i18n/mmc_over_gpio.en.lua:3
 msgid "Settings"
 msgstr "Ustawienia"

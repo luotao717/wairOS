@@ -1,98 +1,91 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"PO-Revision-Date: 2012-03-31 15:37+0200\n"
-"Last-Translator: Vasilis <acinonyx@openwrt.gr>\n"
+"Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
-"Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.0.4\n"
 
 msgid "Allow to transfer anonymous statistics about this node"
-msgstr "Να επιτρέπεται η μεταφορά ανώνυμων στατιστικών αυτού του κόμβου"
+msgstr ""
 
 msgid "Channel"
-msgstr "Κανάλι"
+msgstr ""
 
 msgid "Check this to protect your LAN from other nodes or clients"
-msgstr "Επιλέξτε για να προστατέψετε το LAN σας από άλλους κόμβους ή πελάτες"
+msgstr ""
 
 msgid "Configure network"
-msgstr "Παραμετροποίηση δικτύου"
+msgstr ""
 
 msgid "Connect your node with other nodes with a tunnel via the internet."
 msgstr ""
-"Συνδέστε τον κόμβο σας με άλλους κόμβους χρησιμοποιώντας τούνελ μέσω του "
-"διαδικτύου."
 
 msgid "DHCP IP range"
-msgstr "Εύρος DHCP IP"
+msgstr ""
 
 msgid "DHCP will automatically assign ip addresses to clients"
-msgstr "Το DHCP θα αποδώσει αυτόματα διευθύνσεις ip στους πελάτες"
+msgstr ""
 
 msgid "DNS Server"
-msgstr "Εξυπηρετητής DNS"
+msgstr ""
 
 msgid "Enable DHCP"
-msgstr "Ενεργοποίηση DHCP"
+msgstr ""
 
 msgid "Gateway"
-msgstr "Πύλη"
+msgstr ""
 
 msgid "Heartbeat"
-msgstr "Καρδιακός Παλμός"
+msgstr ""
 
 msgid "IP address"
-msgstr "Διεύθυνση IP"
+msgstr ""
 
 msgid "L2gvpn tunnel"
-msgstr "Τούνελ L2gvpn"
+msgstr ""
 
 msgid "Limit download bandwidth"
-msgstr "Περιορισμός ταχύτητας κατεβάσματος"
+msgstr ""
 
 msgid "Limit upload bandwidth"
-msgstr "Περιορισμός ταχύτητας ανεβάσματος"
+msgstr ""
 
 msgid "Mesh IP address"
-msgstr "IP διεύθυνση πλέγματος"
+msgstr ""
 
 msgid "Mesh IPv6 Address"
-msgstr "IPv6 Διεύθυνση Δικτύου Πλέγματος"
+msgstr ""
 
 msgid "Netmask"
-msgstr "Μάσκα δικτύου"
+msgstr ""
 
 msgid "Password"
-msgstr "Κωδικός πρόσβασης"
+msgstr ""
 
 msgid "Password confirmation"
-msgstr "Επιβεβαίωση κωδικού πρόσβασης"
+msgstr ""
 
 msgid "Password successfully changed"
-msgstr "Ο κωδικός πρόσβασης άλλαξε επιτυχώς"
+msgstr ""
 
 msgid "Protect LAN"
-msgstr "Προστασία LAN"
+msgstr ""
 
 msgid "Protocol"
-msgstr "Πρωτόκολλο"
+msgstr ""
 
 msgid "Select this checkbox to configure your network interfaces."
-msgstr "Επιλέξτε για να παραμετροποιήσετε τις διεπαφές δικτύου."
+msgstr ""
 
 msgid ""
 "Select this to allow others to use your connection to access the internet."
 msgstr ""
-"Επιλέξτε για να επιτρέπεται σε άλλους να χρησιμοποιήσουν την σύνδεσή σας για "
-"πρόσβαση στο διαδίκτυο."
 
 msgid "Share your internet connection"
-msgstr "Διαμοιρασμός σύνδεσης διαδικτύου"
+msgstr ""
 
 msgid ""
 "The IP range from which clients are assigned ip addresses (e.g. "
@@ -100,82 +93,67 @@ msgid ""
 "will be announced as HNA. Any other range will use NAT. If left empty then "
 "the defaults from the community profile will be used."
 msgstr ""
-"Το εύρος IP από το οποίο θα αποδίδονται στους πελάτες διευθύνσεις ip (π.χ. "
-"10.1.2.1/28). Εάν αυτό είναι εύρος εντός του δικτύου πλέγματος, τότε θα "
-"ανακοινώνεται ως HNA. Οποιοδήποτε άλλο εύρος θα χρησιμοποιεί το NAT. Εάν "
-"αφεθεί κενό τότε θα χρησιμοποιηθούν οι ρυθμίσεις από το προφίλ κοινότητας."
 
 msgid "The ipv6 address is calculated auomatically."
-msgstr "Η διεύθυνση ipv6 υπολογίζεται αυτόματα."
+msgstr ""
 
 msgid "The protocol to use for internet connectivity."
 msgstr ""
-"Το πρωτόκολλο που θα χρησιμοποιήσετε για την διαδικτυακή συνδεσιμότητα. "
 
 msgid ""
 "This is a unique address in the mesh (e.g. 10.1.1.1) and has to be "
 "registered at your local community."
 msgstr ""
-"Αυτή είναι μία μοναδική διεύθυνση στο πλέγμα (π.χ 10.1.1.1) και πρέπει να "
-"καταχωρηθεί στην τοπική σας κοινότητα."
 
 msgid "This will setup a new virtual wireless interface in Access Point mode."
 msgstr ""
-"Αυτή η επιλογή θα ρυθμίσει μία νέα εικονική ασύρματη διεπαφή σε λειτουργία "
-"Σημείου Πρόσβασης. "
 
 msgid ""
 "This wizard will assist you in setting up your router for Freifunk or "
 "another similar wireless community network."
 msgstr ""
-"Αυτός ο οδηγός θα σας βοηθήσει να στήσετε το δρομολογητής σας για το "
-"Freifunk  ή άλλο παρόμοιο δίκτυο."
 
 msgid "Unknown Error"
-msgstr "Άγνωστο Σφάλμα"
+msgstr ""
 
 msgid "Username"
-msgstr "Όνομα χρήστη"
+msgstr ""
 
 msgid "Virtual Access Point (VAP)"
-msgstr "Εικονικό Σημείο Πρόσβασης (VAP)"
+msgstr ""
 
 msgid "Wizard"
-msgstr "Οδηγός"
+msgstr ""
 
 msgid "Your device and neighbouring nodes have to use the same channel."
 msgstr ""
-"Η συσκευή σας και οι γειτονικοί σας κόμβοι πρέπει να χρησιμοποιούν το ίδιο "
-"κανάλι."
 
 msgid "dhcp"
-msgstr "dhcp"
+msgstr ""
 
 msgid "kbit/s"
-msgstr "kbit/s"
+msgstr ""
 
 msgid "static"
-msgstr "στατικό"
+msgstr ""
 
 msgid "Configure this interface."
-msgstr "Παραμετροποίηση αυτής της διεπαφής."
+msgstr ""
 
 msgid "recommended"
-msgstr "προτεινόμενο"
+msgstr ""
 
 msgid "Basic settings"
-msgstr "Βασικές ρυθμίσεις"
+msgstr ""
 
 msgid "Basic settings are incomplete. Please go to"
-msgstr "Οι βασικές ρυθμίσεις είναι ημιτελείς. Παρακαλώ προχωρήστε στο"
+msgstr ""
 
 msgid "Error"
-msgstr "Σφάλμα"
+msgstr ""
 
 msgid "You can not use the wizard because some necessary values are missing."
 msgstr ""
-"Δεν μπορείτε να χρησιμοποιήσετε τον οδηγό γιατί κάποιες απαραίτητες τιμές "
-"δεν έχουν συμπληρωθεί."
 
 msgid "and fill out all required fields."
-msgstr "και συμπληρώστε όλα τα απαραίτητα πεδία."
+msgstr ""

@@ -13,14 +13,21 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Pootle 2.0.4\n"
 
-msgid "Disk"
-msgstr "Disco"
+msgid ""
+"hd-idle is a utility program for spinning-down external disks after a period "
+"of idle time."
+msgstr ""
+"Hd-idle é um programa utilitário para ativar o modo \"economia de energia\" "
+"(spinning-down) de discos externos após um período de ociosidade."
+
+msgid "Settings"
+msgstr "Configurações"
 
 msgid "Enable"
 msgstr "Habilitar"
 
-msgid "Enable debug"
-msgstr "Ativar depuração"
+msgid "Disk"
+msgstr "Disco"
 
 msgid "Idle-time"
 msgstr "Tempo de ociosidade"
@@ -28,23 +35,16 @@ msgstr "Tempo de ociosidade"
 msgid "Idle-time unit"
 msgstr "Unidade do tempo da ociosidade"
 
-msgid "Settings"
-msgstr "Configurações"
+# Minutes (not minimum)
+msgid "min"
+msgstr "minutos"
 
 # Hours
 msgid "h"
 msgstr "horas"
 
-msgid "hd-idle"
-msgstr "Hd-idle"
+msgid "Enable debug"
+msgstr "Ativar depuração"
 
-msgid ""
-"hd-idle is a utility program for spinning-down external disks after a period "
-"of idle time."
-msgstr ""
-"Hd-idle é um programa utilitário para ativar o modo \"economia de energia"
-"\" (spinning-down) de discos externos após um período de ociosidade."
-
-# Minutes (not minimum)
-msgid "min"
-msgstr "minutos"
+#~ msgid "hd-idle"
+#~ msgstr "Hd-idle"

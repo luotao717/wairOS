@@ -13,15 +13,22 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Pootle 1.1.0\n"
 
-msgid "Disk"
-msgstr "Ổ đĩa"
+msgid ""
+"hd-idle is a utility program for spinning-down external disks after a period "
+"of idle time."
+msgstr ""
+"hd-idle là một chương trình tiện ích để quay các đĩa ngoài sau một khoảng "
+"thời gian idle."
+
+msgid "Settings"
+msgstr "Sắp đặt"
 
 #, fuzzy
 msgid "Enable"
 msgstr "Kích hoạt debug"
 
-msgid "Enable debug"
-msgstr "Kích hoạt debug"
+msgid "Disk"
+msgstr "Ổ đĩa"
 
 #, fuzzy
 msgid "Idle-time"
@@ -31,23 +38,16 @@ msgstr "Thời gian Idle"
 msgid "Idle-time unit"
 msgstr "Đơn vị thời gian Idle"
 
-msgid "Settings"
-msgstr "Sắp đặt"
+# Minutes (not minimum)
+msgid "min"
+msgstr ""
 
 # Hours
 msgid "h"
 msgstr ""
 
-msgid "hd-idle"
-msgstr "hd-idle"
+msgid "Enable debug"
+msgstr "Kích hoạt debug"
 
-msgid ""
-"hd-idle is a utility program for spinning-down external disks after a period "
-"of idle time."
-msgstr ""
-"hd-idle là một chương trình tiện ích để quay các đĩa ngoài sau một khoảng "
-"thời gian idle."
-
-# Minutes (not minimum)
-msgid "min"
-msgstr ""
+#~ msgid "hd-idle"
+#~ msgstr "hd-idle"

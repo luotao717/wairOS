@@ -11,7 +11,7 @@ You may obtain a copy of the License at
 
 		http://www.apache.org/licenses/LICENSE-2.0
 
-$Id: stat-genconfig 9558 2012-12-18 13:58:22Z jow $
+$Id$
 
 ]]--
 
@@ -200,19 +200,15 @@ function _list_expand( c, l, nopad )
 end
 
 function _expand( s, n, nopad )
-	local str = ""
-
 	if type(s) == "string" then
+		local str = ""
+
 		for i, v in ipairs( luci.util.split( s, "%s+", nil, true ) ) do
 			str = str .. _string( v, n, nopad )
 		end
-	elseif type(s) == "table" then
-		for i, v in ipairs(s) do
-			str = str .. _string( v, n, nopad )
-		end
-	end
 
-	return str
+		return str
+	end
 end
 
 function _bool( s, n, nopad )
@@ -237,8 +233,8 @@ function _string( s, n, nopad )
 	if not nopad then pad = "\t" end
 
 	if s then
-		if s:find("[^%d]") or n == "Port" then
-			if not s:find("[^%w]") and n ~= "Port" then
+		if s:find("[^%d]") then
+			if not s:find("[^%w]") then
 				str = pad .. n .. " " .. luci.util.trim(s)
 			else
 				str = pad .. n .. ' "' .. luci.util.trim(s) .. '"'
@@ -257,12 +253,6 @@ end
 plugins = {
 	collectd = {
 		{ "BaseDir", "Include", "PIDFile", "PluginDir", "TypesDB", "Interval", "ReadThreads", "Hostname" },
-		{ },
-		{ }
-	},
-
-	conntrack = {
-		{ },
 		{ },
 		{ }
 	},
@@ -337,18 +327,6 @@ plugins = {
 		{ }
 	},
 
-	madwifi = {
-		{ "WatchSet" },
-		{ },
-		{ "Interfaces", "WatchAdds" }
-	},
-
-	memory = { 
-		{ },
-		{ },
-		{ }
-	},
-
 	netlink	= {
 		{ },
 		{ "IgnoreSelected" },
@@ -356,18 +334,6 @@ plugins = {
 	},
 
 	network	= config_network,
-
-	nut = {
-		{ "UPS" },
-		{ },
-		{ }
-	},
-
-	olsrd = {
-		{ "Host", "Port", "CollectLinks","CollectRoutes","CollectTopology"},
-		{ },
-		{ }
-	},
 
 	ping	= {
 		{ "TTL", "Interval" },

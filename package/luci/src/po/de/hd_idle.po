@@ -13,31 +13,6 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.4\n"
 
-msgid "Disk"
-msgstr "Festplatte"
-
-msgid "Enable"
-msgstr "Aktivieren"
-
-msgid "Enable debug"
-msgstr "Debug-Ausgaben aktivieren"
-
-msgid "Idle-time"
-msgstr "Leerlaufzeit"
-
-msgid "Idle-time unit"
-msgstr "Leerlaufzeiteinheit"
-
-msgid "Settings"
-msgstr "Einstellungen"
-
-# Hours
-msgid "h"
-msgstr "Stunden"
-
-msgid "hd-idle"
-msgstr "hd-idle"
-
 msgid ""
 "hd-idle is a utility program for spinning-down external disks after a period "
 "of idle time."
@@ -45,6 +20,31 @@ msgstr ""
 "hd-idle ist ein Hilfsprogramm um externe Festplatten nach einer festgelegten "
 "Leerlaufzeit herunter zu fahren."
 
+msgid "Settings"
+msgstr "Einstellungen"
+
+msgid "Enable"
+msgstr "Aktivieren"
+
+msgid "Disk"
+msgstr "Festplatte"
+
+msgid "Idle-time"
+msgstr "Leerlaufzeit"
+
+msgid "Idle-time unit"
+msgstr "Leerlaufzeiteinheit"
+
 # Minutes (not minimum)
 msgid "min"
 msgstr "Minuten"
+
+# Hours
+msgid "h"
+msgstr "Stunden"
+
+msgid "Enable debug"
+msgstr "Debug-Ausgaben aktivieren"
+
+#~ msgid "hd-idle"
+#~ msgstr "hd-idle"

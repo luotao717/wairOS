@@ -23,8 +23,8 @@ msgid ""
 msgstr ""
 "AHCP er en autokonfigurasjon protokoll for IPv6, og dual-stack IPv6/IPv4 "
 "nettverk. Det er laget for bruk der DHCP og Ruter oppdagelse er problematisk "
-"eller umulig å bruke for hvert link-lags broadcast domene, f.eks. mobile ad-"
-"hoc nettverk."
+"eller umulig å bruke for hvert link-lags broadcast domene, f.eks. mobile "
+"ad-hoc nettverk."
 
 msgid "Active AHCP Leases"
 msgstr "Aktive AHCP Leier"
@@ -103,12 +103,6 @@ msgstr "Angir annonserte IPv4 og IPv6 navnetjenere"
 
 msgid "Specifies the announced IPv4 and IPv6 network prefixes in CIDR notation"
 msgstr "Angir annonserte IPv4 og IPv6 nettverk prefikser i CIDR-notasjon"
-
-msgid "The AHCP Service is not running."
-msgstr ""
-
-msgid "The AHCP Service is running with ID %s."
-msgstr ""
 
 msgid "There are no active leases."
 msgstr "Det er ingen aktive leieavtaler."

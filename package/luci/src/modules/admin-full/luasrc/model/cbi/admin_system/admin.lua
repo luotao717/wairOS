@@ -10,7 +10,7 @@ You may obtain a copy of the License at
 
 	http://www.apache.org/licenses/LICENSE-2.0
 
-$Id: admin.lua 8153 2012-01-06 16:42:02Z jow $
+$Id$
 ]]--
 
 local fs = require "nixio.fs"
@@ -38,7 +38,7 @@ function m.on_commit(map)
 
 	if v1 and v2 and #v1 > 0 and #v2 > 0 then
 		if v1 == v2 then
-			if luci.sys.user.setpasswd(luci.dispatcher.context.authuser, v1) == 0 then
+			if luci.sys.user.setpasswd("root", v1) == 0 then
 				m.message = translate("Password successfully changed!")
 			else
 				m.message = translate("Unknown Error, password not changed!")

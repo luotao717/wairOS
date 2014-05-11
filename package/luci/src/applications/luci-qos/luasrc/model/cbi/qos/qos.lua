@@ -9,7 +9,7 @@ You may obtain a copy of the License at
 
 	http://www.apache.org/licenses/LICENSE-2.0
 
-$Id: qos.lua 9558 2012-12-18 13:58:22Z jow $
+$Id$
 ]]--
 
 local wa = require "luci.tools.webadmin"
@@ -35,11 +35,9 @@ s:option(Flag, "overhead", translate("Calculate overhead"))
 
 s:option(Flag, "halfduplex", translate("Half-duplex"))
 
-dl = s:option(Value, "download", translate("Download speed (kbit/s)"))
-dl.datatype = "and(uinteger,min(1))"
+s:option(Value, "download", translate("Download speed (kbit/s)"))
 
-ul = s:option(Value, "upload", translate("Upload speed (kbit/s)"))
-ul.datatype = "and(uinteger,min(1))"
+s:option(Value, "upload", translate("Upload speed (kbit/s)"))
 
 s = m:section(TypedSection, "classify", translate("Classification Rules"))
 s.template = "cbi/tblsection"

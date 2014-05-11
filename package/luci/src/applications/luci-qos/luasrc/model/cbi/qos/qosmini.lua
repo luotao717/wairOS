@@ -10,7 +10,7 @@ You may obtain a copy of the License at
 
 	http://www.apache.org/licenses/LICENSE-2.0
 
-$Id: qosmini.lua 9558 2012-12-18 13:58:22Z jow $
+$Id$
 ]]--
 
 local wa = require "luci.tools.webadmin"
@@ -21,12 +21,8 @@ m = Map("qos")
 s = m:section(NamedSection, "wan", "interface", translate("Internet Connection"))
 
 s:option(Flag, "enabled", translate("Quality of Service"))
-
-dl = s:option(Value, "download", translate("Downlink"), "kbit/s")
-dl.datatype = "and(uinteger,min(1))"
-
-ul = s:option(Value, "upload", translate("Uplink"), "kbit/s")
-ul.datatype = "and(uinteger,min(1))"
+s:option(Value, "download", translate("Downlink"), "kbit/s")
+s:option(Value, "upload", translate("Uplink"), "kbit/s")
 
 s = m:section(TypedSection, "classify")
 s.template = "cbi/tblsection"

@@ -5,7 +5,7 @@ Description:
 Main class
 
 FileId:
-$Id: init.lua 7365 2011-08-13 09:52:50Z jow $
+$Id$
 
 License:
 Copyright 2008 Steven Barth <steven@midlink.org>

@@ -2,7 +2,7 @@
 # This is only run once (usually after flashing an image from the imagebuilder)
 # It sets up the initial config for this node.
 
-. /lib/functions.sh
+. /etc/functions.sh
 . $dir/functions.sh
 
 config_load system

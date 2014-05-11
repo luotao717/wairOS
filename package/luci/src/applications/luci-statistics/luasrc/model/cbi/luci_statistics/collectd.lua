@@ -9,7 +9,7 @@ You may obtain a copy of the License at
 
 	http://www.apache.org/licenses/LICENSE-2.0 
 
-$Id: collectd.lua 9558 2012-12-18 13:58:22Z jow $
+$Id$
 
 ]]--
 
@@ -19,7 +19,7 @@ require("luci.sys")
 m = Map("luci_statistics",
 	translate("Collectd Settings"),
 	translate(
-		"Collectd is a small daemon for collecting data from " ..
+		"Collectd is a small daeomon for collecting data from " ..
 		"various sources through different plugins. On this page " ..
 		"you can change general settings for the collectd daemon."
 	))

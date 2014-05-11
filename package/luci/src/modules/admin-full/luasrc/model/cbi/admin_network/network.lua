@@ -10,13 +10,12 @@ You may obtain a copy of the License at
 
 	http://www.apache.org/licenses/LICENSE-2.0
 
-$Id: network.lua 9849 2013-06-24 12:00:29Z Cyrus $
+$Id$
 ]]--
 
 local fs = require "nixio.fs"
 
 m = Map("network", translate("Interfaces"))
-m.pageaction = false
 m:section(SimpleSection).template = "admin_network/iface_overview"
 
 -- Show ATM bridge section if we have the capabilities
@@ -66,17 +65,8 @@ if fs.access("/usr/sbin/br2684ctl") then
 	payload = atm:taboption("advanced", ListValue, "payload", translate("Forwarding mode"))
 	payload:value("bridged", translate("bridged"))
 	payload:value("routed", translate("routed"))
-	m.pageaction = true
+else
+	m.pageaction = false
 end
-
-local network = require "luci.model.network"
-if network:has_ipv6() then
-	local s = m:section(NamedSection, "globals", "globals", translate("Global network options"))
-	local o = s:option(Value, "ula_prefix", translate("IPv6 ULA-Prefix"))
-	o.datatype = "ip6addr"
-	o.rmempty = true
-	m.pageaction = true
-end
-
 
 return m

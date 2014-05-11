@@ -1,6 +1,6 @@
 #!/bin/sh
 
-. /lib/functions.sh
+. /etc/functions.sh
 . $dir/functions.sh
 
 # Set dnsmasq config
@@ -21,9 +21,6 @@ EOF
 config_get addnhosts dnsmasq addnhosts
 if [ -z "${addnhosts/\var\/etc\/hosts.olsr/}" ]; then
 	uci add_list dhcp.dnsmasq.addnhosts="/var/etc/hosts.olsr"
-	if [ "$ipv6_enabled" = 1 ]; then
-		uci add_list dhcp.dnsmasq.addnhosts="/var/etc/hosts.olsr.ipv6"
-	fi
 fi
 
 uci_commitverbose "Setup dnsmasq" dhcp

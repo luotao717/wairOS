@@ -13,15 +13,22 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Pootle 1.1.0\n"
 
-msgid "Disk"
-msgstr "Disc"
+msgid ""
+"hd-idle is a utility program for spinning-down external disks after a period "
+"of idle time."
+msgstr ""
+"hd-idle és un programa per ralentitzar els discos externs després d'un "
+"període de temps inactiu."
+
+msgid "Settings"
+msgstr "Configuració"
 
 #, fuzzy
 msgid "Enable"
 msgstr "Habilita la depuració"
 
-msgid "Enable debug"
-msgstr "Habilita la depuració"
+msgid "Disk"
+msgstr "Disc"
 
 #, fuzzy
 msgid "Idle-time"
@@ -31,23 +38,16 @@ msgstr "Temps d'inactivitat"
 msgid "Idle-time unit"
 msgstr "Unitat de temps d'inactivitat"
 
-msgid "Settings"
-msgstr "Configuració"
+# Minutes (not minimum)
+msgid "min"
+msgstr ""
 
 # Hours
 msgid "h"
 msgstr ""
 
-msgid "hd-idle"
-msgstr "hd-idle"
+msgid "Enable debug"
+msgstr "Habilita la depuració"
 
-msgid ""
-"hd-idle is a utility program for spinning-down external disks after a period "
-"of idle time."
-msgstr ""
-"hd-idle és un programa per ralentitzar els discos externs després d'un "
-"període de temps inactiu."
-
-# Minutes (not minimum)
-msgid "min"
-msgstr ""
+#~ msgid "hd-idle"
+#~ msgstr "hd-idle"

@@ -3,27 +3,25 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-06-10 03:41+0200\n"
-"PO-Revision-Date: 2012-12-12 20:19+0200\n"
-"Last-Translator: José Vicente <josevteg@gmail.com>\n"
+"PO-Revision-Date: 2009-07-17 05:56+0200\n"
+"Last-Translator: Guillermo Javier Nardoni <guillermo@geryon.com.ar>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.0.6\n"
+"X-Generator: Pootle 1.1.0\n"
 
 msgid "Action (target)"
-msgstr "Acción (objetivo)"
+msgstr ""
 
 msgid "Add command for reading values"
-msgstr "Añadir comando para leer valores"
+msgstr "Añadir comando para leer los valores "
 
 msgid "Add matching rule"
-msgstr "Añadir regla"
+msgstr ""
 
 msgid "Add multiple hosts separated by space."
-msgstr "Añadir múltiples máquinas separadas por espacio."
+msgstr ""
 
 msgid "Add notification command"
 msgstr "Añadir comando de notificación"
@@ -32,7 +30,7 @@ msgid "Base Directory"
 msgstr "Directorio Base"
 
 msgid "Basic monitoring"
-msgstr "Monitorización básica"
+msgstr ""
 
 msgid "CPU Plugin Configuration"
 msgstr "Configuración del plugin de CPU"
@@ -44,22 +42,22 @@ msgid "CSV Plugin Configuration"
 msgstr "Configuración del plugin de CSV"
 
 msgid "Cache collected data for"
-msgstr "Almacenar datos recogidos para"
+msgstr ""
 
 msgid "Cache flush interval"
-msgstr "Intervalo de limpieza del caché"
+msgstr ""
 
 msgid "Chain"
-msgstr "Cadena"
+msgstr ""
 
 msgid "CollectLinks"
-msgstr "Enlaces"
+msgstr ""
 
 msgid "CollectRoutes"
-msgstr "Rutas"
+msgstr ""
 
 msgid "CollectTopology"
-msgstr "Topología"
+msgstr ""
 
 msgid "Collectd"
 msgstr "Collectd"
@@ -68,37 +66,37 @@ msgid "Collectd Settings"
 msgstr "Configuración de Collectd"
 
 msgid ""
-"Collectd is a small daemon for collecting data from various sources through "
+"Collectd is a small daeomon for collecting data from various sources through "
 "different plugins. On this page you can change general settings for the "
 "collectd daemon."
 msgstr ""
 "Collectd is un demonio para la recolección de datos desde varias fuentes a "
-"través de la utilización de diferentes plugins. Aquí puede cambiar la "
-"configuración general del demonio que maneja collectd."
+"travéz de la utilización de diferentes agregados (plugins). En esta página "
+"puede cambiar la configuración general del demonio que maneja collectd."
 
 msgid "Conntrack"
-msgstr "Seguimiento"
+msgstr ""
 
 msgid "Conntrack Plugin Configuration"
-msgstr "Configuración del seguimiento"
+msgstr ""
 
 msgid "DF Plugin Configuration"
-msgstr "Configuración del plugin DF"
+msgstr "Configuración del plugin de DF"
 
 msgid "DNS"
 msgstr "DNS"
 
 msgid "DNS Plugin Configuration"
-msgstr "Configuración del plugin DNS"
+msgstr "Configuración del plugin de DNS"
 
 msgid "Data collection interval"
 msgstr "Intervalo de recolección de datos"
 
 msgid "Datasets definition file"
-msgstr "Archivo de definición de conjunto de datos"
+msgstr "Archivo de definición de conjunto de datos (Datasets)"
 
 msgid "Destination ip range"
-msgstr "Rango IP de destino"
+msgstr ""
 
 msgid "Directory for collectd plugins"
 msgstr "Directorio para los plugins de collectd"
@@ -107,28 +105,25 @@ msgid "Directory for sub-configurations"
 msgstr "Directorio para las sub-configuraciones"
 
 msgid "Disk Plugin Configuration"
-msgstr "Configuración del plugin Disco"
+msgstr "Configuración del plugin de Disco"
 
 msgid "Disk Space Usage"
-msgstr "Espacio en disco ocupado"
+msgstr "Uso del Espacio en Disco"
 
 msgid "Disk Usage"
-msgstr "Disco ocupado"
-
-msgid "Display Host »"
-msgstr "Mostrar máquina »"
+msgstr "Uso del Disco"
 
 msgid "Display timespan »"
-msgstr "Mostrar lapso de tiempo »"
+msgstr "Mostrar lapso de tiempo"
 
 msgid "E-Mail Plugin Configuration"
-msgstr "Configuración del plugin email"
+msgstr "Configuración del plugin de E-Mail"
 
 msgid "Email"
-msgstr "Correo electrónico"
+msgstr "Correo eletrónico"
 
 msgid "Enable this plugin"
-msgstr "Activar este plugin"
+msgstr ""
 
 msgid "Exec"
 msgstr "Exec"
@@ -137,65 +132,70 @@ msgid "Exec Plugin Configuration"
 msgstr "Configuración del plugin Exec"
 
 msgid "Filter class monitoring"
-msgstr "Monitorización del filtro de clases"
+msgstr ""
 
 msgid "Firewall"
-msgstr "Cortafuegos"
+msgstr "Corta fuego"
 
 msgid "Flush cache after"
-msgstr "Vaciar caché tras"
+msgstr ""
 
 msgid "Forwarding between listen and server addresses"
-msgstr "Retransmitir entre las direcciones de escucha y servidor"
+msgstr ""
 
 msgid "Graphs"
-msgstr "Gráficas"
+msgstr "Gráficos"
 
 msgid "Group"
-msgstr "Grupo"
+msgstr ""
 
 msgid ""
 "Here you can define external commands which will be started by collectd in "
 "order to read certain values. The values will be read from stdout."
 msgstr ""
-"Aquí puede definir los comandos externos que iniciará collectd para leer "
-"ciertos valores. Los valores se leen desde la salida estándar (stdout)."
+"Aquí puede definir los comandos externos los cuales serán iniciados por "
+"Collectd con el fin de leer determinados valores. Los valores serán leídos "
+"desde la salida estandar (stdout)."
 
 msgid ""
 "Here you can define external commands which will be started by collectd when "
 "certain threshold values have been reached. The values leading to invokation "
 "will be feeded to the the called programs stdin."
 msgstr ""
-"Aquí puede definir los comandos externos que iniciará collectd cuando se "
-"alcancen ciertos valores umbral."
+"Aquí puede definir los comandos externos los cuales serán iniciados por "
+"Collectd cuando determinados valores \"umbral\" sean alcanzados. "
 
 msgid ""
 "Here you can define various criteria by which the monitored iptables rules "
 "are selected."
 msgstr ""
-"Aquí puede definir varios criterios de selección de reglas de iptables "
-"monitorizadas."
 
 msgid "Host"
-msgstr "Máquina"
+msgstr ""
 
 msgid "Hostname"
-msgstr "Nombre de máquina"
+msgstr "Nombre de Host"
 
 msgid "IP or hostname where to get the txtinfo output from"
-msgstr "IP o nombre de máquina desde la que obtener la salida de txtinfo"
+msgstr ""
 
 msgid "IRQ Plugin Configuration"
-msgstr "Configuración del plugin IRQ"
+msgstr ""
 
 msgid "Ignore source addresses"
 msgstr "Ignorar direcciones de origen"
 
 msgid "Incoming interface"
-msgstr "Interfaz de entrada"
+msgstr ""
+
+msgid "Installed network plugins:"
+msgstr ""
+
+msgid "Installed output plugins:"
+msgstr ""
 
 msgid "Interface Plugin Configuration"
-msgstr "Configuración del interfaz de plugins"
+msgstr "Configuración del plugin Interface"
 
 msgid "Interfaces"
 msgstr "Interfaces"
@@ -204,278 +204,286 @@ msgid "Interrupts"
 msgstr "Interrupciones"
 
 msgid "Interval for pings"
-msgstr "Intervalo entre pings"
+msgstr ""
 
 msgid "Iptables Plugin Configuration"
 msgstr "Configuración del plugin Iptables"
 
 msgid "Leave unselected to automatically determine interfaces to monitor."
-msgstr "No marcar para determinar automáticamente que interfaces monitorizar."
+msgstr ""
 
 msgid "Listen host"
-msgstr "Máquina de escucha"
+msgstr ""
 
 msgid "Listen port"
-msgstr "Puerto de escucha"
+msgstr ""
 
 msgid "Listener interfaces"
-msgstr "Interfaces para escuchar"
+msgstr ""
 
 msgid "Load Plugin Configuration"
-msgstr "Configuración del plugin de carga"
+msgstr ""
 
 msgid "Maximum allowed connections"
-msgstr "Máximo número de conexiones"
+msgstr "Conexiones máximas permitidas"
 
 msgid "Memory"
-msgstr "Memoria"
+msgstr ""
 
 msgid "Memory Plugin Configuration"
-msgstr "Configuración del plugin Memoria"
+msgstr ""
 
 msgid "Monitor all except specified"
-msgstr "Monitorizar todos menos los especificados"
+msgstr ""
 
 msgid "Monitor all local listen ports"
-msgstr "Monitorizar todos los puertos de escucha locales"
+msgstr ""
 
 msgid "Monitor devices"
-msgstr "Dispositivos a monitonizar"
+msgstr "Monitorear de dispositivos "
 
 msgid "Monitor disks and partitions"
-msgstr "Monitorizar discos y particiones"
+msgstr "Monitorear discos y particiones"
 
 msgid "Monitor filesystem types"
-msgstr "Monitorizar tipos de sistema de archivos"
+msgstr "Monitorear tipos de sistema de archivos"
 
 msgid "Monitor hosts"
-msgstr "Monitorizar máquinas"
+msgstr ""
 
 msgid "Monitor interfaces"
-msgstr "Monitorizar interfaces"
+msgstr ""
 
 msgid "Monitor interrupts"
-msgstr "Monitorizar interrupciones"
+msgstr ""
 
 msgid "Monitor local ports"
-msgstr "Monitorizar puertos locales"
+msgstr ""
 
 msgid "Monitor mount points"
-msgstr "Monitorizar puntos de montaje"
+msgstr "Monitorear los puntos de montaje "
 
 msgid "Monitor processes"
-msgstr "Monitorizar procesos"
+msgstr ""
 
 msgid "Monitor remote ports"
-msgstr "Monitorizar puertos remotos"
+msgstr ""
 
 msgid "Name of the rule"
-msgstr "Nombre de la regla"
+msgstr ""
 
 msgid "Netlink"
 msgstr "Enlace de red"
 
 msgid "Netlink Plugin Configuration"
-msgstr "Configuración del plugin \"enlace de red\""
+msgstr ""
 
 msgid "Network"
 msgstr "Red"
 
 msgid "Network Plugin Configuration"
-msgstr "Configuración del plugin \"Red\""
+msgstr ""
 
 msgid "Network plugins"
 msgstr "Plugins de red"
 
+msgid ""
+"Network plugins are used to collect information about open tcp connections, "
+"interface traffic, iptables rules etc."
+msgstr ""
+
 msgid "Network protocol"
-msgstr "Protocolo de red"
+msgstr ""
 
 msgid "Number of threads for data collection"
-msgstr "Número de hilos para recolección de datos"
+msgstr "Número de hilos para la recogida de datos "
 
 msgid "OLSRd"
-msgstr "OLSRd"
+msgstr ""
 
 msgid "OLSRd Plugin Configuration"
-msgstr "Configuración del plugin \"OLSRd\""
+msgstr ""
 
 msgid "Only create average RRAs"
-msgstr "Crear sólo RRAs medias"
+msgstr ""
 
 msgid "Options"
-msgstr "Opciones"
+msgstr ""
 
 msgid "Outgoing interface"
-msgstr "Interfaz de salida"
+msgstr ""
 
 msgid "Output plugins"
 msgstr "Plugins de salida"
+
+msgid ""
+"Output plugins provide different possibilities to store collected data. It "
+"is possible to enable multiple plugin at one, for example to store collected "
+"data in rrd databases and to transmit the data over the network to other "
+"collectd instances."
+msgstr ""
 
 msgid "Ping"
 msgstr "Ping"
 
 msgid "Ping Plugin Configuration"
-msgstr "Configuración del plugin \"Ping\""
+msgstr ""
 
 msgid "Port"
-msgstr "Puerto"
+msgstr ""
 
 msgid "Processes"
 msgstr "Procesos"
 
 msgid "Processes Plugin Configuration"
-msgstr "Configuración del plugin \"Procesos\""
+msgstr ""
 
 msgid "Processes to monitor separated by space"
-msgstr "Procesos a monitorizar (separados por espacios)"
+msgstr ""
 
 msgid "Processor"
 msgstr "Procesador"
 
 msgid "Qdisc monitoring"
-msgstr "Monitorización Qdisc"
+msgstr ""
 
 msgid "RRD XFiles Factor"
-msgstr "Factor XFiles RRD"
+msgstr ""
 
 msgid "RRD heart beat interval"
-msgstr "Intervalo de pulso RRD"
+msgstr ""
 
 msgid "RRD step interval"
-msgstr "Intervalo de paso RRD"
+msgstr ""
 
 msgid "RRDTool"
-msgstr "Herramienta RRD"
+msgstr "RRDTool"
 
 msgid "RRDTool Plugin Configuration"
-msgstr "Configuración del plugin \"Herramienta RRD\""
+msgstr ""
 
 msgid "Rows per RRA"
-msgstr "Filas por RRA"
+msgstr ""
 
 msgid "Script"
-msgstr "Guión"
+msgstr ""
 
 msgid "Seconds"
 msgstr "Segundos"
 
 msgid "Server host"
-msgstr "Máquina servidor"
+msgstr ""
 
 msgid "Server port"
-msgstr "Puerto servidor"
+msgstr ""
 
 msgid "Shaping class monitoring"
-msgstr "Monitorización de la clase shaping"
+msgstr ""
 
 msgid "Socket file"
-msgstr "Fichero de sockets"
+msgstr ""
 
 msgid "Socket group"
-msgstr "Grupo socket"
+msgstr ""
 
 msgid "Socket permissions"
-msgstr "Permisos para socket"
+msgstr ""
 
 msgid "Source ip range"
-msgstr "Rango de direcciones IP origen"
+msgstr ""
 
 msgid "Specifies what information to collect about links."
-msgstr "Especifica qué información recolectar sobre enlaces."
+msgstr ""
 
 msgid "Specifies what information to collect about routes."
-msgstr "Especifica qué información recolectar sobre rutas."
+msgstr ""
 
 msgid "Specifies what information to collect about the global topology."
-msgstr "Especifica qué información recolectar sobre la topología global."
+msgstr ""
 
 msgid "Statistics"
-msgstr "Estadísticas"
+msgstr ""
 
 msgid "Storage directory"
-msgstr "Directorio de guardado"
+msgstr ""
 
 msgid "Storage directory for the csv files"
-msgstr "Directorio para guardar archivos csv"
+msgstr "Directorio de almacenamiento para los archivos csv"
 
 msgid "Store data values as rates instead of absolute values"
-msgstr "Guardar datos como ratios en vez de valores absolutos"
+msgstr ""
+"Almacenar datos como los tipos de valores en lugar de valores absolutos "
 
 msgid "Stored timespans"
-msgstr "Intervalos almacenados"
+msgstr ""
 
 msgid "System Load"
 msgstr "Carga del sistema"
 
 msgid "System plugins"
-msgstr "Plugins del sistema"
+msgstr "Plugins de sistema"
+
+msgid ""
+"System plugins collecting values about system state and ressource usage on "
+"the device.:"
+msgstr ""
 
 msgid "TCP Connections"
 msgstr "Conexiones TCP"
 
 msgid "TCPConns Plugin Configuration"
-msgstr "Configuración del plugin \"Conexiones TCP\""
+msgstr ""
 
 msgid "TTL for network packets"
-msgstr "TTL para paquetes de red"
+msgstr ""
 
 msgid "TTL for ping packets"
-msgstr "TTL para paquetes de ping"
+msgstr ""
 
 msgid "Table"
-msgstr "Tabla"
-
-msgid "The NUT plugin reads information about Uninterruptible Power Supplies."
 msgstr ""
-"El plugin NUT obtiene información sobre Sistemas de Alimentación "
-"Ininterrumpida."
 
 msgid ""
 "The OLSRd plugin reads information about meshed networks from the txtinfo "
 "plugin of OLSRd."
 msgstr ""
-"El plugin OLSRd lee información sobre redes distribuidas desde el plugin "
-"txtinfo de OLSRd."
 
 msgid ""
 "The conntrack plugin collects statistics about the number of tracked "
 "connections."
 msgstr ""
-"El plugin \"Seguimiento\" recoge estadísticas sobre el número de conexiones "
-"analizadas."
 
 msgid "The cpu plugin collects basic statistics about the processor usage."
 msgstr ""
-"El plugin \"CPU\" recolecta estadísticas básicas acerca del uso del "
-"procesador."
+"El plugin de CPU recolecta estadísticas básica acerca del uso del procesador."
 
 msgid ""
 "The csv plugin stores collected data in csv file format for further "
 "processing by external programs."
 msgstr ""
-"El plugin \"CSV\" almacena los datos recolectados en un archivo con formato "
-"csv para su procesado posterior con programas de terceros."
+"El plugin de CSV almacena los datos recolectados en un archivo con formato "
+"csv para un futuro procesamiento utilizando programas de terceros."
 
 msgid ""
 "The df plugin collects statistics about the disk space usage on different "
 "devices, mount points or filesystem types."
 msgstr ""
-"El plugin \"DF\" recolecta estadísticas acerca del uso del espacio en disco "
-"en diferentes dispositivos, puntos de montaje y tipos de sistema de archivos."
+"El plugin DF recolecta estadísticas acerca del uso del espacio en disco en "
+"diferentes dispositivos, puntos de montaje y tipos de sistema de archivos."
 
 msgid ""
 "The disk plugin collects detailled usage statistics for selected partitions "
 "or whole disks."
 msgstr ""
-"El plugin \"Disco\" recolecta estadísticas detallada acerca de su "
-"utilización para las particiones seleccionadas o bien el disco completo."
+"El plugin de disco recolecta estadísticas detallada acerca de su utilización "
+"para las particiones seleccionadas o bien el disco completo."
 
 msgid ""
 "The dns plugin collects detailled statistics about dns related traffic on "
 "selected interfaces."
 msgstr ""
-"El plugin \"DNS\" recolecta estadísticas detalladas acerca del trafico DNS "
-"en las interfaces seleccionadas."
+"El plugin DNS recolecta estdísticas detallada acerca del trafico relacionado "
+"al DNS en las interfaces seleccionadas."
 
 msgid ""
 "The email plugin creates a unix socket which can be used to transmit email-"
@@ -483,8 +491,8 @@ msgid ""
 "to be used in conjunction with Mail::SpamAssasin::Plugin::Collectd but can "
 "be used in other ways as well."
 msgstr ""
-"El plugin \"eMail\" crea un socket de unix (unix-socket) que puede "
-"utilizarse para transmitir estadísticas de email a un demonio collectd en "
+"El plugin de E-Mail crea un socket de unix (unix-socket) el cual puede "
+"utilizarse para transmitir estadísticas de e-mail a un demonio collectd en "
 "ejecución. Este plugin fue desarrollado, en primer instancia, para ser "
 "utilizado en conjunto con Mail::SpamAssasin::Plugin::Collectd pero puede "
 "utilizarse de diferentes formas."
@@ -493,49 +501,44 @@ msgid ""
 "The exec plugin starts external commands to read values from or to notify "
 "external processes when certain threshold values have been reached."
 msgstr ""
-"El plugin \"Exec\" inicia comandos externos para leer valores o notificar a "
-"procesos externos cuando determinados valores se alcanzan."
+"El plugin Exec inicia comandos externo para leer valores desde o para "
+"notificar a los procesos externos cuando determinados valores \"umbral\" se "
+"han alcanzado. "
 
 msgid ""
 "The interface plugin collects traffic statistics on selected interfaces."
 msgstr ""
-"El plugin \"Interface\" recoge estadísticas de tráfico en las interfaces "
+"El plugin Interface recolecta estadísticas de tráfico en las interfaces "
 "seleccionadas."
 
 msgid ""
 "The iptables plugin will monitor selected firewall rules and collect "
 "informations about processed bytes and packets per rule."
 msgstr ""
-"El plugin \"Iptables\" monitoriza las reglas seleccionadas del cortafuegos y "
-"recoge información de bytes y paquetes procesados por cada regla."
+"El plugin Iptables monitoreará las reglas del corta fuego seleccionado y de "
+"esa forma relecta información relevante acerca de los bytes y paquetes "
+"procesados por regla."
 
 msgid ""
 "The irq plugin will monitor the rate of issues per second for each selected "
 "interrupt. If no interrupt is selected then all interrupts are monitored."
 msgstr ""
-"El plugin IRQ monitorizará las activaciones por segundo de cada interrupción "
-"elegida. Si no se selecciona ninguna se monitorizarán todas."
 
 msgid ""
 "The iwinfo plugin collects statistics about wireless signal strength, noise "
 "and quality."
 msgstr ""
-"El plugin \"iwinfo\" recolecta estadísticas sobre la potencia de la señal "
-"inalámbrica, ruido y calidad."
 
 msgid "The load plugin collects statistics about the general system load."
 msgstr ""
-"El plugin \"carga\" recoge estadísticas sobre la carga general del sistema."
 
 msgid "The memory plugin collects statistics about the memory usage."
-msgstr "El plugin \"memoria\" recoge estadísticas sobre el uso de memoria."
+msgstr ""
 
 msgid ""
 "The netlink plugin collects extended informations like qdisc-, class- and "
 "filter-statistics for selected interfaces."
 msgstr ""
-"El plugin \"netlink\" recoge informaciones extendidas como estadísticas "
-"qdisc-, clase- y filtro- para las interfaces seleccionadas."
 
 msgid ""
 "The network plugin provides network based communication between different "
@@ -543,25 +546,16 @@ msgid ""
 "client mode locally collected date is transferred to a collectd server "
 "instance, in server mode the local instance receives data from other hosts."
 msgstr ""
-"El plugin \"red\" proporciona comunicación entre diferentes instancias de "
-"collectd. Collectd puede operar tanto en modo cliente como en modo servidor. "
-"En modo cliente la información recogida se envía a una instancia que se "
-"encuentre en modo servidor. En modo servidor la instancia recibe datos de "
-"otras máquinas."
 
 msgid ""
 "The ping plugin will send icmp echo replies to selected hosts and measure "
 "the roundtrip time for each host."
 msgstr ""
-"El plugin \"ping\" enviará ecos ICMP a las máquinas elegifas para medir el "
-"tiempo de viaje para cada host."
 
 msgid ""
 "The processes plugin collects informations like cpu time, page faults and "
 "memory usage of selected processes."
 msgstr ""
-"El plugin \"procesos\" recoge información como tiempo de CPU, fallos de "
-"página y uso de memoria de los procesos elegidos."
 
 msgid ""
 "The rrdtool plugin stores the collected data in rrd database files, the "
@@ -569,141 +563,88 @@ msgid ""
 "values will result in a very high memory consumption in the temporary "
 "directory. This can render the device unusable!</strong>"
 msgstr ""
-"El plugin \"rrdtool\" almacena datos en ficheros de bb.dd. RRD que son la "
-"base para los diagramas.<br /><br /><strong>¡Ojo: Configurar valores "
-"incorrectos puede hacer que se use mucho espacio en el directorio temporal y "
-"puede hacer que el dispositivo funcione mal!</strong>"
 
 msgid ""
 "The statistics package is based on <a href=\"http://collectd.org/index.shtml"
 "\">Collectd</a> and uses <a href=\"http://oss.oetiker.ch/rrdtool/\">RRD "
 "Tool</a> to render diagram images from collected data."
 msgstr ""
-"El paquete \"estadísticas\" está basado en <a href=\"http://collectd.org/"
+"El paquete \"Estadísticas\" está basado en <a href=\"http://collectd.org/"
 "index.shtml\">Collectd</a> y utiliza <a href=\"http://oss.oetiker.ch/rrdtool/"
-"\">RRD Tool</a> para dibujar gráficos con los datos recogidos."
+"\">RRD Tool</a> para construir las imágenes de diagrama en base a los datos "
+"recolectados."
 
 msgid ""
 "The tcpconns plugin collects informations about open tcp connections on "
 "selected ports."
 msgstr ""
-"El plugin \"tcpconns\" recoge información de conexiones TCP abiertas en los "
-"puertos seleccionados."
 
 msgid ""
 "The unixsock plugin creates a unix socket which can be used to read "
 "collected data from a running collectd instance."
 msgstr ""
-"El plugin \"unixsock\" crea un socket UNIX que se puede usar para leer los "
-"datos recogidos por una instancia collectd."
+
+msgid ""
+"The wireless plugin collects statistics about wireless signal strength, "
+"noise and quality."
+msgstr ""
 
 msgid ""
 "This section defines on which interfaces collectd will wait for incoming "
 "connections."
 msgstr ""
-"Esta sección define sobre qué interfaces collectd esperará conexiones "
-"entrantes."
 
 msgid ""
 "This section defines to which servers the locally collected data is sent to."
 msgstr ""
-"Esta sección define a qué servidores se envían los datos recolectados "
-"localmente."
 
 msgid "Try to lookup fully qualified hostname"
-msgstr "Intenta resolver el nombre de máquina cualificado"
-
-msgid "UPS"
-msgstr "SAI"
-
-msgid "UPS Plugin Configuration"
-msgstr "Configuración del plugin SAI"
-
-msgid "UPS name in NUT ups@host format"
-msgstr "Nombre del SAI en el formato de NUT sai@máquina"
+msgstr "Trate de buscar nombres de host (FQDN)"
 
 msgid "UnixSock"
-msgstr "Socket UNIX"
+msgstr "UnixSock"
 
 msgid "Unixsock Plugin Configuration"
-msgstr "Configuración del plugin \"UnixSock\""
+msgstr ""
 
 msgid "Used PID file"
 msgstr "Archivo PID utilizado"
 
 msgid "User"
-msgstr "Usuario"
+msgstr ""
 
 msgid "Verbose monitoring"
-msgstr "Monitorización detallada"
+msgstr ""
 
 msgid "Wireless"
-msgstr "Red inalámbrica"
+msgstr "Inalámbrico"
+
+msgid "Wireless Plugin Configuration"
+msgstr ""
 
 msgid "Wireless iwinfo Plugin Configuration"
-msgstr "Configuración plugin \"Wireless iwinfo\""
+msgstr ""
 
 msgid "e.g. br-ff"
-msgstr "p.e. br-ff"
+msgstr ""
 
 msgid "e.g. br-lan"
-msgstr "p.e. br-lan"
+msgstr ""
 
 msgid "e.g. reject-with tcp-reset"
-msgstr "p.e. reject-with tcp-reset"
+msgstr ""
 
 msgid "max. 16 chars"
-msgstr "16 caracteres máximo"
+msgstr ""
 
 msgid "reduces rrd size"
-msgstr "reduce el tamaño RRD"
+msgstr ""
 
 msgid "seconds; multiple separated by space"
-msgstr "segundos (varios separados por espacio)"
+msgstr ""
 
 msgid "server interfaces"
-msgstr "interfaces servidores"
-
-#~ msgid "Installed network plugins:"
-#~ msgstr "Plugins de red instalados:"
-
-#~ msgid "Installed output plugins:"
-#~ msgstr "Plugins de salida instalados:"
-
-#~ msgid ""
-#~ "Network plugins are used to collect information about open tcp "
-#~ "connections, interface traffic, iptables rules etc."
-#~ msgstr ""
-#~ "Los plugins de red se usan para recolectar información sobre conexiones TCP, "
-#~ "tráfico en los interfaces, reglas de iptables, etc."
-
-#~ msgid ""
-#~ "Output plugins provide different possibilities to store collected data. "
-#~ "It is possible to enable multiple plugin at one, for example to store "
-#~ "collected data in rrd databases and to transmit the data over the network "
-#~ "to other collectd instances."
-#~ msgstr ""
-#~ "Los plugins de salida ofrecen varias posibilidades para almacenar los datos. "
-#~ "Es posible activar varios plugins a la vez, por ejemplo para almacenar "
-#~ "datos recolectados en bases de datos RRD y para transmitir los datos sobre "
-#~ "la red a otras instancias de collectd."
-
-#~ msgid ""
-#~ "System plugins collecting values about system state and ressource usage "
-#~ "on the device.:"
-#~ msgstr ""
-#~ "Los plugins del sistema recolectan valores sobre el estado y el uso de "
-#~ "recursos del dispositivo.:"
-
-#~ msgid ""
-#~ "The wireless plugin collects statistics about wireless signal strength, "
-#~ "noise and quality."
-#~ msgstr ""
-#~ "El plugin \"inalámbrico\" recoge estadísticas sobre fuerza de la señal, ruido "
-#~ "y calidad."
-
-#~ msgid "Wireless Plugin Configuration"
-#~ msgstr "Configuración del plugin \"Wireless\""
+msgstr ""
 
 #~ msgid "Filepath of the unix socket"
 #~ msgstr "Ruta de archivo para el socket de unix"

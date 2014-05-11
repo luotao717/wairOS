@@ -8,6 +8,8 @@ You may obtain a copy of the License at
 
 	http://www.apache.org/licenses/LICENSE-2.0
 
+$Id$
+
 -%>
 
 <%-
@@ -137,7 +139,7 @@ You may obtain a copy of the License at
 
 
 				/* plot horizontal time interval lines */
-				for (var i = width % (step * 60); i < width; i += step * 60)
+				for (var i = step * 60; i < width; i += step * 60)
 				{
 					var line = G.createElementNS('http://www.w3.org/2000/svg', 'line');
 						line.setAttribute('x1', i);
@@ -150,7 +152,7 @@ You may obtain a copy of the License at
 						text.setAttribute('x', i + 5);
 						text.setAttribute('y', 15);
 						text.setAttribute('style', 'fill:#999999; font-size:9pt');
-						text.appendChild(G.createTextNode(Math.round((width - i) / step / 60) + 'm'));
+						text.appendChild(G.createTextNode(Math.round(i / step / 60) + 'm'));
 
 					label_25.parentNode.appendChild(line);
 					label_25.parentNode.appendChild(text);
@@ -167,7 +169,7 @@ You may obtain a copy of the License at
 						text2.setAttribute('x', i + 5);
 						text2.setAttribute('y', 15);
 						text2.setAttribute('style', 'fill:#999999; font-size:9pt');
-						text2.appendChild(G.createTextNode(Math.round((width - i) / step / 60) + 'm'));
+						text2.appendChild(G.createTextNode(Math.round(i / step / 60) + 'm'));
 
 					label_25_2.parentNode.appendChild(line2);
 					label_25_2.parentNode.appendChild(text2);
@@ -284,14 +286,14 @@ You may obtain a copy of the License at
 						function wireless_label(dbm, noise)
 						{
 							if (noise)
-								return String.format("%d <%:dBm%> (SNR %d <%:dBm%>)", noise_floor + dbm - 255, dbm - noise);
+								return String.format("%d dBm (SNR %d dBm)", noise_floor + dbm - 255, dbm - noise);
 							else
-								return String.format("%d <%:dBm%>", noise_floor + dbm - 255);
+								return String.format("%d dBm", noise_floor + dbm - 255);
 						}
 
 						function rate_label(mbit)
 						{
-							return String.format("%d <%:Mbit/s%>", mbit);
+							return String.format("%d MBit/s", mbit);
 						}
 
 						label_25.firstChild.data = wireless_label(1.1 * 0.25 * data_max);
@@ -302,14 +304,14 @@ You may obtain a copy of the License at
 						label_50_2.firstChild.data = rate_label(1.1 * 0.50 * data_max_2);
 						label_75_2.firstChild.data = rate_label(1.1 * 0.75 * data_max_2);
 
-						label_rssi_cur.innerHTML = wireless_label(data_rssi[data_rssi.length-1], data_noise[data_noise.length-1]).nobr();
-						label_noise_cur.innerHTML = wireless_label(data_noise[data_noise.length-1]).nobr();
+						label_rssi_cur.innerHTML = wireless_label(data_rssi[data_rssi.length-1], data_noise[data_noise.length-1]);
+						label_noise_cur.innerHTML = wireless_label(data_noise[data_noise.length-1]);
 
-						label_rssi_avg.innerHTML = wireless_label(data_rssi_avg, data_noise_avg).nobr();
-						label_noise_avg.innerHTML = wireless_label(data_noise_avg).nobr();
+						label_rssi_avg.innerHTML = wireless_label(data_rssi_avg, data_noise_avg);
+						label_noise_avg.innerHTML = wireless_label(data_noise_avg);
 
-						label_rssi_peak.innerHTML = wireless_label(data_rssi_peak, data_noise_peak).nobr();
-						label_noise_peak.innerHTML = wireless_label(data_noise_peak).nobr();
+						label_rssi_peak.innerHTML = wireless_label(data_rssi_peak, data_noise_peak);
+						label_noise_peak.innerHTML = wireless_label(data_noise_peak);
 
 						label_rate_cur.innerHTML = rate_label(data_rate[data_rate.length-1]);
 						label_rate_avg.innerHTML = rate_label(data_rate_avg);
@@ -336,23 +338,23 @@ You may obtain a copy of the License at
 <table style="width:100%; table-layout:fixed" cellspacing="5">
 	<tr>
 		<td style="text-align:right; vertical-align:top"><strong style="border-bottom:2px solid blue"><%:Signal:%></strong></td>
-		<td id="rssi_bw_cur">0 <%:dBm%></td>
+		<td id="rssi_bw_cur">0 dBm</td>
 
 		<td style="text-align:right; vertical-align:top"><strong><%:Average:%></strong></td>
-		<td id="rssi_bw_avg">0 <%:dBm%></td>
+		<td id="rssi_bw_avg">0 dBm</td>
 
 		<td style="text-align:right; vertical-align:top"><strong><%:Peak:%></strong></td>
-		<td id="rssi_bw_peak">0 <%:dBm%></td>
+		<td id="rssi_bw_peak">0 dBm</td>
 	</tr>
 	<tr>
 		<td style="text-align:right; vertical-align:top"><strong style="border-bottom:2px solid red"><%:Noise:%></strong></td>
-		<td id="noise_bw_cur">0 <%:dBm%></td>
+		<td id="noise_bw_cur">0 dBm</td>
 
 		<td style="text-align:right; vertical-align:top"><strong><%:Average:%></strong></td>
-		<td id="noise_bw_avg">0 <%:dBm%></td>
+		<td id="noise_bw_avg">0 dBm</td>
 
 		<td style="text-align:right; vertical-align:top"><strong><%:Peak:%></strong></td>
-		<td id="noise_bw_peak">0 <%:dBm%></td>
+		<td id="noise_bw_peak">0 dBm</td>
 	</tr>
 </table>
 

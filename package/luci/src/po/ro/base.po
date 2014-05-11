@@ -1,16 +1,16 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"PO-Revision-Date: 2012-12-01 16:10+0200\n"
-"Last-Translator: cgherman <cgherman@mandrivausers.ro>\n"
+"PO-Revision-Date: 2011-10-07 00:21+0200\n"
+"Last-Translator: Daniel <daniel.petre@pitesti.rcs-rds.ro>\n"
 "Language-Team: none\n"
-"Language: ro\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: ro\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2);;\n"
-"X-Generator: Pootle 2.0.6\n"
+"X-Generator: Pootle 2.0.4\n"
 
 msgid "(%d minute window, %d second interval)"
 msgstr ""
@@ -40,7 +40,7 @@ msgid "15 Minute Load:"
 msgstr "Incarcarea in ultimele 15 minute"
 
 msgid "40MHz 2nd channel above"
-msgstr "40MHz 2 canale de mai jos"
+msgstr ""
 
 msgid "40MHz 2nd channel below"
 msgstr ""
@@ -49,10 +49,15 @@ msgid "5 Minute Load:"
 msgstr "Incarcarea in ultimele 5 minute"
 
 msgid "<abbr title=\"Basic Service Set Identifier\">BSSID</abbr>"
-msgstr "<abbr title=\"Basic Service Set Identifier\">BSSID</abbr>"
+msgstr ""
+
+msgid ""
+"<abbr title=\"Classless Inter-Domain Routing\">CIDR</abbr>-Notation: address/"
+"prefix"
+msgstr ""
 
 msgid "<abbr title=\"Domain Name System\">DNS</abbr> query port"
-msgstr "<abbr title=\"Domain Name System\">DNS</abbr>port de apelare"
+msgstr ""
 
 msgid "<abbr title=\"Domain Name System\">DNS</abbr> server port"
 msgstr ""
@@ -62,17 +67,29 @@ msgid ""
 "order of the resolvfile"
 msgstr ""
 
+msgid "<abbr title=\"Domain Name System\">DNS</abbr>-Server"
+msgstr ""
+
+msgid "<abbr title=\"Encrypted\">Encr.</abbr>"
+msgstr ""
+
 msgid "<abbr title=\"Extended Service Set Identifier\">ESSID</abbr>"
-msgstr "<abbr title=\"Extended Service Set Identifier\">ESSID</abbr>"
+msgstr ""
 
 msgid "<abbr title=\"Internet Protocol Version 4\">IPv4</abbr>-Address"
 msgstr "Adresa <abbr title=\"Internet Protocol Version 4\">IPv4</abbr>"
+
+msgid "<abbr title=\"Internet Protocol Version 4\">IPv4</abbr>-Broadcast"
+msgstr ""
 
 msgid "<abbr title=\"Internet Protocol Version 4\">IPv4</abbr>-Gateway"
 msgstr ""
 
 msgid "<abbr title=\"Internet Protocol Version 4\">IPv4</abbr>-Netmask"
 msgstr "Masca de retea <abbr title=\"Internet Protocol Version 4\">IPv4</abbr>"
+
+msgid "<abbr title=\"Internet Protocol Version 6\">IPv6</abbr>-Address"
+msgstr "Adresa <abbr title=\"Internet Protocol Version 6\">IPv6</abbr>"
 
 msgid ""
 "<abbr title=\"Internet Protocol Version 6\">IPv6</abbr>-Address or Network "
@@ -91,6 +108,9 @@ msgstr ""
 msgid "<abbr title=\"Media Access Control\">MAC</abbr>-Address"
 msgstr ""
 
+msgid "<abbr title=\"Wireless Local Area Network\">WLAN</abbr>-Scan"
+msgstr ""
+
 msgid ""
 "<abbr title=\"maximal\">Max.</abbr> <abbr title=\"Dynamic Host Configuration "
 "Protocol\">DHCP</abbr> leases"
@@ -98,13 +118,10 @@ msgstr ""
 
 msgid ""
 "<abbr title=\"maximal\">Max.</abbr> <abbr title=\"Extension Mechanisms for "
-"Domain Name System\">EDNS0</abbr> packet size"
+"Domain Name System\">EDNS0</abbr> paket size"
 msgstr ""
 
 msgid "<abbr title=\"maximal\">Max.</abbr> concurrent queries"
-msgstr ""
-
-msgid "<abbr title='Pairwise: %s / Group: %s'>%s - %s</abbr>"
 msgstr ""
 
 msgid "APN"
@@ -161,11 +178,8 @@ msgstr "Rute active <abbr title=\"Internet Protocol Version 6\">IPv6</abbr>"
 msgid "Active Connections"
 msgstr "Conexiuni active"
 
-msgid "Active DHCP Leases"
-msgstr ""
-
-msgid "Active DHCPv6 Leases"
-msgstr ""
+msgid "Active Leases"
+msgstr "Conexiuni dhcp active"
 
 msgid "Ad-Hoc"
 msgstr "Ad-Hoc"
@@ -232,11 +246,6 @@ msgstr ""
 msgid "Allowed range is 1 to 65535"
 msgstr ""
 
-msgid ""
-"Always use 40MHz channels even if the secondary channel overlaps. Using this "
-"option does not comply with IEEE 802.11n-2009!"
-msgstr ""
-
 msgid "An additional network will be created if you leave this unchecked."
 msgstr ""
 
@@ -246,26 +255,14 @@ msgstr "Antena 1"
 msgid "Antenna 2"
 msgstr "Antena 2"
 
-msgid "Antenna Configuration"
-msgstr ""
-
-msgid "Any zone"
-msgstr ""
-
 msgid "Apply"
 msgstr "Aplica"
 
 msgid "Applying changes"
 msgstr "Se aplica modificarile"
 
-msgid "Assign interfaces..."
-msgstr ""
-
 msgid "Associated Stations"
 msgstr "Statiile asociate"
-
-msgid "Atheros 802.11%s Wireless Controller"
-msgstr ""
 
 msgid "Authentication"
 msgstr "Autentificare"
@@ -327,6 +324,9 @@ msgid ""
 "defined backup patterns."
 msgstr ""
 
+msgid "Bit Rate"
+msgstr ""
+
 msgid "Bitrate"
 msgstr ""
 
@@ -343,12 +343,6 @@ msgid "Bridge unit number"
 msgstr ""
 
 msgid "Bring up on boot"
-msgstr ""
-
-msgid "Broadcom 802.11%s Wireless Controller"
-msgstr ""
-
-msgid "Broadcom BCM%04x 802.11 Wireless Controller"
 msgstr ""
 
 msgid "Buffered"
@@ -398,8 +392,9 @@ msgid ""
 msgstr ""
 
 msgid ""
-"Choose the network(s) you want to attach to this wireless interface or fill "
-"out the <em>create</em> field to define a new network."
+"Choose the network you want to attach to this wireless interface. Select "
+"<em>unspecified</em> to not attach any network or fill out the <em>create</"
+"em> field to define a new network."
 msgstr ""
 
 msgid "Cipher"
@@ -439,6 +434,15 @@ msgstr "Comprimare"
 
 msgid "Configuration"
 msgstr "Configurare"
+
+msgid "Configuration / Apply"
+msgstr "Configurare / Aplica"
+
+msgid "Configuration / Changes"
+msgstr "Configurare / Schimbari"
+
+msgid "Configuration / Revert"
+msgstr "Configurare / Anuleaza schimbarile"
 
 msgid "Configuration applied."
 msgstr "Configurarea aplicata."
@@ -482,6 +486,9 @@ msgstr ""
 msgid "Create Interface"
 msgstr "Creaza interfata"
 
+msgid "Create Network"
+msgstr "Creaza retea"
+
 msgid "Create a bridge over multiple interfaces"
 msgstr ""
 
@@ -514,16 +521,10 @@ msgstr ""
 msgid "DHCP-Options"
 msgstr "Optiuni DHCP"
 
-msgid "DHCPv6 Leases"
-msgstr ""
-
 msgid "DNS"
 msgstr "DNS"
 
 msgid "DNS forwardings"
-msgstr ""
-
-msgid "DUID"
 msgstr ""
 
 msgid "Debug"
@@ -696,14 +697,17 @@ msgstr ""
 msgid "Enable Jumbo Frame passthrough"
 msgstr ""
 
-msgid "Enable NTP client"
-msgstr ""
-
 msgid "Enable TFTP server"
 msgstr "Activeaza serverul TFTP"
 
 msgid "Enable VLAN functionality"
 msgstr "Activeaza VLAN-urile"
+
+msgid "Enable buffering"
+msgstr ""
+
+msgid "Enable builtin NTP server"
+msgstr ""
 
 msgid "Enable learning and aging"
 msgstr ""
@@ -823,9 +827,6 @@ msgstr ""
 msgid "Force"
 msgstr "Forteaza"
 
-msgid "Force 40MHz mode"
-msgstr ""
-
 msgid "Force CCMP (AES)"
 msgstr ""
 
@@ -863,12 +864,6 @@ msgstr "Spatiu liber"
 msgid "Frequency Hopping"
 msgstr ""
 
-msgid "GHz"
-msgstr ""
-
-msgid "GPRS only"
-msgstr ""
-
 msgid "Gateway"
 msgstr "Gateway"
 
@@ -882,9 +877,6 @@ msgid "General Setup"
 msgstr "Configurare generala"
 
 msgid "Generate archive"
-msgstr ""
-
-msgid "Generic 802.11%s Wireless Controller"
 msgstr ""
 
 msgid "Given password confirmation did not match, password not changed!"
@@ -926,9 +918,6 @@ msgid ""
 "authentication."
 msgstr ""
 
-msgid "Hermes 802.11b Wireless Controller"
-msgstr ""
-
 msgid "Hide <abbr title=\"Extended Service Set Identifier\">ESSID</abbr>"
 msgstr "Ascunde <abbr title=\"Extended Service Set Identifier\">ESSID</abbr>"
 
@@ -952,6 +941,9 @@ msgstr "Nume de host"
 
 msgid "IP address"
 msgstr "Adresa IP"
+
+msgid "IP-Aliases"
+msgstr "Aliasuri IP"
 
 msgid "IPv4"
 msgstr "IPv4"
@@ -980,9 +972,6 @@ msgstr ""
 msgid "IPv4 only"
 msgstr "Doar IPv4"
 
-msgid "IPv4 prefix length"
-msgstr ""
-
 msgid "IPv4-Address"
 msgstr "Adresa IPv4"
 
@@ -991,6 +980,9 @@ msgstr "IPv6"
 
 msgid "IPv6 Firewall"
 msgstr "Firewall IPv6"
+
+msgid "IPv6 Setup"
+msgstr "Setarea IPv6"
 
 msgid "IPv6 WAN Status"
 msgstr "Statusul IPv6 pe WAN"
@@ -1004,22 +996,10 @@ msgstr ""
 msgid "IPv6 only"
 msgstr "Doar IPv6"
 
-msgid "IPv6 prefix"
-msgstr ""
-
-msgid "IPv6 prefix length"
-msgstr ""
-
-msgid "IPv6-Address"
-msgstr ""
-
 msgid "IPv6-in-IPv4 (RFC4213)"
 msgstr ""
 
-msgid "IPv6-over-IPv4 (6rd)"
-msgstr ""
-
-msgid "IPv6-over-IPv4 (6to4)"
+msgid "IPv6-over-IPv4"
 msgstr ""
 
 msgid "Identity"
@@ -1117,9 +1097,6 @@ msgstr "Interfata oprita"
 msgid "Interfaces"
 msgstr "Interfete"
 
-msgid "Internal Server Error"
-msgstr ""
-
 msgid "Invalid"
 msgstr "Invalid"
 
@@ -1169,12 +1146,6 @@ msgstr ""
 msgid "Kill"
 msgstr "Opreste"
 
-msgid "L2TP"
-msgstr ""
-
-msgid "L2TP Server"
-msgstr ""
-
 msgid "LCP echo failure threshold"
 msgstr ""
 
@@ -1216,6 +1187,9 @@ msgstr "Legenda:"
 
 msgid "Limit"
 msgstr "Limita"
+
+msgid "Link"
+msgstr ""
 
 msgid "Link On"
 msgstr ""
@@ -1301,6 +1275,12 @@ msgstr ""
 msgid "Lowest leased address as offset from the network address."
 msgstr ""
 
+msgid "MAC"
+msgstr ""
+
+msgid "MAC Address"
+msgstr ""
+
 msgid "MAC-Address"
 msgstr ""
 
@@ -1311,12 +1291,6 @@ msgid "MAC-Filter"
 msgstr ""
 
 msgid "MAC-List"
-msgstr ""
-
-msgid "MB/s"
-msgstr ""
-
-msgid "MHz"
 msgstr ""
 
 msgid "MTU"
@@ -1341,9 +1315,6 @@ msgid "Maximum hold time"
 msgstr ""
 
 msgid "Maximum number of leased addresses."
-msgstr ""
-
-msgid "Mbit/s"
 msgstr ""
 
 msgid "Memory"
@@ -1447,8 +1418,8 @@ msgstr "Utilitare de retea"
 msgid "Network boot image"
 msgstr ""
 
-msgid "Network without interfaces."
-msgstr ""
+msgid "Networks"
+msgstr "Retele"
 
 msgid "Next »"
 msgstr "Mai departe »"
@@ -1498,23 +1469,19 @@ msgstr ""
 msgid "Normal"
 msgstr "Normal"
 
-msgid "Not Found"
-msgstr ""
-
 msgid "Not associated"
 msgstr "Ne-asociat."
-
-msgid "Not connected"
-msgstr ""
 
 msgid "Note: Configuration files will be erased."
 msgstr "Nota: fisierele de configurare vor fi sterse."
 
+msgid ""
+"Note: If you choose an interface here which is part of another network, it "
+"will be moved into this network."
+msgstr ""
+
 msgid "Notice"
 msgstr "Notificare"
-
-msgid "Nslookup"
-msgstr ""
 
 msgid "OK"
 msgstr "OK"
@@ -1537,14 +1504,14 @@ msgstr ""
 msgid "On-State Delay"
 msgstr ""
 
-msgid "One of hostname or mac address must be specified!"
-msgstr ""
-
 msgid "One or more fields contain invalid values!"
 msgstr "Unul sau mai multe campuri contin valori invalide !"
 
 msgid "One or more required fields have no value!"
 msgstr "Unul sau mai multe campuri nu contin valori !"
+
+msgid "Open"
+msgstr ""
 
 msgid "Open list..."
 msgstr ""
@@ -1674,9 +1641,6 @@ msgstr "Rata phy:"
 msgid "Physical Settings"
 msgstr "Setarile fizice"
 
-msgid "Ping"
-msgstr ""
-
 msgid "Pkts."
 msgstr "Packete."
 
@@ -1698,7 +1662,7 @@ msgstr "Port %d"
 msgid "Port %d is untagged in multiple VLANs!"
 msgstr ""
 
-msgid "Port status:"
+msgid "Power"
 msgstr ""
 
 msgid ""
@@ -1707,9 +1671,6 @@ msgid ""
 msgstr ""
 
 msgid "Prevents client-to-client communication"
-msgstr ""
-
-msgid "Prism2/2.5/3 802.11b Wireless Controller"
 msgstr ""
 
 msgid "Proceed"
@@ -1733,16 +1694,10 @@ msgstr ""
 msgid "Protocol support is not installed"
 msgstr ""
 
-msgid "Provide NTP server"
-msgstr ""
-
 msgid "Provide new network"
 msgstr ""
 
 msgid "Pseudo Ad-Hoc (ahdemo)"
-msgstr ""
-
-msgid "Quality"
 msgstr ""
 
 msgid "RTS/CTS Threshold"
@@ -1750,12 +1705,6 @@ msgstr ""
 
 msgid "RX"
 msgstr "RX"
-
-msgid "RX Rate"
-msgstr ""
-
-msgid "RaLink 802.11%s Wireless Controller"
-msgstr ""
 
 msgid "Radius-Accounting-Port"
 msgstr ""
@@ -1783,26 +1732,26 @@ msgstr ""
 "<abbr title=\"Dynamic Host Configuration Protocol\">DHCP</abbr>-"
 
 msgid ""
-"Really delete this interface? The deletion cannot be undone!\\nYou might "
-"lose access to this device if you are connected via this interface."
+"Really delete this interface? The deletion cannot be undone!\n"
+"You might lose access to this router if you are connected via this interface."
 msgstr ""
 
 msgid ""
-"Really delete this wireless network? The deletion cannot be undone!\\nYou "
-"might lose access to this device if you are connected via this network."
+"Really delete this wireless network? The deletion cannot be undone!\n"
+"You might lose access to this router if you are connected via this network."
 msgstr ""
 
 msgid "Really reset all changes?"
 msgstr ""
 
 msgid ""
-"Really shutdown interface \"%s\" ?\\nYou might lose access to this device if "
-"you are connected via this interface."
+"Really shutdown interface \"%s\" ?\n"
+"You might lose access to this router if you are connected via this interface."
 msgstr ""
 
 msgid ""
-"Really shutdown network ?\\nYou might lose access to this device if you are "
-"connected via this interface."
+"Really shutdown network ?\n"
+"You might lose access to this router if you are connected via this interface."
 msgstr ""
 
 msgid "Really switch protocol?"
@@ -2046,12 +1995,6 @@ msgstr "Software"
 msgid "Some fields are invalid, cannot save values!"
 msgstr ""
 
-msgid "Sorry, the object you requested was not found."
-msgstr ""
-
-msgid "Sorry, the server encountered an unexpected error."
-msgstr ""
-
 msgid ""
 "Sorry, there is no sysupgrade support present, a new firmware image must be "
 "flashed manually. Please refer to the OpenWrt wiki for device specific "
@@ -2182,9 +2125,6 @@ msgstr ""
 msgid "TX"
 msgstr "TX"
 
-msgid "TX Rate"
-msgstr ""
-
 msgid "Table"
 msgstr "Tabel"
 
@@ -2205,10 +2145,6 @@ msgstr ""
 msgid ""
 "The <em>libiwinfo-lua</em> package is not installed. You must install this "
 "component for working wireless configuration!"
-msgstr ""
-
-msgid ""
-"The IPv6 prefix assigned to the provider, usually ends with <code>::</code>"
 msgstr ""
 
 msgid ""
@@ -2251,15 +2187,7 @@ msgid ""
 msgstr ""
 
 msgid ""
-"The length of the IPv4 prefix in bits, the remainder is used in the IPv6 "
-"addresses."
-msgstr ""
-
-msgid "The length of the IPv6 prefix in bits"
-msgstr ""
-
-msgid ""
-"The network ports on this device can be combined to several <abbr title="
+"The network ports on your router can be combined to several <abbr title="
 "\"Virtual Local Area Network\">VLAN</abbr>s in which computers can "
 "communicate directly with each other. <abbr title=\"Virtual Local Area "
 "Network\">VLAN</abbr>s are often used to separate different network "
@@ -2310,9 +2238,6 @@ msgid ""
 msgstr ""
 "Nu exista o parola pe acest router. Configureaza o parola la contul root "
 "pentru a proteja interfata web si porni SSH."
-
-msgid "This IPv4 address of the relay"
-msgstr ""
 
 msgid ""
 "This is a list of shell glob patterns for matching files and directories to "
@@ -2376,9 +2301,6 @@ msgstr ""
 msgid "Total Available"
 msgstr "Total disponibil"
 
-msgid "Traceroute"
-msgstr ""
-
 msgid "Traffic"
 msgstr "Trafic"
 
@@ -2421,9 +2343,6 @@ msgstr "Tip"
 msgid "UDP:"
 msgstr "UDP:"
 
-msgid "UMTS only"
-msgstr ""
-
 msgid "UMTS/GPRS/EV-DO"
 msgstr ""
 
@@ -2432,9 +2351,6 @@ msgstr "Dispozitiv USB"
 
 msgid "UUID"
 msgstr "UUID"
-
-msgid "Unable to dispatch"
-msgstr ""
 
 msgid "Unknown"
 msgstr ""
@@ -2576,11 +2492,8 @@ msgstr ""
 "Criptarea WPA necesita wpa_supplicant (pentru modul client) sau hostapd "
 "(pentru modul AP sau ad-hoc) instalate."
 
-msgid "Waiting for changes to be applied..."
-msgstr ""
-
-msgid "Waiting for command to complete..."
-msgstr ""
+msgid "Waiting for router..."
+msgstr "Asteptam dupa router.."
 
 msgid "Warning"
 msgstr "Avertizare"
@@ -2590,6 +2503,9 @@ msgstr "Atentie: exista modificari nesalvate care vor fi pierdute la restart !"
 
 msgid "Wifi"
 msgstr "Wifi"
+
+msgid "Wifi networks in your local environment"
+msgstr "Retele wireless in apropiere"
 
 msgid "Wireless"
 msgstr "Wireless"
@@ -2646,22 +2562,10 @@ msgstr "oricare"
 msgid "auto"
 msgstr "auto"
 
-msgid "baseT"
-msgstr ""
-
 msgid "bridged"
 msgstr ""
 
-msgid "create:"
-msgstr ""
-
 msgid "creates a bridge over specified interface(s)"
-msgstr ""
-
-msgid "dB"
-msgstr ""
-
-msgid "dBm"
 msgstr ""
 
 msgid "disable"
@@ -2675,34 +2579,10 @@ msgid ""
 "abbr>-leases will be stored"
 msgstr ""
 
-msgid "forward"
-msgstr ""
-
-msgid "full-duplex"
-msgstr ""
-
-msgid "half-duplex"
-msgstr ""
-
 msgid "help"
 msgstr "ajutor"
 
-msgid "hidden"
-msgstr ""
-
 msgid "if target is a network"
-msgstr ""
-
-msgid "input"
-msgstr ""
-
-msgid "kB"
-msgstr ""
-
-msgid "kB/s"
-msgstr ""
-
-msgid "kbit/s"
 msgstr ""
 
 msgid "local <abbr title=\"Domain Name System\">DNS</abbr> file"
@@ -2710,9 +2590,6 @@ msgstr ""
 
 msgid "no"
 msgstr "nu"
-
-msgid "no link"
-msgstr ""
 
 msgid "none"
 msgstr ""
@@ -2723,16 +2600,10 @@ msgstr ""
 msgid "on"
 msgstr ""
 
-msgid "open"
-msgstr ""
-
 msgid "routed"
 msgstr "rutat"
 
 msgid "tagged"
-msgstr ""
-
-msgid "unknown"
 msgstr ""
 
 msgid "unlimited"
@@ -2752,39 +2623,6 @@ msgstr "da"
 
 msgid "« Back"
 msgstr "« Inapoi"
-
-#~ msgid "Waiting for router..."
-#~ msgstr "Asteptam dupa router.."
-
-#~ msgid "Active Leases"
-#~ msgstr "Conexiuni dhcp active"
-
-#~ msgid "Configuration / Apply"
-#~ msgstr "Configurare / Aplica"
-
-#~ msgid "Configuration / Changes"
-#~ msgstr "Configurare / Schimbari"
-
-#~ msgid "Configuration / Revert"
-#~ msgstr "Configurare / Anuleaza schimbarile"
-
-#~ msgid "Create Network"
-#~ msgstr "Creaza retea"
-
-#~ msgid "Networks"
-#~ msgstr "Retele"
-
-#~ msgid "Wifi networks in your local environment"
-#~ msgstr "Retele wireless in apropiere"
-
-#~ msgid "<abbr title=\"Internet Protocol Version 6\">IPv6</abbr>-Address"
-#~ msgstr "Adresa <abbr title=\"Internet Protocol Version 6\">IPv6</abbr>"
-
-#~ msgid "IP-Aliases"
-#~ msgstr "Aliasuri IP"
-
-#~ msgid "IPv6 Setup"
-#~ msgstr "Setarea IPv6"
 
 #~ msgid "Detected Files"
 #~ msgstr "Fisiere detectate"

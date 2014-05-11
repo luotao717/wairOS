@@ -10,7 +10,7 @@ You may obtain a copy of the License at
 
         http://www.apache.org/licenses/LICENSE-2.0
 
-$Id: ip.lua 8142 2012-01-01 15:51:37Z jow $
+$Id$
 
 ]]--
 

@@ -10,7 +10,7 @@ You may obtain a copy of the License at
 
 	http://www.apache.org/licenses/LICENSE-2.0
 
-$Id: jsonrpc.lua 3000 2008-08-29 12:27:54Z Cyrus $
+$Id$
 ]]--
 
 module("luci.jsonrpc", package.seeall)

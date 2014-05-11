@@ -10,7 +10,7 @@ You may obtain a copy of the License at
 
 	http://www.apache.org/licenses/LICENSE-2.0
 
-$Id: network.lua 7362 2011-08-12 13:16:27Z jow $
+$Id$
 ]]--
 
 module("luci.controller.mini.network", package.seeall)

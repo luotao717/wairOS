@@ -5,7 +5,7 @@ Description:
 Utilities for interaction with the Linux system
 
 FileId:
-$Id: sys.lua 9623 2013-01-18 14:08:37Z jow $
+$Id$
 
 License:
 Copyright 2008 Steven Barth <steven@midlink.org>
@@ -36,8 +36,8 @@ local luci  = {}
 luci.util   = require "luci.util"
 luci.ip     = require "luci.ip"
 
-local tonumber, ipairs, pairs, pcall, type, next, setmetatable, require, select =
-	tonumber, ipairs, pairs, pcall, type, next, setmetatable, require, select
+local tonumber, ipairs, pairs, pcall, type, next, setmetatable, require =
+	tonumber, ipairs, pairs, pcall, type, next, setmetatable, require
 
 
 --- LuCI Linux and POSIX system utilities.
@@ -230,181 +230,7 @@ net = {}
 --			The following fields are defined for arp entry objects:
 --			{ "IP address", "HW address", "HW type", "Flags", "Mask", "Device" }
 function net.arptable(callback)
-	local arp, e, r, v
-	if fs.access("/proc/net/arp") then
-		for e in io.lines("/proc/net/arp") do
-			local r = { }, v
-			for v in e:gmatch("%S+") do
-				r[#r+1] = v
-			end
-
-			if r[1] ~= "IP" then
-				local x = {
-					["IP address"] = r[1],
-					["HW type"]    = r[2],
-					["Flags"]      = r[3],
-					["HW address"] = r[4],
-					["Mask"]       = r[5],
-					["Device"]     = r[6]
-				}
-
-				if callback then
-					callback(x)
-				else
-					arp = arp or { }
-					arp[#arp+1] = x
-				end
-			end
-		end
-	end
-	return arp
-end
-
-local function _nethints(what, callback)
-	local _, k, e, mac, ip, name
-	local cur = uci.cursor()
-	local ifn = { }
-	local hosts = { }
-
-	local function _add(i, ...)
-		local k = select(i, ...)
-		if k then
-			if not hosts[k] then hosts[k] = { } end
-			hosts[k][1] = select(1, ...) or hosts[k][1]
-			hosts[k][2] = select(2, ...) or hosts[k][2]
-			hosts[k][3] = select(3, ...) or hosts[k][3]
-			hosts[k][4] = select(4, ...) or hosts[k][4]
-		end
-	end
-
-	if fs.access("/proc/net/arp") then
-		for e in io.lines("/proc/net/arp") do
-			ip, mac = e:match("^([%d%.]+)%s+%S+%s+%S+%s+([a-fA-F0-9:]+)%s+")
-			if ip and mac then
-				_add(what, mac:upper(), ip, nil, nil)
-			end
-		end
-	end
-
-	if fs.access("/etc/ethers") then
-		for e in io.lines("/etc/ethers") do
-			mac, ip = e:match("^([a-f0-9]%S+) (%S+)")
-			if mac and ip then
-				_add(what, mac:upper(), ip, nil, nil)
-			end
-		end
-	end
-
-	if fs.access("/var/dhcp.leases") then
-		for e in io.lines("/var/dhcp.leases") do
-			mac, ip, name = e:match("^%d+ (%S+) (%S+) (%S+)")
-			if mac and ip then
-				_add(what, mac:upper(), ip, nil, name ~= "*" and name)
-			end
-		end
-	end
-
-	cur:foreach("dhcp", "host",
-		function(s)
-			for mac in luci.util.imatch(s.mac) do
-				_add(what, mac:upper(), s.ip, nil, s.name)
-			end
-		end)
-
-	for _, e in ipairs(nixio.getifaddrs()) do
-		if e.name ~= "lo" then
-			ifn[e.name] = ifn[e.name] or { }
-			if e.family == "packet" and e.addr and #e.addr == 17 then
-				ifn[e.name][1] = e.addr:upper()
-			elseif e.family == "inet" then
-				ifn[e.name][2] = e.addr
-			elseif e.family == "inet6" then
-				ifn[e.name][3] = e.addr
-			end
-		end
-	end
-
-	for _, e in pairs(ifn) do
-		if e[what] and (e[2] or e[3]) then
-			_add(what, e[1], e[2], e[3], e[4])
-		end
-	end
-
-	for _, e in luci.util.kspairs(hosts) do
-		callback(e[1], e[2], e[3], e[4])
-	end
-end
-
---- Returns a two-dimensional table of mac address hints.
--- @return  Table of table containing known hosts from various sources.
---          Each entry contains the values in the following order:
---          [ "mac", "name" ]
-function net.mac_hints(callback)
-	if callback then
-		_nethints(1, function(mac, v4, v6, name)
-			name = name or nixio.getnameinfo(v4 or v6, nil, 100) or v4
-			if name and name ~= mac then
-				callback(mac, name or nixio.getnameinfo(v4 or v6, nil, 100) or v4)
-			end
-		end)
-	else
-		local rv = { }
-		_nethints(1, function(mac, v4, v6, name)
-			name = name or nixio.getnameinfo(v4 or v6, nil, 100) or v4
-			if name and name ~= mac then
-				rv[#rv+1] = { mac, name or nixio.getnameinfo(v4 or v6, nil, 100) or v4 }
-			end
-		end)
-		return rv
-	end
-end
-
---- Returns a two-dimensional table of IPv4 address hints.
--- @return  Table of table containing known hosts from various sources.
---          Each entry contains the values in the following order:
---          [ "ip", "name" ]
-function net.ipv4_hints(callback)
-	if callback then
-		_nethints(2, function(mac, v4, v6, name)
-			name = name or nixio.getnameinfo(v4, nil, 100) or mac
-			if name and name ~= v4 then
-				callback(v4, name)
-			end
-		end)
-	else
-		local rv = { }
-		_nethints(2, function(mac, v4, v6, name)
-			name = name or nixio.getnameinfo(v4, nil, 100) or mac
-			if name and name ~= v4 then
-				rv[#rv+1] = { v4, name }
-			end
-		end)
-		return rv
-	end
-end
-
---- Returns a two-dimensional table of IPv6 address hints.
--- @return  Table of table containing known hosts from various sources.
---          Each entry contains the values in the following order:
---          [ "ip", "name" ]
-function net.ipv6_hints(callback)
-	if callback then
-		_nethints(3, function(mac, v4, v6, name)
-			name = name or nixio.getnameinfo(v6, nil, 100) or mac
-			if name and name ~= v6 then
-				callback(v6, name)
-			end
-		end)
-	else
-		local rv = { }
-		_nethints(3, function(mac, v4, v6, name)
-			name = name or nixio.getnameinfo(v6, nil, 100) or mac
-			if name and name ~= v6 then
-				rv[#rv+1] = { v6, name }
-			end
-		end)
-		return rv
-	end
+	return _parse_delimited_table(io.lines("/proc/net/arp"), "%s%s+", callback)
 end
 
 --- Returns conntrack information
@@ -481,7 +307,7 @@ function net.defaultroute6()
 	local route
 
 	net.routes6(function(rt)
-		if rt.dest:prefix() == 0 and rt.device ~= "lo" and
+		if rt.dest:prefix() == 0 and rt.device ~= "lo" and 
 		   (not route or route.metric > rt.metric)
 		then
 			route = rt
@@ -695,29 +521,38 @@ end
 function process.list()
 	local data = {}
 	local k
-	local ps = luci.util.execi("/bin/busybox top -bn1")
+	local ps = luci.util.execi("top -bn1")
 
 	if not ps then
 		return
 	end
 
-	for line in ps do
-		local pid, ppid, user, stat, vsz, mem, cpu, cmd = line:match(
-			"^ *(%d+) +(%d+) +(%S.-%S) +([RSDZTW][W ][<N ]) +(%d+) +(%d+%%) +(%d+%%) +(.+)"
-		)
+	while true do
+		local line = ps()
+		if not line then
+			return
+		end
 
-		local idx = tonumber(pid)
-		if idx then
-			data[idx] = {
-				['PID']     = pid,
-				['PPID']    = ppid,
-				['USER']    = user,
-				['STAT']    = stat,
-				['VSZ']     = vsz,
-				['%MEM']    = mem,
-				['%CPU']    = cpu,
-				['COMMAND'] = cmd
-			}
+		k = luci.util.split(luci.util.trim(line), "%s+", nil, true)
+		if k[6] == "%VSZ" then
+			k[6] = "%MEM"
+		end
+		if k[1] == "PID" then
+			break
+		end
+	end
+
+	for line in ps do
+		local row = {}
+
+		line = luci.util.trim(line)
+		for i, value in ipairs(luci.util.split(line, "%s+", #k-1, true)) do
+			row[k[i]] = value
+		end
+
+		local pid = tonumber(row[k[1]])
+		if pid then
+			data[pid] = row
 		end
 	end
 
@@ -827,7 +662,6 @@ function wifi.getiwinfo(ifname)
 		local u = uci.cursor_state()
 		local d, n = ifname:match("^(%w+)%.network(%d+)")
 		if d and n then
-			ifname = d
 			n = tonumber(n)
 			u:foreach("wireless", "wifi-iface",
 				function(s)
@@ -863,6 +697,89 @@ function wifi.getiwinfo(ifname)
 	end
 end
 
+--- Get iwconfig output for all wireless devices.
+-- @return	Table of tables containing the iwconfing output for each wifi device
+function wifi.getiwconfig()
+	local cnt = luci.util.exec("PATH=/sbin:/usr/sbin iwconfig 2>/dev/null")
+	local iwc = {}
+
+	for i, l in pairs(luci.util.split(luci.util.trim(cnt), "\n\n")) do
+		local k = l:match("^(.-) ")
+		l = l:gsub("^(.-) +", "", 1)
+		if k then
+			local entry, flags = _parse_mixed_record(l)
+			if entry then
+				entry.flags = flags
+			end
+			iwc[k] = entry
+		end
+	end
+
+	return iwc
+end
+
+--- Get iwlist scan output from all wireless devices.
+-- @return	Table of tables contaiing all scan results
+function wifi.iwscan(iface)
+	local siface = iface or ""
+	local cnt = luci.util.exec("iwlist "..siface.." scan 2>/dev/null")
+	local iws = {}
+
+	for i, l in pairs(luci.util.split(luci.util.trim(cnt), "\n\n")) do
+		local k = l:match("^(.-) ")
+		l = l:gsub("^[^\n]+", "", 1)
+		l = luci.util.trim(l)
+		if k then
+			iws[k] = {}
+			for j, c in pairs(luci.util.split(l, "\n          Cell")) do
+				c = c:gsub("^(.-)- ", "", 1)
+				c = luci.util.split(c, "\n", 7)
+				c = table.concat(c, "\n", 1)
+				local entry, flags = _parse_mixed_record(c)
+				if entry then
+					entry.flags = flags
+				end
+				table.insert(iws[k], entry)
+			end
+		end
+	end
+
+	return iface and (iws[iface] or {}) or iws
+end
+
+--- Get available channels from given wireless iface.
+-- @param iface	Wireless interface (optional)
+-- @return		Table of available channels
+function wifi.channels(iface)
+	local stat, iwinfo = pcall(require, "iwinfo")
+	local cns
+
+	if stat then
+		local t = iwinfo.type(iface or "")
+		if iface and t and iwinfo[t] then
+			cns = iwinfo[t].freqlist(iface)
+		end
+	end
+
+	if not cns or #cns == 0 then
+		cns = {
+			{channel =  1, mhz = 2412},
+			{channel =  2, mhz = 2417},
+			{channel =  3, mhz = 2422},
+			{channel =  4, mhz = 2427},
+			{channel =  5, mhz = 2432},
+			{channel =  6, mhz = 2437},
+			{channel =  7, mhz = 2442},
+			{channel =  8, mhz = 2447},
+			{channel =  9, mhz = 2452},
+			{channel = 10, mhz = 2457},
+			{channel = 11, mhz = 2462}
+		}
+	end
+
+	return cns
+end
+
 
 --- LuCI system utilities / init related functions.
 -- @class	module
@@ -880,59 +797,78 @@ function init.names()
 	return names
 end
 
+--- Test whether the given init script is enabled
+-- @param name	Name of the init script
+-- @return		Boolean indicating whether init is enabled
+function init.enabled(name)
+	if fs.access(init.dir..name) then
+		return ( call(init.dir..name.." enabled >/dev/null") == 0 )
+	end
+	return false
+end
+
 --- Get the index of he given init script
 -- @param name	Name of the init script
 -- @return		Numeric index value
 function init.index(name)
 	if fs.access(init.dir..name) then
-		return call("env -i sh -c 'source %s%s enabled; exit ${START:-255}' >/dev/null"
-			%{ init.dir, name })
+		return call("source "..init.dir..name.." enabled >/dev/null; exit $START")
 	end
-end
-
-local function init_action(action, name)
-	if fs.access(init.dir..name) then
-		return call("env -i %s%s %s >/dev/null" %{ init.dir, name, action })
-	end
-end
-
---- Test whether the given init script is enabled
--- @param name	Name of the init script
--- @return		Boolean indicating whether init is enabled
-function init.enabled(name)
-	return (init_action("enabled", name) == 0)
 end
 
 --- Enable the given init script
 -- @param name	Name of the init script
 -- @return		Boolean indicating success
 function init.enable(name)
-	return (init_action("enable", name) == 1)
+	if fs.access(init.dir..name) then
+		return ( call(init.dir..name.." enable >/dev/null") == 1 )
+	end
 end
 
 --- Disable the given init script
 -- @param name	Name of the init script
 -- @return		Boolean indicating success
 function init.disable(name)
-	return (init_action("disable", name) == 0)
-end
-
---- Start the given init script
--- @param name	Name of the init script
--- @return		Boolean indicating success
-function init.start(name)
-	return (init_action("start", name) == 0)
-end
-
---- Stop the given init script
--- @param name	Name of the init script
--- @return		Boolean indicating success
-function init.stop(name)
-	return (init_action("stop", name) == 0)
+	if fs.access(init.dir..name) then
+		return ( call(init.dir..name.." disable >/dev/null") == 0 )
+	end
 end
 
 
 -- Internal functions
+
+function _parse_delimited_table(iter, delimiter, callback)
+	delimiter = delimiter or "%s+"
+
+	local data  = {}
+	local trim  = luci.util.trim
+	local split = luci.util.split
+
+	local keys = split(trim(iter()), delimiter, nil, true)
+	for i, j in pairs(keys) do
+		keys[i] = trim(keys[i])
+	end
+
+	for line in iter do
+		local row = {}
+		line = trim(line)
+		if #line > 0 then
+			for i, j in pairs(split(line, delimiter, nil, true)) do
+				if keys[i] then
+					row[keys[i]] = j
+				end
+			end
+		end
+
+		if callback then
+			callback(row)
+		else
+			data[#data+1] = row
+		end
+	end
+
+	return data
+end
 
 function _parse_mixed_record(cnt, delimiter)
 	delimiter = delimiter or "  "

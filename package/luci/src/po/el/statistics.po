@@ -3,15 +3,13 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-06-10 03:40+0200\n"
-"PO-Revision-Date: 2012-03-18 15:32+0200\n"
-"Last-Translator: Vasilis <acinonyx@openwrt.gr>\n"
+"PO-Revision-Date: 2009-09-13 15:53+0200\n"
+"Last-Translator: Vasilis Tsiligiannis <b_tsiligiannis@silverton.gr>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.0.4\n"
+"X-Generator: Pootle 1.1.0\n"
 
 msgid "Action (target)"
 msgstr ""
@@ -69,7 +67,7 @@ msgid "Collectd Settings"
 msgstr "Ρυθμίσεις Collectd"
 
 msgid ""
-"Collectd is a small daemon for collecting data from various sources through "
+"Collectd is a small daeomon for collecting data from various sources through "
 "different plugins. On this page you can change general settings for the "
 "collectd daemon."
 msgstr ""
@@ -78,7 +76,7 @@ msgstr ""
 "γενικές ρυθμίσεις του δαίμονα collectd."
 
 msgid "Conntrack"
-msgstr "Conntrack"
+msgstr ""
 
 msgid "Conntrack Plugin Configuration"
 msgstr ""
@@ -117,11 +115,8 @@ msgstr "Χρήση Χώρου στον δίσκο"
 msgid "Disk Usage"
 msgstr "Χρήση Δίσκου"
 
-msgid "Display Host »"
-msgstr ""
-
 msgid "Display timespan »"
-msgstr "Εμφάνιση χρονικού εύρους »"
+msgstr "Εμφάνιση χρονικού εύρους"
 
 msgid "E-Mail Plugin Configuration"
 msgstr ""
@@ -190,6 +185,12 @@ msgstr ""
 msgid "Incoming interface"
 msgstr ""
 
+msgid "Installed network plugins:"
+msgstr ""
+
+msgid "Installed output plugins:"
+msgstr ""
+
 msgid "Interface Plugin Configuration"
 msgstr ""
 
@@ -224,7 +225,7 @@ msgid "Maximum allowed connections"
 msgstr ""
 
 msgid "Memory"
-msgstr "Μνήμη"
+msgstr ""
 
 msgid "Memory Plugin Configuration"
 msgstr ""
@@ -266,7 +267,7 @@ msgid "Monitor remote ports"
 msgstr ""
 
 msgid "Name of the rule"
-msgstr "Όνομα κανόνα"
+msgstr ""
 
 msgid "Netlink"
 msgstr "Netlink"
@@ -283,6 +284,11 @@ msgstr ""
 msgid "Network plugins"
 msgstr "Πρόσθετα δικτύου"
 
+msgid ""
+"Network plugins are used to collect information about open tcp connections, "
+"interface traffic, iptables rules etc."
+msgstr ""
+
 msgid "Network protocol"
 msgstr ""
 
@@ -290,7 +296,7 @@ msgid "Number of threads for data collection"
 msgstr "Αριθμός νημάτων για τη συλλογή δεδομένων"
 
 msgid "OLSRd"
-msgstr "OLSRd"
+msgstr ""
 
 msgid "OLSRd Plugin Configuration"
 msgstr ""
@@ -306,6 +312,13 @@ msgstr ""
 
 msgid "Output plugins"
 msgstr "Πρόσθετα εξόδου"
+
+msgid ""
+"Output plugins provide different possibilities to store collected data. It "
+"is possible to enable multiple plugin at one, for example to store collected "
+"data in rrd databases and to transmit the data over the network to other "
+"collectd instances."
+msgstr ""
 
 msgid "Ping"
 msgstr "Ping"
@@ -386,7 +399,7 @@ msgid "Specifies what information to collect about the global topology."
 msgstr ""
 
 msgid "Statistics"
-msgstr "Στατιστικά"
+msgstr ""
 
 msgid "Storage directory"
 msgstr ""
@@ -406,6 +419,11 @@ msgstr "Φόρτος Συστήματος"
 msgid "System plugins"
 msgstr "Πρόσθετα συστήματος"
 
+msgid ""
+"System plugins collecting values about system state and ressource usage on "
+"the device.:"
+msgstr ""
+
 msgid "TCP Connections"
 msgstr "Συνδέσεις TCP"
 
@@ -419,9 +437,6 @@ msgid "TTL for ping packets"
 msgstr ""
 
 msgid "Table"
-msgstr "Πίνακας"
-
-msgid "The NUT plugin reads information about Uninterruptible Power Supplies."
 msgstr ""
 
 msgid ""
@@ -530,7 +545,7 @@ msgid ""
 msgstr ""
 "Το πακέτο στατιστικών βασίζεται στο <a href=\"http://collectd.org/index.shtml"
 "\">Collectd</a> και χρησιμοποιεί το <a href=\"http://oss.oetiker.ch/rrdtool/"
-"\">RRD Tool</a> για να σχεδιάσει διαγράμματα από τα συλλεγόμενα δεδομένα."
+"\">RRD Tool</a> για να σχεδιάσει διαγράμματα από τα συλλεγόμενα δεδομένα"
 
 msgid ""
 "The tcpconns plugin collects informations about open tcp connections on "
@@ -543,6 +558,11 @@ msgid ""
 msgstr ""
 
 msgid ""
+"The wireless plugin collects statistics about wireless signal strength, "
+"noise and quality."
+msgstr ""
+
+msgid ""
 "This section defines on which interfaces collectd will wait for incoming "
 "connections."
 msgstr ""
@@ -552,15 +572,6 @@ msgid ""
 msgstr ""
 
 msgid "Try to lookup fully qualified hostname"
-msgstr ""
-
-msgid "UPS"
-msgstr ""
-
-msgid "UPS Plugin Configuration"
-msgstr ""
-
-msgid "UPS name in NUT ups@host format"
 msgstr ""
 
 msgid "UnixSock"
@@ -581,14 +592,17 @@ msgstr ""
 msgid "Wireless"
 msgstr "Ασύρματο"
 
+msgid "Wireless Plugin Configuration"
+msgstr ""
+
 msgid "Wireless iwinfo Plugin Configuration"
 msgstr ""
 
 msgid "e.g. br-ff"
-msgstr "π.χ. br-ff"
+msgstr ""
 
 msgid "e.g. br-lan"
-msgstr "π.χ. br-lan"
+msgstr ""
 
 msgid "e.g. reject-with tcp-reset"
 msgstr ""

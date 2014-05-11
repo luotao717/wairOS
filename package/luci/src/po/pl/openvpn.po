@@ -1,364 +1,353 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"PO-Revision-Date: 2013-01-18 23:07+0200\n"
-"Last-Translator: obsy <cezary@eko.one.pl>\n"
+"Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
-"Language: pl\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Pootle 2.0.6\n"
 
 msgid "%s"
-msgstr "%s"
+msgstr ""
 
 msgid "'net30', 'p2p', or 'subnet'"
-msgstr "'net30', 'p2p', lub 'subnet'"
+msgstr ""
 
 msgid "Accept options pushed from server"
-msgstr "Zaakceptuj opcje narzucone przez serwer"
+msgstr ""
 
 msgid "Add"
-msgstr "Dodaj"
+msgstr ""
 
 msgid "Add route after establishing connection"
-msgstr "Dodaj trasę po nawiązaniu połączenia"
+msgstr ""
 
 msgid "Additional authentication over TLS"
-msgstr "Dodatkowe uwierzytelnianie poprzez TLS"
+msgstr ""
 
 msgid "Allow client-to-client traffic"
-msgstr "Zezwól na łączność klient-klient"
+msgstr ""
 
 msgid "Allow multiple clients with same certificate"
-msgstr "Zezwól na łączenie wielu klientów z tym samym certyfikatem."
+msgstr ""
 
 msgid "Allow only one session"
-msgstr "Zezwól tylko na jedną sesję"
+msgstr ""
 
 msgid "Allow remote to change its IP or port"
-msgstr "Zezwól na zmianę IP lub portu odległemu hostowi."
+msgstr ""
 
 msgid "Allowed maximum of connected clients"
-msgstr "Maksymalna dozwolona liczba klientów"
+msgstr ""
 
 msgid "Allowed maximum of internal"
-msgstr "Maksymalna dozwolona liczba wewnętrznych"
+msgstr ""
 
 msgid "Allowed maximum of new connections"
-msgstr "Maksymalna dozwolona liczba nowych połączeń"
+msgstr ""
 
 msgid "Append log to file"
-msgstr "Dopisz log do pliku"
+msgstr ""
 
 msgid "Authenticate using username/password"
-msgstr "Autoryzacja z użyciem loginu oraz hasła"
+msgstr ""
 
 msgid "Automatically redirect default route"
-msgstr "Automatycznie przekieruj domyślną trasę"
+msgstr ""
 
 msgid "Below is a list of configured OpenVPN instances and their current state"
 msgstr ""
-"Ponieżej znajduje się lista skonfigurowanych procesów OpenVPN wraz z ich "
-"aktualnymi stanami."
 
 msgid "Call down cmd/script before TUN/TAP close"
-msgstr "Zatrzymaj skrypt przed wyłączeniem interfejsu TUN/TAP"
+msgstr ""
 
 msgid "Certificate authority"
-msgstr "Urząd certyfikacji"
+msgstr ""
 
 msgid "Change process priority"
-msgstr "Zmień priorytet procesu"
+msgstr ""
 
 msgid "Change to directory before initialization"
-msgstr "Przejdź do katalogu przed inicjalizacją"
+msgstr ""
 
 msgid "Check peer certificate against a CRL"
-msgstr "Sprawdź certyfikat peera na obecność w CRL"
+msgstr ""
 
 msgid "Chroot to directory after initialization"
-msgstr "Zmień root (chroot) na katalog po inicjalizacji"
+msgstr ""
 
 msgid "Client is disabled"
-msgstr "Klient jest wyłączony"
+msgstr ""
 
 msgid "Configuration category"
-msgstr "Kategoria konfiguracji"
+msgstr ""
 
 msgid "Configure client mode"
-msgstr "Konfiguruj tryb klienta"
+msgstr ""
 
 msgid "Configure server bridge"
-msgstr "Konfiguruj serwer w trybie mostu"
+msgstr ""
 
 msgid "Configure server mode"
-msgstr "Konfiguruj serwer"
+msgstr ""
 
 msgid "Connect through Socks5 proxy"
-msgstr "Połącz poprzez SOCKS5 proxy"
+msgstr ""
 
 msgid "Connect to remote host through an HTTP proxy"
-msgstr "Połącz ze zdalnym hostem poprzez HTTP proxy"
+msgstr ""
 
 msgid "Connection retry interval"
-msgstr "Interwał powtarzania połączeń"
+msgstr ""
 
 msgid "Cryptography"
-msgstr "Kryptografia"
+msgstr ""
 
 msgid "Daemonize after initialization"
-msgstr "Przejdź w tryb demona po inicjalizacji"
+msgstr ""
 
 msgid "Delay n seconds after connection"
-msgstr "Opóźnienie n sekund po nawiązaniu połączenia"
+msgstr ""
 
 msgid "Delay tun/tap open and up script execution"
-msgstr "Opóźnienie otwarcia interfejsu tun/tap i wykonania skryptu"
+msgstr ""
 
 msgid "Diffie Hellman parameters"
-msgstr "Parametry Diffie Hellman"
+msgstr ""
 
 msgid "Directory for custom client config files"
-msgstr "Katalog na pliki konfiguracyjne"
+msgstr ""
 
 msgid "Disable Paging"
-msgstr "Wyłącz stronicowanie"
+msgstr ""
 
 msgid "Disable cipher initialisation vector"
-msgstr "Wyłącz wektor inicjalizacji szyfru"
+msgstr ""
 
 msgid "Disable options consistency check"
-msgstr "Wyłącz sprawdzanie poprawności ustawień"
+msgstr ""
 
 msgid "Disable replay protection"
-msgstr "Wyłącz ochronę odpowiedzi"
+msgstr ""
 
 msgid "Do not bind to local address and port"
-msgstr "Nie związuj z lokalnym adresem i portem"
+msgstr ""
 
 msgid "Don't actually execute ifconfig"
-msgstr "Nie uruchamiaj obecnie ifconfig"
+msgstr ""
 
 msgid "Don't add routes automatically"
-msgstr "Nie dodawaj tras (routes) automatycznie"
+msgstr ""
 
 msgid "Don't cache --askpass or --auth-user-pass passwords"
-msgstr "Nie cacheuj haseł --askpass lub --auth-user-pass"
+msgstr ""
 
 msgid "Don't inherit global push options"
-msgstr "Nie dziedzicz globalnej opcji push"
+msgstr ""
 
 msgid "Don't log timestamps"
-msgstr "Nie zapisuj czasu w logu"
+msgstr ""
 
 msgid "Don't re-read key on restart"
-msgstr "Nie wczytuj ponownie klucza podczas restartu"
+msgstr ""
 
 msgid "Don't require client certificate"
-msgstr "Nie wymagaj certyfikatu od klienta"
+msgstr ""
 
 msgid "Don't use adaptive lzo compression"
-msgstr "Nie używaj adaptatywnej kompresji lzo"
+msgstr ""
 
 msgid "Don't warn on ifconfig inconsistencies"
-msgstr "Nie ostrzegaj przed niespójnością w ifconfig"
+msgstr ""
 
 msgid "Echo parameters to log"
-msgstr "Zapisuj parametry w logu"
+msgstr ""
 
 msgid "Empirically measure MTU"
-msgstr "Mierz MTU empirycznie"
+msgstr ""
 
 msgid "Enable OpenSSL hardware crypto engines"
-msgstr "Włącz sprzętowe przyspieszenie OpenSSL"
+msgstr ""
 
 msgid "Enable Path MTU discovery"
-msgstr "Włącz wykrywanie \"Path MTU\""
+msgstr ""
 
 msgid "Enable Static Key encryption mode (non-TLS)"
-msgstr "Włącz tryb szyfrowania statycznym kluczem (non-TLS)"
+msgstr ""
 
 msgid "Enable TLS and assume client role"
-msgstr "Włącz TLS i przyjmij rolę klienta"
+msgstr ""
 
 msgid "Enable TLS and assume server role"
-msgstr "Włącz TLS i przyjmij rolę serwera"
+msgstr ""
 
 msgid "Enable internal datagram fragmentation"
-msgstr "Włącz wewnętrzną fragmentację datagramu"
+msgstr ""
 
 msgid "Enable management interface on <em>IP</em> <em>port</em>"
-msgstr "Włącz interfejs zarządzalny na <em>IP</em> <em>port</em>"
+msgstr ""
 
 msgid "Enabled"
-msgstr "Włączone"
+msgstr ""
 
 msgid "Encryption cipher for packets"
-msgstr "Szyfrowanie dla pakietów"
+msgstr ""
 
 msgid "Execute shell cmd after routes are added"
-msgstr "Wykonaj komendę powłoki po dodaniu tras"
+msgstr ""
 
 msgid "Execute shell command on remote ip change"
-msgstr "Wykonaj komendę powłoki po zmianie zdalnego IP"
+msgstr ""
 
 msgid ""
 "Executed in server mode on new client connections, when the client is still "
 "untrusted"
 msgstr ""
-"Wykonane w trybie serwera na nowych połączeniach klienta, gdy klient jest "
-"nadal niezaufany"
 
 msgid ""
 "Executed in server mode whenever an IPv4 address/route or MAC address is "
 "added to OpenVPN's internal routing table"
 msgstr ""
-"Wykonane w trybie serwera, gdy adres IPv4, trasa lub adres MAC są dodane do "
-"wewnętrznej tablicy routingu w OpenVPN"
 
 msgid "Exit on TLS negotiation failure"
-msgstr "Wyjdź przy niepowodzeniu negocjacji TLS"
+msgstr ""
 
 msgid "Get PEM password from controlling tty before we daemonize"
-msgstr "Uzyskaj hasło PEM z kontroli tty przed demonizacją"
+msgstr ""
 
 msgid "HMAC authentication for packets"
-msgstr "Autoryzacja HMAC dla pakietów"
+msgstr ""
 
 msgid "Handling of authentication failures"
-msgstr "Postępowanie z błędami uwierzytelniania"
+msgstr ""
 
 msgid ""
 "Helper directive to simplify the expression of --ping and --ping-restart in "
 "server mode configurations"
 msgstr ""
-"Dyrektywa Helper w celu uproszczenia wyrażenie --ping i --ping-restart w "
-"konfiguracjach w trybie serwera"
 
 msgid "If hostname resolve fails, retry"
-msgstr "Jeżeli ustanowienie nazwy hosta nie powiedzie się, spróbuj ponownie"
+msgstr ""
 
 msgid "Instance \"%s\""
-msgstr "Instancja \"%s\""
+msgstr ""
 
 msgid "Invalid"
-msgstr "Nieprawidłowe"
+msgstr ""
 
 msgid "Keep local IP address on restart"
-msgstr "Zachowaj lokalny adres IP przy restarcie"
+msgstr ""
 
 msgid "Keep remote IP address on restart"
-msgstr "Zachowaj zdalny adres IP przy restarcie"
+msgstr ""
 
 msgid "Keep tun/tap device open on restart"
-msgstr "Utrzymaj urządzenie tun/tap po restarcie jako otwarte"
+msgstr ""
 
 msgid "Key transition window"
-msgstr "Okno zmiany klucza"
+msgstr ""
 
 msgid "Limit repeated log messages"
-msgstr "Limit powtarzających się wiadomości w logu"
+msgstr ""
 
 msgid "Local certificate"
-msgstr "Certyfikat lokalny"
+msgstr ""
 
 msgid "Local host name or ip address"
-msgstr "Lokalna nazwa hosta lub adres IP"
+msgstr ""
 
 msgid "Local private key"
-msgstr "Lokalny klucz prywatny"
+msgstr ""
 
 msgid "Major mode"
-msgstr "Tryb główny"
+msgstr ""
 
 msgid "Make tun device IPv6 capable"
-msgstr "Urządzenie tun zgodne z IPv6"
+msgstr ""
 
 msgid "Maximum number of queued TCP output packets"
-msgstr "Maksymalna liczba wychodzących pakietów TCP w kolejce"
+msgstr ""
 
 msgid "Networking"
-msgstr "Ustawienia sieciowe"
+msgstr ""
 
 msgid "Number of allocated broadcast buffers"
-msgstr "Liczba przydzielonych buforów nadawczych"
+msgstr ""
 
 msgid "Number of lines for log file history"
-msgstr "Liczba linii w pliku dziennika historii"
+msgstr ""
 
 msgid "Only accept connections from given X509 name"
-msgstr "Akceptuj tylko połączenia z podanej nazwy X509"
+msgstr ""
 
 msgid "Only process ping timeouts if routes exist"
-msgstr "Wykonaj procedurę \"ping timeout\" tylko jeżeli trasy istnieją"
+msgstr ""
 
 msgid "OpenVPN"
-msgstr "OpenVPN"
+msgstr ""
 
 msgid "OpenVPN instances"
-msgstr "Instancje OpenVPN"
+msgstr ""
 
 msgid "Optimize TUN/TAP/UDP writes"
-msgstr "Optymalizuj wpisy TUN/TAP/UDP"
+msgstr ""
 
 msgid "Output to syslog and do not daemonize"
-msgstr "Wysyłaj do syslog'a i nie demonizuj"
+msgstr ""
 
 msgid "Overview"
-msgstr "Przegląd"
+msgstr ""
 
 msgid "PKCS#12 file containing keys"
-msgstr "Plik PKCS#12 zawierający klucze"
+msgstr ""
 
 msgid "Pass environment variables to script"
-msgstr "Przekaż zmienne środowiskowe do skryptu"
+msgstr ""
 
 msgid "Persist replay-protection state"
-msgstr "Utrzymaj status ochrony odpowiedzi"
+msgstr ""
 
 msgid "Persist/unpersist ifconfig-pool"
 msgstr ""
 
 msgid "Ping remote every n seconds over TCP/UDP port"
-msgstr "Pinguj zdalnego co n sekund przez port TCP/UDP"
+msgstr ""
 
 msgid "Policy level over usage of external programs and scripts"
 msgstr ""
-"Poziom zasad odnoszących się do używania zewnętrznych programów i skryptów"
 
 msgid "Port"
-msgstr "Port"
+msgstr ""
 
 msgid "Protocol"
-msgstr "Protokół"
+msgstr ""
 
 msgid "Proxy timeout in seconds"
-msgstr "Czas bezczynności proxy w sekundach"
+msgstr ""
 
 msgid "Push an ifconfig option to remote"
-msgstr "Wyślij opcje ifconfig do zdalnego"
+msgstr ""
 
 msgid "Push options to peer"
-msgstr "Wyślij opcje do peera"
+msgstr ""
 
 msgid "Query management channel for private key"
-msgstr "Kanał zarządzania zapytaniami dla klucza prywatnego"
+msgstr ""
 
 msgid "Randomly choose remote server"
-msgstr "Losowo wybierz serwer zdalny"
+msgstr ""
 
 msgid "Refuse connection if no custom client config"
 msgstr ""
 
 msgid "Remap SIGUSR1 signals"
-msgstr "Przemapuj SIGUSR1"
+msgstr ""
 
 msgid "Remote host name or ip address"
-msgstr "Nazwa lub IP zdalnego hosta"
+msgstr ""
 
 msgid "Remote ping timeout"
 msgstr ""
@@ -481,79 +470,85 @@ msgid "Start OpenVPN in a hibernating state"
 msgstr ""
 
 msgid "Start/Stop"
-msgstr "Start/Stop"
+msgstr ""
 
 msgid "Started"
-msgstr "Uruchomiono"
+msgstr ""
 
 msgid "Status file format version"
-msgstr "Wersja formatu pliku statusu"
+msgstr ""
 
 msgid "Switch to advanced configuration »"
-msgstr "Konfiguracja zaawansowana »"
+msgstr ""
 
 msgid "TCP/UDP port # for both local and remote"
-msgstr "Numer portu TCP/UDP zarówno dla lokalnego jak i zdalnego"
+msgstr ""
 
 msgid "TCP/UDP port # for local (default=1194)"
-msgstr "Numer portu TCP/UDP dla lokalnego (domyślnie=1194)"
+msgstr ""
 
 msgid "TCP/UDP port # for remote (default=1194)"
-msgstr "Numer portu TCP/UDP dla zdalnego (domyślnie=1194)"
+msgstr ""
 
 msgid "TLS cipher"
-msgstr "Kodowanie TLS"
+msgstr ""
 
 msgid "TOS passthrough (applies to IPv4 only)"
-msgstr "Przepuszczanie TOS (dotyczy tylko IPv4)"
+msgstr ""
 
 msgid "Temporary directory for client-connect return file"
-msgstr "Katalog tymczasowy dla pliku zwrotnego połączenia klienta"
+msgstr ""
 
 msgid "Timeframe for key exchange"
 msgstr ""
 
 msgid "Type of used device"
-msgstr "Typ użytego urządzenia"
+msgstr ""
 
 msgid "Use fast LZO compression"
-msgstr "Użyj szybkiej kompresji LZO"
+msgstr ""
 
 msgid "Use individual addresses rather than /30 subnets"
-msgstr "Użyj indywidualnego adresu zamiast podsieci /30"
+msgstr ""
 
 msgid "Use protocol"
-msgstr "Użyj protokołu"
+msgstr ""
 
 msgid "Use tun/tap device node"
-msgstr "Użyj węzła urządzenia tun/tap"
+msgstr ""
 
 msgid "Use username as common name"
-msgstr "Użyj nazwy użytkownika jako nazwy wspólnej"
+msgstr ""
 
 msgid "VPN"
-msgstr "VPN"
+msgstr ""
 
 msgid "Write log to file"
-msgstr "Zapisz log do pliku"
+msgstr ""
 
 msgid "Write process ID to file"
-msgstr "Zapisz numer ID procesu do pliku"
+msgstr ""
 
 msgid "Write status to file every n seconds"
-msgstr "Zapisz status do pliku co n sekund"
+msgstr ""
 
 msgid "no"
-msgstr "nie"
+msgstr ""
+
+msgid "openvpn_%s"
+msgstr ""
+
+msgid "openvpn_%s_desc"
+msgstr ""
 
 msgid "tun/tap device"
-msgstr "urządzenie tun/tap"
+msgstr ""
 
 msgid "tun/tap inactivity timeout"
-msgstr "czas bezczynności tun/tap"
+msgstr ""
 
 msgid "yes (%i)"
-msgstr "tak (%i)"
+msgstr ""
 
 msgid "« Switch to basic configuration"
-msgstr "« Konfiguracja podstawowa"
+msgstr ""

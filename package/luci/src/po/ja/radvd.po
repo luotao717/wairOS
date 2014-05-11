@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"PO-Revision-Date: 2012-04-16 09:35+0200\n"
+"PO-Revision-Date: 2011-10-14 02:58+0200\n"
 "Last-Translator: Kentaro <kentaro.matsuyama@gmail.com>\n"
 "Language-Team: German\n"
 "Language: ja\n"
@@ -24,32 +24,34 @@ msgid "Advanced"
 msgstr "詳細設定"
 
 msgid "Advertise Home Agent flag"
-msgstr "ホームエージェントフラグの広告"
+msgstr "ホーム・エージェントフラグを通知する"
 
 msgid "Advertise router address"
-msgstr "ルーターアドレスの広告"
+msgstr "ルーターのアドレスを通知する"
 
 msgid "Advertised Domain Suffixes"
-msgstr "広告するドメインサフィックスを設定します。"
+msgstr "通知済DNS"
 
 msgid ""
 "Advertised IPv6 RDNSS. If empty, the current IPv6 address of the interface "
 "is used"
 msgstr ""
-"広告するIPv6 RDNSSを設定します。未設定の場合、現在のインターフェースのIPv6 ア"
-"ドレスに設定します。"
+
+msgid "Advertised IPv6 prefix"
+msgstr ""
+
+msgid "Advertised IPv6 prefix. If empty, the current interface prefix is used"
+msgstr ""
 
 msgid "Advertised IPv6 prefixes"
-msgstr "広告するIPv6 プレフィクスを設定します"
+msgstr ""
 
 msgid ""
 "Advertised IPv6 prefixes. If empty, the current interface prefix is used"
 msgstr ""
-"広告するIPv6 プレフィクスを設定します。未設定の場合、現在のインターフェースの"
-"プレフィクスに設定します。"
 
 msgid "Advertises Mobile IPv6 Home Agent capability (RFC3775)"
-msgstr "モバイルIPv6 ホームエージェント機能の広告を行います。 (RFC3775)"
+msgstr ""
 
 msgid "Advertises Mobile Router registration capability (NEMO Basic)"
 msgstr ""
@@ -74,12 +76,13 @@ msgstr ""
 
 msgid ""
 "Advertises the length of time in seconds that addresses generated from the "
-"prefix via stateless address autoconfiguration remain preferred."
+"prefix via stateless address autoconfiguration remain preferred. Use 0 to "
+"specify an infinite lifetime"
 msgstr ""
 
 msgid ""
 "Advertises the length of time in seconds that the prefix is valid for the "
-"purpose of on-link determination."
+"purpose of on-link determination. Use 0 to specify an infinite lifetime"
 msgstr ""
 
 msgid ""
@@ -98,7 +101,7 @@ msgid ""
 msgstr ""
 
 msgid "Advertising"
-msgstr "広告"
+msgstr "通知"
 
 msgid "Autonomous"
 msgstr "Autonomous"
@@ -128,10 +131,10 @@ msgid "Enable"
 msgstr "有効"
 
 msgid "Enable advertisements"
-msgstr "広告を有効にする"
+msgstr "通知を有効にする"
 
 msgid "Enables router advertisements and solicitations"
-msgstr "ルータ広告および要請を有効にする"
+msgstr "ルータ広告及び要請を有効にする"
 
 msgid ""
 "Enables the additional stateful administered autoconfiguration protocol "
@@ -147,16 +150,16 @@ msgid "General"
 msgstr "基本設定"
 
 msgid "Home Agent information"
-msgstr "ホームエージェント 情報"
+msgstr "ホーム・エージェント (HA) 情報"
 
 msgid "Home Agent lifetime"
-msgstr "ホームエージェント 有効時間"
+msgstr "ホーム・エージェント (HA) 有効時間"
 
 msgid "Home Agent preference"
-msgstr "ホームエージェント 優先度"
+msgstr "ホーム・エージェント (HA) 優先度"
 
 msgid "Include Home Agent Information in the RA"
-msgstr "ルータ広告 (RA) にホームエージェント情報を含める"
+msgstr "ルータ広告 (RA) にホーム・エージェント情報を含める"
 
 msgid "Include Mobile IPv6 Advertisement Interval option to RA"
 msgstr ""
@@ -181,6 +184,11 @@ msgstr ""
 
 msgid ""
 "Indicates that this prefix can be used for on-link determination (RFC4861)"
+msgstr ""
+
+msgid ""
+"Indicates whether that RDNSS continues to be available to hosts even if they "
+"moved to a different subnet"
 msgstr ""
 
 msgid "Interface"
@@ -234,6 +242,9 @@ msgstr "On-link"
 msgid "On-link determination"
 msgstr ""
 
+msgid "Open"
+msgstr ""
+
 msgid "Preference"
 msgstr "優先度"
 
@@ -277,8 +288,6 @@ msgid ""
 "Radvd is a router advertisement daemon for IPv6. It listens to router "
 "solicitations and sends router advertisements as described in RFC 4861."
 msgstr ""
-"Radvdは、IPv6用のルータ広告デーモンです。RadvdはRFC 4861に規定されている、"
-"ルータ要請の受信と、ルータ広告の送信を行います。"
 
 msgid "Reachable time"
 msgstr ""
@@ -286,8 +295,6 @@ msgstr ""
 msgid ""
 "Restrict communication to specified clients, leave empty to use multicast"
 msgstr ""
-"設定されたクライアントに対してのみ通信を行います。設定しない場合、マルチキャ"
-"ストを行います。"
 
 msgid "Retransmit timer"
 msgstr ""
@@ -307,20 +314,22 @@ msgid ""
 "the prefix option"
 msgstr ""
 
-msgid "Specifies the lifetime associated with the route in seconds."
+msgid ""
+"Specifies the lifetime associated with the route in seconds. Use 0 to "
+"specify an infinite lifetime"
 msgstr ""
 
 msgid "Specifies the logical interface name this section belongs to"
-msgstr "このセクションで使用する論理インターフェース名を設定してください。"
+msgstr ""
 
 msgid ""
 "Specifies the maximum duration how long the DNSSL entries are used for name "
-"resolution."
+"resolution. Use 0 to specify an infinite lifetime"
 msgstr ""
 
 msgid ""
 "Specifies the maximum duration how long the RDNSS entries are used for name "
-"resolution."
+"resolution. Use 0 to specify an infinite lifetime"
 msgstr ""
 
 msgid "Specifies the preference associated with the default router"
@@ -354,10 +363,10 @@ msgid "Unicast only"
 msgstr "ユニキャストのみ"
 
 msgid "Valid lifetime"
-msgstr "有効時間の設定"
+msgstr ""
 
 msgid "Validity time"
-msgstr "有効時間"
+msgstr ""
 
 msgid "default"
 msgstr "default"

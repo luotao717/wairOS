@@ -6,10 +6,10 @@ msgstr ""
 "PO-Revision-Date: 2011-11-23 22:32+0200\n"
 "Last-Translator: fredb <fblistes+luci@free.fr>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Pootle 2.0.4\n"
 
@@ -68,7 +68,7 @@ msgid "Collectd Settings"
 msgstr "Paramètres Collectd"
 
 msgid ""
-"Collectd is a small daemon for collecting data from various sources through "
+"Collectd is a small daeomon for collecting data from various sources through "
 "different plugins. On this page you can change general settings for the "
 "collectd daemon."
 msgstr ""
@@ -114,9 +114,6 @@ msgstr "Utilisation de l'espace-disque"
 
 msgid "Disk Usage"
 msgstr "Espace-disque"
-
-msgid "Display Host »"
-msgstr ""
 
 msgid "Display timespan »"
 msgstr "Période affichée »"
@@ -195,6 +192,12 @@ msgstr "Ignorer les adresses-source"
 
 msgid "Incoming interface"
 msgstr "Interface entrante"
+
+msgid "Installed network plugins:"
+msgstr ""
+
+msgid "Installed output plugins:"
+msgstr ""
 
 msgid "Interface Plugin Configuration"
 msgstr "Configuration du greffon des Interfaces"
@@ -289,6 +292,11 @@ msgstr "Configuration du greffon réseau"
 msgid "Network plugins"
 msgstr "Greffons liés au réseau"
 
+msgid ""
+"Network plugins are used to collect information about open tcp connections, "
+"interface traffic, iptables rules etc."
+msgstr ""
+
 msgid "Network protocol"
 msgstr "Protocole réseau"
 
@@ -312,6 +320,13 @@ msgstr "Interface sortante"
 
 msgid "Output plugins"
 msgstr "Greffons liés aux résultats"
+
+msgid ""
+"Output plugins provide different possibilities to store collected data. It "
+"is possible to enable multiple plugin at one, for example to store collected "
+"data in rrd databases and to transmit the data over the network to other "
+"collectd instances."
+msgstr ""
 
 msgid "Ping"
 msgstr "Ping"
@@ -412,6 +427,11 @@ msgstr "Charge-système"
 msgid "System plugins"
 msgstr "Greffons liés au système"
 
+msgid ""
+"System plugins collecting values about system state and ressource usage on "
+"the device.:"
+msgstr ""
+
 msgid "TCP Connections"
 msgstr "Connexions TCP"
 
@@ -426,9 +446,6 @@ msgstr "TTL des paquets ping"
 
 msgid "Table"
 msgstr "Table"
-
-msgid "The NUT plugin reads information about Uninterruptible Power Supplies."
-msgstr ""
 
 msgid ""
 "The OLSRd plugin reads information about meshed networks from the txtinfo "
@@ -592,6 +609,13 @@ msgid ""
 msgstr ""
 
 msgid ""
+"The wireless plugin collects statistics about wireless signal strength, "
+"noise and quality."
+msgstr ""
+"Le greffon sans-fil récupère des informations sur la puissance du signal "
+"wifi, sa qualité et sur le bruit."
+
+msgid ""
 "This section defines on which interfaces collectd will wait for incoming "
 "connections."
 msgstr ""
@@ -606,15 +630,6 @@ msgstr ""
 
 msgid "Try to lookup fully qualified hostname"
 msgstr "Tente de récupérer des noms d'hôtes complètement qualifiés"
-
-msgid "UPS"
-msgstr ""
-
-msgid "UPS Plugin Configuration"
-msgstr ""
-
-msgid "UPS name in NUT ups@host format"
-msgstr ""
 
 msgid "UnixSock"
 msgstr "Socket Unix"
@@ -633,6 +648,9 @@ msgstr "Surveillance verbeuse"
 
 msgid "Wireless"
 msgstr "Sans-fil"
+
+msgid "Wireless Plugin Configuration"
+msgstr "Configuration du greffon sans-fil"
 
 msgid "Wireless iwinfo Plugin Configuration"
 msgstr ""
@@ -657,13 +675,3 @@ msgstr "En secondes ; séparer différentes valeurs par des espaces"
 
 msgid "server interfaces"
 msgstr "Interfaces du serveur"
-
-#~ msgid ""
-#~ "The wireless plugin collects statistics about wireless signal strength, "
-#~ "noise and quality."
-#~ msgstr ""
-#~ "Le greffon sans-fil récupère des informations sur la puissance du signal "
-#~ "wifi, sa qualité et sur le bruit."
-
-#~ msgid "Wireless Plugin Configuration"
-#~ msgstr "Configuration du greffon sans-fil"

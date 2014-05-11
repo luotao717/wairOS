@@ -120,9 +120,6 @@ msgstr ""
 msgid "There are no active redirects."
 msgstr ""
 
-msgid "UPNP"
-msgstr ""
-
 msgid ""
 "UPNP allows clients in the local network to automatically configure the "
 "router."
@@ -138,7 +135,7 @@ msgid "UPnP lease file"
 msgstr ""
 
 msgid "Universal Plug & Play"
-msgstr "Universal Plug & Play"
+msgstr "Universal Plug &amp; Play"
 
 msgid "Uplink"
 msgstr "Uplink"

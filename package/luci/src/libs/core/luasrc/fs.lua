@@ -5,7 +5,7 @@ Description:
 A module offering often needed filesystem manipulation functions
 
 FileId:
-$Id: fs.lua 5134 2009-07-24 17:34:40Z Cyrus $
+$Id$
 
 License:
 Copyright 2008 Steven Barth <steven@midlink.org>

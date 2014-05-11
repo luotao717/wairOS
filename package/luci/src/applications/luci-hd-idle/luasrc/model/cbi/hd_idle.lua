@@ -9,7 +9,7 @@ You may obtain a copy of the License at
 
         http://www.apache.org/licenses/LICENSE-2.0
 
-$Id: hd_idle.lua 6063 2010-04-14 08:58:08Z ben $
+$Id$
 
 ]]--
 

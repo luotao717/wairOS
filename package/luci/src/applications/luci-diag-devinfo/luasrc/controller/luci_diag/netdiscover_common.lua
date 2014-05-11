@@ -83,6 +83,7 @@ function command_function(outnets, i)
 end
 
 function action_links(netdiscovermap, mini) 
+   luci.i18n.loadc("diag_devinfo")
    s = netdiscovermap:section(SimpleSection, "", translate("Actions")) 
    b = s:option(DummyValue, "_config", translate("Configure Scans"))
    b.value = ""

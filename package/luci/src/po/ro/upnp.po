@@ -121,9 +121,6 @@ msgstr "Porneste UPnP si serviciul NAT-PMP"
 msgid "There are no active redirects."
 msgstr "Nu exista redirecturi active."
 
-msgid "UPNP"
-msgstr ""
-
 msgid ""
 "UPNP allows clients in the local network to automatically configure the "
 "router."

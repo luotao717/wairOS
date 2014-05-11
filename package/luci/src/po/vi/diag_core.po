@@ -8,15 +8,9 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-msgid "Configure Diagnostics"
-msgstr ""
-
-msgid "Diagnostics"
-msgstr ""
-
 msgid ""
-"The diagnostics available under this menu depend on what modules you have "
-"installed on your device."
+"With this menu you can configure network diagnostics, such as network device "
+"scans and ping tests."
 msgstr ""
 
 msgid ""
@@ -24,7 +18,8 @@ msgid ""
 "to aid in troubleshooting."
 msgstr ""
 
-msgid ""
-"With this menu you can configure network diagnostics, such as network device "
-"scans and ping tests."
+msgid "Configure Diagnostics"
+msgstr ""
+
+msgid "l_d_diag"
 msgstr ""

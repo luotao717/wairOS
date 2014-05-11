@@ -1,57 +1,40 @@
-msgid ""
-msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-04-16 01:00+0200\n"
-"PO-Revision-Date: 2012-09-03 18:57+0200\n"
-"Last-Translator: José Vicente <josevteg@gmail.com>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: es\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.0.6\n"
-
 msgid "Downlink"
-msgstr "Enlace de bajada"
+msgstr ""
 
 msgid "Downstream bandwidth in kbit/s"
-msgstr "Ancho de banda de bajada en Kbit/s"
+msgstr ""
 
 msgid "Host or Network in CIDR notation."
-msgstr "Máquina o red en notación CIDR."
+msgstr ""
 
 msgid "Interface"
-msgstr "Interfaz"
+msgstr ""
 
 msgid "Low priority destination ports"
-msgstr "Puertos de destino de prioridad baja"
+msgstr ""
 
 msgid "Low priority hosts (Destination)"
-msgstr "Máquinas de prioridad baja (destino)"
+msgstr ""
 
 msgid "Low priority hosts (Source)"
-msgstr "Máquinas de prioridad baja (origen)"
+msgstr ""
 
 msgid "Low priority source ports"
-msgstr "Puertos de origen de prioridad baja"
+msgstr ""
 
 msgid "Uplink"
-msgstr "Enlace de salida"
+msgstr ""
 
 msgid "Upstream bandwidth in kbit/s"
-msgstr "Ancho de banda de subida en Kbit/s"
+msgstr ""
 
 msgid "Wondershaper"
-msgstr "Wondershaper"
+msgstr ""
 
 msgid "Wondershaper settings"
-msgstr "Configuración de Wondershaper"
+msgstr ""
 
 msgid ""
 "Wondershaper uses traffic shaping to ensure low latencies for interactive "
 "traffic even when your internet connection is highly saturated."
 msgstr ""
-"Wondershaper modela el tráfico para asegurar latencias bajas al tráfico "
-"interactivo incluso cuando la conexión a Internet esté muy saturada."

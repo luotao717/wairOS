@@ -3,20 +3,17 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-05-12 17:58+0200\n"
-"PO-Revision-Date: 2012-11-21 20:52+0200\n"
-"Last-Translator: Jo-Philipp <xm@subsignal.org>\n"
+"PO-Revision-Date: 2011-09-08 15:26+0200\n"
+"Last-Translator: Manuel <freifunk@somakoma.de>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.0.6\n"
+"X-Generator: Pootle 2.0.4\n"
 
 msgid "BSSID"
-msgstr "BSSID"
-
-msgid "Bad (ETX > 10)"
 msgstr ""
 
 msgid "Basic Settings"
@@ -32,7 +29,7 @@ msgid "Basic system settings"
 msgstr "Grundlegende Systemeinstellungen"
 
 msgid "Bitrate"
-msgstr "Bitrate"
+msgstr ""
 
 msgid "Channel"
 msgstr "Kanal"
@@ -46,7 +43,7 @@ msgid "Client network size"
 msgstr "Größe des DHCP-Netzes"
 
 msgid "Community"
-msgstr "Community"
+msgstr ""
 
 msgid "Community profile"
 msgstr "Community Profile"
@@ -82,13 +79,10 @@ msgid "E-Mail"
 msgstr "E-Mail"
 
 msgid "ESSID"
-msgstr "ESSID"
+msgstr ""
 
 msgid "Edit index page"
 msgstr "Indexseite bearbeiten"
-
-msgid "Enable IPv6"
-msgstr "IPv6 aktivieren"
 
 msgid "Error"
 msgstr "Fehler"
@@ -97,7 +91,7 @@ msgid "Find your coordinates with OpenStreetMap"
 msgstr "Geokoordinaten mit OpenStreetMap ermitteln"
 
 msgid "Freifunk"
-msgstr "Freifunk"
+msgstr ""
 
 msgid "Freifunk Overview"
 msgstr "Freifunk Übersicht"
@@ -106,16 +100,10 @@ msgid "Freifunk Remote Update"
 msgstr "Freifunk Fernupdate"
 
 msgid "Gateway"
-msgstr "Gateway"
+msgstr ""
 
 msgid "Go to"
 msgstr "Gehe zu"
-
-msgid "Good (2 < ETX < 4)"
-msgstr ""
-
-msgid "Green"
-msgstr ""
 
 msgid "Hello and welcome in the network of"
 msgstr "Hallo und willkommen im Netz von"
@@ -124,19 +112,10 @@ msgid "Hide OpenStreetMap"
 msgstr "OpenStreetMap ausblenden"
 
 msgid "Homepage"
-msgstr "Homepage"
+msgstr ""
 
 msgid "Hostname"
 msgstr "Hostname"
-
-msgid "IPv6 Config"
-msgstr "IPv6 Konfiguration"
-
-msgid "IPv6 Prefix"
-msgstr "IPv6 Prefix"
-
-msgid "IPv6 network in CIDR notation."
-msgstr "IPv6 Subnetz in CIDR-Notation"
 
 msgid "If selected then the default content element is not shown."
 msgstr ""
@@ -171,11 +150,8 @@ msgstr "Konfigurationsdateien wiederherstellen"
 msgid "Latitude"
 msgstr "Breite"
 
-msgid "Legend"
-msgstr ""
-
 msgid "Load"
-msgstr "Load"
+msgstr ""
 
 msgid "Local Time"
 msgstr "Lokale Zeit"
@@ -199,10 +175,10 @@ msgid "Mesh prefix"
 msgstr "Prefix des Meshs"
 
 msgid "Metric"
-msgstr "Metrik"
+msgstr ""
 
 msgid "Mode"
-msgstr "Modus"
+msgstr ""
 
 msgid "Network"
 msgstr "Netzwerk"
@@ -216,17 +192,21 @@ msgstr "Pseudonym"
 msgid "No default routes known."
 msgstr "Es sind keine Standardrouten bekannt."
 
+msgid ""
+"No services can be shown, because olsrd is not running or the olsrd-"
+"nameservice Plugin is not loaded."
+msgstr ""
+"Es kann keine Liste der Dienste angezeigt werden, da olsrd nicht läuft oder "
+"das nameservice plugin nicht geladen oder konfiguriert wurde."
+
 msgid "Notice"
 msgstr "Notiz"
 
 msgid "OLSR"
-msgstr "OLSR"
+msgstr ""
 
 msgid "Operator"
 msgstr "Betreiber"
-
-msgid "Orange"
-msgstr ""
 
 msgid "Overview"
 msgstr "Übersicht"
@@ -244,10 +224,10 @@ msgid "Please set your contact information"
 msgstr "Bitte gib deine Kontaktinformationen ein"
 
 msgid "Power"
-msgstr "Power"
+msgstr ""
 
 msgid "Processor"
-msgstr "Prozessor"
+msgstr ""
 
 msgid "Profile"
 msgstr "Profil"
@@ -258,11 +238,8 @@ msgstr "Profil (Expertenmodus)"
 msgid "Realname"
 msgstr "Name"
 
-msgid "Red"
-msgstr ""
-
 msgid "SSID"
-msgstr "SSID"
+msgstr ""
 
 msgid ""
 "Select your location with a mouse click on the map. The map will only show "
@@ -271,17 +248,20 @@ msgstr ""
 "Wähle hier deinen Standort durch einen Mausklick aus. Die Karte funktioniert "
 "nur, wenn bereits eine Verbindung zum Internet besteht."
 
-msgid "Show OpenStreetMap"
-msgstr "OpenStreetMap anzeigen"
+msgid "Services"
+msgstr "Dienste"
 
 msgid "Show on map"
 msgstr "Karte öffnen"
 
-msgid "Signal"
-msgstr "Signal"
+msgid "Show OpenStreetMap"
+msgstr "OpenStreetMap anzeigen"
 
-msgid "Splash"
-msgstr "Splash"
+msgid "Signal"
+msgstr ""
+
+msgid "Source"
+msgstr "Quelle"
 
 msgid "Start Upgrade"
 msgstr "Updatevorgang starten"
@@ -290,23 +270,18 @@ msgid "Statistics"
 msgstr "Statistiken"
 
 msgid "Status"
-msgstr "Status"
-
-msgid "Still usable (4 < ETX < 10)"
 msgstr ""
 
 msgid "System"
-msgstr "System"
+msgstr ""
 
 msgid "TX"
-msgstr "TX"
+msgstr ""
 
 msgid ""
-"The <em>libiwinfo</em> package is not installed. You must install this "
+"The <em>libiwinfo-lua</em> package is not installed. You must install this "
 "component for working wireless configuration!"
 msgstr ""
-"Das <em>libiwinfo</em>-Paket ist nicht installiert. Dieses Paket muss für "
-"eine funktionierende WLAN-Konfiguration vorhanden sein!"
 
 msgid ""
 "The OLSRd service is not configured to capture position data from the "
@@ -349,13 +324,13 @@ msgid "Update available!"
 msgstr "Update verfügbar!"
 
 msgid "Uptime"
-msgstr "Uptime"
+msgstr ""
+
+msgid "Url"
+msgstr "Adresse"
 
 msgid "Verify downloaded images"
 msgstr "Heruntergeladene Images verifizieren"
-
-msgid "Very good (ETX < 2)"
-msgstr ""
 
 msgid ""
 "We are an initiative to establish a free, independent and open wireless mesh "
@@ -366,9 +341,6 @@ msgstr ""
 
 msgid "Wireless Overview"
 msgstr "WLAN Übersicht"
-
-msgid "Yellow"
-msgstr ""
 
 msgid ""
 "You can display additional content on the public index page by inserting "
@@ -397,45 +369,22 @@ msgid "and fill out all required fields."
 msgstr "und fülle alle benötigten Felder aus."
 
 msgid "buffered"
-msgstr "gepuffert"
+msgstr ""
 
 msgid "cached"
-msgstr "gecacht"
+msgstr ""
 
 msgid "e.g."
 msgstr "z.B."
 
 msgid "free"
-msgstr "ungenutzt"
+msgstr ""
 
 msgid "to disable it."
 msgstr "um es auszuschalten."
 
 msgid "used"
-msgstr "benutzt"
+msgstr ""
 
 msgid "wireless settings"
 msgstr "Drahtloseinstellungen"
-
-#~ msgid ""
-#~ "No services can be shown, because olsrd is not running or the olsrd-"
-#~ "nameservice Plugin is not loaded."
-#~ msgstr ""
-#~ "Es kann keine Liste der Dienste angezeigt werden, da olsrd nicht läuft "
-#~ "oder das nameservice plugin nicht geladen oder konfiguriert wurde."
-
-#~ msgid "Services"
-#~ msgstr "Dienste"
-
-#~ msgid "Source"
-#~ msgstr "Quelle"
-
-#~ msgid ""
-#~ "The <em>libiwinfo-lua</em> package is not installed. You must install "
-#~ "this component for working wireless configuration!"
-#~ msgstr ""
-#~ "Das <em>libiwinfo-lua</em>-Paket ist nicht installiert. Das Paket muss "
-#~ "für eine funktionierende WLAN-Konfiguration installiert sein!"
-
-#~ msgid "Url"
-#~ msgstr "Adresse"

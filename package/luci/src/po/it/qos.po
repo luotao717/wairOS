@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-03-25 22:10+0100\n"
-"PO-Revision-Date: 2012-04-19 23:39+0200\n"
-"Last-Translator: claudyus <claudyus84@gmail.com>\n"
+"PO-Revision-Date: 2011-05-17 22:18+0200\n"
+"Last-Translator: coatto87 <coatto87@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -13,93 +13,75 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.4\n"
 
-msgid "Calculate overhead"
-msgstr "Calcola l'overhead"
-
-msgid "Classification Rules"
-msgstr "Regole di classificazione"
-
-msgid "Classification group"
-msgstr "Gruppo di Priorità"
-
-msgid "Destination host"
-msgstr "Host di destinazione"
-
-msgid "Downlink"
-msgstr ""
-
-msgid "Download speed (kbit/s)"
-msgstr "Velocità di download (kbit/s)"
-
-msgid "Enable"
-msgstr "Abilita"
-
-msgid "Half-duplex"
-msgstr "Half-duplex"
-
-msgid "Interfaces"
-msgstr "Interfacce"
-
-msgid "Internet Connection"
-msgstr ""
-
-msgid "Number of bytes"
-msgstr "Numeri di bytes"
-
-msgid "Ports"
-msgstr "Porte"
-
-msgid "Protocol"
-msgstr "Protocollo"
-
-msgid "QoS"
-msgstr ""
-
 msgid "Quality of Service"
 msgstr "Qualità del Servizio"
-
-msgid "Service"
-msgstr "Servizi"
-
-msgid "Source host"
-msgstr "Host sorgente"
-
-msgid "Target"
-msgstr "Target"
-
-msgid "Uplink"
-msgstr ""
-
-msgid "Upload speed (kbit/s)"
-msgstr "Velocità di upload (kbit/s)"
 
 msgid ""
 "With <abbr title=\"Quality of Service\">QoS</abbr> you can prioritize "
 "network traffic selected by addresses, ports or services."
 msgstr ""
 "Con <abbr title=\"Qualità del Servizio\">QoS</abbr> puoi dare priorità al "
-"traffico di rete in base ad un ip, una porta o dei servizi."
+"traffico di rete in base ad un ip, una porta o dei servizi. "
 
-msgid "all"
-msgstr "all"
+msgid "Interfaces"
+msgstr "Interfacce"
 
-msgid "allf"
-msgstr ""
+msgid "Enable"
+msgstr "Abilita"
+
+msgid "Classification group"
+msgstr "Gruppo di Priorità"
 
 msgid "default"
 msgstr "default"
 
-msgid "express"
-msgstr "express"
+msgid "Calculate overhead"
+msgstr ""
 
-msgid "low"
-msgstr "low"
+msgid "Half-duplex"
+msgstr ""
 
-msgid "normal"
-msgstr "normal"
+msgid "Download speed (kbit/s)"
+msgstr "Velocità di download (kbit/s)"
+
+msgid "Upload speed (kbit/s)"
+msgstr "Velocità di upload (kbit/s)"
+
+msgid "Classification Rules"
+msgstr ""
+
+msgid "Target"
+msgstr ""
 
 msgid "priority"
-msgstr "priority"
+msgstr ""
 
-msgid "qos_connbytes"
+msgid "express"
+msgstr ""
+
+msgid "normal"
+msgstr ""
+
+msgid "low"
+msgstr ""
+
+msgid "Source host"
+msgstr ""
+
+msgid "all"
+msgstr ""
+
+msgid "Destination host"
+msgstr ""
+
+msgid "Service"
+msgstr ""
+
+msgid "Protocol"
+msgstr ""
+
+msgid "Ports"
+msgstr ""
+
+msgid "Number of bytes"
 msgstr ""

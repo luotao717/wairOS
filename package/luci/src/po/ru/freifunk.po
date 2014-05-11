@@ -1,11 +1,11 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: LuCI: freifunk\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-05-19 19:36+0200\n"
-"PO-Revision-Date: 2012-08-15 20:46+0300\n"
-"Last-Translator: Roman A. aka BasicXP <x12ozmouse@ya.ru>\n"
-"Language-Team: Russian <x12ozmouse@ya.ru>\n"
+"PO-Revision-Date: 2011-07-21 18:14+0200\n"
+"Last-Translator: stanislav.fomichev <s@fomichev.me>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -13,13 +13,9 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Pootle 2.0.4\n"
-"X-Poedit-SourceCharset: UTF-8\n"
 
 msgid "BSSID"
 msgstr "BSSID"
-
-msgid "Bad (ETX > 10)"
-msgstr ""
 
 msgid "Basic Settings"
 msgstr "Базовые настройки"
@@ -34,7 +30,7 @@ msgid "Basic system settings"
 msgstr "Основные настройки системы"
 
 msgid "Bitrate"
-msgstr "Скорость"
+msgstr "Битовая скорость"
 
 msgid "Channel"
 msgstr "Канал"
@@ -81,16 +77,13 @@ msgid "Diversity is enabled for device"
 msgstr "Неопределенность пути включена"
 
 msgid "E-Mail"
-msgstr "Эл. почта"
+msgstr "E-Mail"
 
 msgid "ESSID"
 msgstr "ESSID"
 
 msgid "Edit index page"
 msgstr "Редактировать главную страницу"
-
-msgid "Enable IPv6"
-msgstr ""
 
 msgid "Error"
 msgstr "Ошибка"
@@ -105,19 +98,13 @@ msgid "Freifunk Overview"
 msgstr "Обзор Freifunk"
 
 msgid "Freifunk Remote Update"
-msgstr "Удалённое обновление Freifunk"
+msgstr "Удаленное обновление Freifunk"
 
 msgid "Gateway"
 msgstr "Шлюз"
 
 msgid "Go to"
 msgstr "Перейти"
-
-msgid "Good (2 < ETX < 4)"
-msgstr ""
-
-msgid "Green"
-msgstr ""
 
 msgid "Hello and welcome in the network of"
 msgstr "Здравствуйте и добро пожаловать в сеть"
@@ -131,21 +118,11 @@ msgstr "Домашняя страница"
 msgid "Hostname"
 msgstr "Имя хоста"
 
-msgid "IPv6 Config"
-msgstr ""
-
-msgid "IPv6 Prefix"
-msgstr ""
-
-msgid "IPv6 network in CIDR notation."
-msgstr ""
-
 msgid "If selected then the default content element is not shown."
 msgstr "Если выбрано, содержимое по умолчанию не будет показано."
 
 msgid "If you are interested in our project then contact the local community"
-msgstr ""
-"Если вы заинтересованы в нашем проекте, свяжитесь с местным сообществом"
+msgstr "Обратитесь в местное сообщество если вы заинтересованы в нашем проекте"
 
 msgid "Index Page"
 msgstr "Главная страница"
@@ -160,18 +137,14 @@ msgstr ""
 "Доступ в интернет зависит от технических и организационных условий и может "
 "быть не доступен для вас."
 
-# It - access point
 msgid "It is operated by"
-msgstr "Она управляется"
+msgstr "Управляется"
 
 msgid "Keep configuration"
 msgstr "Сохранить конфигурацию"
 
 msgid "Latitude"
 msgstr "Широта"
-
-msgid "Legend"
-msgstr ""
 
 msgid "Load"
 msgstr "Загрузка"
@@ -207,13 +180,20 @@ msgid "Network"
 msgstr "Сеть"
 
 msgid "Network for client DHCP addresses"
-msgstr "Сеть для клиентских DHCP-адресов"
+msgstr "Сеть для клиентских DHCP адресов"
 
 msgid "Nickname"
 msgstr "Псевдоним"
 
 msgid "No default routes known."
 msgstr "Маршруты по умолчанию не известны."
+
+msgid ""
+"No services can be shown, because olsrd is not running or the olsrd-"
+"nameservice Plugin is not loaded."
+msgstr ""
+"Сервис не может быть показан, так как oslrd не запущен или модуль olsrd-"
+"nameservice не загружен."
 
 msgid "Notice"
 msgstr "Внимание"
@@ -222,9 +202,6 @@ msgid "OLSR"
 msgstr "OLSR"
 
 msgid "Operator"
-msgstr "Оператор"
-
-msgid "Orange"
 msgstr ""
 
 msgid "Overview"
@@ -252,13 +229,10 @@ msgid "Profile"
 msgstr "Профиль"
 
 msgid "Profile (Expert)"
-msgstr "Профиль (эксперт)"
+msgstr "Профиль(Эксперт)"
 
 msgid "Realname"
 msgstr "Имя"
-
-msgid "Red"
-msgstr ""
 
 msgid "SSID"
 msgstr "SSID"
@@ -267,20 +241,23 @@ msgid ""
 "Select your location with a mouse click on the map. The map will only show "
 "up if you are connected to the Internet."
 msgstr ""
-"Укажите ваше местоположение на карте с помощью щелчка мыши. Карта будет "
-"показана только если вы подключены к интернету."
+"Укажите Ваше местоположение на карте с помощью щелчка мыши. Карта будет "
+"показана, только если Вы подключены к Интернету."
+
+msgid "Services"
+msgstr "Службы"
+
+msgid "Show on map"
+msgstr ""
 
 msgid "Show OpenStreetMap"
 msgstr "Показать карту OpenStreetMap"
 
-msgid "Show on map"
-msgstr "Показать на карте"
-
 msgid "Signal"
 msgstr "Сигнал"
 
-msgid "Splash"
-msgstr "Splash-экран"
+msgid "Source"
+msgstr "Источник"
 
 msgid "Start Upgrade"
 msgstr "Начать обновление"
@@ -291,9 +268,6 @@ msgstr "Статистика"
 msgid "Status"
 msgstr "Статус"
 
-msgid "Still usable (4 < ETX < 10)"
-msgstr ""
-
 msgid "System"
 msgstr "Система"
 
@@ -301,11 +275,11 @@ msgid "TX"
 msgstr "TX"
 
 msgid ""
-"The <em>libiwinfo</em> package is not installed. You must install this "
+"The <em>libiwinfo-lua</em> package is not installed. You must install this "
 "component for working wireless configuration!"
 msgstr ""
-"Пакет <em>libiwinfo-lua</em> не установлен. Для включения настроек "
-"беспроводных сетей, вам необходимо установить этот компонент!"
+"Пакет <em>libiwinfo-lua</em> не установлен. Вам необходимо установить этот "
+"компонент для настройки беспроводной сети!"
 
 msgid ""
 "The OLSRd service is not configured to capture position data from the "
@@ -313,8 +287,8 @@ msgid ""
 "configured and that the <em>latlon_file</em> option is enabled."
 msgstr ""
 "Сервис OLSRd не сконфигурирован на получение данных о местоположении из сети."
-"<br /> Пожалуйста, удостоверьтесь, что модуль пространства имён настроен "
-"правильно и что опция <em>latlon_file</em> включена."
+"<br /> Пожалуйста, удостоверьтесь что модуль пространства имен правильно "
+"настроен и что опция <em>latlon_file</em> включена."
 
 msgid "The installed firmware is the most recent version."
 msgstr "Установлена прошивка самой последней версии."
@@ -339,7 +313,7 @@ msgstr ""
 "беспроводной сети."
 
 msgid "This is the access point"
-msgstr "Это - точка доступа"
+msgstr "Это точка доступа"
 
 msgid "Update Settings"
 msgstr "Настройки обновления"
@@ -348,13 +322,13 @@ msgid "Update available!"
 msgstr "Доступно обновление!"
 
 msgid "Uptime"
-msgstr "Время работы"
+msgstr "Время непрерывной работы"
+
+msgid "Url"
+msgstr "Url"
 
 msgid "Verify downloaded images"
-msgstr "Проверять загруженные образы"
-
-msgid "Very good (ETX < 2)"
-msgstr ""
+msgstr "Проверить загруженные образы"
 
 msgid ""
 "We are an initiative to establish a free, independent and open wireless mesh "
@@ -366,16 +340,13 @@ msgstr ""
 msgid "Wireless Overview"
 msgstr "Обзор беспроводных сетей"
 
-msgid "Yellow"
-msgstr ""
-
 msgid ""
 "You can display additional content on the public index page by inserting "
 "valid XHTML in the form below.<br />Headlines should be enclosed between &lt;"
 "h2&gt; and &lt;/h2&gt;."
 msgstr ""
 "У вас есть возможность установить дополнительное содержимое публичной "
-"страницы, вставив соответствующий XHTML-код в форму.<br /> Заголовки должны "
+"страницы, вставив соответствующий XHTML код в форму.<br /> Заголовки должны "
 "быть заключены между &lt;h2&gt; и &lt;/h2&gt;."
 
 msgid ""
@@ -389,7 +360,7 @@ msgid ""
 "You need to select a profile before you can edit it. To select a profile go "
 "to"
 msgstr ""
-"Необходимо выбрать профиль перед его редактированием. Чтобы выбрать профиль, "
+"Необходимо выбрать профиль перед его редактированием. Чтобы выбрать профиль "
 "перейдите в"
 
 msgid "and fill out all required fields."
@@ -402,7 +373,7 @@ msgid "cached"
 msgstr "кэшировано"
 
 msgid "e.g."
-msgstr "напр."
+msgstr "например"
 
 msgid "free"
 msgstr "свободно"
@@ -415,26 +386,3 @@ msgstr "использовано"
 
 msgid "wireless settings"
 msgstr "настройки беспроводной сети"
-
-#~ msgid ""
-#~ "No services can be shown, because olsrd is not running or the olsrd-"
-#~ "nameservice Plugin is not loaded."
-#~ msgstr ""
-#~ "Сервис не может быть показан, так как oslrd не запущен или модуль olsrd-"
-#~ "nameservice не загружен."
-
-#~ msgid "Services"
-#~ msgstr "Службы"
-
-#~ msgid "Source"
-#~ msgstr "Источник"
-
-#~ msgid ""
-#~ "The <em>libiwinfo-lua</em> package is not installed. You must install "
-#~ "this component for working wireless configuration!"
-#~ msgstr ""
-#~ "Пакет <em>libiwinfo-lua</em> не установлен. Вам необходимо установить "
-#~ "этот компонент для настройки беспроводной сети!"
-
-#~ msgid "Url"
-#~ msgstr "Url"

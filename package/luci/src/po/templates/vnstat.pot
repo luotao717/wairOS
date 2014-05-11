@@ -30,6 +30,9 @@ msgstr ""
 msgid "Summary display"
 msgstr ""
 
+msgid "The VnStat service has been restarted."
+msgstr ""
+
 msgid "Top 10 display"
 msgstr ""
 

@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-05-19 19:36+0200\n"
-"PO-Revision-Date: 2012-01-15 07:15+0200\n"
-"Last-Translator: desillu <ledesillusionniste@hotmail.com>\n"
+"PO-Revision-Date: 2011-08-17 00:27+0200\n"
+"Last-Translator: goofy <pierre.gaufillet@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -92,13 +92,13 @@ msgid "Client is disabled"
 msgstr "Client désactivé"
 
 msgid "Configuration category"
-msgstr "Catégorie de configuration"
+msgstr ""
 
 msgid "Configure client mode"
 msgstr "Configurer le mode client"
 
 msgid "Configure server bridge"
-msgstr "Configurer le mode pont"
+msgstr ""
 
 msgid "Configure server mode"
 msgstr "Configurer le mode serveur"
@@ -136,7 +136,7 @@ msgid "Disable Paging"
 msgstr "Désactiver la pagination"
 
 msgid "Disable cipher initialisation vector"
-msgstr "Désactivé le vecteur d'initialisation cipher"
+msgstr ""
 
 msgid "Disable options consistency check"
 msgstr "Désactiver la vérification de la cohérence des options"
@@ -359,7 +359,7 @@ msgid "Push options to peer"
 msgstr "Envoyer les options au client"
 
 msgid "Query management channel for private key"
-msgstr "Canal de requête de gestion pour clef privée"
+msgstr ""
 
 msgid "Randomly choose remote server"
 msgstr "Choisir au hasard un serveur distant"
@@ -383,8 +383,7 @@ msgid "Renegotiate data chan. key after packets"
 msgstr "Renégocier la clé du canal de données après tant de paquets"
 
 msgid "Renegotiate data chan. key after seconds"
-msgstr ""
-"Renégocier la clé du canal de données après tant de temps (en secondes)"
+msgstr "Renégocier la clé du canal de données après tant de temps (en secondes)"
 
 msgid "Replay protection sliding window size"
 msgstr "Taille de la fenêtre glissante pour la protection anti-rejeu"
@@ -561,6 +560,12 @@ msgstr "Écrire le status dans le fichier chaque n secondes"
 msgid "no"
 msgstr "non"
 
+msgid "openvpn_%s"
+msgstr "openvpn_%s"
+
+msgid "openvpn_%s_desc"
+msgstr ""
+
 msgid "tun/tap device"
 msgstr "Périphérique tun/tap"
 
@@ -572,9 +577,3 @@ msgstr "oui (%i)"
 
 msgid "« Switch to basic configuration"
 msgstr "Afficher les paramètres de configuration standards"
-
-#~ msgid "openvpn_%s"
-#~ msgstr "openvpn_%s"
-
-#~ msgid "openvpn_%s_desc"
-#~ msgstr "openvpn_%s_desc"

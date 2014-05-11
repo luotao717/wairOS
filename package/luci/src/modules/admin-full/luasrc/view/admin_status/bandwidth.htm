@@ -8,7 +8,7 @@ You may obtain a copy of the License at
 
 	http://www.apache.org/licenses/LICENSE-2.0
 
-$Id: bandwidth.htm 9014 2012-08-14 13:08:18Z jow $
+$Id$
 
 -%>
 
@@ -71,25 +71,25 @@ $Id: bandwidth.htm 9014 2012-08-14 13:08:18Z jow $
 
 	function bandwidth_label(bytes, br)
 	{
-		var uby = '<%:kB/s%>';
+		var uby = 'KByte';
 		var kby = (bytes / 1024);
 
 		if (kby >= 1024)
 		{
-			uby = '<%:MB/s%>';
+			uby = 'MByte';
 			kby = kby / 1024;
 		}
 
-		var ubi = '<%:kbit/s%>';
+		var ubi = 'KBit';
 		var kbi = (bytes * 8 / 1024);
 
 		if (kbi >= 1024)
 		{
-			ubi = '<%:Mbit/s%>';
+			ubi = 'MBit';
 			kbi = kbi / 1024;
 		}
 
-		return String.format("%f %s%s(%f %s)",
+		return String.format("%f %s/s%s(%f %s/s)",
 			kbi.toFixed(2), ubi,
 			br ? '<br />' : ' ',
 			kby.toFixed(2), uby
@@ -147,7 +147,7 @@ $Id: bandwidth.htm 9014 2012-08-14 13:08:18Z jow $
 
 
 				/* plot horizontal time interval lines */
-				for (var i = width % (step * 60); i < width; i += step * 60)
+				for (var i = step * 60; i < width; i += step * 60)
 				{
 					var line = G.createElementNS('http://www.w3.org/2000/svg', 'line');
 						line.setAttribute('x1', i);
@@ -160,7 +160,7 @@ $Id: bandwidth.htm 9014 2012-08-14 13:08:18Z jow $
 						text.setAttribute('x', i + 5);
 						text.setAttribute('y', 15);
 						text.setAttribute('style', 'fill:#999999; font-size:9pt');
-						text.appendChild(G.createTextNode(Math.round((width - i) / step / 60) + 'm'));
+						text.appendChild(G.createTextNode(Math.round(i / step / 60) + 'm'));
 
 					label_25.parentNode.appendChild(line);
 					label_25.parentNode.appendChild(text);
@@ -288,23 +288,23 @@ $Id: bandwidth.htm 9014 2012-08-14 13:08:18Z jow $
 <table style="width:100%; table-layout:fixed" cellspacing="5">
 	<tr>
 		<td style="text-align:right; vertical-align:top"><strong style="border-bottom:2px solid blue"><%:Inbound:%></strong></td>
-		<td id="rx_bw_cur">0 <%:kbit/s%><br />(0 <%:kB/s%>)</td>
+		<td id="rx_bw_cur">0 kbit/s<br />(0 KB/s)</td>
 
 		<td style="text-align:right; vertical-align:top"><strong><%:Average:%></strong></td>
-		<td id="rx_bw_avg">0 <%:kbit/s%><br />(0 <%:kB/s%>)</td>
+		<td id="rx_bw_avg">0 kbit/s<br />(0 KB/s)</td>
 
 		<td style="text-align:right; vertical-align:top"><strong><%:Peak:%></strong></td>
-		<td id="rx_bw_peak">0 <%:kbit/s%><br />(0 <%:kB/s%>)</td>
+		<td id="rx_bw_peak">0 kbit/s<br />(0 KB/s)</td>
 	</tr>
 	<tr>
 		<td style="text-align:right; vertical-align:top"><strong style="border-bottom:2px solid green"><%:Outbound:%></strong></td>
-		<td id="tx_bw_cur">0 <%:kbit/s%><br />(0 <%:kB/s%>)</td>
+		<td id="tx_bw_cur">0 kbit/s<br />(0 KB/s)</td>
 
 		<td style="text-align:right; vertical-align:top"><strong><%:Average:%></strong></td>
-		<td id="tx_bw_avg">0 <%:kbit/s%><br />(0 <%:kB/s%>)</td>
+		<td id="tx_bw_avg">0 kbit/s<br />(0 KB/s)</td>
 
 		<td style="text-align:right; vertical-align:top"><strong><%:Peak:%></strong></td>
-		<td id="tx_bw_peak">0 <%:kbit/s%><br />(0 <%:kB/s%>)</td>
+		<td id="tx_bw_peak">0 kbit/s<br />(0 KB/s)</td>
 	</tr>
 </table>
 

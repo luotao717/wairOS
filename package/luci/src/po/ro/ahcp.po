@@ -101,12 +101,6 @@ msgstr "Specifica serverele de DNS IPv4 si IPv6 anuntate"
 msgid "Specifies the announced IPv4 and IPv6 network prefixes in CIDR notation"
 msgstr "Specifica prefixele IPv4 si IPv6 anuntate in format CIDR"
 
-msgid "The AHCP Service is not running."
-msgstr ""
-
-msgid "The AHCP Service is running with ID %s."
-msgstr ""
-
 msgid "There are no active leases."
 msgstr "Nu exista conexiuni active."
 

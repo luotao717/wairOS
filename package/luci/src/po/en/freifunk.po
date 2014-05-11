@@ -15,9 +15,6 @@ msgstr ""
 msgid "BSSID"
 msgstr ""
 
-msgid "Bad (ETX > 10)"
-msgstr ""
-
 msgid "Basic Settings"
 msgstr ""
 
@@ -84,9 +81,6 @@ msgstr ""
 msgid "Edit index page"
 msgstr ""
 
-msgid "Enable IPv6"
-msgstr ""
-
 msgid "Error"
 msgstr ""
 
@@ -108,12 +102,6 @@ msgstr ""
 msgid "Go to"
 msgstr ""
 
-msgid "Good (2 < ETX < 4)"
-msgstr ""
-
-msgid "Green"
-msgstr ""
-
 msgid "Hello and welcome in the network of"
 msgstr "Hello and welcome in the network of"
 
@@ -125,15 +113,6 @@ msgstr ""
 
 msgid "Hostname"
 msgstr "Hostname"
-
-msgid "IPv6 Config"
-msgstr ""
-
-msgid "IPv6 Prefix"
-msgstr ""
-
-msgid "IPv6 network in CIDR notation."
-msgstr ""
 
 msgid "If selected then the default content element is not shown."
 msgstr ""
@@ -161,9 +140,6 @@ msgid "Keep configuration"
 msgstr "Keep configuration"
 
 msgid "Latitude"
-msgstr ""
-
-msgid "Legend"
 msgstr ""
 
 msgid "Load"
@@ -208,6 +184,11 @@ msgstr "Nickname"
 msgid "No default routes known."
 msgstr ""
 
+msgid ""
+"No services can be shown, because olsrd is not running or the olsrd-"
+"nameservice Plugin is not loaded."
+msgstr ""
+
 msgid "Notice"
 msgstr "Notice"
 
@@ -215,9 +196,6 @@ msgid "OLSR"
 msgstr ""
 
 msgid "Operator"
-msgstr ""
-
-msgid "Orange"
 msgstr ""
 
 msgid "Overview"
@@ -250,9 +228,6 @@ msgstr ""
 msgid "Realname"
 msgstr "Realname"
 
-msgid "Red"
-msgstr ""
-
 msgid "SSID"
 msgstr ""
 
@@ -261,16 +236,19 @@ msgid ""
 "up if you are connected to the Internet."
 msgstr ""
 
-msgid "Show OpenStreetMap"
+msgid "Services"
 msgstr ""
 
 msgid "Show on map"
 msgstr ""
 
+msgid "Show OpenStreetMap"
+msgstr ""
+
 msgid "Signal"
 msgstr ""
 
-msgid "Splash"
+msgid "Source"
 msgstr ""
 
 msgid "Start Upgrade"
@@ -282,9 +260,6 @@ msgstr ""
 msgid "Status"
 msgstr ""
 
-msgid "Still usable (4 < ETX < 10)"
-msgstr ""
-
 msgid "System"
 msgstr ""
 
@@ -292,7 +267,7 @@ msgid "TX"
 msgstr ""
 
 msgid ""
-"The <em>libiwinfo</em> package is not installed. You must install this "
+"The <em>libiwinfo-lua</em> package is not installed. You must install this "
 "component for working wireless configuration!"
 msgstr ""
 
@@ -331,11 +306,11 @@ msgstr "Update available!"
 msgid "Uptime"
 msgstr ""
 
+msgid "Url"
+msgstr ""
+
 msgid "Verify downloaded images"
 msgstr "Verify downloaded images"
-
-msgid "Very good (ETX < 2)"
-msgstr ""
 
 msgid ""
 "We are an initiative to establish a free, independent and open wireless mesh "
@@ -345,9 +320,6 @@ msgstr ""
 "network."
 
 msgid "Wireless Overview"
-msgstr ""
-
-msgid "Yellow"
 msgstr ""
 
 msgid ""

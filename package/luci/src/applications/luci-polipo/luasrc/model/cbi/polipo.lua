@@ -9,7 +9,7 @@ You may obtain a copy of the License at
 
 	http://www.apache.org/licenses/LICENSE-2.0
 
-$Id: polipo.lua 6613 2010-12-05 03:09:06Z jow $
+$Id$
 ]]--
 
 m = Map("polipo", translate("Polipo"),

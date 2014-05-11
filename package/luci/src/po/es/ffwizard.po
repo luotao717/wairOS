@@ -1,95 +1,91 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"PO-Revision-Date: 2012-09-15 21:47+0200\n"
-"Last-Translator: José Vicente <josevteg@gmail.com>\n"
+"Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
-"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.0.6\n"
 
 msgid "Allow to transfer anonymous statistics about this node"
 msgstr ""
-"Permitir la transferencia de información estadística anónima sobre este nodo"
 
 msgid "Channel"
-msgstr "Canal"
+msgstr ""
 
 msgid "Check this to protect your LAN from other nodes or clients"
-msgstr "Proteger su LAN de otros nodos o clientes"
+msgstr ""
 
 msgid "Configure network"
-msgstr "Configurar red"
+msgstr ""
 
 msgid "Connect your node with other nodes with a tunnel via the internet."
-msgstr "Conecte su nodo con otros vía un túnel por internet."
+msgstr ""
 
 msgid "DHCP IP range"
-msgstr "Rango de IPs de DHCP"
+msgstr ""
 
 msgid "DHCP will automatically assign ip addresses to clients"
-msgstr "DHCP asignará automáticamente direcciones IP a los clientes"
+msgstr ""
 
 msgid "DNS Server"
-msgstr "Servidor DNS"
+msgstr ""
 
 msgid "Enable DHCP"
-msgstr "Habilitar DHCP"
+msgstr ""
 
 msgid "Gateway"
-msgstr "Pasarela"
+msgstr ""
 
 msgid "Heartbeat"
-msgstr "Pulso"
+msgstr ""
 
 msgid "IP address"
-msgstr "Dirección IP"
+msgstr ""
 
 msgid "L2gvpn tunnel"
-msgstr "Túnel L2gvpn"
+msgstr ""
 
 msgid "Limit download bandwidth"
-msgstr "Límite de velocidad de descarga"
+msgstr ""
 
 msgid "Limit upload bandwidth"
-msgstr "Límite de velocidad de subida"
+msgstr ""
 
 msgid "Mesh IP address"
-msgstr "Dirección IP del mesh"
+msgstr ""
 
 msgid "Mesh IPv6 Address"
-msgstr "Dirección IPv6 del mesh"
+msgstr ""
 
 msgid "Netmask"
-msgstr "Máscara de red"
+msgstr ""
 
 msgid "Password"
-msgstr "Contraseña"
+msgstr ""
 
 msgid "Password confirmation"
-msgstr "Confirmación de contraseña"
+msgstr ""
 
 msgid "Password successfully changed"
-msgstr "Contraseña cambiada"
+msgstr ""
 
 msgid "Protect LAN"
-msgstr "Protege la LAN"
+msgstr ""
 
 msgid "Protocol"
-msgstr "Protocolo"
+msgstr ""
 
 msgid "Select this checkbox to configure your network interfaces."
-msgstr "Configurar sus interfaces de red."
+msgstr ""
 
 msgid ""
 "Select this to allow others to use your connection to access the internet."
-msgstr "Permitir a otros usar su conexión para acceder a internet."
+msgstr ""
 
 msgid "Share your internet connection"
-msgstr "Comparta su dirección de internet"
+msgstr ""
 
 msgid ""
 "The IP range from which clients are assigned ip addresses (e.g. "
@@ -97,76 +93,67 @@ msgid ""
 "will be announced as HNA. Any other range will use NAT. If left empty then "
 "the defaults from the community profile will be used."
 msgstr ""
-"Rango IP de direcciones que se reparten a los clientes (ej. 10.1.2.1/28). Si "
-"el rango está dentro de su red mesh, se declarará como HNA. Cualquier otro "
-"rango usará NAT. Si se deja vacío se usarán los valores por defectos del "
-"perfil comunitario."
 
 msgid "The ipv6 address is calculated auomatically."
-msgstr "La dirección IPv6 se calcula automáticamente."
+msgstr ""
 
 msgid "The protocol to use for internet connectivity."
-msgstr "Protocolo usado para lo conectividad a internet."
+msgstr ""
 
 msgid ""
 "This is a unique address in the mesh (e.g. 10.1.1.1) and has to be "
 "registered at your local community."
 msgstr ""
-"Dirección única en el mesh (ej. 10.1.1.1) que tiene que estar registrada en "
-"su comunidad local."
 
 msgid "This will setup a new virtual wireless interface in Access Point mode."
 msgstr ""
-"Configurar un nuevo interfaz virtual inalámbrico en modo punto de acceso."
 
 msgid ""
 "This wizard will assist you in setting up your router for Freifunk or "
 "another similar wireless community network."
 msgstr ""
-"Este asistente le ayudará a configurar su router para Freifunk o una red "
-"comunitaria inalámbrica similar."
 
 msgid "Unknown Error"
-msgstr "Error desconocido"
+msgstr ""
 
 msgid "Username"
-msgstr "Nombre de usuario"
+msgstr ""
 
 msgid "Virtual Access Point (VAP)"
-msgstr "Punto de acceso virtual (VAP)"
+msgstr ""
 
 msgid "Wizard"
-msgstr "Asistente"
+msgstr ""
 
 msgid "Your device and neighbouring nodes have to use the same channel."
-msgstr "Su dispositivo y nodos vecinos tienen que usar el mismo canal."
+msgstr ""
 
 msgid "dhcp"
-msgstr "DHCP"
+msgstr ""
 
 msgid "kbit/s"
-msgstr "Kbit/s"
+msgstr ""
 
 msgid "static"
-msgstr "estático"
+msgstr ""
 
 msgid "Configure this interface."
-msgstr "Configurar esta interfaz."
+msgstr ""
 
 msgid "recommended"
-msgstr "recomendado"
+msgstr ""
 
 msgid "Basic settings"
-msgstr "Configuración básica"
+msgstr ""
 
 msgid "Basic settings are incomplete. Please go to"
-msgstr "La configuración básica está incompleta. Por favor, vaya a"
+msgstr ""
 
 msgid "Error"
-msgstr "Error"
+msgstr ""
 
 msgid "You can not use the wizard because some necessary values are missing."
-msgstr "No puede usar el asistente porque faltan algunos valores necesarios."
+msgstr ""
 
 msgid "and fill out all required fields."
-msgstr "y rellene los campos requeridos."
+msgstr ""

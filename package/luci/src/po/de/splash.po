@@ -2,15 +2,13 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2012-12-01 15:14+0200\n"
-"Last-Translator: Manuel <freifunk@somakoma.de>\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Manuel Munz <freifunk@somakoma.de>\n"
 "Language-Team: \n"
-"Language: de\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.0.6\n"
 
 msgid "Accept"
 msgstr "Akzeptieren"
@@ -45,24 +43,23 @@ msgstr ""
 msgid ""
 "Become an active member of this community and help by operating your own node"
 msgstr ""
-"Werde ein aktives Mitglied unserer Community und hilf, indem du selber einen "
+"Werde ein aktives Mitglied unserer Community und hilf, idem du selber einen "
 "Access Point betreibst."
 
 msgid "Blacklist"
-msgstr "Blacklist "
+msgstr ""
 
 msgid "Blocked"
-msgstr "Gesperrt"
+msgstr ""
 
 msgid "By accepting these rules you can use this network for"
-msgstr ""
-"Durch das Akzeptieren dieser Regeln kannst du unser Netzwerk benutzen für:"
+msgstr "Durch das Akzeptieren dieser Regeln kannst du unser Netzwerk für"
 
 msgid "Clearance time"
 msgstr "Freigabezeit"
 
 msgid "Client-Splash"
-msgstr "Client-Splash"
+msgstr ""
 
 msgid ""
 "Client-Splash is a hotspot authentification system for wireless mesh "
@@ -87,7 +84,7 @@ msgstr ""
 "Uploadgeschwindigkeit von Clients auf diesen Wert limitieren (kbyte/s) "
 
 msgid "Contact"
-msgstr "Kontakt"
+msgstr ""
 
 msgid "Decline"
 msgstr "Ablehnen"
@@ -107,7 +104,7 @@ msgid "Firewall zone"
 msgstr "Firewallzone"
 
 msgid "General"
-msgstr "Allgemein"
+msgstr ""
 
 msgid "Hostname"
 msgstr "Rechnername"
@@ -121,7 +118,7 @@ msgstr ""
 "benutzen."
 
 msgid "IP Address"
-msgstr "IP-Adresse"
+msgstr ""
 
 msgid ""
 "If you operate your own wifi equipment use channels different from ours."
@@ -134,7 +131,7 @@ msgid "Intercept client traffic on this Interface"
 msgstr "Clientverkehr auf dieser Schnittstelle abfangen"
 
 msgid "Interfaces"
-msgstr "Schnittstellen"
+msgstr ""
 
 msgid "Interfaces that are used for Splash."
 msgstr "Schnittstellen die für Splash benutzt werden."
@@ -147,7 +144,7 @@ msgstr ""
 "kannst du dieses Bandbreitenlimit deaktivieren."
 
 msgid "MAC Address"
-msgstr "MAC-Adresse"
+msgstr ""
 
 msgid "MAC addresses in this list are blocked."
 msgstr "MAC-Adressen in dieser Liste werden geblockt."
@@ -160,10 +157,10 @@ msgstr ""
 "akzeptieren und unterliegen keinen Bandbreitenbegrenzungen."
 
 msgid "Netmask"
-msgstr "Netzmaske"
+msgstr ""
 
 msgid "Network"
-msgstr "Netzwerk"
+msgstr ""
 
 msgid "No clients connected"
 msgstr "Keine Clients verbunden."
@@ -179,7 +176,7 @@ msgid "Policy"
 msgstr "Richtlinie"
 
 msgid "Save"
-msgstr "Speichern"
+msgstr ""
 
 msgid "Splash rules are integrated in this firewall zone"
 msgstr "Splashregeln werden in diese Firewallzone eingegliedert"
@@ -207,10 +204,10 @@ msgid "Welcome"
 msgstr "Willkommen"
 
 msgid "Whitelist"
-msgstr "Whitelist"
+msgstr ""
 
 msgid "You are now connected to the free wireless mesh network"
-msgstr "Du bist jetzt verbunden mit dem freien Funknetzwerk"
+msgstr "Du bist jetzt mit dem freien Funknetzwerk"
 
 msgid ""
 "You can enter your own text that is displayed to clients here.<br />It is "
@@ -234,7 +231,7 @@ msgid "Your bandwidth is limited to"
 msgstr "Deine Bandbreite ist limitiert auf"
 
 msgid "blacklisted"
-msgstr "gesperrt"
+msgstr ""
 
 msgid "expired"
 msgstr "abgelaufen"
@@ -257,7 +254,7 @@ msgid "temporarily blocked"
 msgstr "Vorübergehend geblockt"
 
 msgid "the owner of this access point."
-msgstr "den Betreiber dieses Access Points."
+msgstr "den Betreiber dieses Access points."
 
 msgid "unknown"
 msgstr "Unbekannt"
@@ -269,4 +266,4 @@ msgid "waste bandwidth with unneccesary downloads or streams"
 msgstr "Bandbreite durch unnötige Downloads oder Streams zu verschwenden."
 
 msgid "whitelisted"
-msgstr "erlaubt"
+msgstr ""

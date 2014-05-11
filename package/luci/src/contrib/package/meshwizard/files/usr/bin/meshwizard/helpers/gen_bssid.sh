@@ -5,7 +5,7 @@
 channel=$1
 community=$2
 
-. /lib/functions.sh
+. /etc/functions.sh
 
 
 # Try to get BSSID from profile first
@@ -24,10 +24,10 @@ if [ -z "$bssid" ]; then
 		bssid="$(printf "%X\n" $channel)2:CA:FF:EE:BA:BE"
 		;;
 	[3-9][0-9])
-		bssid="02:$channel:CA:FF:EE:EE"
+		bssid="00:$channel:CA:FF:EE:EE"
 		;;
 	1[0-9][0-9])
-		bssid="${channel/1/12:}:CA:FF:EE:EE"
+		bssid="${channel/1/01:}:CA:FF:EE:EE"
 		;;
 	*)	bssid="02:CA:FF:EE:BA:BE"
 		;;

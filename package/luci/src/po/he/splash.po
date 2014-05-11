@@ -1,18 +1,3 @@
-msgid ""
-msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-10 04:38+0200\n"
-"PO-Revision-Date: 2012-09-10 04:58+0200\n"
-"Last-Translator: Snoof <sagim9@gmail.com>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: he\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.0.6\n"
-
 msgid "Accept"
 msgstr ""
 
@@ -22,9 +7,6 @@ msgid ""
 "few connections are shared between all users. That means available bandwidth "
 "is limited and because of this we ask you not to do any of the following:"
 msgstr ""
-"החיבור לאינטרנט יכול להתאפשר בגלל שכמה פעילים של הפרוייקט משתפים את חיבור "
-"האינטרנט האישי שלהם. אותם חיבורים מעטים משותפים בין כל המשתמשים. משמע רוחב "
-"הפס הזמין מוגבל ולכן אנו מבקשים מכם לא לעשות את הדברים הבאים:"
 
 msgid "Active Clients"
 msgstr ""
@@ -40,16 +22,16 @@ msgstr ""
 
 msgid ""
 "Become an active member of this community and help by operating your own node"
-msgstr "הפוך לחבר פעיל של הקהילה ועזור ע\"י תפעול נקודה של עצמך"
+msgstr ""
 
 msgid "Blacklist"
 msgstr ""
 
 msgid "Blocked"
-msgstr "חסומים"
+msgstr ""
 
 msgid "By accepting these rules you can use this network for"
-msgstr "ע\"י הסכמתך לחוקים האלו הנך יכול להשתמש ברשת זו בשביל"
+msgstr ""
 
 msgid "Clearance time"
 msgstr ""
@@ -77,13 +59,13 @@ msgid "Contact"
 msgstr ""
 
 msgid "Decline"
-msgstr "דחה"
+msgstr ""
 
 msgid "Donate some money to help us keep this project alive."
-msgstr "תרום כסף על מנת שנוכל לשמור על הפרוייקט הזה חי."
+msgstr ""
 
 msgid "Download limit"
-msgstr "הגבלת הורדה"
+msgstr ""
 
 msgid "Edit Splash text"
 msgstr ""
@@ -92,7 +74,7 @@ msgid "Firewall zone"
 msgstr ""
 
 msgid "General"
-msgstr "כללי"
+msgstr ""
 
 msgid "Hostname"
 msgstr ""
@@ -103,20 +85,20 @@ msgid ""
 msgstr ""
 
 msgid "IP Address"
-msgstr "כתובת IP"
+msgstr ""
 
 msgid ""
 "If you operate your own wifi equipment use channels different from ours."
-msgstr "אם הנך מפעיל מכשירי wifi של עצמך השתמש בערוצים שונים משלנו."
+msgstr ""
 
 msgid "If you use this network on a regular basis we ask for your support:"
-msgstr "אם הנך משתמש ברשת זו על בסיס קבוע אנו מבקשים את תמיכתך:"
+msgstr ""
 
 msgid "Intercept client traffic on this Interface"
 msgstr ""
 
 msgid "Interfaces"
-msgstr "ממשקים"
+msgstr ""
 
 msgid "Interfaces that are used for Splash."
 msgstr ""
@@ -125,13 +107,12 @@ msgid ""
 "KB/s (Download/Upload). You may be able to remove this limit by actively "
 "contributing to this project."
 msgstr ""
-"KB/s (הורדה/העלאה). הנך יכול להוריד מגבלה זו ע\"י תרומה פעילה לפרוייקט זה."
 
 msgid "MAC Address"
-msgstr "כתובת MAC"
+msgstr ""
 
 msgid "MAC addresses in this list are blocked."
-msgstr "כתובות MAC ברשימה זו הינם חסומים."
+msgstr ""
 
 msgid ""
 "MAC addresses of whitelisted clients. These do not need to accept the splash "
@@ -142,7 +123,7 @@ msgid "Netmask"
 msgstr ""
 
 msgid "Network"
-msgstr "רשת"
+msgstr ""
 
 msgid "No clients connected"
 msgstr ""
@@ -150,13 +131,13 @@ msgstr ""
 msgid ""
 "Please note that we are not an internet service provider but an experimental "
 "community network."
-msgstr "שים לב שאנו לא ספק אינטרנט אלא רשת חברתית נסיונית."
+msgstr ""
 
 msgid "Policy"
-msgstr "מדיניות"
+msgstr ""
 
 msgid "Save"
-msgstr "שמור"
+msgstr ""
 
 msgid "Splash rules are integrated in this firewall zone"
 msgstr ""
@@ -165,30 +146,27 @@ msgid "Splashtext"
 msgstr ""
 
 msgid "Time remaining"
-msgstr "זמן שנותר"
+msgstr ""
 
 msgid ""
 "To ask for the reason why you have been blocked or ask for access again you "
 "can try to contact the owner of this access point:"
 msgstr ""
-"על מנת לשאול לסיבה שבגגלה נחסמת או לבקש גישה מחדש הנך יכול לנסות ליצור קשר "
-"עם הבעלים של נקודת גישה זו:"
 
 msgid "Traffic in/out"
 msgstr ""
 
 msgid "Upload limit"
-msgstr "הגבלת העלאה"
+msgstr ""
 
 msgid "Welcome"
-msgstr "ברוכים הבאים"
+msgstr ""
 
 msgid "Whitelist"
 msgstr ""
 
-#, fuzzy
 msgid "You are now connected to the free wireless mesh network"
-msgstr "הנך מחובר כעת לרשת האלחוטית החינמית"
+msgstr ""
 
 msgid ""
 "You can enter your own text that is displayed to clients here.<br />It is "
@@ -200,44 +178,42 @@ msgid ""
 "Your access to this network has been blocked, most likely because you did "
 "something that our rules explicitly forbid."
 msgstr ""
-"הגישה שלך לרשת זו נחסמה, ככל הנראה בגלל שעשית משהו שהחוקים שלנו אוסרים "
-"במפורש."
 
 msgid "Your bandwidth is limited to"
-msgstr "רוחב הפס שלך מוגבל ל"
+msgstr ""
 
 msgid "blacklisted"
 msgstr ""
 
 msgid "expired"
-msgstr "פג תוקף"
+msgstr ""
 
 msgid "hour(s). After this time you need to accept these rules again."
-msgstr "שעה(ות). לאחר זמן זה תצטרך לקבל את החוקים האלו שוב."
+msgstr ""
 
 msgid "optional when using host addresses"
 msgstr ""
 
 msgid "perform any kind of illegal activities"
-msgstr "בצע פעילות בלתי חוקית מכל סוג שהוא"
+msgstr ""
 
 msgid "splashed"
 msgstr ""
 
 msgid "temporarily blocked"
-msgstr "חסום זמנית"
+msgstr ""
 
 msgid "the owner of this access point."
-msgstr "הבעלים של נקודת גישה זו."
+msgstr ""
 
 msgid "unknown"
-msgstr "לא ידוע"
+msgstr ""
 
 msgid "use filesharing applications on this network"
-msgstr "השתמש בתוכנות לשיתוף קבצים ברשת זו."
+msgstr ""
 
 msgid "waste bandwidth with unneccesary downloads or streams"
-msgstr "לבזבז רוחב פס עם הורדות או שידורים מיותרים"
+msgstr ""
 
 msgid "whitelisted"
 msgstr ""

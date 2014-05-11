@@ -16,17 +16,23 @@ msgstr ""
 "|| n%100>=20) ? 1 : 2);\n"
 "X-Generator: Pootle 2.0.4\n"
 
-msgid "Broadcast on all interfaces"
-msgstr "Rozgłaszaj na wszystkie interfejsy"
+msgid "Wake on LAN"
+msgstr "Wake on LAN"
 
-msgid "Choose the host to wake up or enter a custom MAC address to use"
-msgstr "Wybierz hosta z listy lub podaj adres MAC maszyny do wybudzenia"
+msgid ""
+"Wake on LAN is a mechanism to remotely boot computers in the local network."
+msgstr ""
+"\"Wake on LAN\" to mechanizm służący do zdalnego włączania komputerów w sieci "
+"lokalnej."
 
-msgid "Host to wake up"
-msgstr "Host do wybudzenia"
+msgid "Wake up host"
+msgstr "Wybudź hosta"
 
-msgid "Network interface to use"
-msgstr "Użyty interfejs sieciowy"
+msgid "Starting WoL utility:"
+msgstr "Uruchamianie narzędzia WoL:"
+
+msgid "WoL program"
+msgstr "Narzędzie WoL"
 
 msgid ""
 "Sometimes only one of both tools work. If one of fails, try the other one"
@@ -34,23 +40,17 @@ msgstr ""
 "Czasem działa tylko jedno z narzędzi. Jeżeli jedno z nich nie zadziała, "
 "proszę użyć drugiego."
 
+msgid "Network interface to use"
+msgstr "Użyty interfejs sieciowy"
+
 msgid "Specifies the interface the WoL packet is sent on"
 msgstr "Definiuje interfejs, na który będzie wysłany pakiet WoL"
 
-msgid "Starting WoL utility:"
-msgstr "Uruchamianie narzędzia WoL:"
+msgid "Broadcast on all interfaces"
+msgstr "Rozgłaszaj na wszystkie interfejsy"
 
-msgid "Wake on LAN"
-msgstr "Wake on LAN"
+msgid "Host to wake up"
+msgstr "Host do wybudzenia"
 
-msgid ""
-"Wake on LAN is a mechanism to remotely boot computers in the local network."
-msgstr ""
-"\"Wake on LAN\" to mechanizm służący do zdalnego włączania komputerów w "
-"sieci lokalnej."
-
-msgid "Wake up host"
-msgstr "Wybudź hosta"
-
-msgid "WoL program"
-msgstr "Narzędzie WoL"
+msgid "Choose the host to wake up or enter a custom MAC address to use"
+msgstr "Wybierz hosta z listy lub podaj adres MAC maszyny do wybudzenia"

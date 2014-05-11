@@ -5,7 +5,7 @@ Description:
 A template parser supporting includes, translations, Lua code blocks
 and more. It can be used either as a compiler or as an interpreter.
 
-FileId: $Id: template.lua 9558 2012-12-18 13:58:22Z jow $
+FileId: $Id$
 
 License:
 Copyright 2008 Steven Barth <steven@midlink.org>
@@ -79,8 +79,9 @@ function Template.__init__(self, name)
 		-- If we have no valid template throw error, otherwise cache the template
 		if not self.template then
 			error("Failed to load template '" .. name .. "'.\n" ..
-			      "Error while parsing template '" .. sourcefile .. "':\n" ..
-			      (err or "Unknown syntax error"))
+			      "Error while parsing template '" .. sourcefile .. "'.\n" ..
+			      "A syntax error occured near '" ..
+			      (err or "(nil)"):gsub("\t", "\\t"):gsub("\n", "\\n") .. "'.")
 		else
 			self.cache[name] = self.template
 		end

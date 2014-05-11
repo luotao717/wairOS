@@ -10,7 +10,7 @@ You may obtain a copy of the License at
 
 	http://www.apache.org/licenses/LICENSE-2.0
 
-$Id: luci.lua 5813 2010-03-13 20:13:41Z acinonyx $
+$Id$
 ]]--
 
 require "luci.config"

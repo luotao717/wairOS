@@ -9,7 +9,7 @@ You may obtain a copy of the License at
 
 	http://www.apache.org/licenses/LICENSE-2.0
 
-$Id: radvd.lua 7020 2011-05-04 08:55:57Z jow $
+$Id$
 ]]--
 
 m = Map("radvd", translate("Radvd"),

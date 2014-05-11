@@ -6,7 +6,7 @@ Offers an interface for binding configuration values to certain
 data types. Supports value and range validation and basic dependencies.
 
 FileId:
-$Id: cbi.lua 9558 2012-12-18 13:58:22Z jow $
+$Id$
 
 License:
 Copyright 2008 Steven Barth <steven@midlink.org>
@@ -74,6 +74,8 @@ function load(cbimap, ...)
 
 	assert(func, err)
 
+	luci.i18n.loadc("base")
+
 	local env = {
 		translate=i18n.translate,
 		translatef=i18n.translatef,
@@ -100,7 +102,7 @@ function load(cbimap, ...)
 				for _, field in ipairs(map.upload_fields) do
 					uploads[
 						field.config .. '.' ..
-						(field.section.sectiontype or '1') .. '.' ..
+						field.section.sectiontype .. '.' ..
 						field.option
 					] = true
 				end
@@ -122,8 +124,8 @@ function load(cbimap, ...)
 					)()
 
 					if c and s and o then
-						local t = uci:get( c, s ) or s
-						if uploads[c.."."..t.."."..o] then
+						local t = uci:get( c, s )
+						if t and uploads[c.."."..t.."."..o] then
 							local path = upldir .. field.name
 							fd = io.open(path, "w")
 							if fd then
@@ -148,78 +150,6 @@ function load(cbimap, ...)
 	end
 
 	return maps
-end
-
---
--- Compile a datatype specification into a parse tree for evaluation later on
---
-local cdt_cache = { }
-
-function compile_datatype(code)
-	local i
-	local pos = 0
-	local esc = false
-	local depth = 0
-	local stack = { }
-
-	for i = 1, #code+1 do
-		local byte = code:byte(i) or 44
-		if esc then
-			esc = false
-		elseif byte == 92 then
-			esc = true
-		elseif byte == 40 or byte == 44 then
-			if depth <= 0 then
-				if pos < i then
-					local label = code:sub(pos, i-1)
-						:gsub("\\(.)", "%1")
-						:gsub("^%s+", "")
-						:gsub("%s+$", "")
-
-					if #label > 0 and tonumber(label) then
-						stack[#stack+1] = tonumber(label)
-					elseif label:match("^'.*'$") or label:match('^".*"$') then
-						stack[#stack+1] = label:gsub("[\"'](.*)[\"']", "%1")
-					elseif type(datatypes[label]) == "function" then
-						stack[#stack+1] = datatypes[label]
-						stack[#stack+1] = { }
-					else
-						error("Datatype error, bad token %q" % label)
-					end
-				end
-				pos = i + 1
-			end
-			depth = depth + (byte == 40 and 1 or 0)
-		elseif byte == 41 then
-			depth = depth - 1
-			if depth <= 0 then
-				if type(stack[#stack-1]) ~= "function" then
-					error("Datatype error, argument list follows non-function")
-				end
-				stack[#stack] = compile_datatype(code:sub(pos, i-1))
-				pos = i + 1
-			end
-		end
-	end
-
-	return stack
-end
-
-function verify_datatype(dt, value)
-	if dt and #dt > 0 then
-		if not cdt_cache[dt] then
-			local c = compile_datatype(dt)
-			if c and type(c[1]) == "function" then
-				cdt_cache[dt] = c
-			else
-				error("Datatype error, not a function expression")
-			end
-		end
-		if cdt_cache[dt] then
-			return cdt_cache[dt][1](value, unpack(cdt_cache[dt][2]))
-		end
-	end
-	return true
 end
 
 
@@ -1426,16 +1356,30 @@ end
 -- Validate the form value
 function AbstractValue.validate(self, value)
 	if self.datatype and value then
-		if type(value) == "table" then
-			local v
-			for _, v in ipairs(value) do
-				if v and #v > 0 and not verify_datatype(self.datatype, v) then
-					return nil
-				end
+		local args = { }
+		local dt, ar = self.datatype:match("^(%w+)%(([^%(%)]+)%)")
+
+		if dt and ar then
+			local a
+			for a in ar:gmatch("[^%s,]+") do
+				args[#args+1] = a
 			end
 		else
-			if not verify_datatype(self.datatype, value) then
-				return nil
+			dt = self.datatype
+		end
+
+		if dt and datatypes[dt] then
+			if type(value) == "table" then
+				local v
+				for _, v in ipairs(value) do
+					if v and #v > 0 and not datatypes[dt](v, unpack(args)) then
+						return nil
+					end
+				end
+			else
+				if not datatypes[dt](value, unpack(args)) then
+					return nil
+				end
 			end
 		end
 	end

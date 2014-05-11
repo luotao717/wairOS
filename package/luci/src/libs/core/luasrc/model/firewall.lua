@@ -20,7 +20,7 @@ limitations under the License.
 local type, pairs, ipairs, table, luci, math
 	= type, pairs, ipairs, table, luci, math
 
-local tpl = require "luci.template.parser"
+local lmo = require "lmo"
 local utl = require "luci.util"
 local uci = require "luci.model.uci"
 
@@ -478,7 +478,7 @@ function zone.get_color(self)
 	elseif self and self:name() == "wan" then
 		return "#f09090"
 	elseif self then
-		math.randomseed(tpl.hash(self:name()))
+		math.randomseed(lmo.hash(self:name()))
 
 		local r   = math.random(128)
 		local g   = math.random(128)

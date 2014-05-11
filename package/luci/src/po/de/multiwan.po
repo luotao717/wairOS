@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"PO-Revision-Date: 2012-08-10 02:55+0200\n"
-"Last-Translator: Jo-Philipp <xm@subsignal.org>\n"
+"PO-Revision-Date: 2011-09-08 15:18+0200\n"
+"Last-Translator: Manuel <freifunk@somakoma.de>\n"
 "Language-Team: none\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.0.6\n"
+"X-Generator: Pootle 2.0.4\n"
 
 msgid "Attempts Before WAN Failover"
 msgstr "Versuche vor Umschalten auf WAN Ersatzverbindung"
@@ -20,13 +20,10 @@ msgstr "Versuche vor dem Zurückschalten auf normale WAN Verbindung"
 msgid "Auto"
 msgstr "automatisch"
 
-msgid "Collecting data..."
-msgstr "Sammle Daten..."
-
 msgid ""
 "Configure rules for directing outbound traffic through specified WAN Uplinks."
 msgstr ""
-"Mit diesen Regeln kann ausgehender Verkehr bestimmten WAN-Uplinks zugeordnet "
+"Mit diesen regeln kann ausgehender Verkehr bestimmten WAN-Uplinks zugeordnet "
 "werden."
 
 msgid "DNS Server(s)"
@@ -43,9 +40,6 @@ msgstr "Deaktivieren"
 
 msgid "Enable"
 msgstr "Aktivieren"
-
-msgid "Failing"
-msgstr "Versagt"
 
 msgid "Failover Traffic Destination"
 msgstr "Failover Traffic Ziel"
@@ -65,9 +59,6 @@ msgstr ""
 "Die Verbindungsüberwachung erkennt und behebt Netzwerkänderungen und "
 "Verbindungsabbrüche."
 
-msgid "KO"
-msgstr "Getrennt"
-
 msgid "Load Balancer Distribution"
 msgstr "Load Balancer Verteilung"
 
@@ -78,10 +69,7 @@ msgid "Load Balancer(Performance)"
 msgstr "Load Balancer (Performance)"
 
 msgid "Multi-WAN"
-msgstr "Multi-WAN"
-
-msgid "Multi-WAN Status"
-msgstr "Multi-WAN Status"
+msgstr ""
 
 msgid "Multi-WAN Traffic Rules"
 msgstr "Multi-WAN Verkehrsregeln"
@@ -90,14 +78,11 @@ msgid ""
 "Multi-WAN allows for the use of multiple uplinks for load balancing and "
 "failover."
 msgstr ""
-"Multi-WAN erlaubt es, mehrere ISP-Verbindungen gleichzeitig oder als "
+"Multi-WAN erlaubt es mehrere ISP-Verbindungen gleichzeitig oder als "
 "Ersatzverbindung beim Ausfall der Hauptverbindung zu verwenden."
 
 msgid "None"
 msgstr "Keine"
-
-msgid "OK"
-msgstr "OK"
 
 msgid "Ports"
 msgstr "Ports"
@@ -105,20 +90,14 @@ msgstr "Ports"
 msgid "Protocol"
 msgstr "Protokoll"
 
-msgid "Recovering"
-msgstr "Neu verbunden"
-
 msgid "Source Address"
 msgstr "Quelladresse"
-
-msgid "Unknown"
-msgstr "Unbekannt"
 
 msgid "WAN Interfaces"
 msgstr "WAN-Schnittstellen"
 
 msgid "WAN Uplink"
-msgstr "WAN Uplink-Verbindung"
+msgstr ""
 
 msgid "all"
 msgstr "alle"

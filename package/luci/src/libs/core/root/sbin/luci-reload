@@ -1,5 +1,5 @@
 #!/bin/sh
-. /lib/functions.sh
+. /etc/functions.sh
 
 apply_config() {
 	config_get init "$1" init

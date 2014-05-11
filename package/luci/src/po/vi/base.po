@@ -6,7 +6,6 @@ msgstr ""
 "PO-Revision-Date: 2009-08-14 12:23+0200\n"
 "Last-Translator: Hong Phuc Dang <dhppat@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -52,6 +51,13 @@ msgstr ""
 msgid "<abbr title=\"Basic Service Set Identifier\">BSSID</abbr>"
 msgstr "<abbr title=\"Dịch vụ căn bản đặt Identifier\">BSSID</abbr>"
 
+msgid ""
+"<abbr title=\"Classless Inter-Domain Routing\">CIDR</abbr>-Notation: address/"
+"prefix"
+msgstr ""
+"<abbr title=\"Classless Inter-Domain Routing\">CIDR</abbr>-Notation: address/"
+"prefix"
+
 msgid "<abbr title=\"Domain Name System\">DNS</abbr> query port"
 msgstr ""
 
@@ -63,17 +69,29 @@ msgid ""
 "order of the resolvfile"
 msgstr ""
 
+msgid "<abbr title=\"Domain Name System\">DNS</abbr>-Server"
+msgstr "<abbr title=\"Hệ thông tên miền\">DNS</abbr>-Máy chủ"
+
+msgid "<abbr title=\"Encrypted\">Encr.</abbr>"
+msgstr "<abbr title=\"Mã hóa\">Encr.</abbr>"
+
 msgid "<abbr title=\"Extended Service Set Identifier\">ESSID</abbr>"
 msgstr "<abbr title=\"Mở rộng dịch vụ đặt Identifier\">ESSID</abbr>"
 
 msgid "<abbr title=\"Internet Protocol Version 4\">IPv4</abbr>-Address"
 msgstr "<abbr title=\"Internet Protocol Version 4\">IPv4</abbr>-Address"
 
+msgid "<abbr title=\"Internet Protocol Version 4\">IPv4</abbr>-Broadcast"
+msgstr "<abbr title=\"Internet Protocol Version 4\">IPv4</abbr>-Broadcast"
+
 msgid "<abbr title=\"Internet Protocol Version 4\">IPv4</abbr>-Gateway"
 msgstr "<abbr title=\"Internet Protocol Version 4\">IPv4</abbr>-Gateway"
 
 msgid "<abbr title=\"Internet Protocol Version 4\">IPv4</abbr>-Netmask"
 msgstr "<abbr title=\"Internet Protocol Version 4\">IPv4</abbr>-Netmask"
+
+msgid "<abbr title=\"Internet Protocol Version 6\">IPv6</abbr>-Address"
+msgstr "<abbr title=\"Internet Protocol Version 6\">IPv6</abbr>-Address"
 
 msgid ""
 "<abbr title=\"Internet Protocol Version 6\">IPv6</abbr>-Address or Network "
@@ -94,6 +112,9 @@ msgstr ""
 msgid "<abbr title=\"Media Access Control\">MAC</abbr>-Address"
 msgstr "<abbr title=\"Media Access Control\">MAC</abbr>-Address"
 
+msgid "<abbr title=\"Wireless Local Area Network\">WLAN</abbr>-Scan"
+msgstr "<abbr title=\"Mạng lưới không dây địa phương\">WLAN</abbr>-Scan"
+
 msgid ""
 "<abbr title=\"maximal\">Max.</abbr> <abbr title=\"Dynamic Host Configuration "
 "Protocol\">DHCP</abbr> leases"
@@ -101,13 +122,10 @@ msgstr ""
 
 msgid ""
 "<abbr title=\"maximal\">Max.</abbr> <abbr title=\"Extension Mechanisms for "
-"Domain Name System\">EDNS0</abbr> packet size"
+"Domain Name System\">EDNS0</abbr> paket size"
 msgstr ""
 
 msgid "<abbr title=\"maximal\">Max.</abbr> concurrent queries"
-msgstr ""
-
-msgid "<abbr title='Pairwise: %s / Group: %s'>%s - %s</abbr>"
 msgstr ""
 
 msgid "APN"
@@ -164,11 +182,8 @@ msgstr "Active <abbr title=\"Internet Protocol Version 6\">IPv6</abbr>-Routes"
 msgid "Active Connections"
 msgstr "kết nối đang hoạt động"
 
-msgid "Active DHCP Leases"
-msgstr ""
-
-msgid "Active DHCPv6 Leases"
-msgstr ""
+msgid "Active Leases"
+msgstr "Leases hoạt động"
 
 msgid "Ad-Hoc"
 msgstr "Ad-Hoc"
@@ -234,11 +249,6 @@ msgstr ""
 msgid "Allowed range is 1 to 65535"
 msgstr ""
 
-msgid ""
-"Always use 40MHz channels even if the secondary channel overlaps. Using this "
-"option does not comply with IEEE 802.11n-2009!"
-msgstr ""
-
 msgid "An additional network will be created if you leave this unchecked."
 msgstr ""
 
@@ -248,25 +258,13 @@ msgstr ""
 msgid "Antenna 2"
 msgstr ""
 
-msgid "Antenna Configuration"
-msgstr ""
-
-msgid "Any zone"
-msgstr ""
-
 msgid "Apply"
 msgstr "Áp dụng"
 
 msgid "Applying changes"
 msgstr "Tiến hành thay đổi"
 
-msgid "Assign interfaces..."
-msgstr ""
-
 msgid "Associated Stations"
-msgstr ""
-
-msgid "Atheros 802.11%s Wireless Controller"
 msgstr ""
 
 msgid "Authentication"
@@ -329,6 +327,9 @@ msgid ""
 "defined backup patterns."
 msgstr ""
 
+msgid "Bit Rate"
+msgstr ""
+
 msgid "Bitrate"
 msgstr ""
 
@@ -345,12 +346,6 @@ msgid "Bridge unit number"
 msgstr ""
 
 msgid "Bring up on boot"
-msgstr ""
-
-msgid "Broadcom 802.11%s Wireless Controller"
-msgstr ""
-
-msgid "Broadcom BCM%04x 802.11 Wireless Controller"
 msgstr ""
 
 msgid "Buffered"
@@ -400,8 +395,9 @@ msgid ""
 msgstr "Giao diện này chưa thuộc về bất kỳ firewall zone nào."
 
 msgid ""
-"Choose the network(s) you want to attach to this wireless interface or fill "
-"out the <em>create</em> field to define a new network."
+"Choose the network you want to attach to this wireless interface. Select "
+"<em>unspecified</em> to not attach any network or fill out the <em>create</"
+"em> field to define a new network."
 msgstr ""
 
 msgid "Cipher"
@@ -441,6 +437,15 @@ msgstr "Sức nén"
 
 msgid "Configuration"
 msgstr "Cấu hình"
+
+msgid "Configuration / Apply"
+msgstr ""
+
+msgid "Configuration / Changes"
+msgstr ""
+
+msgid "Configuration / Revert"
+msgstr ""
 
 msgid "Configuration applied."
 msgstr ""
@@ -484,6 +489,9 @@ msgstr "Tạo/ gán firewall-zone"
 msgid "Create Interface"
 msgstr ""
 
+msgid "Create Network"
+msgstr "Tạo network"
+
 msgid "Create a bridge over multiple interfaces"
 msgstr ""
 
@@ -518,16 +526,10 @@ msgstr ""
 msgid "DHCP-Options"
 msgstr "Tùy chọn DHCP"
 
-msgid "DHCPv6 Leases"
-msgstr ""
-
 msgid "DNS"
 msgstr ""
 
 msgid "DNS forwardings"
-msgstr ""
-
-msgid "DUID"
 msgstr ""
 
 msgid "Debug"
@@ -707,13 +709,16 @@ msgstr ""
 msgid "Enable Jumbo Frame passthrough"
 msgstr ""
 
-msgid "Enable NTP client"
-msgstr ""
-
 msgid "Enable TFTP server"
 msgstr ""
 
 msgid "Enable VLAN functionality"
+msgstr ""
+
+msgid "Enable buffering"
+msgstr ""
+
+msgid "Enable builtin NTP server"
 msgstr ""
 
 msgid "Enable learning and aging"
@@ -834,9 +839,6 @@ msgstr ""
 msgid "Force"
 msgstr "Force"
 
-msgid "Force 40MHz mode"
-msgstr ""
-
 msgid "Force CCMP (AES)"
 msgstr ""
 
@@ -873,12 +875,6 @@ msgstr ""
 msgid "Frequency Hopping"
 msgstr "Tần số Hopping"
 
-msgid "GHz"
-msgstr ""
-
-msgid "GPRS only"
-msgstr ""
-
 msgid "Gateway"
 msgstr ""
 
@@ -892,9 +888,6 @@ msgid "General Setup"
 msgstr ""
 
 msgid "Generate archive"
-msgstr ""
-
-msgid "Generic 802.11%s Wireless Controller"
 msgstr ""
 
 msgid "Given password confirmation did not match, password not changed!"
@@ -936,9 +929,6 @@ msgid ""
 "authentication."
 msgstr ""
 
-msgid "Hermes 802.11b Wireless Controller"
-msgstr ""
-
 msgid "Hide <abbr title=\"Extended Service Set Identifier\">ESSID</abbr>"
 msgstr "Giấu <abbr title=\"Chế độ mở rộng đặt Identifier\">ESSID</abbr>"
 
@@ -962,6 +952,9 @@ msgstr "Tên host"
 
 msgid "IP address"
 msgstr "Địa chỉ IP"
+
+msgid "IP-Aliases"
+msgstr ""
 
 msgid "IPv4"
 msgstr ""
@@ -990,9 +983,6 @@ msgstr ""
 msgid "IPv4 only"
 msgstr ""
 
-msgid "IPv4 prefix length"
-msgstr ""
-
 msgid "IPv4-Address"
 msgstr ""
 
@@ -1000,6 +990,9 @@ msgid "IPv6"
 msgstr "IPv6"
 
 msgid "IPv6 Firewall"
+msgstr ""
+
+msgid "IPv6 Setup"
 msgstr ""
 
 msgid "IPv6 WAN Status"
@@ -1014,22 +1007,10 @@ msgstr ""
 msgid "IPv6 only"
 msgstr ""
 
-msgid "IPv6 prefix"
-msgstr ""
-
-msgid "IPv6 prefix length"
-msgstr ""
-
-msgid "IPv6-Address"
-msgstr ""
-
 msgid "IPv6-in-IPv4 (RFC4213)"
 msgstr ""
 
-msgid "IPv6-over-IPv4 (6rd)"
-msgstr ""
-
-msgid "IPv6-over-IPv4 (6to4)"
+msgid "IPv6-over-IPv4"
 msgstr ""
 
 msgid "Identity"
@@ -1132,9 +1113,6 @@ msgstr ""
 msgid "Interfaces"
 msgstr "Giao diện "
 
-msgid "Internal Server Error"
-msgstr ""
-
 msgid "Invalid"
 msgstr "Giá trị nhập vào không hợp lí"
 
@@ -1184,12 +1162,6 @@ msgstr ""
 msgid "Kill"
 msgstr "Kill"
 
-msgid "L2TP"
-msgstr ""
-
-msgid "L2TP Server"
-msgstr ""
-
 msgid "LCP echo failure threshold"
 msgstr ""
 
@@ -1231,6 +1203,9 @@ msgstr ""
 
 msgid "Limit"
 msgstr "Giới hạn "
+
+msgid "Link"
+msgstr "Link"
 
 msgid "Link On"
 msgstr "Link On"
@@ -1316,6 +1291,12 @@ msgstr "Thoát ra"
 msgid "Lowest leased address as offset from the network address."
 msgstr ""
 
+msgid "MAC"
+msgstr "MAC"
+
+msgid "MAC Address"
+msgstr ""
+
 msgid "MAC-Address"
 msgstr ""
 
@@ -1327,12 +1308,6 @@ msgstr "Lọc MAC"
 
 msgid "MAC-List"
 msgstr "Danh sách MAC"
-
-msgid "MB/s"
-msgstr ""
-
-msgid "MHz"
-msgstr ""
 
 msgid "MTU"
 msgstr ""
@@ -1356,9 +1331,6 @@ msgid "Maximum hold time"
 msgstr "Mức cao nhất"
 
 msgid "Maximum number of leased addresses."
-msgstr ""
-
-msgid "Mbit/s"
 msgstr ""
 
 msgid "Memory"
@@ -1464,8 +1436,8 @@ msgstr ""
 msgid "Network boot image"
 msgstr ""
 
-msgid "Network without interfaces."
-msgstr ""
+msgid "Networks"
+msgstr "mạng lưới"
 
 msgid "Next »"
 msgstr ""
@@ -1515,22 +1487,18 @@ msgstr ""
 msgid "Normal"
 msgstr ""
 
-msgid "Not Found"
-msgstr ""
-
 msgid "Not associated"
-msgstr ""
-
-msgid "Not connected"
 msgstr ""
 
 msgid "Note: Configuration files will be erased."
 msgstr ""
 
-msgid "Notice"
+msgid ""
+"Note: If you choose an interface here which is part of another network, it "
+"will be moved into this network."
 msgstr ""
 
-msgid "Nslookup"
+msgid "Notice"
 msgstr ""
 
 msgid "OK"
@@ -1560,13 +1528,13 @@ msgstr ""
 msgid "On-State Delay"
 msgstr ""
 
-msgid "One of hostname or mac address must be specified!"
-msgstr ""
-
 msgid "One or more fields contain invalid values!"
 msgstr ""
 
 msgid "One or more required fields have no value!"
+msgstr ""
+
+msgid "Open"
 msgstr ""
 
 msgid "Open list..."
@@ -1697,9 +1665,6 @@ msgstr ""
 msgid "Physical Settings"
 msgstr "Cài đặt căn bản"
 
-msgid "Ping"
-msgstr ""
-
 msgid "Pkts."
 msgstr ""
 
@@ -1721,8 +1686,8 @@ msgstr ""
 msgid "Port %d is untagged in multiple VLANs!"
 msgstr ""
 
-msgid "Port status:"
-msgstr ""
+msgid "Power"
+msgstr "Power"
 
 msgid ""
 "Presume peer to be dead after given amount of LCP echo failures, use 0 to "
@@ -1731,9 +1696,6 @@ msgstr ""
 
 msgid "Prevents client-to-client communication"
 msgstr "Ngăn chặn giao tiếp giữa client-và-client"
-
-msgid "Prism2/2.5/3 802.11b Wireless Controller"
-msgstr ""
 
 msgid "Proceed"
 msgstr "Proceed"
@@ -1756,29 +1718,17 @@ msgstr ""
 msgid "Protocol support is not installed"
 msgstr ""
 
-msgid "Provide NTP server"
-msgstr ""
-
 msgid "Provide new network"
 msgstr ""
 
 msgid "Pseudo Ad-Hoc (ahdemo)"
 msgstr "Pseudo Ad-Hoc (ahdemo)"
 
-msgid "Quality"
-msgstr ""
-
 msgid "RTS/CTS Threshold"
 msgstr "RTS/CTS Threshold"
 
 msgid "RX"
 msgstr "RX"
-
-msgid "RX Rate"
-msgstr ""
-
-msgid "RaLink 802.11%s Wireless Controller"
-msgstr ""
 
 msgid "Radius-Accounting-Port"
 msgstr ""
@@ -1806,26 +1756,26 @@ msgstr ""
 "Configuration Protocol\">DHCP</abbr>-Server"
 
 msgid ""
-"Really delete this interface? The deletion cannot be undone!\\nYou might "
-"lose access to this device if you are connected via this interface."
+"Really delete this interface? The deletion cannot be undone!\n"
+"You might lose access to this router if you are connected via this interface."
 msgstr ""
 
 msgid ""
-"Really delete this wireless network? The deletion cannot be undone!\\nYou "
-"might lose access to this device if you are connected via this network."
+"Really delete this wireless network? The deletion cannot be undone!\n"
+"You might lose access to this router if you are connected via this network."
 msgstr ""
 
 msgid "Really reset all changes?"
 msgstr ""
 
 msgid ""
-"Really shutdown interface \"%s\" ?\\nYou might lose access to this device if "
-"you are connected via this interface."
+"Really shutdown interface \"%s\" ?\n"
+"You might lose access to this router if you are connected via this interface."
 msgstr ""
 
 msgid ""
-"Really shutdown network ?\\nYou might lose access to this device if you are "
-"connected via this interface."
+"Really shutdown network ?\n"
+"You might lose access to this router if you are connected via this interface."
 msgstr ""
 
 msgid "Really switch protocol?"
@@ -2071,12 +2021,6 @@ msgstr "Phần mềm"
 msgid "Some fields are invalid, cannot save values!"
 msgstr ""
 
-msgid "Sorry, the object you requested was not found."
-msgstr ""
-
-msgid "Sorry, the server encountered an unexpected error."
-msgstr ""
-
 msgid ""
 "Sorry, there is no sysupgrade support present, a new firmware image must be "
 "flashed manually. Please refer to the OpenWrt wiki for device specific "
@@ -2207,9 +2151,6 @@ msgstr ""
 msgid "TX"
 msgstr "TX"
 
-msgid "TX Rate"
-msgstr ""
-
 msgid "Table"
 msgstr "Bảng"
 
@@ -2230,10 +2171,6 @@ msgstr ""
 msgid ""
 "The <em>libiwinfo-lua</em> package is not installed. You must install this "
 "component for working wireless configuration!"
-msgstr ""
-
-msgid ""
-"The IPv6 prefix assigned to the provider, usually ends with <code>::</code>"
 msgstr ""
 
 msgid ""
@@ -2280,21 +2217,19 @@ msgid ""
 msgstr ""
 
 msgid ""
-"The length of the IPv4 prefix in bits, the remainder is used in the IPv6 "
-"addresses."
-msgstr ""
-
-msgid "The length of the IPv6 prefix in bits"
-msgstr ""
-
-msgid ""
-"The network ports on this device can be combined to several <abbr title="
+"The network ports on your router can be combined to several <abbr title="
 "\"Virtual Local Area Network\">VLAN</abbr>s in which computers can "
 "communicate directly with each other. <abbr title=\"Virtual Local Area "
 "Network\">VLAN</abbr>s are often used to separate different network "
 "segments. Often there is by default one Uplink port for a connection to the "
 "next greater network like the internet and other ports for a local network."
 msgstr ""
+"Cổng network trên bộ định tuyến có thể phối hợp với nhiều <abbr title="
+"\"Virtual Local Area Network\">VLAN</abbr>s làm máy tính tự giao tiếp trực "
+"tiếp với nhau. <abbr title=\"Virtual Local Area Network\">VLAN</abbr>s "
+"thường được dùng để phân tách những phân đoạn network khác nhau. Thông "
+"thường có một cổng Uplink mặc định cho một kết nối vào mạng lớn hơn như "
+"Internet và các cổng khác cho một mạng lưới địa phương."
 
 msgid "The selected protocol needs a device assigned"
 msgstr ""
@@ -2341,9 +2276,6 @@ msgstr ""
 msgid ""
 "There is no password set on this router. Please configure a root password to "
 "protect the web interface and enable SSH."
-msgstr ""
-
-msgid "This IPv4 address of the relay"
 msgstr ""
 
 msgid ""
@@ -2413,9 +2345,6 @@ msgstr ""
 msgid "Total Available"
 msgstr ""
 
-msgid "Traceroute"
-msgstr ""
-
 msgid "Traffic"
 msgstr ""
 
@@ -2458,9 +2387,6 @@ msgstr "Loại "
 msgid "UDP:"
 msgstr ""
 
-msgid "UMTS only"
-msgstr ""
-
 msgid "UMTS/GPRS/EV-DO"
 msgstr ""
 
@@ -2468,9 +2394,6 @@ msgid "USB Device"
 msgstr ""
 
 msgid "UUID"
-msgstr ""
-
-msgid "Unable to dispatch"
 msgstr ""
 
 msgid "Unknown"
@@ -2611,10 +2534,7 @@ msgid ""
 "and ad-hoc mode) to be installed."
 msgstr ""
 
-msgid "Waiting for changes to be applied..."
-msgstr ""
-
-msgid "Waiting for command to complete..."
+msgid "Waiting for router..."
 msgstr ""
 
 msgid "Warning"
@@ -2625,6 +2545,9 @@ msgstr "Cảnh báo: Các thay đổi chưa lưu sẽ bị mất trong khi khở
 
 msgid "Wifi"
 msgstr "Wifi"
+
+msgid "Wifi networks in your local environment"
+msgstr "Mạng lưới wifi ở môi trường xung quanh bạn"
 
 msgid "Wireless"
 msgstr ""
@@ -2685,23 +2608,11 @@ msgstr ""
 msgid "auto"
 msgstr "tự động"
 
-msgid "baseT"
-msgstr ""
-
 msgid "bridged"
-msgstr ""
-
-msgid "create:"
 msgstr ""
 
 msgid "creates a bridge over specified interface(s)"
 msgstr "tạo một cầu nối trên một giao diện được chỉ định"
-
-msgid "dB"
-msgstr ""
-
-msgid "dBm"
-msgstr ""
 
 msgid "disable"
 msgstr "Vô hiệu hóa"
@@ -2716,43 +2627,16 @@ msgstr ""
 "Tập tin được cho <abbr title=\"Dynamic Host Configuration Protocol\">DHCP</"
 "abbr>-leases sẽ được lưu trữ"
 
-msgid "forward"
-msgstr ""
-
-msgid "full-duplex"
-msgstr ""
-
-msgid "half-duplex"
-msgstr ""
-
 msgid "help"
-msgstr ""
-
-msgid "hidden"
 msgstr ""
 
 msgid "if target is a network"
 msgstr "Nếu mục tiêu là một network"
 
-msgid "input"
-msgstr ""
-
-msgid "kB"
-msgstr ""
-
-msgid "kB/s"
-msgstr ""
-
-msgid "kbit/s"
-msgstr ""
-
 msgid "local <abbr title=\"Domain Name System\">DNS</abbr> file"
 msgstr "Tập tin <abbr title=\"Domain Name System\">DNS</abbr> địa phương"
 
 msgid "no"
-msgstr ""
-
-msgid "no link"
 msgstr ""
 
 msgid "none"
@@ -2764,16 +2648,10 @@ msgstr ""
 msgid "on"
 msgstr ""
 
-msgid "open"
-msgstr ""
-
 msgid "routed"
 msgstr ""
 
 msgid "tagged"
-msgstr ""
-
-msgid "unknown"
 msgstr ""
 
 msgid "unlimited"
@@ -2793,65 +2671,6 @@ msgstr ""
 
 msgid "« Back"
 msgstr ""
-
-#~ msgid "Active Leases"
-#~ msgstr "Leases hoạt động"
-
-#~ msgid "MAC"
-#~ msgstr "MAC"
-
-#~ msgid "<abbr title=\"Encrypted\">Encr.</abbr>"
-#~ msgstr "<abbr title=\"Mã hóa\">Encr.</abbr>"
-
-#~ msgid "<abbr title=\"Wireless Local Area Network\">WLAN</abbr>-Scan"
-#~ msgstr "<abbr title=\"Mạng lưới không dây địa phương\">WLAN</abbr>-Scan"
-
-#~ msgid "Create Network"
-#~ msgstr "Tạo network"
-
-#~ msgid "Link"
-#~ msgstr "Link"
-
-#~ msgid "Networks"
-#~ msgstr "mạng lưới"
-
-#~ msgid "Power"
-#~ msgstr "Power"
-
-#~ msgid "Wifi networks in your local environment"
-#~ msgstr "Mạng lưới wifi ở môi trường xung quanh bạn"
-
-#~ msgid ""
-#~ "<abbr title=\"Classless Inter-Domain Routing\">CIDR</abbr>-Notation: "
-#~ "address/prefix"
-#~ msgstr ""
-#~ "<abbr title=\"Classless Inter-Domain Routing\">CIDR</abbr>-Notation: "
-#~ "address/prefix"
-
-#~ msgid "<abbr title=\"Domain Name System\">DNS</abbr>-Server"
-#~ msgstr "<abbr title=\"Hệ thông tên miền\">DNS</abbr>-Máy chủ"
-
-#~ msgid "<abbr title=\"Internet Protocol Version 4\">IPv4</abbr>-Broadcast"
-#~ msgstr "<abbr title=\"Internet Protocol Version 4\">IPv4</abbr>-Broadcast"
-
-#~ msgid "<abbr title=\"Internet Protocol Version 6\">IPv6</abbr>-Address"
-#~ msgstr "<abbr title=\"Internet Protocol Version 6\">IPv6</abbr>-Address"
-
-#~ msgid ""
-#~ "The network ports on your router can be combined to several <abbr title="
-#~ "\"Virtual Local Area Network\">VLAN</abbr>s in which computers can "
-#~ "communicate directly with each other. <abbr title=\"Virtual Local Area "
-#~ "Network\">VLAN</abbr>s are often used to separate different network "
-#~ "segments. Often there is by default one Uplink port for a connection to "
-#~ "the next greater network like the internet and other ports for a local "
-#~ "network."
-#~ msgstr ""
-#~ "Cổng network trên bộ định tuyến có thể phối hợp với nhiều <abbr title="
-#~ "\"Virtual Local Area Network\">VLAN</abbr>s làm máy tính tự giao tiếp "
-#~ "trực tiếp với nhau. <abbr title=\"Virtual Local Area Network\">VLAN</"
-#~ "abbr>s thường được dùng để phân tách những phân đoạn network khác nhau. "
-#~ "Thông thường có một cổng Uplink mặc định cho một kết nối vào mạng lớn hơn "
-#~ "như Internet và các cổng khác cho một mạng lưới địa phương."
 
 #~ msgid "Files to be kept when flashing a new firmware"
 #~ msgstr "Tập tin được lưu giữ khi truyền tới một phần cứng mới"
@@ -3312,7 +3131,7 @@ msgstr ""
 
 #~ msgid ""
 #~ "<abbr title=\"maximal\">max.</abbr> <abbr title=\"Extension Mechanisms "
-#~ "for Domain Name System\">EDNS0</abbr> packet size"
+#~ "for Domain Name System\">EDNS0</abbr> paket size"
 #~ msgstr ""
 #~ "<abbr title=\"tối đal\">max.</abbr> <abbr title=\"Mở rộng cơ chế cho hệ "
 #~ "thống tên miền\">EDNS0</abbr> dung lượng gói tin"

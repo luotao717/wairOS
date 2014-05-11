@@ -3,47 +3,51 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-06-10 03:41+0200\n"
-"PO-Revision-Date: 2012-08-22 17:45+0200\n"
-"Last-Translator: José Vicente <josevteg@gmail.com>\n"
+"PO-Revision-Date: 2009-07-12 07:48+0200\n"
+"Last-Translator: Guillermo Javier Nardoni <guillermo@geryon.com.ar>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: es\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.0.6\n"
+"X-Generator: Pootle 1.1.0\n"
 
+#, fuzzy
 msgid "Allow guests"
-msgstr "Permitir invitados"
+msgstr "Permitir Invitados"
 
+#, fuzzy
 msgid "Allow system users to reach their home directories via network shares"
 msgstr ""
-"Permitir a los usuarios acceder a sus directorios de inicio vía "
-"comparticiones de red"
+"Los usuarios del sistema pueden llegar a sus directorios de inicio a través "
+"de recursos compartidos de red."
 
+#, fuzzy
 msgid "Allowed users"
-msgstr "Usuarios permitidos"
+msgstr "Usuarios Perimitidos"
 
+#, fuzzy
 msgid "Create mask"
-msgstr "Crear máscara"
+msgstr "Crear Máscara "
 
 msgid "Description"
 msgstr "Descripción"
 
+#, fuzzy
 msgid "Directory mask"
-msgstr "Máscara de directorio"
+msgstr "Máscara de Directorio"
 
 msgid "Edit Template"
-msgstr "Editar plantilla"
+msgstr ""
 
 msgid "Edit the template that is used for generating the samba configuration."
-msgstr "Editar la plantilla usada para generar la configuración de samba."
+msgstr ""
 
 msgid "General Settings"
-msgstr "Configuración general"
+msgstr ""
 
 msgid "Hostname"
-msgstr "Nombre de máquina"
+msgstr "Nombre del Host (Hostname)"
 
 msgid "Mask for new directories"
 msgstr "Máscara para directorios nuevos"
@@ -52,19 +56,20 @@ msgid "Mask for new files"
 msgstr "Máscara para archivos nuevos"
 
 msgid "Name"
-msgstr "Nombre"
+msgstr ""
 
 msgid "Network Shares"
-msgstr "Comparticiones de red"
+msgstr "Recursos compartidos de red "
 
 msgid "Path"
-msgstr "Dirección"
+msgstr ""
 
+#, fuzzy
 msgid "Read-only"
 msgstr "Solo lectura"
 
 msgid "Share home-directories"
-msgstr "Compartir directorios personales"
+msgstr "Compartir directorios-home"
 
 msgid "Shared Directories"
 msgstr "Directorios compartidos"
@@ -75,12 +80,9 @@ msgid ""
 "('|') should not be changed. They get their values from the 'General "
 "Settings' tab."
 msgstr ""
-"Contenido del fichero '/etc/samba/smb.conf.template' desde el que se "
-"generará la configuración de samba. Los valores entre tuberías ('|') no "
-"deben cambiarse. Su valor se toma desde la pestaña 'Configuración General'."
 
 msgid "Workgroup"
-msgstr "Grupo de trabajo"
+msgstr "Grupo de Trabajo"
 
 #~ msgid "Shared Directory"
 #~ msgstr "Directorio compatido"

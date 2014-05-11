@@ -9,7 +9,7 @@ You may obtain a copy of the License at
 
         http://www.apache.org/licenses/LICENSE-2.0
 
-$Id: iptables.lua 7369 2011-08-22 20:52:31Z jow $
+$Id$
 
 ]]--
 

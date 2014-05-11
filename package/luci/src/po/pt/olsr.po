@@ -7,10 +7,10 @@ msgstr ""
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: \n"
 "X-Generator: Translate Toolkit 1.1.1\n"
 
 msgid "Active MID announcements"
@@ -137,11 +137,6 @@ msgid "Hostname"
 msgstr ""
 
 msgid ""
-"Hosts in a OLSR routed network can announce connecitivity to external "
-"networks using HNA messages."
-msgstr ""
-
-msgid ""
 "Hysteresis for link sensing (only for hopcount metric). Hysteresis adds more "
 "robustness to the link sensing but delays neighbor registration. Defaults is "
 "\"yes\""
@@ -240,9 +235,6 @@ msgstr ""
 msgid "Known OLSR routes"
 msgstr "Rotas OLSR conhecidas"
 
-msgid "LQ"
-msgstr ""
-
 msgid "LQ aging"
 msgstr "Envelhecimento LQ"
 
@@ -338,9 +330,6 @@ msgid ""
 msgstr ""
 
 msgid "NAT threshold"
-msgstr ""
-
-msgid "NLQ"
 msgstr ""
 
 msgid "Neighbors"

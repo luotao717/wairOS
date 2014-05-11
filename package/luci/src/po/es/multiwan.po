@@ -1,124 +1,94 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
-"PO-Revision-Date: 2012-08-23 23:07+0200\n"
-"Last-Translator: José Vicente <josevteg@gmail.com>\n"
-"Language-Team: none\n"
-"Language: es\n"
-"MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
+"Project-Id-Version: PACKAGE VERSION\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"MIME-Version: 1.0\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.0.6\n"
 
 msgid "Attempts Before WAN Failover"
-msgstr "Reintentos ante fallo de la WAN"
+msgstr ""
 
 msgid "Attempts Before WAN Recovery"
-msgstr "Reintentos tras recuperar la WAN"
+msgstr ""
 
 msgid "Auto"
-msgstr "Auto"
-
-msgid "Collecting data..."
-msgstr "Recuperando datos..."
+msgstr ""
 
 msgid ""
 "Configure rules for directing outbound traffic through specified WAN Uplinks."
 msgstr ""
-"Configure las reglas que redirigen el tráfico saliente a través de los "
-"enlaces WAN salientes especificados."
 
 msgid "DNS Server(s)"
-msgstr "Servidor/es DNS"
+msgstr ""
 
 msgid "Default Route"
-msgstr "Ruta por defecto"
+msgstr ""
 
 msgid "Destination Address"
-msgstr "Dirección de destino"
+msgstr ""
 
 msgid "Disable"
-msgstr "Desactivar"
+msgstr ""
 
 msgid "Enable"
-msgstr "Activar"
-
-msgid "Failing"
-msgstr "Fallando"
+msgstr ""
 
 msgid "Failover Traffic Destination"
-msgstr "Destino del tráfico en caso de fallo"
+msgstr ""
 
 msgid "Health Monitor ICMP Host(s)"
-msgstr "Monitores de salud ICMP"
+msgstr ""
 
 msgid "Health Monitor ICMP Timeout"
-msgstr "Espera monitor de salud ICMP"
+msgstr ""
 
 msgid "Health Monitor Interval"
-msgstr "Intervalo del monitor de salud"
+msgstr ""
 
 msgid ""
 "Health Monitor detects and corrects network changes and failed connections."
 msgstr ""
-"El monitor de salud detecta y corrige cambios en la red y conexiones "
-"fallidas."
-
-msgid "KO"
-msgstr "KO"
 
 msgid "Load Balancer Distribution"
-msgstr "Distribución del balanceador de carga"
+msgstr ""
 
 msgid "Load Balancer(Compatibility)"
-msgstr "Balanceador de carga (compatibilidad)"
+msgstr ""
 
 msgid "Load Balancer(Performance)"
-msgstr "Balanceador de carga (rendimiento)"
+msgstr ""
 
 msgid "Multi-WAN"
-msgstr "Multi-WAN"
-
-msgid "Multi-WAN Status"
-msgstr "Estado de Multi-WAN"
+msgstr ""
 
 msgid "Multi-WAN Traffic Rules"
-msgstr "Reglas de tráfico Multi-WAN"
+msgstr ""
 
 msgid ""
 "Multi-WAN allows for the use of multiple uplinks for load balancing and "
 "failover."
 msgstr ""
-"Multi-WAN permite el use varios enlaces de salida para balancear la carga y "
-"control de fallos."
 
 msgid "None"
-msgstr "Ninguno"
-
-msgid "OK"
-msgstr "OK"
+msgstr ""
 
 msgid "Ports"
-msgstr "Puertos"
+msgstr ""
 
 msgid "Protocol"
-msgstr "Protocolo"
-
-msgid "Recovering"
-msgstr "Recuperación"
+msgstr ""
 
 msgid "Source Address"
-msgstr "Dirección origen"
-
-msgid "Unknown"
-msgstr "Desconocido"
+msgstr ""
 
 msgid "WAN Interfaces"
-msgstr "Interfaces WAN"
+msgstr ""
 
 msgid "WAN Uplink"
-msgstr "Enalce saliente WAN"
+msgstr ""
 
 msgid "all"
-msgstr "todos"
+msgstr ""

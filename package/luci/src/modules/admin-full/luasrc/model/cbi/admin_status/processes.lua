@@ -10,7 +10,7 @@ You may obtain a copy of the License at
 
 	http://www.apache.org/licenses/LICENSE-2.0
 
-$Id: processes.lua 7025 2011-05-04 21:23:55Z jow $
+$Id$
 ]]--
 f = SimpleForm("processes", translate("Processes"), translate("This list gives an overview over currently running system processes and their status."))
 f.reset = false

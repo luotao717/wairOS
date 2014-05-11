@@ -30,9 +30,6 @@ msgstr ""
 "Grund-Authentifizierung mittels Benutzernamen und Passwort über HTTP im "
 "Format benutzername:passwort"
 
-msgid "Configuration"
-msgstr ""
-
 msgid "DNS and Query Settings"
 msgstr ""
 
@@ -126,9 +123,6 @@ msgstr "Authentifizierung für übergeordneten Proxyserver"
 msgid "Polipo"
 msgstr "Polipo"
 
-msgid "Polipo Status"
-msgstr ""
-
 msgid "Polipo is a small and fast caching web proxy."
 msgstr "Polipo ist ein kleiner und schneller Webproxy."
 
@@ -191,9 +185,6 @@ msgstr ""
 "Doppelte Größe des PMM-Segments angenommen"
 
 msgid "Size to which cached files should be truncated"
-msgstr ""
-
-msgid "Status"
 msgstr ""
 
 #, fuzzy

@@ -17,23 +17,19 @@
  */
 
 #include "template_utils.h"
-#include "template_lmo.h"
 
 /* initialize a buffer object */
-struct template_buffer * buf_init(int size)
+static struct template_buffer * buf_init(void)
 {
 	struct template_buffer *buf;
-
-	if (size <= 0)
-		size = 1024;
 
 	buf = (struct template_buffer *)malloc(sizeof(struct template_buffer));
 
 	if (buf != NULL)
 	{
 		buf->fill = 0;
-		buf->size = size;
-		buf->data = malloc(buf->size);
+		buf->size = 1024;
+		buf->data = (unsigned char *)malloc(buf->size);
 
 		if (buf->data != NULL)
 		{
@@ -50,21 +46,17 @@ struct template_buffer * buf_init(int size)
 }
 
 /* grow buffer */
-int buf_grow(struct template_buffer *buf, int size)
+static int buf_grow(struct template_buffer *buf)
 {
 	unsigned int off = (buf->dptr - buf->data);
-	char *data;
-
-	if (size <= 0)
-		size = 1024;
-
-	data = realloc(buf->data, buf->size + size);
+	unsigned char *data =
+		(unsigned char *)realloc(buf->data, buf->size + 1024);
 
 	if (data != NULL)
 	{
 		buf->data  = data;
 		buf->dptr  = data + off;
-		buf->size += size;
+		buf->size += 1024;
 
 		return buf->size;
 	}
@@ -73,9 +65,9 @@ int buf_grow(struct template_buffer *buf, int size)
 }
 
 /* put one char into buffer object */
-int buf_putchar(struct template_buffer *buf, char c)
+static int buf_putchar(struct template_buffer *buf, unsigned char c)
 {
-	if( ((buf->fill + 1) >= buf->size) && !buf_grow(buf, 0) )
+	if( ((buf->fill + 1) >= buf->size) && !buf_grow(buf) )
 		return 0;
 
 	*(buf->dptr++) = c;
@@ -86,11 +78,11 @@ int buf_putchar(struct template_buffer *buf, char c)
 }
 
 /* append data to buffer */
-int buf_append(struct template_buffer *buf, const char *s, int len)
+static int buf_append(struct template_buffer *buf, unsigned char *s, int len)
 {
-	if ((buf->fill + len + 1) >= buf->size)
+	while ((buf->fill + len + 1) >= buf->size)
 	{
-		if (!buf_grow(buf, len + 1))
+		if (!buf_grow(buf))
 			return 0;
 	}
 
@@ -103,19 +95,13 @@ int buf_append(struct template_buffer *buf, const char *s, int len)
 	return len;
 }
 
-/* read buffer length */
-int buf_length(struct template_buffer *buf)
-{
-	return buf->fill;
-}
-
 /* destroy buffer object and return pointer to data */
-char * buf_destroy(struct template_buffer *buf)
+static char * buf_destroy(struct template_buffer *buf)
 {
-	char *data = buf->data;
+	unsigned char *data = buf->data;
 
 	free(buf);
-	return data;
+	return (char *)data;
 }
 
 
@@ -243,7 +229,7 @@ static int _validate_utf8(unsigned char **s, int l, struct template_buffer *buf)
 					!mb_is_surrogate(ptr, n) && !mb_is_illegal(ptr, n))
 				{
 					/* copy sequence */
-					if (!buf_append(buf, (char *)ptr, n))
+					if (!buf_append(buf, ptr, n))
 						return 0;
 				}
 
@@ -278,9 +264,9 @@ static int _validate_utf8(unsigned char **s, int l, struct template_buffer *buf)
 }
 
 /* sanitize given string and replace all invalid UTF-8 sequences with "?" */
-char * utf8(const char *s, unsigned int l)
+char * sanitize_utf8(const char *s, unsigned int l)
 {
-	struct template_buffer *buf = buf_init(l);
+	struct template_buffer *buf = buf_init();
 	unsigned char *ptr = (unsigned char *)s;
 	unsigned int v, o;
 
@@ -292,7 +278,7 @@ char * utf8(const char *s, unsigned int l)
 		/* ascii char */
 		if ((*ptr >= 0x01) && (*ptr <= 0x7F))
 		{
-			if (!buf_putchar(buf, (char)*ptr++))
+			if (!buf_putchar(buf, *ptr++))
 				break;
 		}
 
@@ -312,9 +298,9 @@ char * utf8(const char *s, unsigned int l)
 /* Sanitize given string and strip all invalid XML bytes
  * Validate UTF-8 sequences
  * Escape XML control chars */
-char * pcdata(const char *s, unsigned int l)
+char * sanitize_pcdata(const char *s, unsigned int l)
 {
-	struct template_buffer *buf = buf_init(l);
+	struct template_buffer *buf = buf_init();
 	unsigned char *ptr = (unsigned char *)s;
 	unsigned int o, v;
 	char esq[8];
@@ -343,7 +329,7 @@ char * pcdata(const char *s, unsigned int l)
 		{
 			esl = snprintf(esq, sizeof(esq), "&#%i;", *ptr);
 
-			if (!buf_append(buf, esq, esl))
+			if (!buf_append(buf, (unsigned char *)esq, esl))
 				break;
 
 			ptr++;
@@ -352,7 +338,7 @@ char * pcdata(const char *s, unsigned int l)
 		/* ascii char */
 		else if (*ptr <= 0x7F)
 		{
-			buf_putchar(buf, (char)*ptr++);
+			buf_putchar(buf, *ptr++);
 		}
 
 		/* multi byte sequence */
@@ -366,129 +352,4 @@ char * pcdata(const char *s, unsigned int l)
 	}
 
 	return buf_destroy(buf);
-}
-
-char * striptags(const char *s, unsigned int l)
-{
-	struct template_buffer *buf = buf_init(l);
-	unsigned char *ptr = (unsigned char *)s;
-	unsigned char *end = ptr + l;
-	unsigned char *tag;
-	unsigned char prev;
-	char esq[8];
-	int esl;
-
-	for (prev = ' '; ptr < end; ptr++)
-	{
-		if ((*ptr == '<') && ((ptr + 2) < end) &&
-			((*(ptr + 1) == '/') || isalpha(*(ptr + 1))))
-		{
-			for (tag = ptr; tag < end; tag++)
-			{
-				if (*tag == '>')
-				{
-					if (!isspace(prev))
-						buf_putchar(buf, ' ');
-
-					ptr = tag;
-					prev = ' ';
-					break;
-				}
-			}
-		}
-		else if (isspace(*ptr))
-		{
-			if (!isspace(prev))
-				buf_putchar(buf, *ptr);
-
-			prev = *ptr;
-		}
-		else
-		{
-			switch(*ptr)
-			{
-				case '"':
-				case '\'':
-				case '<':
-				case '>':
-				case '&':
-					esl = snprintf(esq, sizeof(esq), "&#%i;", *ptr);
-					buf_append(buf, esq, esl);
-					break;
-
-				default:
-					buf_putchar(buf, *ptr);
-					break;
-			}
-
-			prev = *ptr;
-		}
-	}
-
-	return buf_destroy(buf);
-}
-
-void luastr_escape(struct template_buffer *out, const char *s, unsigned int l,
-				   int escape_xml)
-{
-	int esl;
-	char esq[8];
-	char *ptr;
-
-	for (ptr = (char *)s; ptr < (s + l); ptr++)
-	{
-		switch (*ptr)
-		{
-		case '\\':
-			buf_append(out, "\\\\", 2);
-			break;
-
-		case '"':
-			if (escape_xml)
-				buf_append(out, "&#34;", 5);
-			else
-				buf_append(out, "\\\"", 2);
-			break;
-
-		case '\n':
-			buf_append(out, "\\n", 2);
-			break;
-
-		case '\'':
-		case '&':
-		case '<':
-		case '>':
-			if (escape_xml)
-			{
-				esl = snprintf(esq, sizeof(esq), "&#%i;", *ptr);
-				buf_append(out, esq, esl);
-				break;
-			}
-
-		default:
-			buf_putchar(out, *ptr);
-		}
-	}
-}
-
-void luastr_translate(struct template_buffer *out, const char *s, unsigned int l,
-					  int escape_xml)
-{
-	char *tr;
-	int trlen;
-
-	switch (lmo_translate(s, l, &tr, &trlen))
-	{
-		case 0:
-			luastr_escape(out, tr, trlen, escape_xml);
-			break;
-
-		case -1:
-			luastr_escape(out, s, l, escape_xml);
-			break;
-
-		default:
-			/* no catalog loaded */
-			break;
-	}
 }

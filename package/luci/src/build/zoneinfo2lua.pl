@@ -1,7 +1,7 @@
 #!/usr/bin/perl
 # zoneinfo2lua.pl - Make Lua module from /usr/share/zoneinfo
 # Execute from within /usr/share/zoneinfo
-# $Id: zoneinfo2lua.pl 6666 2011-01-02 17:52:06Z jow $
+# $Id$
 
 use strict;
 

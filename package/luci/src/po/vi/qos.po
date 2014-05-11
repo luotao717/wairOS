@@ -13,72 +13,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Pootle 1.1.0\n"
 
-#, fuzzy
-msgid "Calculate overhead"
-msgstr "Tính toán tổng quát"
-
-#, fuzzy
-msgid "Classification Rules"
-msgstr "Phân loại"
-
-#, fuzzy
-msgid "Classification group"
-msgstr "Phân loại"
-
-msgid "Destination host"
-msgstr ""
-
-msgid "Downlink"
-msgstr "Downlink"
-
-msgid "Download speed (kbit/s)"
-msgstr ""
-
-msgid "Enable"
-msgstr ""
-
-#, fuzzy
-msgid "Half-duplex"
-msgstr "Half-Duplex"
-
-msgid "Interfaces"
-msgstr ""
-
-msgid "Internet Connection"
-msgstr ""
-
-msgid "Number of bytes"
-msgstr ""
-
-#, fuzzy
-msgid "Ports"
-msgstr "Ưu tiên"
-
-msgid "Protocol"
-msgstr ""
-
-msgid "QoS"
-msgstr ""
-
 msgid "Quality of Service"
 msgstr "Chất lượng dịch vụ "
-
-msgid "Service"
-msgstr ""
-
-#, fuzzy
-msgid "Source host"
-msgstr "Địa chỉ nguồn"
-
-#, fuzzy
-msgid "Target"
-msgstr "Địa chỉ mục tiêu"
-
-msgid "Uplink"
-msgstr "Uplink"
-
-msgid "Upload speed (kbit/s)"
-msgstr ""
 
 #, fuzzy
 msgid ""
@@ -88,29 +24,81 @@ msgstr ""
 "Với QoS, bạn có thể ưu tiên cho mạng lưới giao thông được chọn bởi địa chỉ, "
 "cổng hay dịch vụ."
 
-msgid "all"
+msgid "Interfaces"
 msgstr ""
 
-msgid "allf"
+msgid "Enable"
 msgstr ""
+
+#, fuzzy
+msgid "Classification group"
+msgstr "Phân loại"
 
 msgid "default"
 msgstr ""
 
-msgid "express"
-msgstr "cấp tốc"
+#, fuzzy
+msgid "Calculate overhead"
+msgstr "Tính toán tổng quát"
 
-msgid "low"
-msgstr "thấp"
+#, fuzzy
+msgid "Half-duplex"
+msgstr "Half-Duplex"
 
-msgid "normal"
-msgstr "bình thường"
+msgid "Download speed (kbit/s)"
+msgstr ""
+
+msgid "Upload speed (kbit/s)"
+msgstr ""
+
+#, fuzzy
+msgid "Classification Rules"
+msgstr "Phân loại"
+
+#, fuzzy
+msgid "Target"
+msgstr "Địa chỉ mục tiêu"
 
 msgid "priority"
 msgstr "ưu tiên"
 
-msgid "qos_connbytes"
+msgid "express"
+msgstr "cấp tốc"
+
+msgid "normal"
+msgstr "bình thường"
+
+msgid "low"
+msgstr "thấp"
+
+#, fuzzy
+msgid "Source host"
+msgstr "Địa chỉ nguồn"
+
+msgid "all"
 msgstr ""
+
+msgid "Destination host"
+msgstr ""
+
+msgid "Service"
+msgstr ""
+
+msgid "Protocol"
+msgstr ""
+
+#, fuzzy
+msgid "Ports"
+msgstr "Ưu tiên"
+
+msgid "Number of bytes"
+msgstr ""
+
+#~ msgid "Downlink"
+#~ msgstr "Downlink"
+
+#~ msgid "Uplink"
+#~ msgstr "Uplink"
 
 #~ msgid "Prioritization"
 #~ msgstr "Quá trình ưu tiên"

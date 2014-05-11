@@ -8,27 +8,20 @@ You may obtain a copy of the License at
 
 	http://www.apache.org/licenses/LICENSE-2.0
 
-$Id: diagnostics.htm 9623 2013-01-18 14:08:37Z jow $
+$Id$
 
 -%>
 
 <%+header%>
 
-<%
-local fs   = require "nixio.fs"
-local has_ping6 = fs.access("/bin/ping6") or fs.access("/usr/bin/ping6")
-local has_traceroute6 = fs.access("/usr/bin/traceroute6")
-%>
-
 <script type="text/javascript" src="<%=resource%>/cbi.js"></script>
 <script type="text/javascript">//<![CDATA[
 	var stxhr = new XHR();
 
-	function update_status(field, proto)
+	function update_status(field)
 	{
 		var tool = field.name;
 		var addr = field.value;
-		var protocol = proto ? "6" : "";
 
 		var legend = document.getElementById('diag-rc-legend');
 		var output = document.getElementById('diag-rc-output');
@@ -37,13 +30,13 @@ local has_traceroute6 = fs.access("/usr/bin/traceroute6")
 		{
 			output.innerHTML =
 				'<img src="<%=resource%>/icons/loading.gif" alt="<%:Loading%>" style="vertical-align:middle" /> ' +
-				'<%:Waiting for command to complete...%>'
+				'<%:Waiting for router...%>'
 			;
 
 			legend.parentNode.style.display = 'block';
 			legend.style.display = 'inline';
 
-			stxhr.get('<%=luci.dispatcher.build_url("admin", "network")%>/diag_' + tool + protocol + '/' + addr, null,
+			stxhr.get('<%=luci.dispatcher.build_url("admin", "network")%>/diag_' + tool + '/' + addr, null,
 				function(x)
 				{
 					if (x.responseText)
@@ -71,39 +64,19 @@ local has_traceroute6 = fs.access("/usr/bin/traceroute6")
 
 			<br />
 
-			<div style="width:30%; float:left">
-				<input style="margin: 5px 0" type="text" value="openwrt.org" name="ping" /><br />
-				<% if has_ping6 then %>
-				<select name="ping_proto" style="width:auto">
-					<option value="" selected="selected"><%:IPv4%></option>
-					<option value="6"><%:IPv6%></option>
-				</select>
-				<input type="button" value="<%:Ping%>" class="cbi-button cbi-button-apply" onclick="update_status(this.form.ping, this.form.ping_proto.selectedIndex)" />
-				<% else %>
-				<input type="button" value="<%:Ping%>" class="cbi-button cbi-button-apply" onclick="update_status(this.form.ping)" />
-				<% end %>
+			<div style="width:30%; float:left; text-align:center">
+				<input style="width: 50%" type="text" value="openwrt.org" name="ping" />
+				<input type="button" value="Ping" class="cbi-button cbi-button-apply" onclick="update_status(this.form.ping)" />
 			</div>
 
-			<div style="width:33%; float:left">
-				<input style="margin: 5px 0" type="text" value="openwrt.org" name="traceroute" /><br />
-				<% if has_traceroute6 then %>
-				<select name="traceroute_proto" style="width:auto">
-					<option value="" selected="selected"><%:IPv4%></option>
-					<option value="6"><%:IPv6%></option>
-				</select>
-				<input type="button" value="<%:Traceroute%>" class="cbi-button cbi-button-apply" onclick="update_status(this.form.traceroute, this.form.traceroute_proto.selectedIndex)" />
-				<% else %>
-				<input type="button" value="<%:Traceroute%>" class="cbi-button cbi-button-apply" onclick="update_status(this.form.traceroute)" />
-				<% end %>
-				<% if not has_traceroute6 then %>
-					<p>&#160;</p>
-					<p><%:Install iputils-traceroute6 for IPv6 traceroute%></p>
-				<% end %>
+			<div style="width:30%; float:left; text-align:center">
+				<input style="width: 50%" type="text" value="openwrt.org" name="traceroute" />
+				<input type="button" value="Traceroute" class="cbi-button cbi-button-apply" onclick="update_status(this.form.traceroute)" />
 			</div>
 
-			<div style="width:33%; float:left;">
-				<input style="margin: 5px 0" type="text" value="openwrt.org" name="nslookup" /><br />
-				<input type="button" value="<%:Nslookup%>" class="cbi-button cbi-button-apply" onclick="update_status(this.form.nslookup)" />
+			<div style="width:30%; float:left; text-align:center">
+				<input style="width: 50%" type="text" value="openwrt.org" name="nslookup" />
+				<input type="button" value="Nslookup" class="cbi-button cbi-button-apply" onclick="update_status(this.form.nslookup)" />
 			</div>
 
 			<br style="clear:both" /><br />

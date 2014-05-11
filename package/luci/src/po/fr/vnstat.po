@@ -42,6 +42,9 @@ msgstr "Redémarrer VnStat"
 msgid "Summary display"
 msgstr "Résumé"
 
+msgid "The VnStat service has been restarted."
+msgstr "Le service VnStat a été redémarré."
+
 msgid "Top 10 display"
 msgstr "Top 10"
 
@@ -63,6 +66,3 @@ msgid ""
 msgstr ""
 "VnStat est un outil de surveillance du réseau pour Linux qui garde un "
 "journal du trafic du ou des interface(s) sélectionnée(s)."
-
-#~ msgid "The VnStat service has been restarted."
-#~ msgstr "Le service VnStat a été redémarré."

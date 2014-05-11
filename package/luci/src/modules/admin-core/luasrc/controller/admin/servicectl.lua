@@ -9,7 +9,7 @@ You may obtain a copy of the License at
 
 	http://www.apache.org/licenses/LICENSE-2.0
 
-$Id: servicectl.lua 9558 2012-12-18 13:58:22Z jow $
+$Id$
 ]]--
 
 module("luci.controller.admin.servicectl", package.seeall)
@@ -30,13 +30,15 @@ function action_status()
 	end
 end
 
-function action_restart(args)
+function action_restart()
 	local uci = require "luci.model.uci".cursor()
-	if args then
+	local rqp = luci.dispatcher.context.requestpath
+
+	if rqp[3] then
 		local service
 		local services = { }
 
-		for service in args:gmatch("[%w_-]+") do
+		for service in rqp[3]:gmatch("[%w_-]+") do
 			services[#services+1] = service
 		end
 

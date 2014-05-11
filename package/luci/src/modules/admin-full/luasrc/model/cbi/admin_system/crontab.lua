@@ -10,7 +10,7 @@ You may obtain a copy of the License at
 
 	http://www.apache.org/licenses/LICENSE-2.0
 
-$Id: crontab.lua 7785 2011-10-26 00:58:12Z jow $
+$Id$
 ]]--
 
 local fs = require "nixio.fs"

@@ -10,7 +10,7 @@ You may obtain a copy of the License at
 
 	http://www.apache.org/licenses/LICENSE-2.0
 
-$Id: olsrdhna.lua 7966 2011-11-18 17:03:32Z soma $
+$Id$
 ]]--
 
 local uci = require "luci.model.uci".cursor()

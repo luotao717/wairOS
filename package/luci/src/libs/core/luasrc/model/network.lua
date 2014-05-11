@@ -20,11 +20,11 @@ limitations under the License.
 local type, next, pairs, ipairs, loadfile, table
 	= type, next, pairs, ipairs, loadfile, table
 
-local tonumber, tostring, math = tonumber, tostring, math
+local tonumber, tostring, math, i18n
+	= tonumber, tostring, math, luci.i18n
 
 local require = require
 
-local bus = require "ubus"
 local nxo = require "nixio"
 local nfs = require "nixio.fs"
 local ipc = require "luci.ip"
@@ -32,13 +32,12 @@ local sys = require "luci.sys"
 local utl = require "luci.util"
 local dsp = require "luci.dispatcher"
 local uci = require "luci.model.uci"
-local lng = require "luci.i18n"
 
 module "luci.model.network"
 
 
 IFACE_PATTERNS_VIRTUAL  = { }
-IFACE_PATTERNS_IGNORE   = { "^wmaster%d", "^wifi%d", "^hwsim%d", "^imq%d", "^ifb%d", "^mon%.wlan%d", "^sit%d", "^gre%d", "^lo$" }
+IFACE_PATTERNS_IGNORE   = { "^wmaster%d", "^wifi%d", "^hwsim%d", "^imq%d", "^ifb%d", "^mon%.wlan%d", "^sit%d", "^lo$" }
 IFACE_PATTERNS_WIRELESS = { "^wlan%d", "^wl%d", "^ath%d", "^%w+%.network%d" }
 
 
@@ -47,7 +46,6 @@ protocol = utl.class()
 local _protocols = { }
 
 local _interfaces, _bridge, _switch, _tunnel
-local _ubus, _ubusnetcache, _ubusdevcache
 local _uci_real, _uci_state
 
 function _filter(c, s, o, r)
@@ -200,10 +198,6 @@ function init(cursor)
 	_bridge     = { }
 	_switch     = { }
 	_tunnel     = { }
-
-	_ubus         = bus.connect()
-	_ubusnetcache = { }
-	_ubusdevcache = { }
 
 	-- read interface information
 	local n, i
@@ -384,17 +378,7 @@ function del_network(self, n)
 
 		_uci_real:foreach("wireless", "wifi-iface",
 			function(s)
-				local net
-				local rest = { }
-				for net in utl.imatch(s.network) do
-					if net ~= n then
-						rest[#rest+1] = net
-					end
-				end
-				if #rest > 0 then
-					_uci_real:set("wireless", s['.name'], "network",
-					              table.concat(rest, " "))
-				else
+				if s.network == n then
 					_uci_real:delete("wireless", s['.name'], "network")
 				end
 			end)
@@ -431,18 +415,8 @@ function rename_network(self, old, new)
 
 			_uci_real:foreach("wireless", "wifi-iface",
 				function(s)
-					local net
-					local list = { }
-					for net in utl.imatch(s.network) do
-						if net == old then
-							list[#list+1] = new
-						else
-							list[#list+1] = net
-						end
-					end
-					if #list > 0 then
-						_uci_real:set("wireless", s['.name'], "network",
-						              table.concat(list, " "))
+					if s.network == old then
+						_uci_real:set("wireless", s['.name'], "network", new)
 					end
 				end)
 
@@ -605,70 +579,6 @@ function del_wifinet(self, net)
 	return false
 end
 
-function get_status_by_route(self, addr, mask)
-	local _, object
-	for _, object in ipairs(_ubus:objects()) do
-		local net = object:match("^network%.interface%.(.+)")
-		if net then
-			local s = _ubus:call(object, "status", {})
-			if s and s.route then
-				local rt
-				for _, rt in ipairs(s.route) do
-					if rt.target == addr and rt.mask == mask then
-						return net, s
-					end
-				end
-			end
-		end
-	end
-end
-
-function get_status_by_address(self, addr)
-	local _, object
-	for _, object in ipairs(_ubus:objects()) do
-		local net = object:match("^network%.interface%.(.+)")
-		if net then
-			local s = _ubus:call(object, "status", {})
-			if s and s['ipv4-address'] then
-				local a
-				for _, a in ipairs(s['ipv4-address']) do
-					if a.address == addr then
-						return net, s
-					end
-				end
-			end
-			if s and s['ipv6-address'] then
-				local a
-				for _, a in ipairs(s['ipv6-address']) do
-					if a.address == addr then
-						return net, s
-					end
-				end
-			end
-		end
-	end
-end
-
-function get_wannet(self)
-	local net = self:get_status_by_route("0.0.0.0", 0)
-	return net and network(net)
-end
-
-function get_wandev(self)
-	local _, stat = self:get_status_by_route("0.0.0.0", 0)
-	return stat and interface(stat.l3_device or stat.device)
-end
-
-function get_wan6net(self)
-	local net = self:get_status_by_route("::", 0)
-	return net and network(net)
-end
-
-function get_wan6dev(self)
-	local _, stat = self:get_status_by_route("::", 0)
-	return stat and interface(stat.l3_device or stat.device)
-end
-
 
 function network(name, proto)
 	if name then
@@ -690,15 +600,22 @@ function protocol._get(self, opt)
 	return v or ""
 end
 
-function protocol._ubus(self, field)
-	if not _ubusnetcache[self.sid] then
-		_ubusnetcache[self.sid] = _ubus:call("network.interface.%s" % self.sid,
-		                                     "status", { })
+function protocol._ip(self, opt, family, list)
+	local ip = _uci_state:get("network", self.sid, opt)
+	local fc = (family == 6) and ipc.IPv6 or ipc.IPv4
+	if ip or list then
+		if list then
+			local l = { }
+			for ip in utl.imatch(ip) do
+				ip = fc(ip)
+				if ip then l[#l+1] = ip:string() end
+			end
+			return l
+		else
+			ip = fc(ip)
+			return ip and ip:string()
+		end
 	end
-	if _ubusnetcache[self.sid] and field then
-		return _ubusnetcache[self.sid][field]
-	end
-	return _ubusnetcache[self.sid]
 end
 
 function protocol.get(self, opt)
@@ -710,31 +627,36 @@ function protocol.set(self, opt, val)
 end
 
 function protocol.ifname(self)
-	local ifname
-	if self:is_floating() then
-		ifname = self:_ubus("l3_device")
+	local p = self:proto()
+	if self:is_bridge() then
+		return "br-" .. self.sid
+	elseif self:is_virtual() then
+		return p .. "-" .. self.sid
 	else
-		ifname = self:_ubus("device")
-	end
-	if not ifname then
 		local num = { }
-		_uci_real:foreach("wireless", "wifi-iface",
-			function(s)
-				if s.device then
-					num[s.device] = num[s.device]
-						and num[s.device] + 1 or 1
+		local dev = _uci_real:get("network", self.sid, "ifname") or
+			_uci_state:get("network", self.sid, "ifname")
 
-					local net
-					for net in utl.imatch(s.network) do
-						if net == self.sid then
-							ifname = "%s.network%d" %{ s.device, num[s.device] }
+		dev = (type(dev) == "table") and dev[1] or dev
+		dev = (dev ~= nil) and dev:match("%S+")
+
+		if not dev then
+			_uci_real:foreach("wireless", "wifi-iface",
+				function(s)
+					if s.device then
+						num[s.device] = num[s.device]
+							and num[s.device] + 1 or 1
+
+						if s.network == self.sid then
+							dev = "%s.network%d" %{ s.device, num[s.device] }
 							return false
 						end
 					end
-				end
-			end)
+				end)
+		end
+
+		return dev
 	end
-	return ifname
 end
 
 function protocol.proto(self)
@@ -744,13 +666,13 @@ end
 function protocol.get_i18n(self)
 	local p = self:proto()
 	if p == "none" then
-		return lng.translate("Unmanaged")
+		return i18n.translate("Unmanaged")
 	elseif p == "static" then
-		return lng.translate("Static address")
+		return i18n.translate("Static address")
 	elseif p == "dhcp" then
-		return lng.translate("DHCP client")
+		return i18n.translate("DHCP client")
 	else
-		return lng.translate("Unknown")
+		return i18n.translate("Unknown")
 	end
 end
 
@@ -763,7 +685,12 @@ function protocol.name(self)
 end
 
 function protocol.uptime(self)
-	return self:_ubus("uptime") or 0
+	local cnt = tonumber(_uci_state:get("network", self.sid, "connect_time"))
+	if cnt ~= nil then
+		return nxo.sysinfo().uptime - cnt
+	else
+		return 0
+	end
 end
 
 function protocol.expires(self)
@@ -781,66 +708,51 @@ function protocol.metric(self)
 end
 
 function protocol.ipaddr(self)
-	local addrs = self:_ubus("ipv4-address")
-	return addrs and #addrs > 0 and addrs[1].address
+	return self:_ip("ipaddr", 4)
 end
 
 function protocol.netmask(self)
-	local addrs = self:_ubus("ipv4-address")
-	return addrs and #addrs > 0 and
-		ipc.IPv4("0.0.0.0/%d" % addrs[1].mask):mask():string()
+	return self:_ip("netmask", 4)
 end
 
 function protocol.gwaddr(self)
-	local _, route
-	for _, route in ipairs(self:_ubus("route") or { }) do
-		if route.target == "0.0.0.0" and route.mask == 0 then
-			return route.nexthop
-		end
-	end
+	return self:_ip("gateway", 4)
 end
 
 function protocol.dnsaddrs(self)
-	local dns = { }
-	local _, addr
-	for _, addr in ipairs(self:_ubus("dns-server") or { }) do
-		if not addr:match(":") then
-			dns[#dns+1] = addr
-		end
-	end
-	return dns
+	return self:_ip("dns", 4, true)
 end
 
 function protocol.ip6addr(self)
-	local addrs = self:_ubus("ipv6-address")
-	if addrs and #addrs > 0 then
-		return "%s/%d" %{ addrs[1].address, addrs[1].mask }
-	else
-		addrs = self:_ubus("ipv6-prefix-assignment")
-		if addrs and #addrs > 0 then
-			return "%s/%d" %{ addrs[1].address, addrs[1].mask }
+	local ip6 = self:_ip("ip6addr", 6)
+	if not ip6 then
+		local ifc = _interfaces[self:ifname()]
+		if ifc and ifc.ip6addrs then
+			local a
+			for _, a in ipairs(ifc.ip6addrs) do
+				if not a:is6linklocal() then
+					ip6 = a:string()
+					break
+				end
+			end
 		end
 	end
+	return ip6
 end
 
 function protocol.gw6addr(self)
-	local _, route
-	for _, route in ipairs(self:_ubus("route") or { }) do
-		if route.target == "::" and route.mask == 0 then
-			return ipc.IPv6(route.nexthop):string()
+	local ip6 = self:_ip("ip6gw", 6)
+	if not ip6 then
+		local dr6 = sys.net.defaultroute6()
+		if dr6 and dr6.device == self:ifname() then
+			return dr6.nexthop:string()
 		end
 	end
+	return ip6
 end
 
 function protocol.dns6addrs(self)
-	local dns = { }
-	local _, addr
-	for _, addr in ipairs(self:_ubus("dns-server") or { }) do
-		if addr:match(":") then
-			dns[#dns+1] = addr
-		end
-	end
-	return dns
+	return self:_ip("dns", 6, true)
 end
 
 function protocol.is_bridge(self)
@@ -875,12 +787,9 @@ function protocol.is_empty(self)
 
 		_uci_real:foreach("wireless", "wifi-iface",
 			function(s)
-				local n
-				for n in utl.imatch(s.network) do
-					if n == self.sid then
-						rv = false
-						return false
-					end
+				if s.network == self.sid then
+					rv = false
+					return false
 				end
 			end)
 
@@ -891,10 +800,16 @@ end
 function protocol.add_interface(self, ifname)
 	ifname = _M:ifnameof(ifname)
 	if ifname and not self:is_floating() then
+		-- remove the interface from all ifaces
+		_uci_real:foreach("network", "interface",
+			function(s)
+				_filter("network", s['.name'], "ifname", ifname)
+			end)
+
 		-- if its a wifi interface, change its network option
 		local wif = _wifi_lookup(ifname)
 		if wif then
-			_append("wireless", wif, "network", self.sid)
+			_uci_real:set("wireless", wif, "network", self.sid)
 
 		-- add iface to our iface list
 		else
@@ -908,7 +823,7 @@ function protocol.del_interface(self, ifname)
 	if ifname and not self:is_floating() then
 		-- if its a wireless interface, clear its network option
 		local wif = _wifi_lookup(ifname)
-		if wif then _filter("wireless", wif, "network", self.sid) end
+		if wif then	_uci_real:delete("wireless", wif, "network") end
 
 		-- remove the interface
 		_filter("network", self.sid, "ifname", ifname)
@@ -934,13 +849,9 @@ function protocol.get_interface(self)
 			function(s)
 				if s.device then
 					num[s.device] = num[s.device] and num[s.device] + 1 or 1
-
-					local net
-					for net in utl.imatch(s.network) do
-						if net == self.sid then
-							ifn = "%s.network%d" %{ s.device, num[s.device] }
-							return false
-						end
+					if s.network == self.sid then
+						ifn = "%s.network%d" %{ s.device, num[s.device] }
+						return false
 					end
 				end
 			end)
@@ -969,13 +880,9 @@ function protocol.get_interfaces(self)
 			function(s)
 				if s.device then
 					num[s.device] = num[s.device] and num[s.device] + 1 or 1
-
-					local net
-					for net in utl.imatch(s.network) do
-						if net == self.sid then
-							ifn = "%s.network%d" %{ s.device, num[s.device] }
-							wfs[ifn] = interface(ifn, self)
-						end
+					if s.network == self.sid then
+						ifn = "%s.network%d" %{ s.device, num[s.device] }
+						wfs[ifn] = interface(ifn, self)
 					end
 				end
 			end)
@@ -1007,12 +914,7 @@ function protocol.contains_interface(self, ifname)
 
 		local wif = _wifi_lookup(ifname)
 		if wif then
-			local n
-			for n in utl.imatch(_uci_real:get("wireless", wif, "network")) do
-				if n == self.sid then
-					return true
-				end
-			end
+			return (_uci_real:get("wireless", wif, "network") == self.sid)
 		end
 	end
 
@@ -1028,8 +930,8 @@ interface = utl.class()
 
 function interface.__init__(self, ifname, network)
 	local wif = _wifi_lookup(ifname)
-	if wif then
-		self.wif    = wifinet(wif)
+	if wif then 
+		self.wif    = wifinet(wif) 
 		self.ifname = _uci_state:get("wireless", wif, "ifname")
 	end
 
@@ -1038,23 +940,12 @@ function interface.__init__(self, ifname, network)
 	self.network = network
 end
 
-function interface._ubus(self, field)
-	if not _ubusdevcache[self.ifname] then
-		_ubusdevcache[self.ifname] = _ubus:call("network.device", "status",
-		                                        { name = self.ifname })
-	end
-	if _ubusdevcache[self.ifname] and field then
-		return _ubusdevcache[self.ifname][field]
-	end
-	return _ubusdevcache[self.ifname]
-end
-
 function interface.name(self)
 	return self.wif and self.wif:ifname() or self.ifname
 end
 
 function interface.mac(self)
-	return (self:_ubus("macaddr") or "00:00:00:00:00:00"):upper()
+	return (self.dev and self.dev.macaddr or "00:00:00:00:00:00"):upper()
 end
 
 function interface.ipaddrs(self)
@@ -1095,7 +986,7 @@ end
 function interface.get_i18n(self)
 	if self.wif then
 		return "%s: %s %q" %{
-			lng.translate("Wireless Network"),
+			i18n.translate("Wireless Network"),
 			self.wif:active_mode(),
 			self.wif:active_ssid() or self.wif:active_bssid()
 		}
@@ -1107,17 +998,17 @@ end
 function interface.get_type_i18n(self)
 	local x = self:type()
 	if x == "wifi" then
-		return lng.translate("Wireless Adapter")
+		return i18n.translate("Wireless Adapter")
 	elseif x == "bridge" then
-		return lng.translate("Bridge")
+		return i18n.translate("Bridge")
 	elseif x == "switch" then
-		return lng.translate("Ethernet Switch")
+		return i18n.translate("Ethernet Switch")
 	elseif x == "vlan" then
-		return lng.translate("VLAN Interface")
+		return i18n.translate("VLAN Interface")
 	elseif x == "tunnel" then
-		return lng.translate("Tunnel Interface")
+		return i18n.translate("Tunnel Interface")
 	else
-		return lng.translate("Ethernet Adapter")
+		return i18n.translate("Ethernet Adapter")
 	end
 end
 
@@ -1128,13 +1019,13 @@ function interface.adminlink(self)
 end
 
 function interface.ports(self)
-	local members = self:_ubus("bridge-members")
-	if members then
-		local _, iface
+	if self.br then
+		local iface
 		local ifaces = { }
-		for _, iface in ipairs(members) do
-			ifaces[#ifaces+1] = interface(iface)
+		for _, iface in ipairs(self.br.ifnames) do
+			ifaces[#ifaces+1] = interface(iface.name)
 		end
+		return ifaces
 	end
 end
 
@@ -1158,7 +1049,7 @@ function interface.is_up(self)
 	if self.wif then
 		return self.wif:is_up()
 	else
-		return self:_ubus("up") or false
+		return self.dev and self.dev.flags and self.dev.flags.up or false
 	end
 end
 
@@ -1171,45 +1062,44 @@ function interface.is_bridgeport(self)
 end
 
 function interface.tx_bytes(self)
-	local stat = self:_ubus("statistics")
-	return stat and stat.tx_bytes or 0
+	return self.dev and self.dev.stats
+		and self.dev.stats.tx_bytes or 0
 end
 
 function interface.rx_bytes(self)
-	local stat = self:_ubus("statistics")
-	return stat and stat.rx_bytes or 0
+	return self.dev and self.dev.stats
+		and self.dev.stats.rx_bytes or 0
 end
 
 function interface.tx_packets(self)
-	local stat = self:_ubus("statistics")
-	return stat and stat.tx_packets or 0
+	return self.dev and self.dev.stats
+		and self.dev.stats.tx_packets or 0
 end
 
 function interface.rx_packets(self)
-	local stat = self:_ubus("statistics")
-	return stat and stat.rx_packets or 0
+	return self.dev and self.dev.stats
+		and self.dev.stats.rx_packets or 0
 end
 
 function interface.get_network(self)
-	return self:get_networks()[1]
-end
+	if not self.network then
+		if self.dev and self.dev.network then
+			self.network = _M:get_network(self.dev.network)
+		end
+	end
 
-function interface.get_networks(self)
-	if not self.networks then
-		local nets = { }
-		local _, net
+	if not self.network then
+		local net
 		for _, net in ipairs(_M:get_networks()) do
 			if net:contains_interface(self.ifname) or
 			   net:ifname() == self.ifname
 			then
-				nets[#nets+1] = net
+				self.network = net
+				return net
 			end
 		end
-		table.sort(nets, function(a, b) return a.sid < b.sid end)
-		self.networks = nets
-		return nets
 	else
-		return self.networks
+		return self.network
 	end
 end
 
@@ -1421,7 +1311,7 @@ function wifinet.active_mode(self)
 end
 
 function wifinet.active_mode_i18n(self)
-	return lng.translate(self:active_mode())
+	return i18n.translate(self:active_mode())
 end
 
 function wifinet.active_ssid(self)
@@ -1510,15 +1400,15 @@ end
 
 function wifinet.shortname(self)
 	return "%s %q" %{
-		lng.translate(self:active_mode()),
+		i18n.translate(self:active_mode()),
 		self:active_ssid() or self:active_bssid()
 	}
 end
 
 function wifinet.get_i18n(self)
 	return "%s: %s %q (%s)" %{
-		lng.translate("Wireless Network"),
-		lng.translate(self:active_mode()),
+		i18n.translate("Wireless Network"),
+		i18n.translate(self:active_mode()),
 		self:active_ssid() or self:active_bssid(),
 		self:ifname()
 	}
@@ -1529,19 +1419,10 @@ function wifinet.adminlink(self)
 end
 
 function wifinet.get_network(self)
-	return self:get_networks()[1]
-end
-
-function wifinet.get_networks(self)
-	local nets = { }
-	local net
-	for net in utl.imatch(tostring(self.iwdata.network)) do
-		if _uci_real:get("network", net) == "interface" then
-			nets[#nets+1] = network(net)
-		end
+	local net = tostring(self.iwdata.network)
+	if net and _uci_real:get("network", net) == "interface" then
+		return network(net)
 	end
-	table.sort(nets, function(a, b) return a.sid < b.sid end)
-	return nets
 end
 
 function wifinet.get_interface(self)

@@ -90,10 +90,27 @@ end
 
 
 o = s:option(Value, "AdvDNSSLLifetime", translate("Lifetime"),
-	translate("Specifies the maximum duration how long the DNSSL entries are used for name resolution."))
+	translate("Specifies the maximum duration how long the DNSSL entries are used for name resolution. Use 0 to specify an infinite lifetime"))
 
-o.datatype = 'or(uinteger,"infinity")'
+o.datatype = "uinteger"
 o.placeholder = 1200
+
+function o.cfgvalue(self, section)
+	local v = Value.cfgvalue(self, section)
+	if v == "infinity" then
+		return 0
+	else
+		return v
+	end
+end
+
+function o.write(self, section, value)
+	if value == "0" then
+		Value.write(self, section, "infinity")
+	else
+		Value.write(self, section, value)
+	end
+end
 
 
 return m

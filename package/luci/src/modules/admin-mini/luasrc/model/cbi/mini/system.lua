@@ -9,7 +9,7 @@ You may obtain a copy of the License at
 
 	http://www.apache.org/licenses/LICENSE-2.0
 
-$Id: system.lua 5472 2009-11-01 01:37:03Z jow $
+$Id$
 ]]--
 
 require("luci.sys")

@@ -9,6 +9,6 @@ You may obtain a copy of the License at
 
 	http://www.apache.org/licenses/LICENSE-2.0
 
-$Id: index.lua 2891 2008-08-18 08:43:48Z Cyrus $
+$Id$
 ]]--
 return Template("mini/index")

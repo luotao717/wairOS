@@ -10,7 +10,7 @@ You may obtain a copy of the License at
 
 	http://www.apache.org/licenses/LICENSE-2.0
 
-$Id: wifi.lua 8953 2012-08-08 20:07:36Z jow $
+$Id$
 ]]--
 
 -- Data init --
@@ -27,6 +27,7 @@ end
 
 local wlcursor = luci.model.uci.cursor_state()
 local wireless = wlcursor:get_all("wireless")
+local wifidata = sys.wifi.getiwconfig()
 local wifidevs = {}
 local ifaces = {}
 
@@ -54,8 +55,7 @@ s = m:section(Table, ifaces, translate("Networks"))
 link = s:option(DummyValue, "_link", translate("Link"))
 function link.cfgvalue(self, section)
 	local ifname = self.map:get(section, "ifname")
-	local iwinfo = sys.wifi.getiwinfo(ifname)
-	return iwinfo and "%d/%d" %{ iwinfo.quality, iwinfo.quality_max } or "-"
+	return wifidata[ifname] and wifidata[ifname]["Link Quality"] or "-"
 end
 
 essid = s:option(DummyValue, "ssid", "ESSID")
@@ -63,8 +63,8 @@ essid = s:option(DummyValue, "ssid", "ESSID")
 bssid = s:option(DummyValue, "_bsiid", "BSSID")
 function bssid.cfgvalue(self, section)
 	local ifname = self.map:get(section, "ifname")
-	local iwinfo = sys.wifi.getiwinfo(ifname)
-	return iwinfo and iwinfo.bssid or "-"
+	return (wifidata[ifname] and (wifidata[ifname].Cell
+	 or wifidata[ifname]["Access Point"])) or "-"
 end
 
 channel = s:option(DummyValue, "channel", translate("Channel"))
@@ -84,8 +84,7 @@ encryption = s:option(DummyValue, "encryption", translate("<abbr title=\"Encrypt
 power = s:option(DummyValue, "_power", translate("Power"))
 function power.cfgvalue(self, section)
 	local ifname = self.map:get(section, "ifname")
-	local iwinfo = sys.wifi.getiwinfo(ifname)
-	return iwinfo and "%d dBm" % iwinfo.txpower or "-"
+	return wifidata[ifname] and wifidata[ifname]["Tx-Power"] or "-"
 end
 
 scan = s:option(Button, "_scan", translate("Scan"))
@@ -103,21 +102,7 @@ function scan.write(self, section)
 	m.autoapply = false
 	t2.render = t2._render
 	local ifname = self.map:get(section, "ifname")
-	local iwinfo = sys.wifi.getiwinfo(ifname)
-	if iwinfo then
-		local _, cell
-		for _, cell in ipairs(iwinfo.scanlist) do
-			t2.data[#t2.data+1] = {
-				Quality = "%d/%d" %{ cell.quality, cell.quality_max },
-				ESSID   = cell.ssid,
-				Address = cell.bssid,
-				Mode    = cell.mode,
-				["Encryption key"] = cell.encryption.enabled and "On" or "Off",
-				["Signal level"]   = "%d dBm" % cell.signal,
-				["Noise level"]    = "%d dBm" % iwinfo.noise
-			}
-		end
-	end
+	luci.util.update(t2.data, sys.wifi.iwscan(ifname))
 end
 
 t2._render = t2.render

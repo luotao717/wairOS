@@ -13,72 +13,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Translate Toolkit 1.1.1\n"
 
-#, fuzzy
-msgid "Calculate overhead"
-msgstr "Calcular Overhead"
-
-#, fuzzy
-msgid "Classification Rules"
-msgstr "Classificação"
-
-#, fuzzy
-msgid "Classification group"
-msgstr "Classificação"
-
-msgid "Destination host"
-msgstr ""
-
-msgid "Downlink"
-msgstr "Link para download"
-
-msgid "Download speed (kbit/s)"
-msgstr ""
-
-msgid "Enable"
-msgstr ""
-
-#, fuzzy
-msgid "Half-duplex"
-msgstr "Link para upload"
-
-msgid "Interfaces"
-msgstr ""
-
-msgid "Internet Connection"
-msgstr ""
-
-msgid "Number of bytes"
-msgstr ""
-
-#, fuzzy
-msgid "Ports"
-msgstr "Prioridade"
-
-msgid "Protocol"
-msgstr ""
-
-msgid "QoS"
-msgstr ""
-
 msgid "Quality of Service"
 msgstr "Qualidade de Serviço"
-
-msgid "Service"
-msgstr ""
-
-#, fuzzy
-msgid "Source host"
-msgstr "Endereço de origem"
-
-#, fuzzy
-msgid "Target"
-msgstr "Endereço de destino"
-
-msgid "Uplink"
-msgstr "Link para upload"
-
-msgid "Upload speed (kbit/s)"
-msgstr ""
 
 #, fuzzy
 msgid ""
@@ -88,29 +24,81 @@ msgstr ""
 "Com QoS você pode priozirar o tráfego da rede selecionada por endereços, "
 "portas ou serviços."
 
-msgid "all"
+msgid "Interfaces"
 msgstr ""
 
-msgid "allf"
+msgid "Enable"
 msgstr ""
+
+#, fuzzy
+msgid "Classification group"
+msgstr "Classificação"
 
 msgid "default"
 msgstr ""
 
-msgid "express"
-msgstr "expressa"
+#, fuzzy
+msgid "Calculate overhead"
+msgstr "Calcular Overhead"
 
-msgid "low"
-msgstr "baixa"
+#, fuzzy
+msgid "Half-duplex"
+msgstr "Link para upload"
 
-msgid "normal"
-msgstr "normal"
+msgid "Download speed (kbit/s)"
+msgstr ""
+
+msgid "Upload speed (kbit/s)"
+msgstr ""
+
+#, fuzzy
+msgid "Classification Rules"
+msgstr "Classificação"
+
+#, fuzzy
+msgid "Target"
+msgstr "Endereço de destino"
 
 msgid "priority"
 msgstr "alta"
 
-msgid "qos_connbytes"
+msgid "express"
+msgstr "expressa"
+
+msgid "normal"
+msgstr "normal"
+
+msgid "low"
+msgstr "baixa"
+
+#, fuzzy
+msgid "Source host"
+msgstr "Endereço de origem"
+
+msgid "all"
 msgstr ""
+
+msgid "Destination host"
+msgstr ""
+
+msgid "Service"
+msgstr ""
+
+msgid "Protocol"
+msgstr ""
+
+#, fuzzy
+msgid "Ports"
+msgstr "Prioridade"
+
+msgid "Number of bytes"
+msgstr ""
+
+#~ msgid "Downlink"
+#~ msgstr "Link para download"
+
+#~ msgid "Uplink"
+#~ msgstr "Link para upload"
 
 #~ msgid "Prioritization"
 #~ msgstr "Priorização"

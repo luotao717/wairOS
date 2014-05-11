@@ -9,7 +9,7 @@ You may obtain a copy of the License at
 
 	http://www.apache.org/licenses/LICENSE-2.0
 
-$Id: olsrdiface.lua 6629 2010-12-05 23:47:08Z soma $
+$Id$
 
 ]]--
 

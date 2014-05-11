@@ -5,28 +5,18 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-04-02 13:44+0100\n"
-"PO-Revision-Date: 2012-09-10 04:26+0200\n"
-"Last-Translator: Snoof <sagim9@gmail.com>\n"
+"PO-Revision-Date: 2011-07-07 17:53+0200\n"
+"Last-Translator: av1co <cavishay@gmail.com>\n"
 "Language-Team: none\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.0.6\n"
-
-msgid "Check for changed IP every"
-msgstr "בצע בדיקה ל- IP שהתחלף כל"
-
-msgid "Check-time unit"
-msgstr "בדוק-יחידת זמן"
-
-#, fuzzy
-msgid "Custom update-URL"
-msgstr "עדכן URL באופן ידני"
+"X-Generator: Pootle 2.0.4\n"
 
 msgid "Dynamic DNS"
-msgstr "DNS דינאמי"
+msgstr "שירות DDNS"
 
 msgid ""
 "Dynamic DNS allows that your router can be reached with a fixed hostname "
@@ -36,58 +26,60 @@ msgstr ""
 "משתנה באופן דינמי."
 
 msgid "Enable"
-msgstr "אפשר"
-
-msgid "Event interface"
 msgstr ""
 
-msgid "Force update every"
-msgstr "אלץ עדכון כל"
+msgid "Service"
+msgstr ""
 
-#, fuzzy
-msgid "Force-time unit"
-msgstr "יחידת זמן של אילוץ"
+msgid "custom"
+msgstr ""
+
+msgid "Custom update-URL"
+msgstr ""
 
 msgid "Hostname"
 msgstr ""
 
-msgid "Interface"
-msgstr "ממשק"
-
-msgid "Network"
-msgstr "רשת"
-
-msgid "On which interface up should start the ddns script process."
+msgid "Username"
 msgstr ""
 
 msgid "Password"
-msgstr "סיסמא"
-
-msgid "Service"
-msgstr "שירות"
+msgstr ""
 
 msgid "Source of IP address"
-msgstr "מקור כתובת IP"
+msgstr ""
 
-msgid "URL"
-msgstr "URL"
-
-msgid "Username"
-msgstr "שם משתמש"
-
-msgid "custom"
-msgstr "מותאם אישית"
-
-# Hours
-msgid "h"
-msgstr "ש'"
+msgid "network"
+msgstr ""
 
 msgid "interface"
-msgstr "ממשק"
+msgstr ""
+
+msgid "URL"
+msgstr ""
+
+msgid "Network"
+msgstr ""
+
+msgid "Interface"
+msgstr ""
+
+msgid "Check for changed IP every"
+msgstr ""
+
+msgid "Check-time unit"
+msgstr ""
 
 # Minutes (not minimum)
 msgid "min"
-msgstr "דק'"
+msgstr ""
 
-msgid "network"
-msgstr "רשת"
+# Hours
+msgid "h"
+msgstr ""
+
+msgid "Force update every"
+msgstr ""
+
+msgid "Force-time unit"
+msgstr ""

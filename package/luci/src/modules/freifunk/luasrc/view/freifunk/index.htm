@@ -9,14 +9,12 @@ You may obtain a copy of the License at
 
 	http://www.apache.org/licenses/LICENSE-2.0
 
-$Id: index.htm 9309 2012-09-19 09:44:20Z soma $
+$Id$
 
 -%>
 <%+header%>
 <% 
 local uci = require "luci.model.uci".cursor()
-local tpl = require "luci.template"
-local fs = require "luci.fs"
 local ff = {}
 local ff = uci:get_all("freifunk")
 
@@ -35,7 +33,8 @@ local co = "profile_" .. community
 local url = uci:get_first(co, "community", "homepage") or "http://www.freifunk.net"
 
 
-local usertext = fs.readfile("/www/luci-static/index_user.html")
+require("luci.fs")
+local usertext = luci.fs.readfile("/www/luci-static/index_user.html")
 
 if DefaultText ~= "disabled" then
 
@@ -70,23 +69,4 @@ end
 <%=defaulttext%>
 <%=usertext%>
 
-<%
--- add custom widgets from view/freifunk/widgets
-local widgets = {}
-local dir = "/usr/lib/lua/luci/view/freifunk/widgets"
-
-uci:foreach("freifunk-widgets", "widget",
-			function(s)
-				if s.enabled == "1" then
-					table.insert(widgets, s)
-				end
-			end)
-
-for k, v in ipairs(widgets) do
-	if v['template'] and fs.access(dir .. "/" .. v['template'] .. "/main.htm") then
-		tpl.render("freifunk/widgets/" .. v['template'] .. "/main", { data = v })
-	end
-end
-
-%>
 <%+footer%>

@@ -10,7 +10,7 @@ You may obtain a copy of the License at
 
 	http://www.apache.org/licenses/LICENSE-2.0
 
-$Id: ipkg.lua 7773 2011-10-24 01:10:34Z jow $
+$Id$
 ]]--
 
 local ipkgfile = "/etc/opkg.conf"

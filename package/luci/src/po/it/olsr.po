@@ -1,59 +1,59 @@
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-05-19 19:36+0200\n"
-"PO-Revision-Date: 2012-04-20 18:38+0200\n"
-"Last-Translator: claudyus <claudyus84@gmail.com>\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.0.4\n"
+"Language: \n"
+"X-Generator: Translate Toolkit 1.1.1\n"
 
 msgid "Active MID announcements"
-msgstr "Annunci MID attivi"
+msgstr ""
 
 msgid "Active OLSR nodes"
-msgstr "Nodi OLSR attivi"
+msgstr ""
 
 msgid "Active host net announcements"
-msgstr "Subnets attualmente annunciate"
+msgstr ""
 
 msgid "Advanced Settings"
-msgstr "Opzioni avanzate"
+msgstr ""
 
 msgid "Allow gateways with NAT"
-msgstr "Permetti gateway con NAT"
+msgstr ""
 
 msgid "Allow the selection of an outgoing ipv4 gateway with NAT"
-msgstr "Permetti l'uso di gateway in uscita con NAT"
+msgstr ""
 
 msgid "Announce uplink"
-msgstr "Annuncia uplink"
+msgstr ""
 
 msgid "Announced network"
-msgstr "Subnets da annnunciare"
+msgstr ""
 
 msgid "Both values must use the dotted decimal notation."
-msgstr "Entrambe i valori devono essere in dotted decimal notation."
+msgstr ""
 
 msgid "Broadcast address"
-msgstr "Indirizzo di broadcast"
+msgstr ""
 
 msgid "Configuration"
-msgstr "Configurazione"
+msgstr ""
 
 msgid "Device"
 msgstr ""
 
 msgid "Display"
-msgstr "Display"
+msgstr ""
 
 msgid "Downlink"
-msgstr "Downlink"
+msgstr ""
 
 msgid "Download Config"
 msgstr ""
@@ -68,11 +68,9 @@ msgid ""
 "Enable SmartGateway. If it is disabled, then all other SmartGateway "
 "parameters are ignored. Default is \"no\"."
 msgstr ""
-"Abitita SmartGateway. Se disabilitata tutti gli altri paramentri, relativi "
-"SmartGateway, saranno ignorati. Disabilitato di default."
 
 msgid "Enable this interface."
-msgstr "Attiva questa interfaccia."
+msgstr ""
 
 msgid "Enabled"
 msgstr ""
@@ -108,38 +106,33 @@ msgid "HNA"
 msgstr ""
 
 msgid "HNA Announcements"
-msgstr "Annuncio di HNA"
+msgstr ""
 
 msgid "HNA interval"
-msgstr "HNA interval"
+msgstr ""
 
 msgid "HNA validity time"
-msgstr "HNA validity time"
+msgstr ""
 
 msgid "Hello"
-msgstr "Hello"
+msgstr ""
 
 msgid "Hello interval"
-msgstr "Hello interval"
+msgstr ""
 
 msgid "Hello validity time"
-msgstr "Hello validity time"
+msgstr ""
 
 msgid "Hna4"
-msgstr "Hna4"
+msgstr ""
 
 msgid "Hna6"
-msgstr "Hna6"
+msgstr ""
 
 msgid "Hops"
-msgstr "Hops"
+msgstr ""
 
 msgid "Hostname"
-msgstr "Hostname"
-
-msgid ""
-"Hosts in a OLSR routed network can announce connecitivity to external "
-"networks using HNA messages."
 msgstr ""
 
 msgid ""
@@ -147,19 +140,14 @@ msgid ""
 "robustness to the link sensing but delays neighbor registration. Defaults is "
 "\"yes\""
 msgstr ""
-"Isteresi del link (solo per la metrica hopocount). L'isteresi aggiunge "
-"robustezza alla sensibilità del link ma rallenta la registrazione dei "
-"vicini. Default è \"si\""
 
 msgid "IP Addresses"
-msgstr "Indirizzi IP"
+msgstr ""
 
 msgid ""
 "IP-version to use. If 6and4 is selected then one olsrd instance is started "
 "for each protocol."
 msgstr ""
-"Versione IP da usare. Se entrambe sono selezionate una istanza di olsrd è "
-"avviata per ogni versione."
 
 msgid "IPv4"
 msgstr ""
@@ -172,25 +160,20 @@ msgid ""
 "be 255.255.255.255. Default is \"0.0.0.0\", which triggers the usage of the "
 "interface broadcast IP."
 msgstr ""
-"Indirizzo di broadcast per i pacchetti OLSR. Per esempio potresti avere "
-"255.255.255.255. Default is 0.0.0.0, il che abilita l'uso dell'ip di "
-"broadcast di default."
 
 msgid "IPv4 source"
-msgstr "IPv4 source"
+msgstr ""
 
 msgid ""
 "IPv4 src address for outgoing OLSR packages. Default is \"0.0.0.0\", which "
 "triggers usage of the interface IP."
 msgstr ""
-"IPv4 source per i pacchetti uscenti da OLSR. Predefinito \"0.0.0.0\", il che "
-"abilita l'uso dell'IP dell'interfaccia di uscita."
 
 msgid "IPv6"
-msgstr "IPv6"
+msgstr ""
 
 msgid "IPv6 multicast"
-msgstr "IPv6 multicast"
+msgstr ""
 
 msgid ""
 "IPv6 multicast address. Default is \"FF02::6D\", the manet-router linklocal "
@@ -200,23 +183,18 @@ msgstr ""
 msgid ""
 "IPv6 network must be given in full notation, prefix must be in CIDR notation."
 msgstr ""
-"IPv6 network deve essere specificata in full notation, il prefisso deve "
-"essere in CIDR notation."
 
 msgid "IPv6 source"
-msgstr "IPv6 source"
+msgstr ""
 
 msgid ""
 "IPv6 src prefix. OLSRd will choose one of the interface IPs which matches "
 "the prefix of this parameter. Default is \"0::/0\", which triggers the usage "
 "of a not-linklocal interface IP."
 msgstr ""
-"IPv6 src prefix. OLSRd sceglierà uno degli IP dell'interfaccia che matchano "
-"questo parametro. Predefinito è \"0::/0\", il che abilita l'uso di un IP non-"
-"linklocal."
 
 msgid "IPv6-Prefix of the uplink"
-msgstr "IPv6-Prefix dell' uplink"
+msgstr ""
 
 msgid ""
 "If the route to the current gateway is to be changed, the ETX value of this "
@@ -225,19 +203,13 @@ msgid ""
 "if changed.<br /><b>WARNING:</b> This parameter should not be used together "
 "with the etx_ffeth metric!<br />Defaults to \"1.0\"."
 msgstr ""
-"Se la rotta del gateway attuale viene modificata, il valore di ETX del "
-"gateway è moltiplicata per questo valore prima che sia comparato con nuovo "
-"valore.Il parametro può essere compreso tra 0.1 e 1.0, ma si consiglia un "
-"valore vicino a 1.0. <br /><b>ATTENZIONE:</b> Questo valore non deve essere "
-"utilizzato insieme con la metrica etx_ffeth!<br />Defaults a \"1.0\"."
 
 msgid ""
 "If this Node uses NAT for connections to the internet. Default is \"yes\"."
 msgstr ""
-"Se questo nodo usa un NAT per connettersi a Internet. Predefinito è \"si\"."
 
 msgid "Interface"
-msgstr "Interfaccia"
+msgstr ""
 
 msgid ""
 "Interface Mode is used to prevent unnecessary packet forwarding on switched "
@@ -260,9 +232,6 @@ msgid ""
 msgstr ""
 
 msgid "Known OLSR routes"
-msgstr ""
-
-msgid "LQ"
 msgstr ""
 
 msgid "LQ aging"
@@ -356,9 +325,6 @@ msgid ""
 msgstr ""
 
 msgid "NAT threshold"
-msgstr ""
-
-msgid "NLQ"
 msgstr ""
 
 msgid "Neighbors"
@@ -559,22 +525,22 @@ msgid ""
 msgstr ""
 
 msgid "Unable to connect to the OLSR daemon!"
-msgstr "Impossibile connetersi al demone OLSR!"
+msgstr ""
 
 msgid "Uplink"
 msgstr ""
 
 msgid "Uplink uses NAT"
-msgstr "L'uplink usa il NAT"
+msgstr ""
 
 msgid "Use hysteresis"
-msgstr "Usa l'isteresi"
+msgstr ""
 
 msgid "Version"
-msgstr "Versione"
+msgstr ""
 
 msgid "WLAN"
-msgstr "WLAN"
+msgstr ""
 
 msgid ""
 "Warning: kmod-ipip is not installed. Without kmod-ipip SmartGateway will not "
@@ -582,7 +548,7 @@ msgid ""
 msgstr ""
 
 msgid "Weight"
-msgstr "Peso"
+msgstr ""
 
 msgid ""
 "When multiple links exist between hosts the weight of interface is used to "
@@ -593,21 +559,12 @@ msgid ""
 "0. For any other value of LinkQualityLevel, the interface ETX value is used "
 "instead."
 msgstr ""
-"Quando link multipli esisto tra gli hosts il peso dell'interfaccia viene "
-"usato. Normalmente il peso è automaticamente calcolato dal demone olsrd in "
-"base alle caratteristiche del link, ma qui puoi specificare un valore di "
-"contrappeso. OLSRd sceglierà il link con il più basso valore.<br><b>Nota:</"
-"b>Il peso dell'interfaccia è uso quando LinkQualityLevel è 0. Per ogni altro "
-"valore di LinkQualityLevel,  il valore di ETX è usato."
 
 msgid ""
 "Which kind of uplink is exported to the other mesh nodes. An uplink is "
 "detected by looking for a local HNA of 0.0.0.0/0, ::ffff:0:0/96 or 2000::/3. "
 "Default setting is \"both\"."
 msgstr ""
-"Quale tipo di uplink è mostrato agli altri nodi. Un uplink è individuato "
-"cercando un HNA del tipo 0.0.0.0/0, ::ffff:0:0/96 or 2000::/3. Default "
-"setting is \"both\"."
 
 msgid "Willingness"
 msgstr ""

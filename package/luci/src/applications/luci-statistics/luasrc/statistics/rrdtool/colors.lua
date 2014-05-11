@@ -9,7 +9,7 @@ You may obtain a copy of the License at
 
         http://www.apache.org/licenses/LICENSE-2.0
 
-$Id: colors.lua 2829 2008-08-14 22:51:12Z Cyrus $
+$Id$
 
 ]]--
 

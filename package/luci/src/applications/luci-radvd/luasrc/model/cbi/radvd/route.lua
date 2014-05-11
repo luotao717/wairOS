@@ -9,7 +9,7 @@ You may obtain a copy of the License at
 
 	http://www.apache.org/licenses/LICENSE-2.0
 
-$Id: route.lua 8562 2012-04-15 14:31:12Z jow $
+$Id$
 ]]--
 
 local sid = arg[1]
@@ -90,10 +90,27 @@ end
 
 
 o = s:option(Value, "AdvRouteLifetime", translate("Lifetime"),
-	translate("Specifies the lifetime associated with the route in seconds."))
+	translate("Specifies the lifetime associated with the route in seconds. Use 0 to specify an infinite lifetime"))
 
-o.datatype = 'or(uinteger,"infinity")'
+o.datatype = "uinteger"
 o.placeholder = 1800
+
+function o.cfgvalue(self, section)
+	local v = Value.cfgvalue(self, section)
+	if v == "infinity" then
+		return 0
+	else
+		return v
+	end
+end
+
+function o.write(self, section, value)
+	if value == "0" then
+		Value.write(self, section, "infinity")
+	else
+		Value.write(self, section, value)
+	end
+end
 
 
 o = s:option(ListValue, "AdvRoutePreference", translate("Preference"),

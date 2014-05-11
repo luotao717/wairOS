@@ -3,13 +3,13 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-06-10 03:40+0200\n"
-"PO-Revision-Date: 2012-04-03 08:44+0200\n"
-"Last-Translator: juhosg <juhosg@openwrt.org>\n"
+"PO-Revision-Date: 2011-07-22 15:45+0200\n"
+"Last-Translator: w3rd <andrew@fam-passon.nl>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: en\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: en\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.4\n"
 
@@ -52,6 +52,13 @@ msgstr "5 Minute Load:"
 msgid "<abbr title=\"Basic Service Set Identifier\">BSSID</abbr>"
 msgstr "<abbr title=\"Basic Service Set Identifier\">BSSID</abbr>"
 
+msgid ""
+"<abbr title=\"Classless Inter-Domain Routing\">CIDR</abbr>-Notation: address/"
+"prefix"
+msgstr ""
+"<abbr title=\"Classless Inter-Domain Routing\">CIDR</abbr>-Notation: address/"
+"prefix"
+
 msgid "<abbr title=\"Domain Name System\">DNS</abbr> query port"
 msgstr "<abbr title=\"Domain Name System\">DNS</abbr> query port"
 
@@ -65,17 +72,29 @@ msgstr ""
 "<abbr title=\"Domain Name System\">DNS</abbr> servers will be queried in the "
 "order of the resolvfile"
 
+msgid "<abbr title=\"Domain Name System\">DNS</abbr>-Server"
+msgstr "<abbr title=\"Domain Name System\">DNS</abbr>-Server"
+
+msgid "<abbr title=\"Encrypted\">Encr.</abbr>"
+msgstr "<abbr title=\"Encrypted\">Encr.</abbr>"
+
 msgid "<abbr title=\"Extended Service Set Identifier\">ESSID</abbr>"
 msgstr "<abbr title=\"Extended Service Set Identifier\">ESSID</abbr>"
 
 msgid "<abbr title=\"Internet Protocol Version 4\">IPv4</abbr>-Address"
 msgstr "<abbr title=\"Internet Protocol Version 4\">IPv4</abbr>-Address"
 
+msgid "<abbr title=\"Internet Protocol Version 4\">IPv4</abbr>-Broadcast"
+msgstr "<abbr title=\"Internet Protocol Version 4\">IPv4</abbr>-Broadcast"
+
 msgid "<abbr title=\"Internet Protocol Version 4\">IPv4</abbr>-Gateway"
 msgstr "<abbr title=\"Internet Protocol Version 4\">IPv4</abbr>-Gateway"
 
 msgid "<abbr title=\"Internet Protocol Version 4\">IPv4</abbr>-Netmask"
 msgstr "<abbr title=\"Internet Protocol Version 4\">IPv4</abbr>-Netmask"
+
+msgid "<abbr title=\"Internet Protocol Version 6\">IPv6</abbr>-Address"
+msgstr "<abbr title=\"Internet Protocol Version 6\">IPv6</abbr>-Address"
 
 msgid ""
 "<abbr title=\"Internet Protocol Version 6\">IPv6</abbr>-Address or Network "
@@ -96,6 +115,9 @@ msgstr "<abbr title=\"Light Emitting Diode\">LED</abbr> Name"
 msgid "<abbr title=\"Media Access Control\">MAC</abbr>-Address"
 msgstr "<abbr title=\"Media Access Control\">MAC</abbr>-Address"
 
+msgid "<abbr title=\"Wireless Local Area Network\">WLAN</abbr>-Scan"
+msgstr "<abbr title=\"Wireless Local Area Network\">WLAN</abbr>-Scan"
+
 msgid ""
 "<abbr title=\"maximal\">Max.</abbr> <abbr title=\"Dynamic Host Configuration "
 "Protocol\">DHCP</abbr> leases"
@@ -105,25 +127,22 @@ msgstr ""
 
 msgid ""
 "<abbr title=\"maximal\">Max.</abbr> <abbr title=\"Extension Mechanisms for "
-"Domain Name System\">EDNS0</abbr> packet size"
+"Domain Name System\">EDNS0</abbr> paket size"
 msgstr ""
 "<abbr title=\"maximal\">Max.</abbr> <abbr title=\"Extension Mechanisms for "
-"Domain Name System\">EDNS0</abbr> packet size"
+"Domain Name System\">EDNS0</abbr> paket size"
 
 msgid "<abbr title=\"maximal\">Max.</abbr> concurrent queries"
 msgstr "<abbr title=\"maximal\">Max.</abbr> concurrent queries"
 
-msgid "<abbr title='Pairwise: %s / Group: %s'>%s - %s</abbr>"
-msgstr ""
-
 msgid "APN"
-msgstr "APN"
+msgstr ""
 
 msgid "AR Support"
 msgstr "AR Support"
 
 msgid "ARP retry threshold"
-msgstr "ARP retry threshold"
+msgstr ""
 
 msgid "ATM Bridges"
 msgstr "ATM Bridges"
@@ -147,10 +166,10 @@ msgid "ATM device number"
 msgstr "ATM device number"
 
 msgid "Accept router advertisements"
-msgstr "Accept router advertisements"
+msgstr ""
 
 msgid "Access Concentrator"
-msgstr "Access Concentrator"
+msgstr ""
 
 msgid "Access Point"
 msgstr "Access Point"
@@ -162,7 +181,7 @@ msgid "Actions"
 msgstr "Actions"
 
 msgid "Activate this network"
-msgstr "Activate this network"
+msgstr ""
 
 msgid "Active <abbr title=\"Internet Protocol Version 4\">IPv4</abbr>-Routes"
 msgstr "Active <abbr title=\"Internet Protocol Version 4\">IPv4</abbr>-Routes"
@@ -173,11 +192,8 @@ msgstr "Active <abbr title=\"Internet Protocol Version 6\">IPv6</abbr>-Routes"
 msgid "Active Connections"
 msgstr "Active Connections"
 
-msgid "Active DHCP Leases"
-msgstr ""
-
-msgid "Active DHCPv6 Leases"
-msgstr ""
+msgid "Active Leases"
+msgstr "Active Leases"
 
 msgid "Ad-Hoc"
 msgstr "Ad-Hoc"
@@ -198,7 +214,7 @@ msgid "Address"
 msgstr "Address"
 
 msgid "Address to access local relay bridge"
-msgstr "Address to access local relay bridge"
+msgstr ""
 
 msgid "Administration"
 msgstr "Administration"
@@ -242,11 +258,6 @@ msgstr ""
 "Allow upstream responses in the 127.0.0.0/8 range, e.g. for RBL services"
 
 msgid "Allowed range is 1 to 65535"
-msgstr "Allowed range is 1 to 65535"
-
-msgid ""
-"Always use 40MHz channels even if the secondary channel overlaps. Using this "
-"option does not comply with IEEE 802.11n-2009!"
 msgstr ""
 
 msgid "An additional network will be created if you leave this unchecked."
@@ -258,26 +269,14 @@ msgstr "Antenna 1"
 msgid "Antenna 2"
 msgstr "Antenna 2"
 
-msgid "Antenna Configuration"
-msgstr ""
-
-msgid "Any zone"
-msgstr "Any zone"
-
 msgid "Apply"
 msgstr "Apply"
 
 msgid "Applying changes"
 msgstr "Applying changes"
 
-msgid "Assign interfaces..."
-msgstr "Assign interfaces..."
-
 msgid "Associated Stations"
 msgstr "Associated Stations"
-
-msgid "Atheros 802.11%s Wireless Controller"
-msgstr ""
 
 msgid "Authentication"
 msgstr "Authentication"
@@ -289,7 +288,7 @@ msgid "Authorization Required"
 msgstr "Authorization Required"
 
 msgid "Auto Refresh"
-msgstr "Auto Refresh"
+msgstr ""
 
 msgid "Available"
 msgstr "Available"
@@ -310,7 +309,7 @@ msgid "Back to Overview"
 msgstr "Back to Overview"
 
 msgid "Back to configuration"
-msgstr "Back to configuration"
+msgstr ""
 
 msgid "Back to overview"
 msgstr "Back to overview"
@@ -322,13 +321,13 @@ msgid "Background Scan"
 msgstr "Background Scan"
 
 msgid "Backup / Flash Firmware"
-msgstr "Backup / Flash Firmware"
+msgstr ""
 
 msgid "Backup / Restore"
 msgstr "Backup / Restore"
 
 msgid "Backup file list"
-msgstr "Backup file list"
+msgstr ""
 
 msgid "Bad address specified!"
 msgstr "Bad address specified!"
@@ -338,15 +337,15 @@ msgid ""
 "configuration files marked by opkg, essential base files and the user "
 "defined backup patterns."
 msgstr ""
-"Below is the determined list of files to backup. It consists of changed "
-"configuration files marked by opkg, essential base files and the user "
-"defined backup patterns."
+
+msgid "Bit Rate"
+msgstr "Bit Rate"
 
 msgid "Bitrate"
 msgstr "Bitrate"
 
 msgid "Bogus NX Domain Override"
-msgstr "Bogus NX Domain Override"
+msgstr ""
 
 msgid "Bridge"
 msgstr "Bridge"
@@ -355,31 +354,25 @@ msgid "Bridge interfaces"
 msgstr "Bridge interfaces"
 
 msgid "Bridge unit number"
-msgstr "Bridge unit number"
-
-msgid "Bring up on boot"
-msgstr "Bring up on boot"
-
-msgid "Broadcom 802.11%s Wireless Controller"
 msgstr ""
 
-msgid "Broadcom BCM%04x 802.11 Wireless Controller"
+msgid "Bring up on boot"
 msgstr ""
 
 msgid "Buffered"
-msgstr "Buffered"
+msgstr ""
 
 msgid "Buttons"
 msgstr "Buttons"
 
 msgid "CPU"
-msgstr "CPU"
+msgstr ""
 
 msgid "CPU usage (%)"
 msgstr "CPU usage (%)"
 
 msgid "Cached"
-msgstr "Cached"
+msgstr ""
 
 msgid "Cancel"
 msgstr "Cancel"
@@ -394,13 +387,13 @@ msgid "Changes applied."
 msgstr "Changes applied."
 
 msgid "Changes the administrator password for accessing the device"
-msgstr "Changes the administrator password for accessing the device"
+msgstr ""
 
 msgid "Channel"
 msgstr "Channel"
 
 msgid "Check"
-msgstr "Check"
+msgstr ""
 
 msgid "Checksum"
 msgstr "Checksum"
@@ -417,46 +410,42 @@ msgstr ""
 "interface to it."
 
 msgid ""
-"Choose the network(s) you want to attach to this wireless interface or fill "
-"out the <em>create</em> field to define a new network."
+"Choose the network you want to attach to this wireless interface. Select "
+"<em>unspecified</em> to not attach any network or fill out the <em>create</"
+"em> field to define a new network."
 msgstr ""
 
 msgid "Cipher"
-msgstr "Cipher"
+msgstr ""
 
 msgid ""
 "Click \"Generate archive\" to download a tar archive of the current "
 "configuration files. To reset the firmware to its initial state, click "
 "\"Perform reset\" (only possible with squashfs images)."
 msgstr ""
-"Click \"Generate archive\" to download a tar archive of the current "
-"configuration files. To reset the firmware to its initial state, click "
-"\"Perform reset\" (only possible with squashfs images)."
 
 msgid "Client"
 msgstr "Client"
 
 msgid "Client ID to send when requesting DHCP"
-msgstr "Client ID to send when requesting DHCP"
+msgstr ""
 
 msgid ""
 "Close inactive connection after the given amount of seconds, use 0 to "
 "persist connection"
 msgstr ""
-"Close inactive connection after the given amount of seconds, use 0 to "
-"persist connection"
 
 msgid "Close list..."
-msgstr "Close list..."
+msgstr ""
 
 msgid "Collecting data..."
-msgstr "Collecting data..."
+msgstr ""
 
 msgid "Command"
 msgstr "Command"
 
 msgid "Common Configuration"
-msgstr "Common Configuration"
+msgstr ""
 
 msgid "Compression"
 msgstr "Compression"
@@ -464,59 +453,71 @@ msgstr "Compression"
 msgid "Configuration"
 msgstr "Configuration"
 
+msgid "Configuration / Apply"
+msgstr ""
+
+msgid "Configuration / Changes"
+msgstr ""
+
+msgid "Configuration / Revert"
+msgstr ""
+
 msgid "Configuration applied."
-msgstr "Configuration applied."
+msgstr ""
 
 msgid "Configuration files will be kept."
-msgstr "Configuration files will be kept."
+msgstr ""
 
 msgid "Configures this mount as overlay storage for block-extroot"
-msgstr "Configures this mount as overlay storage for block-extroot"
+msgstr ""
 
 msgid "Confirmation"
 msgstr "Confirmation"
 
 msgid "Connect"
-msgstr "Connect"
+msgstr ""
 
 msgid "Connected"
-msgstr "Connected"
+msgstr ""
 
 msgid "Connection Limit"
 msgstr "Connection Limit"
 
 msgid "Connections"
-msgstr "Connections"
+msgstr ""
 
 msgid "Country"
-msgstr "Country"
+msgstr ""
 
 msgid "Country Code"
 msgstr "Country Code"
 
 msgid "Cover the following interface"
-msgstr "Cover the following interface"
+msgstr ""
 
 msgid "Cover the following interfaces"
-msgstr "Cover the following interfaces"
+msgstr ""
 
 msgid "Create / Assign firewall-zone"
 msgstr "Create / Assign firewall-zone"
 
 msgid "Create Interface"
-msgstr "Create Interface"
+msgstr ""
+
+msgid "Create Network"
+msgstr "Create Network"
 
 msgid "Create a bridge over multiple interfaces"
-msgstr "Create a bridge over multiple interfaces"
+msgstr ""
 
 msgid "Critical"
-msgstr "Critical"
+msgstr ""
 
 msgid "Cron Log Level"
-msgstr "Cron Log Level"
+msgstr ""
 
 msgid "Custom Interface"
-msgstr "Custom Interface"
+msgstr ""
 
 msgid ""
 "Customizes the behaviour of the device <abbr title=\"Light Emitting Diode"
@@ -526,64 +527,55 @@ msgstr ""
 "\">LED</abbr>s if possible."
 
 msgid "DHCP Leases"
-msgstr "DHCP Leases"
+msgstr ""
 
 msgid "DHCP Server"
-msgstr "DHCP Server"
+msgstr ""
 
 msgid "DHCP and DNS"
-msgstr "DHCP and DNS"
+msgstr ""
 
 msgid "DHCP client"
-msgstr "DHCP client"
+msgstr ""
 
 msgid "DHCP-Options"
 msgstr "DHCP-Options"
 
-msgid "DHCPv6 Leases"
+msgid "DNS"
 msgstr ""
 
-msgid "DNS"
-msgstr "DNS"
-
 msgid "DNS forwardings"
-msgstr "DNS forwardings"
-
-msgid "DUID"
 msgstr ""
 
 msgid "Debug"
-msgstr "Debug"
+msgstr ""
 
 msgid "Default %d"
-msgstr "Default %d"
+msgstr ""
 
 msgid "Default gateway"
-msgstr "Default gateway"
+msgstr ""
 
 msgid "Default state"
-msgstr "Default state"
+msgstr ""
 
 msgid "Define a name for this network."
-msgstr "Define a name for this network."
+msgstr ""
 
 msgid ""
 "Define additional DHCP options, for example "
 "\"<code>6,192.168.2.1,192.168.2.2</code>\" which advertises different DNS "
 "servers to clients."
 msgstr ""
-"Define additional DHCP options, for example "
-"\"<code>6,192.168.2.1,192.168.2.2</code>\" which advertises different DNS "
-"servers to clients."
 
 msgid "Delete"
 msgstr "Delete"
 
 msgid "Delete this interface"
-msgstr "Delete this interface"
+msgstr ""
 
 msgid "Delete this network"
-msgstr "Delete this network"
+msgstr ""
 
 msgid "Description"
 msgstr "Description"
@@ -598,13 +590,13 @@ msgid "Device"
 msgstr "Device"
 
 msgid "Device Configuration"
-msgstr "Device Configuration"
+msgstr ""
 
 msgid "Diagnostics"
-msgstr "Diagnostics"
+msgstr ""
 
 msgid "Directory"
-msgstr "Directory"
+msgstr ""
 
 msgid "Disable"
 msgstr ""
@@ -732,13 +724,16 @@ msgstr ""
 msgid "Enable Jumbo Frame passthrough"
 msgstr ""
 
-msgid "Enable NTP client"
-msgstr ""
-
 msgid "Enable TFTP server"
 msgstr ""
 
 msgid "Enable VLAN functionality"
+msgstr ""
+
+msgid "Enable buffering"
+msgstr ""
+
+msgid "Enable builtin NTP server"
 msgstr ""
 
 msgid "Enable learning and aging"
@@ -859,9 +854,6 @@ msgstr ""
 msgid "Force"
 msgstr "Force"
 
-msgid "Force 40MHz mode"
-msgstr ""
-
 msgid "Force CCMP (AES)"
 msgstr ""
 
@@ -898,12 +890,6 @@ msgstr ""
 msgid "Frequency Hopping"
 msgstr "Frequency Hopping"
 
-msgid "GHz"
-msgstr ""
-
-msgid "GPRS only"
-msgstr ""
-
 msgid "Gateway"
 msgstr ""
 
@@ -917,9 +903,6 @@ msgid "General Setup"
 msgstr "General Setup"
 
 msgid "Generate archive"
-msgstr ""
-
-msgid "Generic 802.11%s Wireless Controller"
 msgstr ""
 
 msgid "Given password confirmation did not match, password not changed!"
@@ -961,9 +944,6 @@ msgid ""
 "authentication."
 msgstr ""
 
-msgid "Hermes 802.11b Wireless Controller"
-msgstr ""
-
 msgid "Hide <abbr title=\"Extended Service Set Identifier\">ESSID</abbr>"
 msgstr "Hide <abbr title=\"Extended Service Set Identifier\">ESSID</abbr>"
 
@@ -987,6 +967,9 @@ msgstr "Hostnames"
 
 msgid "IP address"
 msgstr "IP address"
+
+msgid "IP-Aliases"
+msgstr ""
 
 msgid "IPv4"
 msgstr ""
@@ -1015,9 +998,6 @@ msgstr ""
 msgid "IPv4 only"
 msgstr ""
 
-msgid "IPv4 prefix length"
-msgstr ""
-
 msgid "IPv4-Address"
 msgstr ""
 
@@ -1025,6 +1005,9 @@ msgid "IPv6"
 msgstr "IPv6"
 
 msgid "IPv6 Firewall"
+msgstr ""
+
+msgid "IPv6 Setup"
 msgstr ""
 
 msgid "IPv6 WAN Status"
@@ -1039,22 +1022,10 @@ msgstr ""
 msgid "IPv6 only"
 msgstr ""
 
-msgid "IPv6 prefix"
-msgstr ""
-
-msgid "IPv6 prefix length"
-msgstr ""
-
-msgid "IPv6-Address"
-msgstr ""
-
 msgid "IPv6-in-IPv4 (RFC4213)"
 msgstr ""
 
-msgid "IPv6-over-IPv4 (6rd)"
-msgstr ""
-
-msgid "IPv6-over-IPv4 (6to4)"
+msgid "IPv6-over-IPv4"
 msgstr ""
 
 msgid "Identity"
@@ -1157,9 +1128,6 @@ msgstr ""
 msgid "Interfaces"
 msgstr "Interfaces"
 
-msgid "Internal Server Error"
-msgstr ""
-
 msgid "Invalid"
 msgstr "Invalid input value"
 
@@ -1209,12 +1177,6 @@ msgstr ""
 msgid "Kill"
 msgstr "Kill"
 
-msgid "L2TP"
-msgstr ""
-
-msgid "L2TP Server"
-msgstr ""
-
 msgid "LCP echo failure threshold"
 msgstr ""
 
@@ -1256,6 +1218,9 @@ msgstr ""
 
 msgid "Limit"
 msgstr "Limit"
+
+msgid "Link"
+msgstr "Link"
 
 msgid "Link On"
 msgstr "Link On"
@@ -1341,6 +1306,12 @@ msgstr "Logout"
 msgid "Lowest leased address as offset from the network address."
 msgstr ""
 
+msgid "MAC"
+msgstr "MAC"
+
+msgid "MAC Address"
+msgstr ""
+
 msgid "MAC-Address"
 msgstr ""
 
@@ -1352,12 +1323,6 @@ msgstr "MAC-Filter"
 
 msgid "MAC-List"
 msgstr "MAC-List"
-
-msgid "MB/s"
-msgstr ""
-
-msgid "MHz"
-msgstr ""
 
 msgid "MTU"
 msgstr ""
@@ -1381,9 +1346,6 @@ msgid "Maximum hold time"
 msgstr "Maximum hold time"
 
 msgid "Maximum number of leased addresses."
-msgstr ""
-
-msgid "Mbit/s"
 msgstr ""
 
 msgid "Memory"
@@ -1489,8 +1451,8 @@ msgstr ""
 msgid "Network boot image"
 msgstr ""
 
-msgid "Network without interfaces."
-msgstr ""
+msgid "Networks"
+msgstr "Networks"
 
 msgid "Next »"
 msgstr ""
@@ -1540,22 +1502,18 @@ msgstr ""
 msgid "Normal"
 msgstr ""
 
-msgid "Not Found"
-msgstr ""
-
 msgid "Not associated"
-msgstr ""
-
-msgid "Not connected"
 msgstr ""
 
 msgid "Note: Configuration files will be erased."
 msgstr ""
 
-msgid "Notice"
+msgid ""
+"Note: If you choose an interface here which is part of another network, it "
+"will be moved into this network."
 msgstr ""
 
-msgid "Nslookup"
+msgid "Notice"
 msgstr ""
 
 msgid "OK"
@@ -1585,13 +1543,13 @@ msgstr ""
 msgid "On-State Delay"
 msgstr ""
 
-msgid "One of hostname or mac address must be specified!"
-msgstr ""
-
 msgid "One or more fields contain invalid values!"
 msgstr ""
 
 msgid "One or more required fields have no value!"
+msgstr ""
+
+msgid "Open"
 msgstr ""
 
 msgid "Open list..."
@@ -1722,9 +1680,6 @@ msgstr ""
 msgid "Physical Settings"
 msgstr "Physical Settings"
 
-msgid "Ping"
-msgstr ""
-
 msgid "Pkts."
 msgstr "Pkts."
 
@@ -1746,8 +1701,8 @@ msgstr ""
 msgid "Port %d is untagged in multiple VLANs!"
 msgstr ""
 
-msgid "Port status:"
-msgstr ""
+msgid "Power"
+msgstr "Power"
 
 msgid ""
 "Presume peer to be dead after given amount of LCP echo failures, use 0 to "
@@ -1756,9 +1711,6 @@ msgstr ""
 
 msgid "Prevents client-to-client communication"
 msgstr "Prevents client-to-client communication"
-
-msgid "Prism2/2.5/3 802.11b Wireless Controller"
-msgstr ""
 
 msgid "Proceed"
 msgstr "Proceed"
@@ -1781,29 +1733,17 @@ msgstr ""
 msgid "Protocol support is not installed"
 msgstr ""
 
-msgid "Provide NTP server"
-msgstr ""
-
 msgid "Provide new network"
 msgstr ""
 
 msgid "Pseudo Ad-Hoc (ahdemo)"
 msgstr "Pseudo Ad-Hoc (ahdemo)"
 
-msgid "Quality"
-msgstr ""
-
 msgid "RTS/CTS Threshold"
 msgstr "RTS/CTS Threshold"
 
 msgid "RX"
 msgstr "RX"
-
-msgid "RX Rate"
-msgstr ""
-
-msgid "RaLink 802.11%s Wireless Controller"
-msgstr ""
 
 msgid "Radius-Accounting-Port"
 msgstr ""
@@ -1831,26 +1771,26 @@ msgstr ""
 "Configuration Protocol\">DHCP</abbr>-Server"
 
 msgid ""
-"Really delete this interface? The deletion cannot be undone!\\nYou might "
-"lose access to this device if you are connected via this interface."
+"Really delete this interface? The deletion cannot be undone!\n"
+"You might lose access to this router if you are connected via this interface."
 msgstr ""
 
 msgid ""
-"Really delete this wireless network? The deletion cannot be undone!\\nYou "
-"might lose access to this device if you are connected via this network."
+"Really delete this wireless network? The deletion cannot be undone!\n"
+"You might lose access to this router if you are connected via this network."
 msgstr ""
 
 msgid "Really reset all changes?"
 msgstr ""
 
 msgid ""
-"Really shutdown interface \"%s\" ?\\nYou might lose access to this device if "
-"you are connected via this interface."
+"Really shutdown interface \"%s\" ?\n"
+"You might lose access to this router if you are connected via this interface."
 msgstr ""
 
 msgid ""
-"Really shutdown network ?\\nYou might lose access to this device if you are "
-"connected via this interface."
+"Really shutdown network ?\n"
+"You might lose access to this router if you are connected via this interface."
 msgstr ""
 
 msgid "Really switch protocol?"
@@ -2096,12 +2036,6 @@ msgstr "Software"
 msgid "Some fields are invalid, cannot save values!"
 msgstr ""
 
-msgid "Sorry, the object you requested was not found."
-msgstr ""
-
-msgid "Sorry, the server encountered an unexpected error."
-msgstr ""
-
 msgid ""
 "Sorry, there is no sysupgrade support present, a new firmware image must be "
 "flashed manually. Please refer to the OpenWrt wiki for device specific "
@@ -2232,9 +2166,6 @@ msgstr ""
 msgid "TX"
 msgstr "TX"
 
-msgid "TX Rate"
-msgstr ""
-
 msgid "Table"
 msgstr "Table"
 
@@ -2255,10 +2186,6 @@ msgstr ""
 msgid ""
 "The <em>libiwinfo-lua</em> package is not installed. You must install this "
 "component for working wireless configuration!"
-msgstr ""
-
-msgid ""
-"The IPv6 prefix assigned to the provider, usually ends with <code>::</code>"
 msgstr ""
 
 msgid ""
@@ -2306,21 +2233,19 @@ msgid ""
 msgstr ""
 
 msgid ""
-"The length of the IPv4 prefix in bits, the remainder is used in the IPv6 "
-"addresses."
-msgstr ""
-
-msgid "The length of the IPv6 prefix in bits"
-msgstr ""
-
-msgid ""
-"The network ports on this device can be combined to several <abbr title="
+"The network ports on your router can be combined to several <abbr title="
 "\"Virtual Local Area Network\">VLAN</abbr>s in which computers can "
 "communicate directly with each other. <abbr title=\"Virtual Local Area "
 "Network\">VLAN</abbr>s are often used to separate different network "
 "segments. Often there is by default one Uplink port for a connection to the "
 "next greater network like the internet and other ports for a local network."
 msgstr ""
+"The network ports on your router can be combined to several <abbr title="
+"\"Virtual Local Area Network\">VLAN</abbr>s in which computers can "
+"communicate directly with each other. <abbr title=\"Virtual Local Area "
+"Network\">VLAN</abbr>s are often used to separate different network "
+"segments. Often there is by default one Uplink port for a connection to the "
+"next greater network like the internet and other ports for a local network."
 
 msgid "The selected protocol needs a device assigned"
 msgstr ""
@@ -2368,9 +2293,6 @@ msgstr ""
 msgid ""
 "There is no password set on this router. Please configure a root password to "
 "protect the web interface and enable SSH."
-msgstr ""
-
-msgid "This IPv4 address of the relay"
 msgstr ""
 
 msgid ""
@@ -2439,9 +2361,6 @@ msgstr ""
 msgid "Total Available"
 msgstr ""
 
-msgid "Traceroute"
-msgstr ""
-
 msgid "Traffic"
 msgstr "Traffic"
 
@@ -2484,9 +2403,6 @@ msgstr "Type"
 msgid "UDP:"
 msgstr ""
 
-msgid "UMTS only"
-msgstr ""
-
 msgid "UMTS/GPRS/EV-DO"
 msgstr ""
 
@@ -2494,9 +2410,6 @@ msgid "USB Device"
 msgstr ""
 
 msgid "UUID"
-msgstr ""
-
-msgid "Unable to dispatch"
 msgstr ""
 
 msgid "Unknown"
@@ -2639,10 +2552,7 @@ msgstr ""
 "WPA-Encryption requires wpa_supplicant (for client mode) or hostapd (for AP "
 "and ad-hoc mode) to be installed."
 
-msgid "Waiting for changes to be applied..."
-msgstr ""
-
-msgid "Waiting for command to complete..."
+msgid "Waiting for router..."
 msgstr ""
 
 msgid "Warning"
@@ -2653,6 +2563,9 @@ msgstr "Warning: There are unsaved changes that will be lost while rebooting!"
 
 msgid "Wifi"
 msgstr "Wifi"
+
+msgid "Wifi networks in your local environment"
+msgstr "Wifi networks in your local environment"
 
 msgid "Wireless"
 msgstr ""
@@ -2712,23 +2625,11 @@ msgstr ""
 msgid "auto"
 msgstr "auto"
 
-msgid "baseT"
-msgstr ""
-
 msgid "bridged"
-msgstr ""
-
-msgid "create:"
 msgstr ""
 
 msgid "creates a bridge over specified interface(s)"
 msgstr "creates a bridge over specified interface(s)"
-
-msgid "dB"
-msgstr ""
-
-msgid "dBm"
-msgstr ""
 
 msgid "disable"
 msgstr "disable"
@@ -2743,43 +2644,16 @@ msgstr ""
 "file where given <abbr title=\"Dynamic Host Configuration Protocol\">DHCP</"
 "abbr>-leases will be stored"
 
-msgid "forward"
-msgstr ""
-
-msgid "full-duplex"
-msgstr ""
-
-msgid "half-duplex"
-msgstr ""
-
 msgid "help"
 msgstr "help"
 
-msgid "hidden"
-msgstr ""
-
 msgid "if target is a network"
 msgstr "if target is a network"
-
-msgid "input"
-msgstr ""
-
-msgid "kB"
-msgstr ""
-
-msgid "kB/s"
-msgstr ""
-
-msgid "kbit/s"
-msgstr ""
 
 msgid "local <abbr title=\"Domain Name System\">DNS</abbr> file"
 msgstr "local <abbr title=\"Domain Name System\">DNS</abbr> file"
 
 msgid "no"
-msgstr ""
-
-msgid "no link"
 msgstr ""
 
 msgid "none"
@@ -2791,16 +2665,10 @@ msgstr ""
 msgid "on"
 msgstr ""
 
-msgid "open"
-msgstr ""
-
 msgid "routed"
 msgstr ""
 
 msgid "tagged"
-msgstr ""
-
-msgid "unknown"
 msgstr ""
 
 msgid "unlimited"
@@ -2820,87 +2688,6 @@ msgstr ""
 
 msgid "« Back"
 msgstr "« Back"
-
-#~ msgid "Active Leases"
-#~ msgstr "Active Leases"
-
-#~ msgid "Bit Rate"
-#~ msgstr "Bit Rate"
-
-#~ msgid "Configuration / Apply"
-#~ msgstr "Configuration / Apply"
-
-#~ msgid "Configuration / Changes"
-#~ msgstr "Configuration / Changes"
-
-#~ msgid "Configuration / Revert"
-#~ msgstr "Configuration / Revert"
-
-#~ msgid "MAC"
-#~ msgstr "MAC"
-
-#~ msgid "<abbr title=\"Encrypted\">Encr.</abbr>"
-#~ msgstr "<abbr title=\"Encrypted\">Encr.</abbr>"
-
-#~ msgid "<abbr title=\"Wireless Local Area Network\">WLAN</abbr>-Scan"
-#~ msgstr "<abbr title=\"Wireless Local Area Network\">WLAN</abbr>-Scan"
-
-#~ msgid ""
-#~ "Choose the network you want to attach to this wireless interface. Select "
-#~ "<em>unspecified</em> to not attach any network or fill out the "
-#~ "<em>create</em> field to define a new network."
-#~ msgstr ""
-#~ "Choose the network you want to attach to this wireless interface. Select "
-#~ "<em>unspecified</em> to not attach any network or fill out the "
-#~ "<em>create</em> field to define a new network."
-
-#~ msgid "Create Network"
-#~ msgstr "Create Network"
-
-#~ msgid "Link"
-#~ msgstr "Link"
-
-#~ msgid "Networks"
-#~ msgstr "Networks"
-
-#~ msgid "Power"
-#~ msgstr "Power"
-
-#~ msgid "Wifi networks in your local environment"
-#~ msgstr "Wifi networks in your local environment"
-
-#~ msgid ""
-#~ "<abbr title=\"Classless Inter-Domain Routing\">CIDR</abbr>-Notation: "
-#~ "address/prefix"
-#~ msgstr ""
-#~ "<abbr title=\"Classless Inter-Domain Routing\">CIDR</abbr>-Notation: "
-#~ "address/prefix"
-
-#~ msgid "<abbr title=\"Domain Name System\">DNS</abbr>-Server"
-#~ msgstr "<abbr title=\"Domain Name System\">DNS</abbr>-Server"
-
-#~ msgid "<abbr title=\"Internet Protocol Version 4\">IPv4</abbr>-Broadcast"
-#~ msgstr "<abbr title=\"Internet Protocol Version 4\">IPv4</abbr>-Broadcast"
-
-#~ msgid "<abbr title=\"Internet Protocol Version 6\">IPv6</abbr>-Address"
-#~ msgstr "<abbr title=\"Internet Protocol Version 6\">IPv6</abbr>-Address"
-
-#~ msgid ""
-#~ "The network ports on your router can be combined to several <abbr title="
-#~ "\"Virtual Local Area Network\">VLAN</abbr>s in which computers can "
-#~ "communicate directly with each other. <abbr title=\"Virtual Local Area "
-#~ "Network\">VLAN</abbr>s are often used to separate different network "
-#~ "segments. Often there is by default one Uplink port for a connection to "
-#~ "the next greater network like the internet and other ports for a local "
-#~ "network."
-#~ msgstr ""
-#~ "The network ports on your router can be combined to several <abbr title="
-#~ "\"Virtual Local Area Network\">VLAN</abbr>s in which computers can "
-#~ "communicate directly with each other. <abbr title=\"Virtual Local Area "
-#~ "Network\">VLAN</abbr>s are often used to separate different network "
-#~ "segments. Often there is by default one Uplink port for a connection to "
-#~ "the next greater network like the internet and other ports for a local "
-#~ "network."
 
 #~ msgid "Files to be kept when flashing a new firmware"
 #~ msgstr "Files to be kept when flashing a new firmware"
@@ -3384,10 +3171,10 @@ msgstr "« Back"
 
 #~ msgid ""
 #~ "<abbr title=\"maximal\">max.</abbr> <abbr title=\"Extension Mechanisms "
-#~ "for Domain Name System\">EDNS0</abbr> packet size"
+#~ "for Domain Name System\">EDNS0</abbr> paket size"
 #~ msgstr ""
 #~ "<abbr title=\"maximal\">max.</abbr> <abbr title=\"Extension Mechanisms "
-#~ "for Domain Name System\">EDNS0</abbr> packet size"
+#~ "for Domain Name System\">EDNS0</abbr> paket size"
 
 #~ msgid "AP-Isolation"
 #~ msgstr "AP-Isolation"

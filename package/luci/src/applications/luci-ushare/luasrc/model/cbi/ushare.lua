@@ -9,12 +9,12 @@ You may obtain a copy of the License at
 
         http://www.apache.org/licenses/LICENSE-2.0
 
-$Id: ushare.lua 9413 2012-10-29 14:38:50Z jow $
+$Id$
 
 ]]--
 
 m = Map("ushare", translate("uShare"),
-	luci.util.pcdata(translate("uShare is a UPnP (TM) A/V & DLNA Media Server. It implements the server component that provides UPnP media devices with information on available multimedia files.")))
+	translate("ushare_desc"))
 
 s = m:section(TypedSection, "ushare", translate("Settings"))
 s.addremove = false

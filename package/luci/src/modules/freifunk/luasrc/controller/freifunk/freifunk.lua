@@ -9,7 +9,7 @@ You may obtain a copy of the License at
 
 	http://www.apache.org/licenses/LICENSE-2.0
 
-$Id: freifunk.lua 9558 2012-12-18 13:58:22Z jow $
+$Id$
 ]]--
 
 module("luci.controller.freifunk.freifunk", package.seeall)
@@ -56,10 +56,6 @@ function index()
 	entry({"freifunk", "status.json"}, call("jsonstatus"))
 	entry({"freifunk", "status", "zeroes"}, call("zeroes"), "Testdownload")
 	entry({"freifunk", "status", "public_status_json"}, call("public_status_json")).leaf = true
-
-	if nixio.fs.access("/usr/sbin/luci-splash") then
-		assign({"freifunk", "status", "splash"}, {"splash", "publicstatus"}, _("Splash"), 40)
-	end
 
 	assign({"freifunk", "olsr"}, {"admin", "status", "olsr"}, _("OLSR"), 30)
 
@@ -219,6 +215,7 @@ function jsonstatus()
 	root.network = {}
 	root.wireless = {devices = {}, interfaces = {}, status = {}}
 	local wifs = root.wireless.interfaces
+	local wifidata = luci.sys.wifi.getiwconfig() or {}
 	local netdata = luci.sys.net.deviceinfo() or {}
 
 	for _, vif in ipairs(ffwifs) do
@@ -228,18 +225,7 @@ function jsonstatus()
 			if s.device == vif and s.network == vif then
 				wifs[#wifs+1] = s
 				if s.ifname then
-					local iwinfo = luci.sys.wifi.getiwinfo(s.ifname)
-					if iwinfo then
-						root.wireless.status[s.ifname] = { }
-
-						local _, f
-						for _, f in ipairs({
-							"channel", "txpower", "bitrate", "signal", "noise",
-							"quality", "quality_max", "mode", "ssid", "bssid", "encryption", "ifname"
-						}) do
-							root.wireless.status[s.ifname][f] = iwinfo[f]
-						end
-					end
+					root.wireless.status[s.ifname] = wifidata[s.ifname]
 				end
 			end
 		end)
@@ -251,14 +237,15 @@ function jsonstatus()
 	ltn12.pump.all(json.Encoder(root):source(), http.write)
 end
 
-function public_status_json(devs)
+function public_status_json()
 	local twa	= require "luci.tools.webadmin"
 	local sys	= require "luci.sys"
 	local i18n	= require "luci.i18n"
+	local path	= luci.dispatcher.context.requestpath
 	local rv 	= { }
 
 	local dev
-	for dev in devs:gmatch("[%w%.%-]+") do
+	for dev in path[#path]:gmatch("[%w%.%-]+") do
 		local j = { id = dev }
 		local iw = luci.sys.wifi.getiwinfo(dev)
 		if iw then

@@ -9,7 +9,7 @@ You may obtain a copy of the License at
 
         http://www.apache.org/licenses/LICENSE-2.0
 
-$Id: processes.lua 7996 2011-11-28 15:54:51Z soma $
+$Id$
 
 ]]--
 
@@ -28,9 +28,8 @@ enable = s:option( Flag, "enable", translate("Enable this plugin") )
 enable.default = 0
 
 -- collectd_processes.processes (Process)
-processes = s:option( Value, "Processes", translate("Monitor processes"),
-	translate("Processes to monitor separated by space") )
+processes = s:option( Value, "Processes", translate("Monitor processes") )
+processes.default = "olsrd bmxd httpd dnsmasq dropbear tinc"
 processes:depends( "enable", 1 )
-processes.default = "uhttpd dropbear dnsmasq"
 
 return m

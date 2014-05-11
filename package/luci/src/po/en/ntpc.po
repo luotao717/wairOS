@@ -11,41 +11,38 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid "Clock Adjustment"
-msgstr "Clock Adjustment"
-
-msgid "Count of time measurements"
-msgstr "Count of time measurements"
-
-msgid "Current system time"
-msgstr "Current system time"
-
-msgid "General"
-msgstr "General"
-
-msgid "Hostname"
-msgstr "Hostname"
-
-msgid "Offset frequency"
-msgstr "Offset frequency"
-
-msgid "Port"
-msgstr "Port"
+msgid "Time Synchronisation"
+msgstr "Time Synchronisation"
 
 msgid "Synchronizes the system time"
 msgstr "Synchronizes the system time"
 
-msgid "Time Server"
-msgstr ""
+msgid "General"
+msgstr "General"
 
-msgid "Time Servers"
-msgstr "Time Servers"
-
-msgid "Time Synchronisation"
-msgstr "Time Synchronisation"
+msgid "Current system time"
+msgstr "Current system time"
 
 msgid "Update interval (in seconds)"
 msgstr "Update interval (in seconds)"
 
+msgid "Count of time measurements"
+msgstr "Count of time measurements"
+
 msgid "empty = infinite"
 msgstr "empty = infinite"
+
+msgid "Clock Adjustment"
+msgstr "Clock Adjustment"
+
+msgid "Offset frequency"
+msgstr "Offset frequency"
+
+msgid "Time Servers"
+msgstr "Time Servers"
+
+msgid "Hostname"
+msgstr "Hostname"
+
+msgid "Port"
+msgstr "Port"

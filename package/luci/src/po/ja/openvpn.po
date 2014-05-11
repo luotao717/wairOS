@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-05-19 19:36+0200\n"
-"PO-Revision-Date: 2012-04-09 08:12+0200\n"
+"PO-Revision-Date: 2011-06-17 10:53+0200\n"
 "Last-Translator: Kentaro <kentaro.matsuyama@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ja\n"
@@ -14,16 +14,16 @@ msgstr ""
 "X-Generator: Pootle 2.0.4\n"
 
 msgid "%s"
-msgstr "%s"
+msgstr ""
 
 msgid "'net30', 'p2p', or 'subnet'"
-msgstr "'net30', 'p2p', または 'subnet'"
+msgstr ""
 
 msgid "Accept options pushed from server"
 msgstr ""
 
 msgid "Add"
-msgstr "追加"
+msgstr ""
 
 msgid "Add route after establishing connection"
 msgstr ""
@@ -32,13 +32,13 @@ msgid "Additional authentication over TLS"
 msgstr ""
 
 msgid "Allow client-to-client traffic"
-msgstr "クライアント間通信を許可する"
+msgstr ""
 
 msgid "Allow multiple clients with same certificate"
 msgstr ""
 
 msgid "Allow only one session"
-msgstr "1つのセッションのみを許可する"
+msgstr ""
 
 msgid "Allow remote to change its IP or port"
 msgstr ""
@@ -62,7 +62,7 @@ msgid "Automatically redirect default route"
 msgstr ""
 
 msgid "Below is a list of configured OpenVPN instances and their current state"
-msgstr "現在設定済のOpenVPNの設定とステータスを表示しています。"
+msgstr ""
 
 msgid "Call down cmd/script before TUN/TAP close"
 msgstr ""
@@ -86,16 +86,16 @@ msgid "Client is disabled"
 msgstr ""
 
 msgid "Configuration category"
-msgstr "設定カテゴリ"
+msgstr ""
 
 msgid "Configure client mode"
-msgstr "クライアントモードに設定"
+msgstr ""
 
 msgid "Configure server bridge"
 msgstr ""
 
 msgid "Configure server mode"
-msgstr "サーバーモードに設定"
+msgstr ""
 
 msgid "Connect through Socks5 proxy"
 msgstr ""
@@ -104,28 +104,28 @@ msgid "Connect to remote host through an HTTP proxy"
 msgstr ""
 
 msgid "Connection retry interval"
-msgstr "再接続間隔"
+msgstr ""
 
 msgid "Cryptography"
-msgstr "暗号設定"
+msgstr ""
 
 msgid "Daemonize after initialization"
-msgstr "初期化後にデーモン化する"
+msgstr ""
 
 msgid "Delay n seconds after connection"
-msgstr "セッション接続後、n秒ディレイする"
+msgstr ""
 
 msgid "Delay tun/tap open and up script execution"
 msgstr ""
 
 msgid "Diffie Hellman parameters"
-msgstr "Diffie Hellman パラメータ"
+msgstr ""
 
 msgid "Directory for custom client config files"
 msgstr ""
 
 msgid "Disable Paging"
-msgstr "ページングを無効にする"
+msgstr ""
 
 msgid "Disable cipher initialisation vector"
 msgstr ""
@@ -152,10 +152,10 @@ msgid "Don't inherit global push options"
 msgstr ""
 
 msgid "Don't log timestamps"
-msgstr "時刻をログに書き込まない"
+msgstr ""
 
 msgid "Don't re-read key on restart"
-msgstr "再起動時にキーの再読み込みを行わない"
+msgstr ""
 
 msgid "Don't require client certificate"
 msgstr ""
@@ -173,10 +173,10 @@ msgid "Empirically measure MTU"
 msgstr ""
 
 msgid "Enable OpenSSL hardware crypto engines"
-msgstr "OpenSSL暗号化のハードウェアサポートを有効にする"
+msgstr ""
 
 msgid "Enable Path MTU discovery"
-msgstr "Path MTU discovery を有効にする"
+msgstr ""
 
 msgid "Enable Static Key encryption mode (non-TLS)"
 msgstr ""
@@ -194,7 +194,7 @@ msgid "Enable management interface on <em>IP</em> <em>port</em>"
 msgstr ""
 
 msgid "Enabled"
-msgstr "有効"
+msgstr ""
 
 msgid "Encryption cipher for packets"
 msgstr ""
@@ -236,10 +236,10 @@ msgid "If hostname resolve fails, retry"
 msgstr ""
 
 msgid "Instance \"%s\""
-msgstr "設定 \"%s\""
+msgstr ""
 
 msgid "Invalid"
-msgstr "無効"
+msgstr ""
 
 msgid "Keep local IP address on restart"
 msgstr ""
@@ -269,13 +269,13 @@ msgid "Major mode"
 msgstr ""
 
 msgid "Make tun device IPv6 capable"
-msgstr "tun デバイスでIPv6機能を有効にする"
+msgstr ""
 
 msgid "Maximum number of queued TCP output packets"
 msgstr ""
 
 msgid "Networking"
-msgstr "ネットワーク"
+msgstr ""
 
 msgid "Number of allocated broadcast buffers"
 msgstr ""
@@ -293,7 +293,7 @@ msgid "OpenVPN"
 msgstr "OpenVPN"
 
 msgid "OpenVPN instances"
-msgstr "OpenVPN 設定"
+msgstr ""
 
 msgid "Optimize TUN/TAP/UDP writes"
 msgstr ""
@@ -302,7 +302,7 @@ msgid "Output to syslog and do not daemonize"
 msgstr ""
 
 msgid "Overview"
-msgstr "概要"
+msgstr ""
 
 msgid "PKCS#12 file containing keys"
 msgstr ""
@@ -323,10 +323,10 @@ msgid "Policy level over usage of external programs and scripts"
 msgstr ""
 
 msgid "Port"
-msgstr "ポート"
+msgstr ""
 
 msgid "Protocol"
-msgstr "プロトコル"
+msgstr ""
 
 msgid "Proxy timeout in seconds"
 msgstr ""
@@ -404,13 +404,13 @@ msgid "Send notification to peer on disconnect"
 msgstr ""
 
 msgid "Service"
-msgstr "サービス"
+msgstr ""
 
 msgid "Set GID to group"
 msgstr ""
 
 msgid "Set TCP/UDP MTU"
-msgstr "TCP/UDP のMTUを設定"
+msgstr ""
 
 msgid "Set UID to user"
 msgstr ""
@@ -422,25 +422,25 @@ msgid "Set extended HTTP proxy options"
 msgstr ""
 
 msgid "Set output verbosity"
-msgstr "ログ出力レベルの設定"
+msgstr ""
 
 msgid "Set size of real and virtual address hash tables"
 msgstr ""
 
 msgid "Set the TCP/UDP receive buffer size"
-msgstr "TCP/UDP の受信バッファサイズ"
+msgstr ""
 
 msgid "Set the TCP/UDP send buffer size"
-msgstr "TCP/UDP の送信バッファサイズ"
+msgstr ""
 
 msgid "Set tun/tap TX queue length"
-msgstr "tun/tap デバイスの送信キューサイズ"
+msgstr ""
 
 msgid "Set tun/tap adapter parameters"
 msgstr ""
 
 msgid "Set tun/tap device MTU"
-msgstr "tun/tap デバイスのMTU設定"
+msgstr ""
 
 msgid "Set tun/tap device overhead"
 msgstr ""
@@ -473,28 +473,28 @@ msgid "Start OpenVPN in a hibernating state"
 msgstr ""
 
 msgid "Start/Stop"
-msgstr "開始 / 停止"
+msgstr ""
 
 msgid "Started"
-msgstr "実行中"
+msgstr ""
 
 msgid "Status file format version"
 msgstr ""
 
 msgid "Switch to advanced configuration »"
-msgstr "詳細設定へ移動 »"
+msgstr ""
 
 msgid "TCP/UDP port # for both local and remote"
-msgstr "TCP/UDP ポート (ローカル・リモート共用)"
+msgstr ""
 
 msgid "TCP/UDP port # for local (default=1194)"
-msgstr "TCP/UDP ポート (ローカル, 標準設定=1194)"
+msgstr ""
 
 msgid "TCP/UDP port # for remote (default=1194)"
-msgstr "TCP/UDP ポート (リモート, 標準設定=1194)"
+msgstr ""
 
 msgid "TLS cipher"
-msgstr "TLS 暗号化方式"
+msgstr ""
 
 msgid "TOS passthrough (applies to IPv4 only)"
 msgstr ""
@@ -509,13 +509,13 @@ msgid "Type of used device"
 msgstr ""
 
 msgid "Use fast LZO compression"
-msgstr "高速LZO圧縮機能を使用する"
+msgstr ""
 
 msgid "Use individual addresses rather than /30 subnets"
 msgstr ""
 
 msgid "Use protocol"
-msgstr "使用するプロトコル"
+msgstr ""
 
 msgid "Use tun/tap device node"
 msgstr ""
@@ -524,7 +524,7 @@ msgid "Use username as common name"
 msgstr ""
 
 msgid "VPN"
-msgstr "VPN"
+msgstr ""
 
 msgid "Write log to file"
 msgstr ""
@@ -536,7 +536,13 @@ msgid "Write status to file every n seconds"
 msgstr ""
 
 msgid "no"
-msgstr "いいえ"
+msgstr ""
+
+msgid "openvpn_%s"
+msgstr ""
+
+msgid "openvpn_%s_desc"
+msgstr ""
 
 msgid "tun/tap device"
 msgstr ""
@@ -545,7 +551,7 @@ msgid "tun/tap inactivity timeout"
 msgstr ""
 
 msgid "yes (%i)"
-msgstr "はい (%i)"
+msgstr ""
 
 msgid "« Switch to basic configuration"
-msgstr "« 基本設定へ移動"
+msgstr ""

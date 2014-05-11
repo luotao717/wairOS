@@ -10,7 +10,7 @@ You may obtain a copy of the License at
 
 	http://www.apache.org/licenses/LICENSE-2.0
 
-$Id: ntpc.lua 9558 2012-12-18 13:58:22Z jow $
+$Id$
 ]]--
 
 module("luci.controller.ntpc", package.seeall)
@@ -23,8 +23,10 @@ function index()
 	local page
 
 	page = entry({"admin", "system", "ntpc"}, cbi("ntpc/ntpc"), _("Time Synchronisation"), 50)
+	page.i18n = "ntpc"
 	page.dependent = true
 
 	page = entry({"mini", "system", "ntpc"}, cbi("ntpc/ntpcmini", {autoapply=true}), _("Time Synchronisation"), 50)
+	page.i18n = "ntpc"
 	page.dependent = true
 end

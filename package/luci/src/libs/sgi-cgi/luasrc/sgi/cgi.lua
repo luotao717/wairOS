@@ -5,7 +5,7 @@ Description:
 Server Gateway Interface for CGI
 
 FileId:
-$Id: cgi.lua 6535 2010-11-23 01:02:21Z soma $
+$Id$
 
 License:
 Copyright 2008 Steven Barth <steven@midlink.org>

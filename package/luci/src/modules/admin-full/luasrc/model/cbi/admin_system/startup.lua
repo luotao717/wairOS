@@ -2,7 +2,7 @@
 LuCI - Lua Configuration Interface
 
 Copyright 2008 Steven Barth <steven@midlink.org>
-Copyright 2010-2012 Jo-Philipp Wich <xm@subsignal.org>
+Copyright 2010-2011 Jo-Philipp Wich <xm@subsignal.org>
 Copyright 2010 Manuel Munz <freifunk at somakoma dot de>
 
 Licensed under the Apache License, Version 2.0 (the "License");
@@ -11,7 +11,7 @@ You may obtain a copy of the License at
 
 	http://www.apache.org/licenses/LICENSE-2.0
 
-$Id: startup.lua 9672 2013-02-26 21:20:22Z dgolle $
+$Id$
 ]]--
 
 require "luci.fs"
@@ -24,13 +24,11 @@ for _, name in ipairs(luci.sys.init.names()) do
 	local index   = luci.sys.init.index(name)
 	local enabled = luci.sys.init.enabled(name)
 
-	if index < 255 then
-		inits["%02i.%s" % { index, name }] = {
-			name    = name,
-			index   = tostring(index),
-			enabled = enabled
-		}
-	end
+	inits["%02i.%s" % { index, name }] = {
+		name    = name,
+		index   = tostring(index),
+		enabled = enabled
+	}
 end
 
 

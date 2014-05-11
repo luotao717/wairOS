@@ -1,7 +1,7 @@
 --[[
 LuCI - Lua Configuration Interface
 
-Copyright 2011-2012 Jo-Philipp Wich <xm@subsignal.org>
+Copyright 2011 Jo-Philipp Wich <xm@subsignal.org>
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -14,7 +14,7 @@ local map, section, net = ...
 local ifc = net:get_interface()
 
 local hostname, accept_ra, send_rs
-local bcast, defaultroute, peerdns, dns, metric, clientid, vendorclass
+local bcast, no_gw, no_dns, dns, metric, clientid, vendorclass
 
 
 hostname = section:taboption("general", Value, "hostname",
@@ -24,6 +24,18 @@ hostname.placeholder = luci.sys.hostname()
 hostname.datatype    = "hostname"
 
 
+if luci.model.network:has_ipv6() then
+
+	accept_ra = s:taboption("general", Flag, "accept_ra", translate("Accept router advertisements"))
+	accept_ra.default = accept_ra.enabled
+
+
+	send_rs = s:taboption("general", Flag, "send_rs", translate("Send router solicitations"))
+	send_rs.default = send_rs.disabled
+	send_rs:depends("accept_ra", "")
+
+end
+
 bcast = section:taboption("advanced", Flag, "broadcast",
 	translate("Use broadcast flag"),
 	translate("Required for certain ISPs, e.g. Charter with DOCSIS 3"))
@@ -31,24 +43,50 @@ bcast = section:taboption("advanced", Flag, "broadcast",
 bcast.default = bcast.disabled
 
 
-defaultroute = section:taboption("advanced", Flag, "defaultroute",
+no_gw = section:taboption("advanced", Flag, "gateway",
 	translate("Use default gateway"),
 	translate("If unchecked, no default route is configured"))
 
-defaultroute.default = defaultroute.enabled
+no_gw.default = no_gw.enabled
+
+function no_gw.cfgvalue(...)
+	return Flag.cfgvalue(...) == "0.0.0.0" and "0" or "1"
+end
+
+function no_gw.write(self, section, value)
+	if value == "1" then
+		m:set(section, "gateway", nil)
+	else
+		m:set(section, "gateway", "0.0.0.0")
+	end
+end
 
 
-peerdns = section:taboption("advanced", Flag, "peerdns",
+no_dns = section:taboption("advanced", Flag, "_no_dns",
 	translate("Use DNS servers advertised by peer"),
 	translate("If unchecked, the advertised DNS server addresses are ignored"))
 
-peerdns.default = peerdns.enabled
+no_dns.default = no_dns.enabled
+
+function no_dns.cfgvalue(self, section)
+	local addr
+	for addr in luci.util.imatch(m:get(section, "dns")) do
+		return self.disabled
+	end
+	return self.enabled
+end
+
+function no_dns.remove(self, section)
+	return m:del(section, "dns")
+end
+
+function no_dns.write() end
 
 
 dns = section:taboption("advanced", DynamicList, "dns",
 	translate("Use custom DNS servers"))
 
-dns:depends("peerdns", "")
+dns:depends("_no_dns", "")
 dns.datatype = "ipaddr"
 dns.cast     = "string"
 
@@ -58,6 +96,7 @@ metric = section:taboption("advanced", Value, "metric",
 
 metric.placeholder = "0"
 metric.datatype    = "uinteger"
+metric:depends("gateway", "1")
 
 
 clientid = section:taboption("advanced", Value, "clientid",
@@ -68,7 +107,9 @@ vendorclass = section:taboption("advanced", Value, "vendorid",
 	translate("Vendor Class to send when requesting DHCP"))
 
 
-luci.tools.proto.opt_macaddr(section, ifc, translate("Override MAC address"))
+macaddr = section:taboption("advanced", Value, "macaddr", translate("Override MAC address"))
+macaddr.placeholder = ifc and ifc:mac() or "00:00:00:00:00:00"
+macaddr.datatype    = "macaddr"
 
 
 mtu = section:taboption("advanced", Value, "mtu", translate("Override MTU"))

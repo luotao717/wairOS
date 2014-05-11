@@ -4,7 +4,7 @@
 # Arg $1 = $net
 
 net=$1
-. /lib/functions.sh
+. /etc/functions.sh
 . $dir/functions.sh
 config_load firewall
 
@@ -45,11 +45,7 @@ network=$(echo $network) # Removes leading and trailing whitespaces
 
 [ -n "$netrenamed" ] && [ -z "$(echo $network | grep $netrenamed)" ] && network="$network $netrenamed"
 
-# check if this hardware supports VAPs
-supports_vap="0"
-$dir/helpers/supports_vap.sh $net $type && supports_vap=1
-
-if [ "$supports_vap" == "1" -a "$vap" == 1 ]; then
+if [ "$type" == "atheros" -a "$vap" == 1 ]; then
         [ -n "$netrenamed" ] && [ "$network" == "${network/${netrenamed}dhcp/}" ] && network="$network ${netrenamed}dhcp"
 fi
 

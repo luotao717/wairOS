@@ -30,8 +30,7 @@ msgid "Advanced Settings"
 msgstr "Configurações Avançadas"
 
 msgid "Allow adding forwards only to requesting ip addresses"
-msgstr ""
-"Permite adicionar encaminhamento apenas para o endereço IP requisitante"
+msgstr "Permite adicionar encaminhamento apenas para o endereço IP requisitante"
 
 msgid "Announced model number"
 msgstr "Número do modelo anunciado"
@@ -123,27 +122,25 @@ msgstr "Dispare os serviços de UPnP e NAT-PMP"
 msgid "There are no active redirects."
 msgstr "Não existe redirecionamentos ativos."
 
-msgid "UPNP"
-msgstr ""
-"<abbr title=\"Universal Plug and Play, Plugue e Use Universal\">UPnP</abbr>"
-
 msgid ""
 "UPNP allows clients in the local network to automatically configure the "
 "router."
 msgstr ""
-"UPnP permite os clientes da rede local configurem automaticamente o roteador."
+"UPnP permite os clientes da rede local configurem automaticamente o "
+"roteador."
 
 msgid ""
 "UPnP allows clients in the local network to automatically configure the "
 "router."
 msgstr ""
-"UPnP permite os clientes da rede local configurem automaticamente o roteador."
+"UPnP permite os clientes da rede local configurem automaticamente o "
+"roteador."
 
 msgid "UPnP lease file"
 msgstr "Arquivo de concessão do UPnP"
 
 msgid "Universal Plug & Play"
-msgstr "Plug & Play Universal"
+msgstr "Plug &amp; Play Universal"
 
 msgid "Uplink"
 msgstr "Velocidade de envio do enlace (uplink)"

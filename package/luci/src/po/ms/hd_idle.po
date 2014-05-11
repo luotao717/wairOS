@@ -12,13 +12,18 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid "Disk"
+msgid ""
+"hd-idle is a utility program for spinning-down external disks after a period "
+"of idle time."
+msgstr ""
+
+msgid "Settings"
 msgstr ""
 
 msgid "Enable"
 msgstr ""
 
-msgid "Enable debug"
+msgid "Disk"
 msgstr ""
 
 msgid "Idle-time"
@@ -27,21 +32,13 @@ msgstr ""
 msgid "Idle-time unit"
 msgstr ""
 
-msgid "Settings"
+# Minutes (not minimum)
+msgid "min"
 msgstr ""
 
 # Hours
 msgid "h"
 msgstr ""
 
-msgid "hd-idle"
-msgstr ""
-
-msgid ""
-"hd-idle is a utility program for spinning-down external disks after a period "
-"of idle time."
-msgstr ""
-
-# Minutes (not minimum)
-msgid "min"
+msgid "Enable debug"
 msgstr ""

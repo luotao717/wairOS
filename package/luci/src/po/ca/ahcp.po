@@ -1,116 +1,99 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
-"PO-Revision-Date: 2012-04-05 18:06+0200\n"
-"Last-Translator: Roger <roger.baig@gmail.com>\n"
-"Language-Team: none\n"
-"Language: ca\n"
-"MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
+"Project-Id-Version: PACKAGE VERSION\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"MIME-Version: 1.0\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.0.4\n"
 
 msgid "AHCP Server"
-msgstr "Servidor AHCP"
+msgstr ""
 
-# Minor misspelling corrections
 msgid ""
 "AHCP is an autoconfiguration protocol for IPv6 and dual-stack IPv6/IPv4 "
 "networks designed to be used in place of router discovery and DHCP on "
 "networks where it is difficult or impossible to configure a server within "
 "every link-layer broadcast domain, for example mobile ad-hoc networks."
 msgstr ""
-"AHCP és un protocol de configuració automàtica per IPv6 i xarxes de doble "
-"pila IPv6/IPv4 dissenyat per fer servir en lloc del descobriment de rutes i "
-"DHCP en xarxes on es difícil o impossible configurar un servidor per "
-"cadascuna de les capes d'enllaç de broadcast, per exemple xarxes mòbils ad-"
-"hoc."
 
-# apòstrof+acrònims http://ca.wikipedia.org/wiki/Ap%C3%B2strof#Observacions
 msgid "Active AHCP Leases"
-msgstr "Leases actius d'AHCP"
+msgstr ""
 
 msgid "Address"
-msgstr "Adreça"
+msgstr ""
 
 msgid "Advanced Settings"
-msgstr "Configuració avançada"
+msgstr ""
 
 msgid "Age"
 msgstr ""
 
 msgid "Announced DNS servers"
-msgstr "Servidors DNS anunciats"
+msgstr ""
 
 msgid "Announced NTP servers"
-msgstr "Servidors NTP anunciats"
+msgstr ""
 
 msgid "Announced prefixes"
-msgstr "Prefixos anunciats"
+msgstr ""
 
 msgid "Collecting data..."
-msgstr "Recopilant informació..."
+msgstr ""
 
 msgid "Forwarder"
-msgstr "Retransmissor"
+msgstr ""
 
 msgid "General Setup"
-msgstr "Configuració general"
+msgstr ""
 
 msgid "IPv4 and IPv6"
-msgstr "IPv4 i IPv6"
+msgstr ""
 
 msgid "IPv4 only"
-msgstr "Només IPv4"
+msgstr ""
 
 msgid "IPv6 only"
-msgstr "Només IPv6"
+msgstr ""
 
 msgid "Lease directory"
-msgstr "Directori de Lease"
+msgstr ""
 
 msgid "Lease validity time"
-msgstr "Temps vàlid de Lease"
+msgstr ""
 
 msgid "Log file"
-msgstr "Fitxer de log"
+msgstr ""
 
 msgid "Multicast address"
-msgstr "Adreça multicast"
+msgstr ""
 
 msgid "Operation mode"
-msgstr "Mode d'operació"
+msgstr ""
 
 msgid "Port"
-msgstr "Port"
+msgstr ""
 
 msgid "Protocol family"
-msgstr "Família de protocol"
+msgstr ""
 
 msgid "Served interfaces"
-msgstr "Interfícies servides"
+msgstr ""
 
 msgid "Server"
-msgstr "Servidor"
+msgstr ""
 
 msgid "Specifies the announced IPv4 and IPv6 NTP servers"
-msgstr "Especifica els servidors NTP IPv4 i IPv6 anunciats"
+msgstr ""
 
 msgid "Specifies the announced IPv4 and IPv6 name servers"
-msgstr "Especifica els servidors de noms IPv4 i IPv6 anunciats"
+msgstr ""
 
 msgid "Specifies the announced IPv4 and IPv6 network prefixes in CIDR notation"
-msgstr "Especifica els prefixos de xarxa IPv4 i IPv6 anunciats en notació CIDR"
-
-msgid "The AHCP Service is not running."
-msgstr "El servidor AHCP no està corrent."
-
-msgid "The AHCP Service is running with ID %s."
-msgstr "El servidor AHCP està corrent amb ID %s."
+msgstr ""
 
 msgid "There are no active leases."
-msgstr "No hi ha Leases actius."
+msgstr ""
 
 msgid "Unique ID file"
-msgstr "Fitxer ID únic"
+msgstr ""

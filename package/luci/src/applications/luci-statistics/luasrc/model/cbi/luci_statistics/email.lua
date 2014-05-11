@@ -9,7 +9,7 @@ You may obtain a copy of the License at
 
         http://www.apache.org/licenses/LICENSE-2.0
 
-$Id: email.lua 7987 2011-11-28 04:19:38Z jow $
+$Id$
 
 ]]--
 
@@ -31,19 +31,19 @@ enable = s:option( Flag, "enable", translate("Enable this plugin") )
 enable.default = 0
 
 -- collectd_email.socketfile (SocketFile)
-socketfile = s:option( Value, "SocketFile", translate("Socket file") )
+socketfile = s:option( Value, "SocketFile" )
 socketfile.default = "/var/run/collect-email.sock"
 socketfile:depends( "enable", 1 )
 
 -- collectd_email.socketgroup (SocketGroup)
-socketgroup = s:option( Value, "SocketGroup", translate("Socket group") )
+socketgroup = s:option( Value, "SocketGroup" )
 socketgroup.default  = "nobody"
 socketgroup.rmempty  = true
 socketgroup.optional = true
 socketgroup:depends( "enable", 1 )
 
 -- collectd_email.socketperms (SocketPerms)
-socketperms = s:option( Value, "SocketPerms", translate("Socket permissions") )
+socketperms = s:option( Value, "SocketPerms" )
 socketperms.default  = "0770"
 socketperms.rmempty  = true
 socketperms.optional = true

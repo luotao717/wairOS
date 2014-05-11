@@ -5,7 +5,7 @@ Description:
 Server Gateway Interface for WSAPI
 
 FileId:
-$Id: wsapi.lua 2656 2008-07-23 18:52:12Z Cyrus $
+$Id$
 
 License:
 Copyright 2008 Steven Barth <steven@midlink.org>

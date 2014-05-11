@@ -9,13 +9,11 @@ You may obtain a copy of the License at
 
 	http://www.apache.org/licenses/LICENSE-2.0
 
-$Id: wifi.lua 9558 2012-12-18 13:58:22Z jow $
+$Id$
 ]]--
 
 local wa = require "luci.tools.webadmin"
 local nw = require "luci.model.network"
-local ut = require "luci.util"
-local nt = require "luci.sys".net
 local fs = require "nixio.fs"
 
 arg[1] = arg[1] or ""
@@ -166,7 +164,7 @@ if has_sta then
 else
 	ch = s:taboption("general", Value, "channel", translate("Channel"))
 	ch:value("auto", translate("auto"))
-	for _, f in ipairs(iw and iw.freqlist or { }) do
+	for _, f in ipairs(iw and iw.freqlist or luci.sys.wifi.channels()) do
 		if not f.restricted then
 			ch:value(f.channel, "%i (%.3f GHz)" %{ f.channel, f.mhz / 1000 })
 		end
@@ -176,19 +174,20 @@ end
 ------------------- MAC80211 Device ------------------
 
 if hwtype == "mac80211" then
-	if #tx_power_list > 1 then
-		tp = s:taboption("general", ListValue,
-			"txpower", translate("Transmit Power"), "dBm")
-		tp.rmempty = true
-		tp.default = tx_power_cur
-		function tp.cfgvalue(...)
-			return txpower_current(Value.cfgvalue(...), tx_power_list)
-		end
+	tp = s:taboption("general",
+		(#tx_power_list > 0) and ListValue or Value,
+		"txpower", translate("Transmit Power"), "dBm")
 
-		for _, p in ipairs(tx_power_list) do
-			tp:value(p.driver_dbm, "%i dBm (%i mW)"
-				%{ p.display_dbm, p.display_mw })
-		end
+	tp.rmempty = true
+	tp.default = tx_power_cur
+
+	function tp.cfgvalue(...)
+		return txpower_current(Value.cfgvalue(...), tx_power_list)
+	end
+
+	for _, p in ipairs(tx_power_list) do
+		tp:value(p.driver_dbm, "%i dBm (%i mW)"
+			%{ p.display_dbm, p.display_mw })
 	end
 
 	mode = s:taboption("advanced", ListValue, "hwmode", translate("Mode"))
@@ -208,12 +207,6 @@ if hwtype == "mac80211" then
 		htmode:value("HT40-", translate("40MHz 2nd channel below"))
 		htmode:value("HT40+", translate("40MHz 2nd channel above"))
 
-		noscan = s:taboption("advanced", Flag, "noscan", translate("Force 40MHz mode"),
-			translate("Always use 40MHz channels even if the secondary channel overlaps. Using this option does not comply with IEEE 802.11n-2009!"))
-		noscan:depends("htmode", "HT40+")
-		noscan:depends("htmode", "HT40-")
-		noscan.default = noscan.disabled
-
 		--htcapab = s:taboption("advanced", DynamicList, "ht_capab", translate("HT capabilities"))
 		--htcapab:depends("hwmode", "11na")
 		--htcapab:depends("hwmode", "11ng")
@@ -232,18 +225,6 @@ if hwtype == "mac80211" then
 
 	s:taboption("advanced", Value, "distance", translate("Distance Optimization"),
 		translate("Distance to farthest network member in meters."))
-
-	-- external antenna profiles
-	local eal = iw and iw.extant
-	if eal and #eal > 0 then
-		ea = s:taboption("advanced", ListValue, "extant", translate("Antenna Configuration"))
-		for _, eap in ipairs(eal) do
-			ea:value(eap.id, "%s (%s)" %{ eap.name, eap.description })
-			if eap.selected then
-				ea.default = eap.id
-			end
-		end
-	end
 
 	s:taboption("advanced", Value, "frag", translate("Fragmentation Threshold"))
 	s:taboption("advanced", Value, "rts", translate("RTS/CTS Threshold"))
@@ -402,13 +383,13 @@ mode:value("adhoc", translate("Ad-Hoc"))
 bssid = s:taboption("general", Value, "bssid", translate("<abbr title=\"Basic Service Set Identifier\">BSSID</abbr>"))
 
 network = s:taboption("general", Value, "network", translate("Network"),
-	translate("Choose the network(s) you want to attach to this wireless interface or " ..
-		"fill out the <em>create</em> field to define a new network."))
+	translate("Choose the network you want to attach to this wireless interface. " ..
+		"Select <em>unspecified</em> to not attach any network or fill out the " ..
+		"<em>create</em> field to define a new network."))
 
 network.rmempty = true
 network.template = "cbi/network_netlist"
-network.widget = "checkbox"
-network.novirtual = true
+network.widget = "radio"
 
 function network.write(self, section, value)
 	local i = nw:get_interface(section)
@@ -423,18 +404,10 @@ function network.write(self, section, value)
 				if n then n:del_interface(i) end
 			end
 		else
-			local v
-			for _, v in ipairs(i:get_networks()) do
-				v:del_interface(i)
-			end
-			for v in ut.imatch(value) do
-				local n = nw:get_network(v)
-				if n then
-					if not n:is_empty() then
-						n:set("type", "bridge")
-					end
-					n:add_interface(i)
-				end
+			local n = nw:get_network(value)
+			if n then
+				n:set("type", "bridge")
+				n:add_interface(i)
 			end
 		end
 	end
@@ -464,7 +437,6 @@ if hwtype == "mac80211" then
 	ml.datatype = "macaddr"
 	ml:depends({macfilter="allow"})
 	ml:depends({macfilter="deny"})
-	nt.mac_hints(function(mac, name) ml:value(mac, "%s (%s)" %{ mac, name }) end)
 
 	mode:value("ap-wds", "%s (%s)" % {translate("Access Point"), translate("WDS")})
 	mode:value("sta-wds", "%s (%s)" % {translate("Client"), translate("WDS")})
@@ -498,11 +470,6 @@ if hwtype == "mac80211" then
 	hidden = s:taboption("general", Flag, "hidden", translate("Hide <abbr title=\"Extended Service Set Identifier\">ESSID</abbr>"))
 	hidden:depends({mode="ap"})
 	hidden:depends({mode="ap-wds"})
-
-	wmm = s:taboption("general", Flag, "wmm", translate("WMM Mode"))
-	wmm:depends({mode="ap"})
-	wmm:depends({mode="ap-wds"})
-	wmm.default = wmm.enabled
 end
 
 
@@ -569,7 +536,6 @@ if hwtype == "atheros" then
 	ml.datatype = "macaddr"
 	ml:depends({macpolicy="allow"})
 	ml:depends({macpolicy="deny"})
-	nt.mac_hints(function(mac, name) ml:value(mac, "%s (%s)" %{ mac, name }) end)
 
 	s:taboption("advanced", Value, "rate", translate("Transmission Rate"))
 	s:taboption("advanced", Value, "mcast_rate", translate("Multicast Rate"))
@@ -643,7 +609,6 @@ if hwtype == "prism2" then
 	ml = s:taboption("macfilter", DynamicList, "maclist", translate("MAC-List"))
 	ml:depends({macpolicy="allow"})
 	ml:depends({macpolicy="deny"})
-	nt.mac_hints(function(mac, name) ml:value(mac, "%s (%s)" %{ mac, name }) end)
 
 	s:taboption("advanced", Value, "rate", translate("Transmission Rate"))
 	s:taboption("advanced", Value, "frag", translate("Fragmentation Threshold"))
@@ -724,8 +689,8 @@ if hwtype == "atheros" or hwtype == "mac80211" or hwtype == "prism2" then
 	local supplicant = fs.access("/usr/sbin/wpa_supplicant")
 	local hostapd = fs.access("/usr/sbin/hostapd")
 
-	-- Probe EAP support
-	local has_ap_eap  = (os.execute("hostapd -veap >/dev/null 2>/dev/null") == 0)
+	-- Probe EAP support                                                                                                
+	local has_ap_eap  = (os.execute("hostapd -veap >/dev/null 2>/dev/null") == 0)                                                        
 	local has_sta_eap = (os.execute("wpa_supplicant -veap >/dev/null 2>/dev/null") == 0)
 
 	if hostapd and supplicant then

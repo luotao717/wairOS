@@ -14,7 +14,7 @@ local map, section, net = ...
 
 local encaps, atmdev, vci, vpi, username, password
 local ipv6, defaultroute, metric, peerdns, dns,
-      keepalive_failure, keepalive_interval, demand, mtu
+      keepalive_failure, keepalive_interval, demand
 
 
 encaps = section:taboption("general", ListValue, "encaps", translate("PPPoA Encapsulation"))
@@ -135,8 +135,3 @@ demand = section:taboption("advanced", Value, "demand",
 
 demand.placeholder = "0"
 demand.datatype    = "uinteger"
-
-
-mtu = section:taboption("advanced", Value, "mtu", translate("Override MTU"))
-mtu.placeholder = "1500"
-mtu.datatype    = "max(1500)"

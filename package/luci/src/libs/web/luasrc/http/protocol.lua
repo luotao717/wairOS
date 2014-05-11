@@ -9,7 +9,7 @@ You may obtain a copy of the License at
 
         http://www.apache.org/licenses/LICENSE-2.0
 
-$Id: protocol.lua 9195 2012-08-29 13:06:58Z jow $
+$Id$
 
 ]]--
 
@@ -434,21 +434,23 @@ function mimedecode_message_body( src, msg, filecb )
 			until not spos
 
 			if found then
-				-- We found at least some boundary. Save
-				-- the unparsed remaining data for the
-				-- next chunk.
-				lchunk, data = data, nil
+				if #data > 78 then
+					lchunk = data:sub( #data - 78 + 1, #data )
+					data   = data:sub( 1, #data - 78 )
+
+					if store then
+						store( field, data, false )
+					else
+						return nil, "Invalid MIME section header"
+					end
+				else
+					lchunk, data = data, nil
+				end
 			else
-				-- There was a complete chunk without a boundary. Parse it as headers or
-				-- append it as data, depending on our current state.
 				if inhdr then
 					lchunk, eof = parse_headers( data, field )
 					inhdr = not eof
 				else
-					-- We're inside data, so append the data. Note that we only append
-					-- lchunk, not all of data, since there is a chance that chunk
-					-- contains half a boundary. Assuming that each chunk is at least the
-					-- boundary in size, this should prevent problems
 					store( field, lchunk, false )
 					lchunk, chunk = chunk, nil
 				end

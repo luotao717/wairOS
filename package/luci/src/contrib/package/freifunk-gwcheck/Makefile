@@ -4,7 +4,7 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=freifunk-gwcheck
-PKG_RELEASE:=2
+PKG_RELEASE:=1
 
 PKG_BUILD_DIR := $(BUILD_DIR)/$(PKG_NAME)
 
@@ -34,7 +34,6 @@ endef
 
 define Package/freifunk-gwcheck/install
 	$(CP) ./files/* $(1)/
-	$(CP) ./root/* $(1)/
 endef
 
 $(eval $(call BuildPackage,freifunk-gwcheck))

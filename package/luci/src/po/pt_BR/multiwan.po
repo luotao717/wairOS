@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"PO-Revision-Date: 2012-11-11 04:01+0200\n"
+"PO-Revision-Date: 2011-10-18 20:39+0200\n"
 "Last-Translator: Luiz Angelo <luizluca@gmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
@@ -9,19 +9,16 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Pootle 2.0.6\n"
+"X-Generator: Pootle 2.0.4\n"
 
 msgid "Attempts Before WAN Failover"
-msgstr "Tentativas Antes da Solução de Contorno da WAN"
+msgstr "Tentativas Antes do Contorno à Falha na WAN"
 
 msgid "Attempts Before WAN Recovery"
 msgstr "Tentativas Antes da Recuperação da WAN"
 
 msgid "Auto"
 msgstr "Automático"
-
-msgid "Collecting data..."
-msgstr "Coletando dados..."
 
 msgid ""
 "Configure rules for directing outbound traffic through specified WAN Uplinks."
@@ -44,9 +41,6 @@ msgstr "Desabilitar"
 msgid "Enable"
 msgstr "Habilitar"
 
-msgid "Failing"
-msgstr "Falha"
-
 msgid "Failover Traffic Destination"
 msgstr "Destino do Tráfego para a Recuperação"
 
@@ -65,9 +59,6 @@ msgstr ""
 "O Monitoramento da Saúde detecta e corrige as mudanças de rede e falhas nas "
 "conexões."
 
-msgid "KO"
-msgstr "KO"
-
 msgid "Load Balancer Distribution"
 msgstr "Distribuição do Balanceador de Carga"
 
@@ -79,9 +70,6 @@ msgstr "Balanceador de Carga(Desempenho)"
 
 msgid "Multi-WAN"
 msgstr "Multi-WAN"
-
-msgid "Multi-WAN Status"
-msgstr "Status de Multi-WAN"
 
 msgid "Multi-WAN Traffic Rules"
 msgstr "Regras de Tráfego Multi-WAN"
@@ -96,23 +84,14 @@ msgstr ""
 msgid "None"
 msgstr "Nenhum"
 
-msgid "OK"
-msgstr "OK"
-
 msgid "Ports"
 msgstr "Portas"
 
 msgid "Protocol"
 msgstr "Procotolo"
 
-msgid "Recovering"
-msgstr "Recuperação"
-
 msgid "Source Address"
 msgstr "Endereço de Origem"
-
-msgid "Unknown"
-msgstr "Desconhecido"
 
 msgid "WAN Interfaces"
 msgstr "Interfaces WAN"

@@ -17,17 +17,22 @@
 -%>
 
 <% if zone then %>
-<div style="white-space:nowrap">
-	<label class="zonebadge" style="background-color:<%=zone:get_color()%>">
+<div style="padding:0.5em">
+	<label style="background-color:<%=zone:get_color()%>; padding:0.4em">
 		<strong><%=zone:name()%>:</strong>
-		<%-
+		<%
 			local zempty = true
 			for _, net in ipairs(zone:get_networks()) do
 				net = nwm:get_network(net)
 				if net then
 					zempty = false
-		-%>
-			<span class="ifacebadge<% if net:name() == self.network then %> ifacebadge-active<% end %>"><%=net:name()%>:
+		%>
+			&#160;
+			<%- if net:name() == self.network then -%>
+				<span style="background-color:#FFFFFF; border:1px solid #000000; padding:2px; font-weight:bold"><%=net:name()%>:
+			<%- else -%>
+				<span style="background-color:#FFFFFF; border:1px solid #CCCCCC; padding:2px"><%=net:name()%>:
+			<%- end -%>
 			<%
 				local nempty = true
 				for _, iface in ipairs(net:is_bridge() and net:get_interfaces() or { net:get_interface() }) do
@@ -37,20 +42,20 @@
 			<% end %>
 			<% if nempty then %><em><%:(empty)%></em><% end %>
 			</span>
-		<%- end end -%>
-		<%- if zempty then %><em><%:(empty)%></em><% end -%>
+		<% end end %>
+		<% if zempty then %><em><%:(empty)%></em><% end %>
 	</label>
 	&#160;&#8658;&#160;
 	<% for _, fwd in ipairs(zone:get_forwardings_by("src")) do
 		fz = fwd:dest_zone()
 		empty = false %>
-		<label class="zonebadge" style="background-color:<%=fz:get_color()%>">
+		<label style="background-color:<%=fz:get_color()%>; padding:0.4em">
 			<strong><%=fz:name()%></strong>
 		</label>&#160;
 	<% end %>
 	<% if empty then %>
-		<label class="zonebadge zonebadge-empty">
-			<strong><%=zone:forward():upper()%></strong>
+		<label style="border:1px dashed #AAAAAA; color:#AAAAAA; padding:0.3em">
+			<strong><small><em><%=zone:forward():upper()%></em></small></strong>
 		</label>
 	<% end %>
 </div>

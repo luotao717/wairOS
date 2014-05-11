@@ -9,13 +9,13 @@ You may obtain a copy of the License at
 
         http://www.apache.org/licenses/LICENSE-2.0
 
-$Id: interface.lua 8311 2012-02-19 15:11:23Z stargieg $
+$Id$
 
 ]]--
 
 module("luci.statistics.rrdtool.definitions.interface", package.seeall)
 
-function rrdargs( graph, plugin, plugin_instance )
+function rrdargs( graph, host, plugin, plugin_instance )
 
 	--
 	-- traffic diagram
@@ -24,8 +24,6 @@ function rrdargs( graph, plugin, plugin_instance )
 
 		-- draw this diagram for each data instance
 		per_instance = true,
-		title = "%H: Transfer on %di",
-		vlabel = "Bytes/s",
 
 		-- diagram data description
 		data = {
@@ -38,15 +36,13 @@ function rrdargs( graph, plugin, plugin_instance )
 			options = {
 				if_octets__tx = {
 					total = true,		-- report total amount of bytes
-					color = "00ff00",	-- tx is green
-					title = "Bytes (TX)"
+					color = "00ff00"	-- tx is green
 				},
 
 				if_octets__rx = {
 					flip  = true,		-- flip rx line
 					total = true,		-- report total amount of bytes
-					color = "0000ff",	-- rx is blue
-					title = "Bytes (RX)"
+					color = "0000ff"	-- rx is blue
 				}
 			}
 		}
@@ -60,8 +56,6 @@ function rrdargs( graph, plugin, plugin_instance )
 
 		-- draw this diagram for each data instance
 		per_instance = true,
-		title = "%H: Packets on %di",
-		vlabel = "Packets/s",
 
 		-- diagram data description
 		data = {
@@ -80,8 +74,7 @@ function rrdargs( graph, plugin, plugin_instance )
 				if_packets__tx = {
 					overlay = true,		-- don't summarize
 					total   = true,		-- report total amount of bytes
-					color   = "00ff00",	-- processed tx is green
-					title	= "Processed (tx)"
+					color   = "00ff00"	-- processed tx is green
 				},
 
 				-- processed packets (rx DS)
@@ -89,16 +82,14 @@ function rrdargs( graph, plugin, plugin_instance )
 					overlay = true,		-- don't summarize
 					flip    = true,		-- flip rx line
 					total   = true,		-- report total amount of bytes
-					color   = "0000ff",	-- processed rx is blue
-					title	= "Processed (rx)"
+					color   = "0000ff"	-- processed rx is blue
 				},
 
 				-- packet errors (tx DS)
 				if_errors__tx = {
 					overlay = true,		-- don't summarize
 					total   = true,		-- report total amount of packets
-					color   = "ff5500",	-- tx errors are orange
-					title	= "Errors (tx)"
+					color   = "ff5500"	-- tx errors are orange
 				},
 
 				-- packet errors (rx DS)
@@ -106,8 +97,7 @@ function rrdargs( graph, plugin, plugin_instance )
 					overlay = true,		-- don't summarize
 					flip    = true,		-- flip rx line
 					total   = true,		-- report total amount of packets
-					color   = "ff0000",	-- rx errors are red
-					title	= "Errors (rx)"
+					color   = "ff0000"	-- rx errors are red
 				}
 			}
 		}

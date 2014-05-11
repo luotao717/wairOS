@@ -3,24 +3,22 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-06-10 03:41+0200\n"
-"PO-Revision-Date: 2012-09-02 08:33+0200\n"
-"Last-Translator: José Vicente <josevteg@gmail.com>\n"
+"PO-Revision-Date: 2009-07-17 06:24+0200\n"
+"Last-Translator: Guillermo Javier Nardoni <guillermo@geryon.com.ar>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.0.6\n"
+"X-Generator: Pootle 1.1.0\n"
 
 msgid "Advanced Settings"
-msgstr "Configuración Avanzada"
+msgstr ""
 
 msgid "Allowed clients"
 msgstr "Clientes permitos"
 
 msgid "Always use system DNS resolver"
-msgstr "Usar siempre el DNS del sistema"
+msgstr ""
 
 msgid ""
 "Basic HTTP authentication supported. Provide username and password in "
@@ -29,35 +27,32 @@ msgstr ""
 "Autenticación soportada: Basic HTTP. Provee del nombre de usuario y "
 "contraseña in el formato username:password."
 
-msgid "Configuration"
-msgstr "Configuración"
-
 msgid "DNS and Query Settings"
-msgstr "Configuración de DNS y consultas"
+msgstr ""
 
 msgid "DNS server address"
 msgstr "Dirección del servidor DNS"
 
 msgid "Delete cache files time"
-msgstr "Tiempo para eliminar archivos de cache"
+msgstr "Timpo para eliminar archivos de cache"
 
 msgid "Disk cache location"
 msgstr "Ubicación de la caché de disco"
 
 msgid "Do not query IPv6"
-msgstr "No consultar IPv6"
+msgstr ""
 
 msgid "Enable if cache (proxy) is shared by multiple users."
-msgstr "Activar si la cache (proxy) es compartida por múltiples usuarios."
+msgstr "Activar si la cache (proxy) is compartida por multiples usuarios."
 
 msgid "First PMM segment size (in bytes)"
-msgstr "Tamaño del primer segmento PMM (en bytes)"
+msgstr "Tamaño del primer segmento PMM  (en bytes)"
 
 msgid "General Settings"
-msgstr "Configuración general"
+msgstr ""
 
 msgid "How much RAM should Polipo use for its cache."
-msgstr "Cuánta RAM debe usar Polipo como caché."
+msgstr "Cuánta RAM Polipo utilizará para este tipo de cache?."
 
 msgid "In RAM cache size (in bytes)"
 msgstr "Tamaño (en bytes) de la cache en RAM"
@@ -66,28 +61,28 @@ msgid "Listen address"
 msgstr "Dirección de escucha"
 
 msgid "Listen port"
-msgstr "Puerto de escucha"
+msgstr "Puerto de escucha:"
 
 msgid ""
 "Location where polipo will cache files permanently. Use of external storage "
 "devices is recommended, because the cache can grow considerably. Leave it "
 "empty to disable on-disk cache."
 msgstr ""
-"Ubicación en la que Polipo creará archivos permanentemente. Se recomienda el "
-"uso de dispositivos de almacenamiento externo, ya que la caché puede "
-"aumentar considerablemente. Deje en blanco para desactivar la caché en disco."
+"Ubicación donde polipo creará archivos permanentemente. Se recomienda el uso "
+"de dispositivos de almacenamiento externo, ya que la cache puede aumentar "
+"considerablemente. Deje en blanco para desactivar la cache en disco"
 
 msgid "Log file location"
-msgstr "Ubicación del archivo de registro"
+msgstr "Ubicación del archivo de Log"
 
 msgid "Log to syslog"
-msgstr "Registrar en syslog"
+msgstr "Loguear al sistema Syslog"
 
 msgid "Logging and RAM"
-msgstr "Registro y RAM"
+msgstr ""
 
 msgid "Never use system DNS resolver"
-msgstr "Nunca usar el DNS del sistema"
+msgstr ""
 
 msgid "On-Disk Cache"
 msgstr "Cache en disco"
@@ -96,32 +91,29 @@ msgid "PMM segments size (in bytes)"
 msgstr "Tamaño de segmentos PMM (en bytes)"
 
 msgid "Parent Proxy"
-msgstr "Proxy padre"
+msgstr ""
 
 msgid "Parent proxy address"
-msgstr "Dirección del proxy padre"
+msgstr "Dirección padre de proxy"
 
 msgid ""
 "Parent proxy address (in host:port format), to which Polipo will forward the "
 "requests."
 msgstr ""
-"Dirección del proxy padre (en formato máquina:puerto), al cual Polipo "
-"traspasará las peticiones."
+"Dirección padre del proxy (en formato host:port), al cual Polipo hará "
+"forward de las peticiones."
 
 msgid "Parent proxy authentication"
-msgstr "Autentificación con el proxy padre"
+msgstr "Padre(s) de proxy de autenticación "
 
 msgid "Polipo"
 msgstr "Polipo"
 
-msgid "Polipo Status"
-msgstr "Estado de Polipo"
-
 msgid "Polipo is a small and fast caching web proxy."
-msgstr "Polipo es un servidor proxy web pequeño y rápido."
+msgstr "Polipo es un rápido y pequeño servidor proxy de web."
 
 msgid "Poor Man's Multiplexing"
-msgstr "Multiplexación Poor Man's"
+msgstr "Poor Man&amp;#39;s Multiplexing"
 
 msgid ""
 "Poor Man's Multiplexing (PMM) is a technique that simulates multiplexing by "
@@ -129,39 +121,37 @@ msgid ""
 "caused by the weakness of HTTP protocol. NOTE: some sites may not work with "
 "PMM enabled."
 msgstr ""
-"La Multiplexación Poor Man's (PMM) simula multiplexación solicitando una "
-"instancia en múltiples segmentos. Intenta reducir la latencia provocada por "
-"la debilidad del protocolo HTTP. NOTA: algunos sitios pueden no funcionar "
-"con PMM habilitado."
+"Poor Man&amp;#39;s Multiplexing (PMM) es una técnica de multiplexación que "
+"simula una instancia solicitando en varios segmentos. Se intenta reducir la "
+"latencia provocada por la debilidad del protocolo HTTP. NOTA: algunos sitios "
+"pueden no funcionar con PMM habilitado."
 
 msgid "Port on which Polipo will listen"
-msgstr "Puerto de escucha de Polipo"
+msgstr ""
 
 msgid "Proxy"
-msgstr "Proxy"
+msgstr ""
 
 msgid "Query DNS by hostname"
-msgstr "Consultar DNS por nombre de máquina"
+msgstr "Consultar DNS por nombre de host"
 
 msgid "Query DNS directly, fallback to system resolver"
-msgstr "Consultar DNS directamente y si falla probar con el del sistema"
+msgstr ""
 
 msgid "Query DNS directly, for unknown hosts fall back to system resolver"
 msgstr ""
-"Consultar DNS directamente y para máquinas desconocidas probar con el del "
-"sistema"
 
 msgid "Query DNS for IPv6"
 msgstr "Consulta DNS para IPv6"
 
 msgid "Query IPv4 and IPv6, prefer IPv4"
-msgstr "Consultar IPv4 e IPv6, pero mejor IPv4"
+msgstr ""
 
 msgid "Query IPv4 and IPv6, prefer IPv6"
-msgstr "Consultar IPv4 e IPv6, pero mejor IPv6"
+msgstr ""
 
 msgid "Query only IPv6"
-msgstr "Consultar solo IPv6"
+msgstr ""
 
 msgid ""
 "Set the DNS server address to use, if you want Polipo to use different DNS "
@@ -182,36 +172,32 @@ msgstr ""
 "defecto es el doble del tamaño del segmento PMM."
 
 msgid "Size to which cached files should be truncated"
-msgstr "Tamaño máximo de los ficheros caché"
-
-msgid "Status"
-msgstr "Estado"
+msgstr ""
 
 msgid "Syslog facility"
-msgstr "Utilidad Syslog"
+msgstr "Falicidad Syslog"
 
 msgid ""
 "The interface on which Polipo will listen. To listen on all interfaces use "
 "0.0.0.0 or :: (IPv6)."
 msgstr ""
-"Interfaz de escucha de Polipo. Para hacerlo en todas utilice 0.0.0.0 o :: "
-"(IPv6)."
+"La interface en la cual Polipo escuchará. Para escuchar en todas las "
+"interfaces utilice 0.0.0.0 o :: (IPv6)."
 
 msgid "Time after which cached files will be deleted"
-msgstr "Tiempo tras el que se borrarán los ficheros en caché"
+msgstr ""
 
 msgid "Time after which cached files will be truncated"
-msgstr "Tiempo tras el que se truncarán los ficheros en caché"
+msgstr ""
 
 msgid "To enable PMM, PMM segment size must be set to some positive value."
 msgstr ""
-"Para activar PMM, el tamaño de segmento PMM debe tener un valor positivo."
 
 msgid "Truncate cache files size (in bytes)"
 msgstr "Truncar el tamaño del archivo de la cache (en bytes)"
 
 msgid "Truncate cache files time"
-msgstr "Truncar tiempos en el archivo de cache"
+msgstr "Truncar tiempo del archivo de cache "
 
 msgid ""
 "Use of external storage device is recommended, because the log file is "
@@ -226,12 +212,9 @@ msgid ""
 "that are allowed to connect. The format is IP address or network address "
 "(192.168.1.123, 192.168.1.0/24, 2001:660:116::/48 (IPv6))"
 msgstr ""
-"Si la dirección de escucha es 0.0.0.0 o :: (IPv6), debe listar a los "
-"clientes a los que se permitirá conectar. El formato es dirección IP o "
-"dirección de red (192.168.1.123, 192.168.1.0/24, 2001:660:116::/48 (IPv6))"
 
 msgid "enable"
-msgstr "activar"
+msgstr ""
 
 #~ msgid ""
 #~ "To enable polipo on-disk cache cleaning (highly recommended), you should "

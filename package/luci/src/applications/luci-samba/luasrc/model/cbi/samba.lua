@@ -10,7 +10,7 @@ You may obtain a copy of the License at
 
 	http://www.apache.org/licenses/LICENSE-2.0
 
-$Id: samba.lua 6984 2011-04-13 15:14:42Z soma $
+$Id$
 ]]--
 
 m = Map("samba", translate("Network Shares"))

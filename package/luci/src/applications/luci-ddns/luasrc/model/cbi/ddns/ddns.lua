@@ -10,10 +10,8 @@ You may obtain a copy of the License at
 
 	http://www.apache.org/licenses/LICENSE-2.0
 
-$Id: ddns.lua 9558 2012-12-18 13:58:22Z jow $
+$Id$
 ]]--
-
-require("luci.tools.webadmin")
 
 local is_mini = (luci.dispatcher.context.path[1] == "mini")
 
@@ -28,10 +26,6 @@ s.addremove = true
 s.anonymous = false
 
 s:option(Flag, "enabled", translate("Enable"))
-
-interface = s:option(ListValue, "interface", translate("Event interface"), translate("On which interface up should start the ddns script process."))
-luci.tools.webadmin.cbi_add_networks(interface)
-interface.default = "wan"
 
 svc = s:option(ListValue, "service_name", translate("Service"))
 svc.rmempty = false
@@ -87,6 +81,7 @@ if is_mini then
 	s.defaults.ip_source = "network"
 	s.defaults.ip_network = "wan"
 else
+	require("luci.tools.webadmin")
 
 	src = s:option(ListValue, "ip_source",
 		translate("Source of IP address"))
@@ -112,19 +107,14 @@ else
 end
 
 
-ci = s:option(Value, "check_interval", translate("Check for changed IP every"))
-ci.datatype = "and(uinteger,min(1))"
-ci.default = 10
-
+s:option(Value, "check_interval",
+	translate("Check for changed IP every")).default = 10
 unit = s:option(ListValue, "check_unit", translate("Check-time unit"))
 unit.default = "minutes"
 unit:value("minutes", translate("min"))
 unit:value("hours", translate("h"))
 
-fi = s:option(Value, "force_interval", translate("Force update every"))
-fi.datatype = "and(uinteger,min(1))"
-fi.default = 72
-
+s:option(Value, "force_interval", translate("Force update every")).default = 72
 unit = s:option(ListValue, "force_unit", translate("Force-time unit"))
 unit.default = "hours"
 unit:value("minutes", translate("min"))

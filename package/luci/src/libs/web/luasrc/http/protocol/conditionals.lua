@@ -9,7 +9,7 @@ You may obtain a copy of the License at
 
         http://www.apache.org/licenses/LICENSE-2.0
 
-$Id: conditionals.lua 5637 2009-12-20 18:35:05Z jow $
+$Id$
 
 ]]--
 

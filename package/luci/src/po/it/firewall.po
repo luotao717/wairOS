@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-03-30 17:00+0200\n"
-"PO-Revision-Date: 2012-04-19 23:05+0200\n"
-"Last-Translator: claudyus <claudyus84@gmail.com>\n"
+"PO-Revision-Date: 2011-05-17 23:10+0200\n"
+"Last-Translator: coatto87 <coatto87@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -13,56 +13,36 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.4\n"
 
-msgid "%s in %s"
-msgstr ""
-
-msgid "%s%s with %s"
-msgstr "%s%s con %s"
-
-msgid "%s, %s in %s"
-msgstr ""
-
-msgid "(Unnamed Entry)"
-msgstr ""
-
-msgid "(Unnamed Rule)"
-msgstr ""
-
-msgid "(Unnamed SNAT)"
-msgstr ""
-
-msgid "-- Please choose --"
-msgstr " -- Selezionare --"
-
-msgid "-- custom --"
-msgstr " -- personalizzata --"
-
-msgid "<var>%d</var> pkts. per <var>%s</var>"
-msgstr ""
-
-msgid "<var>%d</var> pkts. per <var>%s</var>, burst <var>%d</var> pkts."
-msgstr ""
-
-msgid "<var>%s</var> and limit to %s"
-msgstr "<var>%s</var> e limita a %s"
+msgid "(optional)"
+msgstr "(facoltativo)"
 
 msgid "Action"
 msgstr "Azione"
 
-msgid "Add"
-msgstr "Aggiungi"
+msgid "Advanced Options"
+msgstr "Opzioni Avanzate"
 
-msgid "Add and edit..."
-msgstr "Aggiungi e edita..."
+msgid "Advanced Rules"
+msgstr "Regole Avanzate"
 
 msgid "Advanced Settings"
 msgstr "Opzioni Avanzate"
 
+msgid ""
+"Advanced rules let you customize the firewall to your needs. Only new "
+"connections will be matched. Packets belonging to already open connections "
+"are automatically allowed to pass the firewall."
+msgstr ""
+"Le regole avanzate consentono di personalizzare il firewall per le tue "
+"necessità. Solo le nuove connessioni saranno combinate. I pacchetti "
+"appartenenti alle connessioni già aperte sono automaticamente autorizzate ad "
+"oltrepassare il firewall."
+
 msgid "Allow forward from <em>source zones</em>:"
-msgstr "Permetti routing da <em>zone di origini</em>:"
+msgstr ""
 
 msgid "Allow forward to <em>destination zones</em>:"
-msgstr "Permetti rountin a <em>zone di destinazione</em>:"
+msgstr ""
 
 msgid "Any"
 msgstr "Qualsiasi"
@@ -73,18 +53,11 @@ msgstr ""
 msgid "Custom Rules"
 msgstr "Regole Personalizzate"
 
-msgid ""
-"Custom rules allow you to execute arbritary iptables commands which are not "
-"otherwise covered by the firewall framework. The commands are executed after "
-"each firewall restart, right after the default ruleset has been loaded."
-msgstr ""
-"Le regole personalizzate ti permettorno di eseguire comandi iptables "
-"arbitrari che non solo altrimenti coperti dall'applicazione firewall. I "
-"comandi sono eseguiti dopo ogni riavvio del firewall, giusto dopo le altre "
-"regole che son state caricate."
+msgid "Custom Rules (/etc/firewall.user)"
+msgstr "Regole Personalizzate (/etc/firewall.user)"
 
-msgid "Destination IP address"
-msgstr "Indirizzo IP destinazione"
+msgid "Destination"
+msgstr "Destinazione"
 
 msgid "Destination address"
 msgstr "Indirizzo di destinazione"
@@ -95,13 +68,10 @@ msgstr "Porta di destinazione"
 msgid "Destination zone"
 msgstr "Zona di destinazione"
 
-msgid "Do not rewrite"
-msgstr ""
+msgid "Device"
+msgstr "Dispositivo"
 
 msgid "Drop invalid packets"
-msgstr ""
-
-msgid "Enable"
 msgstr ""
 
 msgid "Enable NAT Loopback"
@@ -113,32 +83,22 @@ msgstr ""
 msgid "Enable logging on this zone"
 msgstr ""
 
-msgid "External IP address"
-msgstr ""
-
 msgid "External port"
 msgstr "Porta Esterna"
 
-msgid "External zone"
-msgstr ""
-
-msgid "Extra arguments"
+msgid "Family"
 msgstr ""
 
 msgid "Firewall"
 msgstr "Firewall"
 
-msgid "Firewall - Custom Rules"
-msgstr ""
-
-msgid "Firewall - Port Forwards"
-msgstr ""
-
-msgid "Firewall - Traffic Rules"
-msgstr ""
-
 msgid "Firewall - Zone Settings"
 msgstr "Firewall - Opzioni delle Zone"
+
+msgid ""
+"For DNAT, match incoming traffic directed at the given destination ip "
+"address. For SNAT rewrite the source address to the given address."
+msgstr ""
 
 msgid "Force connection tracking"
 msgstr ""
@@ -146,23 +106,8 @@ msgstr ""
 msgid "Forward"
 msgstr ""
 
-msgid "Forward to"
-msgstr ""
-
-msgid "From %s in %s"
-msgstr ""
-
-msgid "From %s in %s with source %s"
-msgstr ""
-
-msgid "From %s in %s with source %s and %s"
-msgstr ""
-
 msgid "General Settings"
 msgstr "Opzioni Generali"
-
-msgid "IPv4"
-msgstr ""
 
 msgid "IPv4 and IPv6"
 msgstr "IPv4 e IPv6"
@@ -170,13 +115,13 @@ msgstr "IPv4 e IPv6"
 msgid "IPv4 only"
 msgstr "Solo IPv4"
 
-msgid "IPv6"
-msgstr ""
-
 msgid "IPv6 only"
 msgstr "Solo IPv6"
 
 msgid "Input"
+msgstr ""
+
+msgid "Intended destination address"
 msgstr ""
 
 msgid "Inter-Zone Forwarding"
@@ -188,8 +133,8 @@ msgstr "Indirizzo IP Interno"
 msgid "Internal port"
 msgstr "Porta interna"
 
-msgid "Internal zone"
-msgstr ""
+msgid "Internal port (optional)"
+msgstr "Porta interna (opzionale)"
 
 msgid "Limit log messages"
 msgstr ""
@@ -200,13 +145,7 @@ msgstr ""
 msgid "Masquerading"
 msgstr ""
 
-msgid "Match"
-msgstr ""
-
 msgid "Match ICMP type"
-msgstr ""
-
-msgid "Match forwarded traffic to the given destination port or port range."
 msgstr ""
 
 msgid ""
@@ -216,59 +155,24 @@ msgstr ""
 
 msgid ""
 "Match incoming traffic originating from the given source port or port range "
-"on the client host."
+"on the client host"
 msgstr ""
 
 msgid "Name"
 msgstr "Nome"
 
-msgid "New SNAT rule"
-msgstr ""
-
-msgid "New forward rule"
-msgstr ""
-
-msgid "New input rule"
-msgstr ""
-
-msgid "New port forward"
-msgstr ""
-
-msgid "New source NAT"
-msgstr ""
-
-msgid "Only match incoming traffic directed at the given IP address."
-msgstr ""
-
-msgid "Only match incoming traffic from these MACs."
-msgstr ""
-
-msgid "Only match incoming traffic from this IP or range."
-msgstr ""
-
-msgid ""
-"Only match incoming traffic originating from the given source port or port "
-"range on the client host"
-msgstr ""
-
-msgid "Open ports on router"
-msgstr ""
-
-msgid "Other..."
-msgstr ""
-
 msgid "Output"
 msgstr ""
 
-msgid "Passes additional arguments to iptables. Use with care!"
+msgid "Overview"
 msgstr ""
 
-msgid "Port Forwards"
+msgid "Port forwarding"
 msgstr ""
 
 msgid ""
-"Port forwarding allows remote computers on the Internet to connect to a "
-"specific computer or service within the private LAN."
+"Port forwarding allows to provide network services in the internal network "
+"to an external network."
 msgstr ""
 
 msgid "Protocol"
@@ -281,6 +185,12 @@ msgstr ""
 msgid "Redirect matched incoming traffic to the specified internal host"
 msgstr ""
 
+msgid "Redirection type"
+msgstr ""
+
+msgid "Redirections"
+msgstr ""
+
 msgid "Restrict Masquerading to given destination subnets"
 msgstr ""
 
@@ -290,25 +200,11 @@ msgstr ""
 msgid "Restrict to address family"
 msgstr ""
 
-msgid "Rewrite matched traffic to the given address."
-msgstr ""
+msgid "Rules"
+msgstr "Regole"
 
-msgid ""
-"Rewrite matched traffic to the given source port. May be left empty to only "
-"rewrite the IP address."
-msgstr ""
-
-msgid "Rewrite to source %s"
-msgstr ""
-
-msgid "Rewrite to source %s, %s"
-msgstr ""
-
-msgid "SNAT IP address"
-msgstr ""
-
-msgid "SNAT port"
-msgstr ""
+msgid "Source"
+msgstr "Origine"
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 # Generated from applications/luci-fw/luasrc/model/cbi/luci_fw/rrule.lua      #
@@ -337,15 +233,6 @@ msgstr "Indirizzo IP di origine"
 msgid "Source MAC address"
 msgstr "Indirizzo MAC di origine"
 
-msgid "Source NAT"
-msgstr ""
-
-msgid ""
-"Source NAT is a specific form of masquerading which allows fine grained "
-"control over the source IP used for outgoing traffic, for example to map "
-"multiple WAN addresses to internal subnets."
-msgstr ""
-
 msgid "Source address"
 msgstr "Indirizzo di origine"
 
@@ -370,16 +257,6 @@ msgid ""
 msgstr ""
 
 msgid ""
-"This page allows you to change advanced properties of the port forwarding "
-"entry. In most cases there is no need to modify those settings."
-msgstr ""
-
-msgid ""
-"This page allows you to change advanced properties of the traffic rule "
-"entry, such as matched source and destination hosts."
-msgstr ""
-
-msgid ""
 "This section defines common properties of %q. The <em>input</em> and "
 "<em>output</em> options set the default policies for traffic entering and "
 "leaving this zone while the <em>forward</em> option describes the policy for "
@@ -387,42 +264,15 @@ msgid ""
 "networks</em> specifies which available networks are member of this zone."
 msgstr ""
 
-msgid "To %s at %s on <var>this device</var>"
-msgstr ""
-
-msgid "To %s in %s"
-msgstr ""
-
-msgid "To %s on <var>this device</var>"
-msgstr ""
-
-msgid "To %s, %s in %s"
-msgstr ""
-
-msgid "To source IP"
-msgstr ""
-
-msgid "To source port"
-msgstr ""
-
-msgid "Traffic Rules"
+msgid "Traffic Redirection"
 msgstr ""
 
 msgid ""
-"Traffic rules define policies for packets traveling between different zones, "
-"for example to reject traffic between certain hosts or to open WAN ports on "
-"the router."
+"Traffic redirection allows you to change the destination address of "
+"forwarded packets."
 msgstr ""
 
-msgid "Via %s"
-msgstr ""
-
-msgid "Via %s at %s"
-msgstr ""
-
-msgid ""
-"You may specify multiple by selecting \"-- custom --\" and then entering "
-"protocols separated by space."
+msgid "Via"
 msgstr ""
 
 msgid "Zone %q"
@@ -440,60 +290,8 @@ msgstr "accetta"
 msgid "any"
 msgstr "qualsiasi"
 
-msgid "any host"
-msgstr ""
-
-msgid "any router IP"
-msgstr ""
-
-msgid "any zone"
-msgstr ""
-
-msgid "don't track"
-msgstr ""
-
 msgid "drop"
 msgstr ""
 
 msgid "reject"
 msgstr "rifiuta"
-
-#~ msgid "Destination"
-#~ msgstr "Destinazione"
-
-#~ msgid "Source"
-#~ msgstr "Origine"
-
-#~ msgid "Accept input"
-#~ msgstr "Accetta INPUT"
-
-#~ msgid "(optional)"
-#~ msgstr "(facoltativo)"
-
-#~ msgid "Internal port (optional)"
-#~ msgstr "Porta interna (opzionale)"
-
-#~ msgid "Advanced Options"
-#~ msgstr "Opzioni Avanzate"
-
-#~ msgid "Advanced Rules"
-#~ msgstr "Regole Avanzate"
-
-#~ msgid ""
-#~ "Advanced rules let you customize the firewall to your needs. Only new "
-#~ "connections will be matched. Packets belonging to already open "
-#~ "connections are automatically allowed to pass the firewall."
-#~ msgstr ""
-#~ "Le regole avanzate consentono di personalizzare il firewall per le tue "
-#~ "necessità. Solo le nuove connessioni saranno combinate. I pacchetti "
-#~ "appartenenti alle connessioni già aperte sono automaticamente autorizzate "
-#~ "ad oltrepassare il firewall."
-
-#~ msgid "Custom Rules (/etc/firewall.user)"
-#~ msgstr "Regole Personalizzate (/etc/firewall.user)"
-
-#~ msgid "Device"
-#~ msgstr "Dispositivo"
-
-#~ msgid "Rules"
-#~ msgstr "Regole"

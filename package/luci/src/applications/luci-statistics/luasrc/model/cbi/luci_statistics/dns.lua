@@ -9,7 +9,7 @@ You may obtain a copy of the License at
 
         http://www.apache.org/licenses/LICENSE-2.0
 
-$Id: dns.lua 7987 2011-11-28 04:19:38Z jow $
+$Id$
 
 ]]--
 
@@ -31,7 +31,7 @@ enable = s:option( Flag, "enable", translate("Enable this plugin") )
 enable.default = 0
 
 -- collectd_dns.interfaces (Interface)
-interfaces = s:option( MultiValue, "Interfaces", translate("Monitor interfaces") )
+interfaces = s:option( MultiValue, "Interfaces" )
 interfaces.widget = "select"
 interfaces.size   = 5
 interfaces:depends( "enable", 1 )

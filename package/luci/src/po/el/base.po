@@ -3,15 +3,13 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-06-10 03:40+0200\n"
-"PO-Revision-Date: 2012-03-31 15:35+0200\n"
-"Last-Translator: Vasilis <acinonyx@openwrt.gr>\n"
+"PO-Revision-Date: 2011-02-26 14:56+0100\n"
+"Last-Translator: Vasilis Tsiligiannis <b_tsiligiannis@silverton.gr>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.0.4\n"
+"X-Generator: Pootle 1.1.0\n"
 
 msgid "(%d minute window, %d second interval)"
 msgstr "(παράθυρο %d λεπτών, διάστημα %d δευτερολέπτων)"
@@ -20,7 +18,7 @@ msgid "(%s available)"
 msgstr "(%s διαθέσιμα)"
 
 msgid "(empty)"
-msgstr "(κενό)"
+msgstr ""
 
 msgid "(no interfaces attached)"
 msgstr "(χωρίς προσαρτημένες διεπαφές)"
@@ -31,14 +29,15 @@ msgstr "-- Επιπλέον Πεδίο --"
 msgid "-- Please choose --"
 msgstr "-- Παρακαλώ επιλέξτε --"
 
+#, fuzzy
 msgid "-- custom --"
-msgstr "-- προσαρμοσμένο --"
+msgstr "-- ειδικό --"
 
 msgid "1 Minute Load:"
-msgstr "Φορτίο 1 λεπτού:"
+msgstr ""
 
 msgid "15 Minute Load:"
-msgstr "Φορτίο 15 λεπτών:"
+msgstr ""
 
 msgid "40MHz 2nd channel above"
 msgstr "40MHz με δεύτερο κανάλι υψηλότερα"
@@ -47,23 +46,34 @@ msgid "40MHz 2nd channel below"
 msgstr "40MHz με δεύτερο κανάλι χαμηλότερα"
 
 msgid "5 Minute Load:"
-msgstr "Φορτίο 5 λεπτών:"
+msgstr ""
 
 msgid "<abbr title=\"Basic Service Set Identifier\">BSSID</abbr>"
 msgstr "<abbr title=\"Basic Service Set Identifier\">BSSID</abbr>"
 
+msgid ""
+"<abbr title=\"Classless Inter-Domain Routing\">CIDR</abbr>-Notation: address/"
+"prefix"
+msgstr ""
+"Παράσταση <abbr title=\"Classless Inter-Domain Routing\">CIDR</abbr>: "
+"διεύθυνση/πρόθεμα"
+
 msgid "<abbr title=\"Domain Name System\">DNS</abbr> query port"
-msgstr "Θύρα ερωτημάτων <abbr title=\"Σύστημα Ονόματος Τομέα\">DNS</abbr>"
+msgstr ""
 
 msgid "<abbr title=\"Domain Name System\">DNS</abbr> server port"
-msgstr "Θύρα εξυπηρετητή <abbr title=\"Σύστημα Ονόματος Τομέα\">DNS</abbr>"
+msgstr ""
 
 msgid ""
 "<abbr title=\"Domain Name System\">DNS</abbr> servers will be queried in the "
 "order of the resolvfile"
 msgstr ""
-"Οι <abbr title=\"Σύστημα Ονόματος Τομέα\">DNS</abbr> εξυπηρετητές θα "
-"ερωτηθούν με την σειρά εμφάνισης στο αρχείο resolvfile"
+
+msgid "<abbr title=\"Domain Name System\">DNS</abbr>-Server"
+msgstr "Εξυπηρετητής <abbr title=\"Domain Name System\">DNS</abbr>"
+
+msgid "<abbr title=\"Encrypted\">Encr.</abbr>"
+msgstr "<abbr title=\"Encrypted\">Κρυπτ.</abbr>"
 
 msgid "<abbr title=\"Extended Service Set Identifier\">ESSID</abbr>"
 msgstr "<abbr title=\"Extended Service Set Identifier\">ESSID</abbr>"
@@ -71,11 +81,17 @@ msgstr "<abbr title=\"Extended Service Set Identifier\">ESSID</abbr>"
 msgid "<abbr title=\"Internet Protocol Version 4\">IPv4</abbr>-Address"
 msgstr "Διεύθυνση <abbr title=\"Internet Protocol Version 4\">IPv4</abbr>"
 
+msgid "<abbr title=\"Internet Protocol Version 4\">IPv4</abbr>-Broadcast"
+msgstr "<abbr title=\"Internet Protocol Version 4\">IPv4</abbr>-Broadcast"
+
 msgid "<abbr title=\"Internet Protocol Version 4\">IPv4</abbr>-Gateway"
 msgstr "Πύλη <abbr title=\"Internet Protocol Version 4\">IPv4</abbr>"
 
 msgid "<abbr title=\"Internet Protocol Version 4\">IPv4</abbr>-Netmask"
 msgstr "Μάσκα <abbr title=\"Internet Protocol Version 4\">IPv4</abbr>"
+
+msgid "<abbr title=\"Internet Protocol Version 6\">IPv6</abbr>-Address"
+msgstr "Διεύθυνση <abbr title=\"Internet Protocol Version 6\">IPv6</abbr>"
 
 msgid ""
 "<abbr title=\"Internet Protocol Version 6\">IPv6</abbr>-Address or Network "
@@ -91,78 +107,71 @@ msgid "<abbr title=\"Light Emitting Diode\">LED</abbr> Configuration"
 msgstr "Παραμετροποίηση <abbr title=\"Light Emitting Diode\">LED</abbr>"
 
 msgid "<abbr title=\"Light Emitting Diode\">LED</abbr> Name"
-msgstr "Όνομα <abbr title=\"Light Emitting Diode\">LED</abbr>"
+msgstr ""
 
 msgid "<abbr title=\"Media Access Control\">MAC</abbr>-Address"
 msgstr "Διεύθυνση <abbr title=\"Media Access Control\">MAC</abbr>"
+
+msgid "<abbr title=\"Wireless Local Area Network\">WLAN</abbr>-Scan"
+msgstr "Σάρωση <abbr title=\"Wireless Local Area Network\">WLAN</abbr>"
 
 msgid ""
 "<abbr title=\"maximal\">Max.</abbr> <abbr title=\"Dynamic Host Configuration "
 "Protocol\">DHCP</abbr> leases"
 msgstr ""
-"<abbr title=\"μέγιστο\">Μεγ.</abbr> πλήθος <abbr title=\"Πρωτόκολλο "
-"Παραμετροποίησης Δυναμικού Συστήματος\">DHCP</abbr> leases"
 
 msgid ""
 "<abbr title=\"maximal\">Max.</abbr> <abbr title=\"Extension Mechanisms for "
-"Domain Name System\">EDNS0</abbr> packet size"
+"Domain Name System\">EDNS0</abbr> paket size"
 msgstr ""
-"<abbr title=\"μέγιστο\">Μεγ.</abbr> μέγεθος πακέτου <abbr title=\"Μηχανισμοί "
-"επεκτάσεων για Συστήματα Ονόματος Τομέα\">EDNS0</abbr>"
 
 msgid "<abbr title=\"maximal\">Max.</abbr> concurrent queries"
-msgstr "<abbr title=\"μέγιστο\">Μεγ.</abbr> πλήθος ταυτόχρονων ερωτηματων"
-
-msgid "<abbr title='Pairwise: %s / Group: %s'>%s - %s</abbr>"
 msgstr ""
 
 msgid "APN"
-msgstr "APN"
+msgstr ""
 
 msgid "AR Support"
 msgstr "Υποστήριξη AR"
 
 msgid "ARP retry threshold"
-msgstr "Όριο επαναδοκιμών ARP"
+msgstr ""
 
 msgid "ATM Bridges"
-msgstr "Γέφυρες ΑΤΜ"
+msgstr ""
 
 msgid "ATM Virtual Channel Identifier (VCI)"
-msgstr "ATM Εικονικό Κανάλι Αναγνωριστή (VCI)"
+msgstr ""
 
 msgid "ATM Virtual Path Identifier (VPI)"
-msgstr "ATM Εικονικό μονοπάτι Αναγνωριστή (VPI)"
+msgstr ""
 
 msgid ""
 "ATM bridges expose encapsulated ethernet in AAL5 connections as virtual "
 "Linux network interfaces which can be used in conjunction with DHCP or PPP "
 "to dial into the provider network."
 msgstr ""
-"Οι γέφυρες ATM αποκαλύπτουν ενθυλακωμένες ethernet σε συνδέσεις AAL5 σαν "
-"εικονικές διεπαφές δικτύου Linux, οι οποίες μπορούν να χρησιμοποιηθούν σε "
-"συνδυασμό με DHCP ή PPP για την κλήση προς τον παροχέα δικτύου."
 
 msgid "ATM device number"
-msgstr "Αριθμός συσκευής ATM"
+msgstr ""
 
 msgid "Accept router advertisements"
-msgstr "Αποδοχή διαφημίσεων δρομολογητή"
+msgstr ""
 
 msgid "Access Concentrator"
-msgstr "Συγκεντρωτής Πρόσβασης "
+msgstr ""
 
 msgid "Access Point"
 msgstr "Σημείο Πρόσβασης"
 
 msgid "Action"
-msgstr "Ενέργεια"
+msgstr ""
 
 msgid "Actions"
 msgstr "Ενέργειες"
 
 msgid "Activate this network"
-msgstr "Ενεργοποίηση αυτού του δικτύου"
+msgstr ""
 
 msgid "Active <abbr title=\"Internet Protocol Version 4\">IPv4</abbr>-Routes"
 msgstr ""
@@ -175,11 +184,8 @@ msgstr ""
 msgid "Active Connections"
 msgstr "Ενεργές Συνδέσεις"
 
-msgid "Active DHCP Leases"
-msgstr ""
-
-msgid "Active DHCPv6 Leases"
-msgstr ""
+msgid "Active Leases"
+msgstr "Ενεργά Leases"
 
 msgid "Ad-Hoc"
 msgstr "Ad-Hoc"
@@ -189,34 +195,33 @@ msgstr "Προσθήκη"
 
 msgid "Add local domain suffix to names served from hosts files"
 msgstr ""
-"Προσθήκη κατάληξης τοπικού τομέα για ονόματα εξυπηρετούμενα από αρχεία hosts "
 
 msgid "Add new interface..."
-msgstr "Προσθήκη νέας διεπαφής..."
+msgstr ""
 
 msgid "Additional Hosts files"
-msgstr "Επιπλέον αρχεία Hosts"
+msgstr ""
 
 msgid "Address"
-msgstr "Διεύθυνση"
+msgstr ""
 
 msgid "Address to access local relay bridge"
-msgstr "Διεύθυνση για πρόσβαση σε την τοπική γέφυρα αναμετάδοσης"
+msgstr ""
 
 msgid "Administration"
 msgstr "Διαχείριση"
 
 msgid "Advanced Settings"
-msgstr "Προχωρημένες Ρυθμίσεις"
+msgstr ""
 
 msgid "Advertise IPv6 on network"
-msgstr "Διαφήμιση IPv6 στο δίκτυο"
+msgstr ""
 
 msgid "Advertised network ID"
-msgstr "Διαφημιζόμενο αναγνωριστικό δικτύου"
+msgstr ""
 
 msgid "Alert"
-msgstr "Ειδοποίηση"
+msgstr ""
 
 msgid "Allow <abbr title=\"Secure Shell\">SSH</abbr> password authentication"
 msgstr ""
@@ -230,48 +235,32 @@ msgid "Allow listed only"
 msgstr "Να επιτρέπονται μόνο αυτές στην λίστα"
 
 msgid "Allow localhost"
-msgstr "Να επιτρέπεται το localhost"
+msgstr ""
 
 msgid "Allow remote hosts to connect to local SSH forwarded ports"
 msgstr ""
-"Να επιτρέπεται σε απομακρυσμένα συστήματα να συνδέονται σε τοπικά "
-"προωθημένες SSH θύρες"
 
 msgid "Allow root logins with password"
-msgstr "Να επιτρέπονται root συνδέσεις με κωδικό πρόσβασης"
+msgstr ""
 
 msgid "Allow the <em>root</em> user to login with password"
 msgstr ""
-"Να επιτρέπεται στον χρήστη <em>root</em> να συνδέετε με κωδικό πρόσβασης"
 
 msgid ""
 "Allow upstream responses in the 127.0.0.0/8 range, e.g. for RBL services"
 msgstr ""
-"Να επιτρέπονται απαντήσεις από ανώτερο επίπεδο εντός του εύρους 127.0.0.0/8, "
-"π.χ. για υπηρεσίες RBL"
 
 msgid "Allowed range is 1 to 65535"
-msgstr "Το επιτρεπόμενο εύρος είναι από 1 έως 65535"
-
-msgid ""
-"Always use 40MHz channels even if the secondary channel overlaps. Using this "
-"option does not comply with IEEE 802.11n-2009!"
 msgstr ""
 
 msgid "An additional network will be created if you leave this unchecked."
-msgstr "Ένα επιπλέον δίκτυο θα δημιουργηθεί εάν αυτό αφεθεί κενό"
-
-msgid "Antenna 1"
-msgstr "Κεραία 1"
-
-msgid "Antenna 2"
-msgstr "Κεραία 2"
-
-msgid "Antenna Configuration"
 msgstr ""
 
-msgid "Any zone"
-msgstr "Οιαδήποτε ζώνη"
+msgid "Antenna 1"
+msgstr ""
+
+msgid "Antenna 2"
+msgstr ""
 
 msgid "Apply"
 msgstr "Εφαρμογή"
@@ -279,13 +268,7 @@ msgstr "Εφαρμογή"
 msgid "Applying changes"
 msgstr "Εφαρμογή αλλαγών"
 
-msgid "Assign interfaces..."
-msgstr ""
-
 msgid "Associated Stations"
-msgstr "Συνδεδεμένοι Σταθμοί"
-
-msgid "Atheros 802.11%s Wireless Controller"
 msgstr ""
 
 msgid "Authentication"
@@ -298,90 +281,82 @@ msgid "Authorization Required"
 msgstr "Απαιτείται Εξουσιοδότηση"
 
 msgid "Auto Refresh"
-msgstr "Αυτόματη Ανανέωση"
+msgstr ""
 
 msgid "Available"
 msgstr "Διαθέσιμο"
 
 msgid "Available packages"
-msgstr "Διαθέσιμα πακέτα"
+msgstr ""
 
 msgid "Average:"
-msgstr "Μέσος Όρος:"
+msgstr ""
 
 msgid "BSSID"
-msgstr "BSSID"
+msgstr ""
 
 msgid "Back"
-msgstr "Πίσω"
+msgstr ""
 
 msgid "Back to Overview"
-msgstr "Πίσω προς Επισκόπηση"
+msgstr ""
 
 msgid "Back to configuration"
-msgstr "Πίσω προς παραμετροποίηση"
+msgstr ""
 
 msgid "Back to overview"
-msgstr "Πίσω προς επισκόπηση"
+msgstr ""
 
 msgid "Back to scan results"
-msgstr "Πίσω στα αποτελέσματα σάρωσης"
+msgstr ""
 
 msgid "Background Scan"
 msgstr "Σάρωση Παρασκηνίου"
 
 msgid "Backup / Flash Firmware"
-msgstr "Αντίγραφο ασφαλείας / Εγγραφή FLASH Υλικολογισμικό"
+msgstr ""
 
 msgid "Backup / Restore"
-msgstr "Αποθήκευση / Επαναφορά Αντίγραφου Ασφαλείας"
+msgstr "Αντίγραφα Ασφαλείας"
 
 msgid "Backup file list"
-msgstr "Λίστα αρχείων για αντίγραφο ασφαλείας"
+msgstr ""
 
-#, fuzzy
 msgid "Bad address specified!"
-msgstr "Μη έγκυρη διεύθυνση!"
+msgstr ""
 
 msgid ""
 "Below is the determined list of files to backup. It consists of changed "
 "configuration files marked by opkg, essential base files and the user "
 "defined backup patterns."
 msgstr ""
-"Παρακάτω είναι η προκαθορισμένη λίστα αρχείων για αντιγραφή ασφαλείας. "
-"Αποτελείτε από αλλαγμένα αρχεία παραμετροποίησης σημαδεμένα από το opkg, "
-"ουσιώδη βασικά αρχεία καθώς και καθορισμένα από το χρήστη μοτίβα αντιγράφων "
-"ασφαλείας."
+
+msgid "Bit Rate"
+msgstr ""
 
 msgid "Bitrate"
-msgstr "Ρυθμός δεδομένων"
+msgstr ""
 
 msgid "Bogus NX Domain Override"
-msgstr "Παράκαμψη Ψευδούς Τομέα NX"
+msgstr ""
 
 msgid "Bridge"
-msgstr "Γέφυρα"
+msgstr ""
 
 msgid "Bridge interfaces"
 msgstr "Γεφύρωμα διεπαφών"
 
 msgid "Bridge unit number"
-msgstr "Αριθμός μονάδας γέφυρας"
-
-msgid "Bring up on boot"
-msgstr "Ανέβασμα κατά την εκκίνηση"
-
-msgid "Broadcom 802.11%s Wireless Controller"
 msgstr ""
 
-msgid "Broadcom BCM%04x 802.11 Wireless Controller"
+msgid "Bring up on boot"
 msgstr ""
 
 msgid "Buffered"
 msgstr ""
 
 msgid "Buttons"
-msgstr "Κουμπιά"
+msgstr ""
 
 msgid "CPU"
 msgstr ""
@@ -405,13 +380,13 @@ msgid "Changes applied."
 msgstr "Αλλαγές εφαρμόστηκαν."
 
 msgid "Changes the administrator password for accessing the device"
-msgstr "Αλλάζει τον κωδικό διαχειριστή για πρόσβαση στη συσκευή"
+msgstr ""
 
 msgid "Channel"
 msgstr "Κανάλι"
 
 msgid "Check"
-msgstr "Έλεγχος"
+msgstr ""
 
 msgid "Checksum"
 msgstr "Άθροισμα Ελέγχου"
@@ -421,15 +396,12 @@ msgid ""
 "<em>unspecified</em> to remove the interface from the associated zone or "
 "fill out the <em>create</em> field to define a new zone and attach the "
 "interface to it."
-msgstr ""
-"Επιλέξατε την ζώνη τείχους προστασίας που επιθυμητέ να αναθέσετε σε αυτήν "
-"την διεπαφή. Επιλέξτε <em>απροσδιόριστο</em> για να αφαιρέσετε την διεπαφή "
-"από την συσχετισμένη ζώνη ή συμπληρώστε το <em>δημιουργία</em> πεδίο για να "
-"προσδιορίσετε μία νέα ζώνη και να προσαρτήσετε την διεπαφή σε αυτό."
+msgstr "Αυτή η διεπαφή δεν ανήκει ακόμη σε καμία ζώνη τείχους προστασίας."
 
 msgid ""
-"Choose the network(s) you want to attach to this wireless interface or fill "
-"out the <em>create</em> field to define a new network."
+"Choose the network you want to attach to this wireless interface. Select "
+"<em>unspecified</em> to not attach any network or fill out the <em>create</"
+"em> field to define a new network."
 msgstr ""
 
 msgid "Cipher"
@@ -440,36 +412,29 @@ msgid ""
 "configuration files. To reset the firmware to its initial state, click "
 "\"Perform reset\" (only possible with squashfs images)."
 msgstr ""
-"Κλικ στο \"Δημιουργία αρχείου\" για να κατεβάσετε ένα tar αρχείο με τα "
-"τρέχοντα αρχεία παραμετροποίησης. Για να επαναφέρετε το υλικολογισμικό στην "
-"αρχική του κατάσταση, κάντε κλικ στο \"Εκτέλεσε επαναφορά\" (δυνατό μόνο σε "
-"squashfs εικόνες)."
 
 msgid "Client"
-msgstr "Πελάτης"
+msgstr ""
 
 msgid "Client ID to send when requesting DHCP"
-msgstr "Αναγνωριστικό πελάτη που αποστέλλετε κατά την αίτηση DHCP"
+msgstr ""
 
 msgid ""
 "Close inactive connection after the given amount of seconds, use 0 to "
 "persist connection"
 msgstr ""
-"Κλείσιμο, μη ενεργών συνδέσεων μετά το πέρας του ορισμένου αριθμού "
-"δευτερολέπτων, χρησιμοποιήστε 0 για να εξακολουθούν να υφίστανται επ' "
-"αόριστον"
 
 msgid "Close list..."
-msgstr "Κλείσιμο λίστας..."
+msgstr ""
 
 msgid "Collecting data..."
-msgstr "Συλλογή δεδομένων..."
+msgstr ""
 
 msgid "Command"
 msgstr "Εντολή"
 
 msgid "Common Configuration"
-msgstr "Κοινή Παραμετροποίηση"
+msgstr ""
 
 msgid "Compression"
 msgstr "Συμπίεση"
@@ -477,49 +442,59 @@ msgstr "Συμπίεση"
 msgid "Configuration"
 msgstr "Παραμετροποίηση"
 
+msgid "Configuration / Apply"
+msgstr ""
+
+msgid "Configuration / Changes"
+msgstr ""
+
+msgid "Configuration / Revert"
+msgstr ""
+
 msgid "Configuration applied."
-msgstr "Η Παραμετροποίηση εφαρμόστηκε."
+msgstr ""
 
 msgid "Configuration files will be kept."
-msgstr "Τα αρχεία παραμετροποίησης θα διατηρηθούν."
+msgstr ""
 
 msgid "Configures this mount as overlay storage for block-extroot"
 msgstr ""
-"Ορίζει το συγκεκριμένο σημείο προσάρτησης ως επικαλύπτον αποθηκευτικό χώρο "
-"για το block-extroot"
 
 msgid "Confirmation"
 msgstr "Επιβεβαίωση"
 
 msgid "Connect"
-msgstr "Σύνδεση"
+msgstr ""
 
 msgid "Connected"
-msgstr "Συνδεδεμένος"
+msgstr ""
 
 msgid "Connection Limit"
 msgstr "Όριο Συνδέσεων"
 
 msgid "Connections"
-msgstr "Συνδέσεις"
+msgstr ""
 
 msgid "Country"
-msgstr "Χώρα"
+msgstr ""
 
 msgid "Country Code"
 msgstr "Κωδικός Χώρας"
 
 msgid "Cover the following interface"
-msgstr "Κάλυψη της ακόλουθης διεπαφής"
+msgstr ""
 
 msgid "Cover the following interfaces"
-msgstr "Κάλυψη των ακόλουθων διεπαφών"
+msgstr ""
 
 msgid "Create / Assign firewall-zone"
 msgstr "Δημιουργία / Ανάθεση ζώνης τείχους προστασίας"
 
 msgid "Create Interface"
-msgstr "Δημιουργία Διεπαφής"
+msgstr ""
+
+msgid "Create Network"
+msgstr "Δημιουργία Δικτύου"
 
 msgid "Create a bridge over multiple interfaces"
 msgstr ""
@@ -541,63 +516,55 @@ msgstr ""
 "Diode\">LED</abbr> της συσκευής."
 
 msgid "DHCP Leases"
-msgstr "DHCP Leases"
+msgstr ""
 
 msgid "DHCP Server"
-msgstr "Εξυπηρετητής DHCP"
+msgstr ""
 
 msgid "DHCP and DNS"
-msgstr "DHCP και DNS"
+msgstr ""
 
 msgid "DHCP client"
-msgstr "Πελάτης DHCP"
+msgstr ""
 
 msgid "DHCP-Options"
 msgstr "Επιλογές DHCP"
 
-msgid "DHCPv6 Leases"
+msgid "DNS"
 msgstr ""
 
-msgid "DNS"
-msgstr "DNS"
-
 msgid "DNS forwardings"
-msgstr "Προωθήσεις DNS"
-
-msgid "DUID"
 msgstr ""
 
 msgid "Debug"
-msgstr "Αποσφαλμάτωση"
+msgstr ""
 
 msgid "Default %d"
-msgstr "Προεπιλογή %d"
+msgstr ""
 
 msgid "Default gateway"
-msgstr "Προεπιλεγμένη πύλη"
+msgstr ""
 
 msgid "Default state"
-msgstr "Προεπιλεγμένη κατάσταση"
+msgstr ""
 
 msgid "Define a name for this network."
-msgstr "Ορίστε ένα όνομα για αυτό το δίκτυο."
+msgstr ""
 
 msgid ""
 "Define additional DHCP options, for example "
 "\"<code>6,192.168.2.1,192.168.2.2</code>\" which advertises different DNS "
 "servers to clients."
 msgstr ""
-"Ορίστε επιπλέον επιλογές DHCP, που διαφημίζουν διαφορετικούς εξυπηρετητές "
-"DNS στους πελάτες, για παράδειγμα \"<code>6,192.168.2.1,192.168.2.2</code>\"."
 
 msgid "Delete"
 msgstr "Διαγραφή"
 
 msgid "Delete this interface"
-msgstr "Διαγραφή αυτής της διεπαφής"
+msgstr ""
 
 msgid "Delete this network"
-msgstr "Διαγραφή αυτού του δικτύου"
+msgstr ""
 
 msgid "Description"
 msgstr "Περιγραφή"
@@ -612,41 +579,39 @@ msgid "Device"
 msgstr "Συσκευή"
 
 msgid "Device Configuration"
-msgstr "Παραμετροποίηση Συσκευής"
+msgstr ""
 
 msgid "Diagnostics"
-msgstr "Διαγνωστικά"
+msgstr ""
 
 msgid "Directory"
-msgstr "Κατάλογος"
+msgstr ""
 
 msgid "Disable"
-msgstr "Απενεργοποίηση"
+msgstr ""
 
 msgid ""
 "Disable <abbr title=\"Dynamic Host Configuration Protocol\">DHCP</abbr> for "
 "this interface."
 msgstr ""
-"Απενεργοποίηση <abbr title=\"Πρωτόκολλο Δυναμικής Απόδοσης Διεύθυνσης"
-"\">DHCP</abbr> για αυτή τη διεπαφή."
 
 msgid "Disable DNS setup"
-msgstr "Απενεργοποίηση ρυθμίσεων DNS"
+msgstr ""
 
 msgid "Disable HW-Beacon timer"
 msgstr "Απενεργοποίηση χρονιστή HW-Beacon"
 
 msgid "Disabled"
-msgstr "Απενεργοποιημένο"
+msgstr ""
 
 msgid "Discard upstream RFC1918 responses"
-msgstr "Αγνόησε τις απαντήσεις ανοδικής ροής RFC1918"
+msgstr ""
 
 msgid "Displaying only packages containing"
-msgstr "Εμφάνιση μόνο πακέτων που περιέχουν"
+msgstr ""
 
 msgid "Distance Optimization"
-msgstr "Βελτιστοποίηση Απόστασης"
+msgstr "Ρύθμιση Απόστασης"
 
 msgid "Distance to farthest network member in meters."
 msgstr "Απόσταση σε μέτρα από το πιο απομακρυσμένο μέλος του δικτύου."
@@ -660,20 +625,16 @@ msgid ""
 "Forwarder for <abbr title=\"Network Address Translation\">NAT</abbr> "
 "firewalls"
 msgstr ""
-"Ο Dnsmasq είναι ένας συνδυασμός εξυπηρετητή <abbr title=\"Πρωτόκολλο "
-"Δυναμικής Απόδοσης Παραμέτρων Συστήματος\">DHCP</abbr> και προωθητή<abbr "
-"title=\"Σύστημα Ονόματος Τομέα\">DNS</abbr> για τείχη προστασίας <abbr title="
-"\"Μεταφραστή Διεύθυνσης Δικτύου\">NAT</abbr>"
+"Ο Dnsmasq είναι ένα συνδυασμός εξυπηρετητή <abbr title=\"Dynamic Host "
+"Configuration Protocol\">DHCP</abbr> και <abbr title=\"Domain Name System"
+"\">DNS</abbr> για τείχη προστασίας <abbr title=\"Network Address Translation"
+"\">NAT</abbr>"
 
 msgid "Do not cache negative replies, e.g. for not existing domains"
 msgstr ""
-"Να μην αποθηκεύονται στη λανθάνουσα μνήμη οι αρνητικές απαντήσεις, π.χ. για "
-"μη υπαρκτούς τομείς."
 
 msgid "Do not forward requests that cannot be answered by public name servers"
 msgstr ""
-"Να μην προωθούνται αιτήματα τα οποία δεν μπορούν να απαντηθούν από δημόσιους "
-"εξυπηρετητές ονομάτων"
 
 msgid "Do not forward reverse lookups for local networks"
 msgstr ""
@@ -685,7 +646,7 @@ msgid "Domain required"
 msgstr "Απαίτηση για όνομα τομέα"
 
 msgid "Domain whitelist"
-msgstr "Λευκή λίστα τομέων"
+msgstr ""
 
 msgid ""
 "Don't forward <abbr title=\"Domain Name System\">DNS</abbr>-Requests without "
@@ -698,7 +659,7 @@ msgid "Download and install package"
 msgstr "Κατέβασμα και εγκατάσταση πακέτου"
 
 msgid "Download backup"
-msgstr "Κατέβασμα αντιγράφου ασφαλείας"
+msgstr ""
 
 msgid "Dropbear Instance"
 msgstr ""
@@ -716,14 +677,12 @@ msgstr ""
 "Δυναμικό <abbr title=\"Dynamic Host Configuration Protocol\">DHCP</abbr>"
 
 msgid "Dynamic tunnel"
-msgstr "Δυναμικό τούνελ"
+msgstr ""
 
 msgid ""
 "Dynamically allocate DHCP addresses for clients. If disabled, only clients "
 "having static leases will be served."
 msgstr ""
-"Δυναμική απόδοση DHCP διευθύνσεων στους πελάτες. Σε περίπτωση "
-"απενεργοποίησης, μόνο πελάτες με στατικα leases θα εξυπηρετούνται."
 
 msgid "EAP-Method"
 msgstr "Μέθοδος EAP"
@@ -732,64 +691,67 @@ msgid "Edit"
 msgstr "Επεξεργασία"
 
 msgid "Edit this interface"
-msgstr "Επεξεργασία αυτής της διεπαφής"
+msgstr ""
 
 msgid "Edit this network"
-msgstr "Επεξεργασία αυτού του δικτύου"
+msgstr ""
 
 msgid "Emergency"
-msgstr "Έκτακτη ανάγκη"
+msgstr ""
 
 msgid "Enable"
-msgstr "Ενεργοποίηση"
+msgstr ""
 
 msgid "Enable <abbr title=\"Spanning Tree Protocol\">STP</abbr>"
-msgstr "Ενεργοποίηση <abbr title=\"Spanning Tree Protocol\">STP</abbr>"
+msgstr ""
 
 msgid "Enable HE.net dynamic endpoint update"
-msgstr "Ενεργοποίηση ενημέρωσης δυναμικού τερματικού σημείου HE.net."
+msgstr ""
 
 msgid "Enable IPv6 negotiation on the PPP link"
-msgstr "Ενεργοποίηση διαπραγμάτευσης IPv6 πάνω στη PPP ζεύξη"
+msgstr ""
 
 msgid "Enable Jumbo Frame passthrough"
-msgstr "Ενεργοποίηση διέλευσης Jumbo Frame"
-
-msgid "Enable NTP client"
 msgstr ""
 
 msgid "Enable TFTP server"
-msgstr "Ενεργοποίηση εξυπηρετητή TFTP"
+msgstr ""
 
 msgid "Enable VLAN functionality"
-msgstr "Ενεργοποίηση λειτουργίας VLAN"
+msgstr ""
+
+msgid "Enable buffering"
+msgstr ""
+
+msgid "Enable builtin NTP server"
+msgstr ""
 
 msgid "Enable learning and aging"
-msgstr "Ένεργοποίηση learning and aging"
+msgstr ""
 
 msgid "Enable this mount"
-msgstr "Ενεργοποίηση αυτής της προσάρτησης"
+msgstr ""
 
 msgid "Enable this swap"
-msgstr "Ενεργοποίηση αυτής της swap"
+msgstr ""
 
 msgid "Enable/Disable"
 msgstr "Ενεργοποίηση/Απενεργοποίηση"
 
 msgid "Enabled"
-msgstr "Ενεργοποιημένο"
+msgstr ""
 
 msgid "Enables the Spanning Tree Protocol on this bridge"
 msgstr ""
 
 msgid "Encapsulation mode"
-msgstr "Λειτουργία ενθυλάκωσης"
+msgstr ""
 
 msgid "Encryption"
 msgstr "Κρυπτογράφηση"
 
 msgid "Erasing..."
-msgstr "Διαγράφεται..."
+msgstr ""
 
 msgid "Error"
 msgstr "Σφάλμα"
@@ -804,16 +766,14 @@ msgid "Expand hosts"
 msgstr ""
 
 msgid "Expires"
-msgstr "Λήγει"
+msgstr ""
 
 msgid ""
 "Expiry time of leased addresses, minimum is 2 Minutes (<code>2m</code>)."
 msgstr ""
-"Ο ελάχιστος χρόνος λήξεως των διευθύνσεων lease είναι 2 λεπτά (<code>2m</"
-"code>)."
 
 msgid "External system log server"
-msgstr "Εξωτερικός εξυπηρετητής καταγραφής συστήματος"
+msgstr ""
 
 msgid "External system log server port"
 msgstr ""
@@ -822,10 +782,10 @@ msgid "Fast Frames"
 msgstr "Γρήγορα Πλαίσια"
 
 msgid "File"
-msgstr "Αρχείο"
+msgstr ""
 
 msgid "Filename of the boot image advertised to clients"
-msgstr "Όνομα αρχείου της εικόνας εκκίνησης που διαφημίζετε στους πελάτες"
+msgstr ""
 
 msgid "Filesystem"
 msgstr "Σύστημα Αρχείων"
@@ -840,25 +800,25 @@ msgid "Filter useless"
 msgstr "Φιλτράρισμα άχρηστων"
 
 msgid "Find and join network"
-msgstr "Εύρεση και σύνδεση σε δίκτυο"
+msgstr ""
 
 msgid "Find package"
 msgstr "Εύρεση πακέτου"
 
 msgid "Finish"
-msgstr "Τέλος"
+msgstr ""
 
 msgid "Firewall"
 msgstr "Τείχος Προστασίας"
 
 msgid "Firewall Settings"
-msgstr "Ρυθμίσεις Τείχους Προστασίας"
+msgstr ""
 
 msgid "Firewall Status"
 msgstr "Κατάσταση Τείχους Προστασίας"
 
 msgid "Firmware Version"
-msgstr "Έκδοση Υλικολογισμικού"
+msgstr ""
 
 msgid "Fixed source port for outbound DNS queries"
 msgstr ""
@@ -870,44 +830,40 @@ msgid "Flash Firmware"
 msgstr "Φλασάρισμα Firmware"
 
 msgid "Flash image..."
-msgstr "Φλασάρισμα εικόνας..."
+msgstr ""
 
 msgid "Flash new firmware image"
-msgstr "Φλασάρισμα νέας εικόνας υλικολογισμικού"
+msgstr ""
 
 msgid "Flash operations"
-msgstr "Λειτουργίες φλασάρισματος"
+msgstr ""
 
 msgid "Flashing..."
-msgstr "Φλασάρεται..."
+msgstr ""
 
 msgid "Force"
 msgstr "Επιβολή"
 
-msgid "Force 40MHz mode"
-msgstr ""
-
 msgid "Force CCMP (AES)"
-msgstr "Επιβολή CCMP (AES)"
+msgstr ""
 
 msgid "Force DHCP on this network even if another server is detected."
 msgstr ""
-"Επιβολή DHCP σε αυτό το δίκτυο ακόμα κι αν έχει εντοπιστεί άλλος εξυπηρετητής"
 
 msgid "Force TKIP"
-msgstr "Επιβολή TKIP"
+msgstr ""
 
 msgid "Force TKIP and CCMP (AES)"
-msgstr "Επιβολή TKIP και CCMP (AES)"
+msgstr ""
 
 msgid "Forward DHCP traffic"
-msgstr "Προώθηση κίνησης DHCP"
+msgstr ""
 
 msgid "Forward broadcast traffic"
-msgstr "Προώθηση κίνησης broadcast"
+msgstr ""
 
 msgid "Forwarding mode"
-msgstr "Μέθοδος προώθησης"
+msgstr ""
 
 msgid "Fragmentation Threshold"
 msgstr "Όριο Κατακερµατισµού"
@@ -919,33 +875,24 @@ msgid "Free"
 msgstr ""
 
 msgid "Free space"
-msgstr "Ελεύθερος χώρος"
+msgstr ""
 
 msgid "Frequency Hopping"
 msgstr "Frequency Hopping"
 
-msgid "GHz"
-msgstr ""
-
-msgid "GPRS only"
-msgstr ""
-
 msgid "Gateway"
-msgstr "Πύλη"
+msgstr ""
 
 msgid "Gateway ports"
-msgstr "Θύρες πύλης"
+msgstr ""
 
 msgid "General Settings"
-msgstr "Γενικές Ρυθμίσεις"
+msgstr ""
 
 msgid "General Setup"
 msgstr ""
 
 msgid "Generate archive"
-msgstr ""
-
-msgid "Generic 802.11%s Wireless Controller"
 msgstr ""
 
 msgid "Given password confirmation did not match, password not changed!"
@@ -987,9 +934,6 @@ msgid ""
 "authentication."
 msgstr ""
 
-msgid "Hermes 802.11b Wireless Controller"
-msgstr ""
-
 msgid "Hide <abbr title=\"Extended Service Set Identifier\">ESSID</abbr>"
 msgstr "Κρυφό <abbr title=\"Extended Service Set Identifier\">ESSID</abbr>"
 
@@ -1015,73 +959,64 @@ msgstr "Ονόματα Υπολογιστών"
 msgid "IP address"
 msgstr "Διεύθυνση IP"
 
+msgid "IP-Aliases"
+msgstr ""
+
 msgid "IPv4"
-msgstr "IPv4"
+msgstr ""
 
 msgid "IPv4 Firewall"
-msgstr "IPv4 Τείχος Προστασίας"
+msgstr ""
 
 msgid "IPv4 WAN Status"
 msgstr ""
 
 msgid "IPv4 address"
-msgstr "Διεύθυνση IPv4"
+msgstr ""
 
 msgid "IPv4 and IPv6"
-msgstr "IPv4 και IPv6"
+msgstr ""
 
 msgid "IPv4 broadcast"
 msgstr ""
 
 msgid "IPv4 gateway"
-msgstr "Πύλη IPv4"
+msgstr ""
 
 msgid "IPv4 netmask"
-msgstr "Μάσκα IPv4"
+msgstr ""
 
 msgid "IPv4 only"
-msgstr "Μόνο IPv4"
-
-msgid "IPv4 prefix length"
 msgstr ""
 
 msgid "IPv4-Address"
-msgstr "IPv4-Διεύθυνση"
+msgstr ""
 
 msgid "IPv6"
 msgstr "IPv6"
 
 msgid "IPv6 Firewall"
-msgstr "IPv6 Τείχος Προστασίας"
+msgstr ""
+
+msgid "IPv6 Setup"
+msgstr ""
 
 msgid "IPv6 WAN Status"
-msgstr "Κατάσταση IPv6 WAN"
+msgstr ""
 
 msgid "IPv6 address"
-msgstr "Διεύθυνση IPv6"
+msgstr ""
 
 msgid "IPv6 gateway"
-msgstr "Πύλη IPv6"
+msgstr ""
 
 msgid "IPv6 only"
-msgstr "Μόνο IPv6"
-
-msgid "IPv6 prefix"
-msgstr ""
-
-msgid "IPv6 prefix length"
-msgstr ""
-
-msgid "IPv6-Address"
 msgstr ""
 
 msgid "IPv6-in-IPv4 (RFC4213)"
-msgstr "IPv6-in-IPv4 (RFC4213)"
-
-msgid "IPv6-over-IPv4 (6rd)"
 msgstr ""
 
-msgid "IPv6-over-IPv4 (6to4)"
+msgid "IPv6-over-IPv4"
 msgstr ""
 
 msgid "Identity"
@@ -1090,15 +1025,11 @@ msgstr "Ταυτότητα"
 msgid ""
 "If specified, mount the device by its UUID instead of a fixed device node"
 msgstr ""
-"Αν οριστεί, προσάρτησε τη συσκευή με βάση το UUID της αντί για το "
-"καθορισμένο όνομα της"
 
 msgid ""
 "If specified, mount the device by the partition label instead of a fixed "
 "device node"
 msgstr ""
-"Αν οριστεί, προσάρτησε τη συσκευή με βάση την ετικέτα της αντί για το "
-"καθορισμένο όνομα της"
 
 msgid "If unchecked, no default route is configured"
 msgstr ""
@@ -1127,7 +1058,7 @@ msgid "Ignore interface"
 msgstr "Αγνόησε διεπαφή"
 
 msgid "Ignore resolve file"
-msgstr "Αγνόησε αρχείο resolve"
+msgstr "Αγνόησε αρχείου resolve"
 
 msgid "Image"
 msgstr ""
@@ -1142,7 +1073,7 @@ msgid "Inbound:"
 msgstr ""
 
 msgid "Info"
-msgstr "Πληροφορίες"
+msgstr ""
 
 msgid "Initscript"
 msgstr "Σενάριο εκκίνησης"
@@ -1154,43 +1085,40 @@ msgid "Install"
 msgstr "Εγκατάσταση"
 
 msgid "Install package %q"
-msgstr "Εγκατάσταση πακέτου %q"
+msgstr ""
 
 msgid "Install protocol extensions..."
-msgstr "Εγκατάσταση επεκτάσεων πρωτοκόλλου..."
+msgstr ""
 
 msgid "Installed packages"
-msgstr "Εγκατεστημένα πακέτα"
+msgstr ""
 
 msgid "Interface"
 msgstr "Διεπαφή"
 
 msgid "Interface Configuration"
-msgstr "Παραμετροποίηση Διεπαφής"
+msgstr ""
 
 msgid "Interface Overview"
-msgstr "Επισκόπηση Διεπαφής"
+msgstr ""
 
 msgid "Interface is reconnecting..."
-msgstr "Η διεπαφή επανασυνδέεται..."
+msgstr ""
 
 msgid "Interface is shutting down..."
-msgstr "Η διεπαφή απενεργοποιείται..."
+msgstr ""
 
 msgid "Interface not present or not connected yet."
-msgstr "Η διεπαφή δεν υπάρχει ή δεν έχει συνδεθεί ακόμη."
+msgstr ""
 
 msgid "Interface reconnected"
-msgstr "Η διεπαφή επανασυνδέθηκε"
+msgstr ""
 
 msgid "Interface shut down"
-msgstr "Η διεπαφή απενεργοποιήθηκε"
+msgstr ""
 
 msgid "Interfaces"
 msgstr "Διεπαφές"
-
-msgid "Internal Server Error"
-msgstr ""
 
 msgid "Invalid"
 msgstr "Άκυρη τιμή εισόδου"
@@ -1212,7 +1140,7 @@ msgstr ""
 "flash, παρακαλώ επιβεβαιώστε το αρχείο εικόνας!"
 
 msgid "Java Script required!"
-msgstr "Απαιτείται Javascript!"
+msgstr ""
 
 msgid "Join Network"
 msgstr ""
@@ -1224,28 +1152,22 @@ msgid "Join Network: Wireless Scan"
 msgstr ""
 
 msgid "Keep settings"
-msgstr "Διατήρηση ρυθμίσεων"
+msgstr ""
 
 msgid "Kernel Log"
 msgstr "Καταγραφή Πυρήνα"
 
 msgid "Kernel Version"
-msgstr "Έκδοση Πυρήνα"
+msgstr ""
 
 msgid "Key"
 msgstr "Κλειδί"
 
 msgid "Key #%d"
-msgstr "Κλειδί #%d"
+msgstr ""
 
 msgid "Kill"
 msgstr "Σκότωμα"
-
-msgid "L2TP"
-msgstr ""
-
-msgid "L2TP Server"
-msgstr ""
 
 msgid "LCP echo failure threshold"
 msgstr ""
@@ -1254,10 +1176,10 @@ msgid "LCP echo interval"
 msgstr ""
 
 msgid "LLC"
-msgstr "LLC"
+msgstr ""
 
 msgid "Label"
-msgstr "Ετικέτα"
+msgstr ""
 
 msgid "Language"
 msgstr "Γλώσσα"
@@ -1278,16 +1200,19 @@ msgid "Leasetime remaining"
 msgstr "Υπόλοιπο χρόνου Lease"
 
 msgid "Leave empty to autodetect"
-msgstr "Αφήστε το κενό για να γίνει αυτόματη ανίχνευση"
+msgstr ""
 
 msgid "Leave empty to use the current WAN address"
-msgstr "Αφήστε το κενό για να γίνει χρήση της τρέχουσας διεύθυνσης WAN"
+msgstr ""
 
 msgid "Legend:"
-msgstr "Υπόμνημα:"
+msgstr ""
 
 msgid "Limit"
 msgstr "Όριο"
+
+msgid "Link"
+msgstr ""
 
 msgid "Link On"
 msgstr "Αναμμένο με Ζεύξη"
@@ -1313,16 +1238,16 @@ msgid "Load"
 msgstr "Φόρτος"
 
 msgid "Load Average"
-msgstr "Μέσος όρος φόρτου"
+msgstr ""
 
 msgid "Loading"
-msgstr "Φόρτωση"
+msgstr ""
 
 msgid "Local IPv4 address"
-msgstr "Τοπική διεύθυνση IPv4"
+msgstr ""
 
 msgid "Local IPv6 address"
-msgstr "Τοπική διεύθυνση IPv6"
+msgstr ""
 
 msgid "Local Startup"
 msgstr ""
@@ -1342,7 +1267,7 @@ msgid "Local domain suffix appended to DHCP names and hosts file entries"
 msgstr ""
 
 msgid "Local server"
-msgstr "Τοπικός εξυπηρετητής"
+msgstr ""
 
 msgid ""
 "Localise hostname depending on the requesting subnet if multiple IPs are "
@@ -1353,16 +1278,16 @@ msgid "Localise queries"
 msgstr "Τοπικά ερωτήματα"
 
 msgid "Locked to channel %d used by %s"
-msgstr "Κλειδωμένο στο κανάλι %d που χρησιμοποιείται απ' το %s"
+msgstr ""
 
 msgid "Log output level"
-msgstr "Επίπεδο εξόδου αρχείων καταγραφής"
+msgstr ""
 
 msgid "Log queries"
 msgstr "Καταγραφή ερωτημάτων"
 
 msgid "Logging"
-msgstr "Καταγραφή"
+msgstr ""
 
 msgid "Login"
 msgstr "Σύνδεση"
@@ -1373,50 +1298,46 @@ msgstr "Αποσύνδεση"
 msgid "Lowest leased address as offset from the network address."
 msgstr ""
 
+msgid "MAC"
+msgstr "MAC"
+
+msgid "MAC Address"
+msgstr ""
+
 msgid "MAC-Address"
-msgstr "MAC-Διεύθυνση"
+msgstr ""
 
 msgid "MAC-Address Filter"
 msgstr "Φίλτρο MAC Διευθύνσεων"
 
 msgid "MAC-Filter"
-msgstr "MAC-Φίλτρο"
+msgstr ""
 
 msgid "MAC-List"
 msgstr "Λίστα MAC"
 
-msgid "MB/s"
-msgstr ""
-
-msgid "MHz"
-msgstr ""
-
 msgid "MTU"
-msgstr "MTU"
+msgstr ""
 
 msgid "Maximum Rate"
 msgstr "Μέγιστος Ρυθμός"
 
 msgid "Maximum allowed number of active DHCP leases"
-msgstr "Μέγιστος επιτρεπόμενος αριθμός ενεργών DHCP leases"
+msgstr ""
 
 msgid "Maximum allowed number of concurrent DNS queries"
-msgstr "Μέγιστος επιτρεπόμενος αριθμός ταυτόχρονων ερωτημάτων DNS"
+msgstr ""
 
 msgid "Maximum allowed size of EDNS.0 UDP packets"
-msgstr "Μέγιστο επιτρεπόμενο μέγεθος EDNS.0 UDP πακέτων"
+msgstr ""
 
 msgid "Maximum amount of seconds to wait for the modem to become ready"
 msgstr ""
-"Μέγιστος αριθμός δευτερολέπτων αναμονής ώστε το modem να καταστεί έτοιμο"
 
 msgid "Maximum hold time"
-msgstr "Μέγιστος χρόνος κράτησης"
+msgstr ""
 
 msgid "Maximum number of leased addresses."
-msgstr "Μέγιστος αριθμός διευθύνσεων lease"
-
-msgid "Mbit/s"
 msgstr ""
 
 msgid "Memory"
@@ -1432,7 +1353,7 @@ msgid "Minimum Rate"
 msgstr "Ελάχιστος Ρυθμός"
 
 msgid "Minimum hold time"
-msgstr "Ελάχιστος χρόνος κράτησης"
+msgstr ""
 
 msgid "Missing protocol extension for proto %q"
 msgstr ""
@@ -1449,18 +1370,17 @@ msgstr ""
 msgid "Monitor"
 msgstr "Παρακολούθηση"
 
-#, fuzzy
 msgid "Mount Entry"
-msgstr "Προσάρτηση"
+msgstr ""
 
 msgid "Mount Point"
 msgstr "Σημείο Προσάρτησης"
 
 msgid "Mount Points"
-msgstr "Σημεία Προσάρτησης"
+msgstr ""
 
 msgid "Mount Points - Mount Entry"
-msgstr "Σημεία Προσάρτησης - Είσοδος Προσάρτησης"
+msgstr ""
 
 msgid "Mount Points - Swap Entry"
 msgstr ""
@@ -1473,25 +1393,25 @@ msgstr ""
 "προσαρτηθεί μία συσκευή μνήμης"
 
 msgid "Mount options"
-msgstr "Επιλογές προσάρτησης"
+msgstr ""
 
 msgid "Mount point"
-msgstr "Σημείο προσάρτησης"
+msgstr ""
 
 msgid "Mounted file systems"
 msgstr "Προσαρτημένα συστήματα αρχείων"
 
 msgid "Move down"
-msgstr "Μετακίνηση κάτω"
+msgstr ""
 
 msgid "Move up"
-msgstr "Μετακίνηση πάνω"
+msgstr ""
 
 msgid "Multicast Rate"
 msgstr "Ρυθμός Multicast"
 
 msgid "Multicast address"
-msgstr "Διεύθυνση Multicast"
+msgstr ""
 
 msgid "NAS ID"
 msgstr "NAS ID"
@@ -1503,93 +1423,89 @@ msgid "Name"
 msgstr "Όνομα"
 
 msgid "Name of the new interface"
-msgstr "Όνομα νέας διεπαφής"
+msgstr ""
 
 msgid "Name of the new network"
-msgstr "Όνομα νέου δικτύου"
+msgstr ""
 
 msgid "Navigation"
 msgstr "Πλοήγηση"
 
 msgid "Netmask"
-msgstr "Μάσκα δικτύου"
+msgstr ""
 
 msgid "Network"
 msgstr "Δίκτυο"
 
 msgid "Network Utilities"
-msgstr "Εργαλεία Δικτύου"
+msgstr ""
 
 msgid "Network boot image"
 msgstr ""
 
-msgid "Network without interfaces."
-msgstr ""
+msgid "Networks"
+msgstr "Δίκτυα"
 
 msgid "Next »"
-msgstr "Επόμενο »"
+msgstr ""
 
 msgid "No DHCP Server configured for this interface"
-msgstr "Δεν υπάρχει ρυθμισμένος DHCP εξυπηρετητής για αυτή τη διεπαφή"
+msgstr ""
 
 msgid "No chains in this table"
 msgstr "Δεν υπάρχουν αλυσίδες σε αυτόν τον πίνακα"
 
 msgid "No files found"
-msgstr "Δε βρέθηκαν αρχεία"
+msgstr ""
 
 msgid "No information available"
-msgstr "Δεν υπάρχουν πληροφορίες διαθέσιμες"
+msgstr ""
 
 msgid "No negative cache"
 msgstr ""
 
 msgid "No network configured on this device"
-msgstr "Δεν υπάρχει παραμετροποιημένο δίκτυο σε αυτή τη συσκευή"
+msgstr ""
 
 msgid "No network name specified"
-msgstr "Δεν έχει οριστεί όνομα δικτύου"
+msgstr ""
 
 msgid "No package lists available"
-msgstr "Δεν υπάρχουν διαθέσιμες λίστες πακέτων"
+msgstr ""
 
 msgid "No password set!"
-msgstr "Δεν έχει οριστεί κωδικός πρόσβασης!"
+msgstr ""
 
 msgid "No rules in this chain"
-msgstr "Δεν υπάρχει κανόνας σε αυτή την αλυσίδα"
+msgstr ""
 
 msgid "No zone assigned"
-msgstr "Δεν έχει ανατεθεί ζώνη"
+msgstr ""
 
 msgid "Noise"
-msgstr "Θόρυβος"
+msgstr ""
 
 msgid "Noise:"
-msgstr "Θόρυβος:"
+msgstr ""
 
 msgid "None"
-msgstr "Κανένα"
+msgstr ""
 
 msgid "Normal"
-msgstr "Φυσιολογικό"
-
-msgid "Not Found"
 msgstr ""
 
 msgid "Not associated"
 msgstr ""
 
-msgid "Not connected"
+msgid "Note: Configuration files will be erased."
 msgstr ""
 
-msgid "Note: Configuration files will be erased."
-msgstr "Σημείωση: Τα αρχεία παραμετροποίησης θα διαγραφούν."
+msgid ""
+"Note: If you choose an interface here which is part of another network, it "
+"will be moved into this network."
+msgstr ""
 
 msgid "Notice"
-msgstr "Επισήμανση"
-
-msgid "Nslookup"
 msgstr ""
 
 msgid "OK"
@@ -1619,23 +1535,23 @@ msgstr ""
 msgid "On-State Delay"
 msgstr ""
 
-msgid "One of hostname or mac address must be specified!"
+msgid "One or more fields contain invalid values!"
 msgstr ""
 
-msgid "One or more fields contain invalid values!"
-msgstr "Ένα ή περισσότερα πεδία περιέχουν μη έγκυρες τιμές!"
-
 msgid "One or more required fields have no value!"
-msgstr "Ένα ή περισσότερα πεδία δεν περιέχουν τιμές!"
+msgstr ""
+
+msgid "Open"
+msgstr ""
 
 msgid "Open list..."
 msgstr ""
 
 msgid "Option changed"
-msgstr "Η επιλογή άλλαξε"
+msgstr ""
 
 msgid "Option removed"
-msgstr "Η επιλογή αφαιρέθηκε"
+msgstr ""
 
 msgid "Options"
 msgstr "Επιλογές"
@@ -1685,28 +1601,28 @@ msgid "PID"
 msgstr "PID"
 
 msgid "PIN"
-msgstr "PIN"
+msgstr ""
 
 msgid "PPP"
-msgstr "PPP"
+msgstr ""
 
 msgid "PPPoA Encapsulation"
 msgstr "Ενθυλάκωση PPPoA"
 
 msgid "PPPoATM"
-msgstr "PPPoATM"
+msgstr ""
 
 msgid "PPPoE"
-msgstr "PPPoE"
+msgstr ""
 
 msgid "PPtP"
-msgstr "PPtP"
+msgstr ""
 
 msgid "Package libiwinfo required!"
-msgstr "Απαιτείται το πακέτο libiwinfo!"
+msgstr ""
 
 msgid "Package lists are older than 24 hours"
-msgstr "Οι λίστες πακέτων έχουν να ανανεωθούν πάνω από 24 ώρες"
+msgstr ""
 
 msgid "Package name"
 msgstr "Όνομα πακέτου"
@@ -1715,7 +1631,7 @@ msgid "Packets"
 msgstr "Πακέτα"
 
 msgid "Part of zone %q"
-msgstr "Μέρος της ζώνης %q"
+msgstr ""
 
 msgid "Password"
 msgstr "Κωδικός Πρόσβασης"
@@ -1727,19 +1643,19 @@ msgid "Password of Private Key"
 msgstr "Κωδικός Πρόσβασης του Ιδιωτικού Κλειδιού"
 
 msgid "Password successfully changed!"
-msgstr "Ο κωδικός πρόσβασης άλλαξε επιτυχώς!"
+msgstr ""
 
 msgid "Path to CA-Certificate"
 msgstr "Διαδρομή για Πιστοποιητικό CA"
 
 msgid "Path to Client-Certificate"
-msgstr "Διαδρομή για Πιστοποιητικό-Πελάτη"
+msgstr ""
 
 msgid "Path to Private Key"
 msgstr "Διαδρομή για Ιδιωτικό Κλειδί"
 
 msgid "Path to executable which handles the button event"
-msgstr "Διαδρομή για το εκτελέσιμο που χειρίζεται το γεγονός του κουμπιού"
+msgstr ""
 
 msgid "Peak:"
 msgstr ""
@@ -1748,7 +1664,7 @@ msgid "Perform reboot"
 msgstr "Εκτέλεση επανεκκίνησης"
 
 msgid "Perform reset"
-msgstr "Διενέργεια αρχικοποίησης"
+msgstr ""
 
 msgid "Phy Rate:"
 msgstr ""
@@ -1756,11 +1672,8 @@ msgstr ""
 msgid "Physical Settings"
 msgstr ""
 
-msgid "Ping"
-msgstr ""
-
 msgid "Pkts."
-msgstr "Πκτ."
+msgstr ""
 
 msgid "Please enter your username and password."
 msgstr "Παρακαλώ εισάγετε όνομα χρήστη και κωδικό πρόσβασης."
@@ -1775,24 +1688,20 @@ msgid "Port"
 msgstr "Θύρα"
 
 msgid "Port %d"
-msgstr "Θύρα %d"
+msgstr ""
 
 msgid "Port %d is untagged in multiple VLANs!"
 msgstr ""
 
-msgid "Port status:"
-msgstr ""
+msgid "Power"
+msgstr "Ισχύς"
 
 msgid ""
 "Presume peer to be dead after given amount of LCP echo failures, use 0 to "
 "ignore failures"
 msgstr ""
 
-#, fuzzy
 msgid "Prevents client-to-client communication"
-msgstr "Αποτρέπει την επικοινωνία μεταξύ πελατών"
-
-msgid "Prism2/2.5/3 802.11b Wireless Controller"
 msgstr ""
 
 msgid "Proceed"
@@ -1808,15 +1717,12 @@ msgid "Protocol"
 msgstr "Πρωτόκολλο"
 
 msgid "Protocol family"
-msgstr "Οικογένεια πρωτοκόλλου"
+msgstr ""
 
 msgid "Protocol of the new interface"
-msgstr "Πρωτόκολλο νέας διεπαφής"
+msgstr ""
 
 msgid "Protocol support is not installed"
-msgstr "Η υποστήριξη πρωτοκόλλου δεν έχει εκγατασταθεί"
-
-msgid "Provide NTP server"
 msgstr ""
 
 msgid "Provide new network"
@@ -1825,20 +1731,11 @@ msgstr ""
 msgid "Pseudo Ad-Hoc (ahdemo)"
 msgstr "Ψευδό Ad-Hoc (ahdemo)"
 
-msgid "Quality"
-msgstr ""
-
 msgid "RTS/CTS Threshold"
 msgstr "Όριο RTS/CTS"
 
 msgid "RX"
 msgstr "RX"
-
-msgid "RX Rate"
-msgstr ""
-
-msgid "RaLink 802.11%s Wireless Controller"
-msgstr ""
 
 msgid "Radius-Accounting-Port"
 msgstr ""
@@ -1866,42 +1763,42 @@ msgstr ""
 "εξυπηρετητή <abbr title=\"Dynamic Host Configuration Protocol\">DHCP</abbr>"
 
 msgid ""
-"Really delete this interface? The deletion cannot be undone!\\nYou might "
-"lose access to this device if you are connected via this interface."
+"Really delete this interface? The deletion cannot be undone!\n"
+"You might lose access to this router if you are connected via this interface."
 msgstr ""
 
 msgid ""
-"Really delete this wireless network? The deletion cannot be undone!\\nYou "
-"might lose access to this device if you are connected via this network."
+"Really delete this wireless network? The deletion cannot be undone!\n"
+"You might lose access to this router if you are connected via this network."
 msgstr ""
 
 msgid "Really reset all changes?"
-msgstr "Αρχικοποίηση όλων των αλλαγών;"
-
-msgid ""
-"Really shutdown interface \"%s\" ?\\nYou might lose access to this device if "
-"you are connected via this interface."
 msgstr ""
 
 msgid ""
-"Really shutdown network ?\\nYou might lose access to this device if you are "
-"connected via this interface."
+"Really shutdown interface \"%s\" ?\n"
+"You might lose access to this router if you are connected via this interface."
+msgstr ""
+
+msgid ""
+"Really shutdown network ?\n"
+"You might lose access to this router if you are connected via this interface."
 msgstr ""
 
 msgid "Really switch protocol?"
-msgstr "Αλλαγή πρωτοκόλλου;"
+msgstr ""
 
 msgid "Realtime Connections"
-msgstr "Συνδέσεις πραγματικού χρόνου"
+msgstr ""
 
 msgid "Realtime Graphs"
-msgstr "Γραφήματα πραγματικού χρόνου"
+msgstr ""
 
 msgid "Realtime Load"
 msgstr ""
 
 msgid "Realtime Traffic"
-msgstr "Κίνηση πραγματικού χρόνου"
+msgstr ""
 
 msgid "Realtime Wireless"
 msgstr ""
@@ -1913,7 +1810,7 @@ msgid "Reboot"
 msgstr "Επανεκκίνηση"
 
 msgid "Rebooting..."
-msgstr "Επανεκκίνηση..."
+msgstr ""
 
 msgid "Reboots the operating system of your device"
 msgstr "Επανεκκίνηση του λειτουργικού συστήματος της συσκευής σας"
@@ -1925,10 +1822,10 @@ msgid "Receiver Antenna"
 msgstr "Κεραία Λήψης"
 
 msgid "Reconnect this interface"
-msgstr "Επανασύνδεση της διεπαφής"
+msgstr ""
 
 msgid "Reconnecting interface"
-msgstr "Επανασύνδεση της διεπαφής"
+msgstr ""
 
 msgid "References"
 msgstr "Αναφορές"
@@ -1949,40 +1846,40 @@ msgid "Relay bridge"
 msgstr ""
 
 msgid "Remote IPv4 address"
-msgstr "Απομακρυσμένη διεύθυνση IPv4"
+msgstr ""
 
 msgid "Remove"
 msgstr "Αφαίρεση"
 
 msgid "Repeat scan"
-msgstr "Επανάληψη σάρωσης"
+msgstr ""
 
 msgid "Replace entry"
 msgstr "Αντικατάσταση καταχώρησης"
 
 msgid "Replace wireless configuration"
-msgstr "Αντικατάσταση ρυθμίσεων ασύρματης σύνδεσης"
+msgstr ""
 
 msgid "Required for certain ISPs, e.g. Charter with DOCSIS 3"
 msgstr ""
 
 msgid "Reset"
-msgstr "Αρχικοποίηση"
+msgstr "Ακύρωση"
 
 msgid "Reset Counters"
-msgstr "Αρχικοποίηση Μετρητών"
+msgstr "Μηδενισμός Μετρητών"
 
 msgid "Reset to defaults"
-msgstr "Αρχικοποίηση στις προεπιλεγμένες τιμές"
+msgstr ""
 
 msgid "Resolv and Hosts Files"
-msgstr "Αρχεία Resolv και Hosts"
+msgstr ""
 
 msgid "Resolve file"
-msgstr "Αρχείο Resolve"
+msgstr ""
 
 msgid "Restart"
-msgstr "Επανεκκίνηση"
+msgstr ""
 
 msgid "Restart Firewall"
 msgstr "Επανεκκίνηση Τείχους Προστασίας"
@@ -1997,23 +1894,23 @@ msgid "Revert"
 msgstr "Αναίρεση"
 
 msgid "Root"
-msgstr "Root"
+msgstr ""
 
 msgid "Root directory for files served via TFTP"
-msgstr "Κατάλογος Root για αρχεία που σερβίρονται μέσω TFTP"
+msgstr ""
 
 msgid "Router Model"
-msgstr "Μοντέλο Δρομολογητή"
+msgstr ""
 
 msgid "Router Name"
-msgstr "Όνομα Δρομολογητή"
+msgstr ""
 
 msgid "Router Password"
-msgstr "Κωδικός Πρόσβασης Δρομολογητή"
+msgstr ""
 
 #, fuzzy
 msgid "Routes"
-msgstr "Διαδρομές"
+msgstr "Διαδρομή"
 
 msgid ""
 "Routes specify over which interface and gateway a certain host or network "
@@ -2023,19 +1920,19 @@ msgstr ""
 "δίκτυο μπορεί να είναι προσβάσιμο/ς."
 
 msgid "Rule #"
-msgstr "Κανόνας #"
+msgstr ""
 
 msgid "Run a filesystem check before mounting the device"
-msgstr "Εκτέλεση ελέγχου του συστήματος αρχείων πριν προσαρτηθεί η συσκευή"
+msgstr ""
 
 msgid "Run filesystem check"
-msgstr "Εκτέλεση ελέγχου συστήματος αρχείων"
+msgstr ""
 
 msgid "SSH Access"
-msgstr "Πρόσβαση SSH"
+msgstr ""
 
 msgid "SSH-Keys"
-msgstr "Κλειδιά SSH"
+msgstr ""
 
 msgid "SSID"
 msgstr "SSID"
@@ -2047,7 +1944,7 @@ msgid "Save & Apply"
 msgstr "Αποθήκευση & Εφαρμογή"
 
 msgid "Save &#38; Apply"
-msgstr "Αποθήκευση &#38; Εφαρμογή"
+msgstr ""
 
 msgid "Scan"
 msgstr "Σάρωση"
@@ -2062,7 +1959,7 @@ msgid "Section removed"
 msgstr ""
 
 msgid "See \"mount\" manpage for details"
-msgstr "Δείτε το manpage του \"mount\" για λεπτομέρειες"
+msgstr ""
 
 msgid ""
 "Send LCP echo requests at the given interval in seconds, only effective in "
@@ -2080,19 +1977,19 @@ msgid "Separate WDS"
 msgstr "Ξεχωριστά WDS"
 
 msgid "Server Settings"
-msgstr "Ρυθμίσεις Εξυπηρετητή"
+msgstr ""
 
 msgid "Service Name"
-msgstr "Όνομα Υπηρεσίας"
+msgstr ""
 
 msgid "Service Type"
-msgstr "Είδος Υπηρεσίας"
+msgstr ""
 
 msgid "Services"
 msgstr "Υπηρεσίες"
 
 msgid "Setup DHCP Server"
-msgstr "Ρύθμιση Εξυπηρετητή DHCP"
+msgstr ""
 
 msgid "Setup Time Synchronization"
 msgstr ""
@@ -2101,22 +1998,22 @@ msgid "Show current backup file list"
 msgstr ""
 
 msgid "Shutdown this interface"
-msgstr "Απενεργοποίηση αυτής της διεπαφής"
+msgstr ""
 
 msgid "Shutdown this network"
-msgstr "Απενεργοποίηση αυτού του δικτύου"
+msgstr ""
 
 msgid "Signal"
-msgstr "Σήμα"
+msgstr ""
 
 msgid "Signal:"
-msgstr "Σήμα:"
+msgstr ""
 
 msgid "Size"
 msgstr "Μέγεθος"
 
 msgid "Skip"
-msgstr "Παράκαμψη"
+msgstr ""
 
 msgid "Skip to content"
 msgstr "Παράκαμψη σε περιεχόμενο"
@@ -2131,12 +2028,6 @@ msgid "Software"
 msgstr "Λογισμικό"
 
 msgid "Some fields are invalid, cannot save values!"
-msgstr "Κάποια πεδία δεν είναι έγκυρα, δεν μπορούν να αποθηκευτούν οι τιμές!"
-
-msgid "Sorry, the object you requested was not found."
-msgstr ""
-
-msgid "Sorry, the server encountered an unexpected error."
 msgstr ""
 
 msgid ""
@@ -2146,7 +2037,7 @@ msgid ""
 msgstr ""
 
 msgid "Sort"
-msgstr "Ταξινόμηση"
+msgstr ""
 
 msgid "Source"
 msgstr "Πηγή"
@@ -2163,10 +2054,8 @@ msgstr ""
 msgid "Specifies the directory the device is attached to"
 msgstr ""
 
-#, fuzzy
 msgid "Specifies the listening port of this <em>Dropbear</em> instance"
 msgstr ""
-"Προσδιορίζει την θύρα ακρόασης αυτού του στιγμιοτύπου <em>Dropbear</em>"
 
 msgid ""
 "Specifies the maximum amount of failed ARP requests until hosts are presumed "
@@ -2179,7 +2068,7 @@ msgid ""
 msgstr ""
 
 msgid "Specify the secret encryption key here."
-msgstr "Ορίστε το κρυφό κλειδί κρυπτογράφησης."
+msgstr ""
 
 msgid "Start"
 msgstr "Αρχή"
@@ -2188,7 +2077,7 @@ msgid "Start priority"
 msgstr "Προτεραιότητα εκκίνησης"
 
 msgid "Startup"
-msgstr "Εκκίνηση"
+msgstr ""
 
 msgid "Static IPv4 Routes"
 msgstr "Στατικές Διαδρομές IPv4"
@@ -2206,7 +2095,7 @@ msgid "Static WDS"
 msgstr ""
 
 msgid "Static address"
-msgstr "Στατική διεύθυνση"
+msgstr ""
 
 msgid ""
 "Static leases are used to assign fixed IP addresses and symbolic hostnames "
@@ -2245,7 +2134,7 @@ msgid "Sync with browser"
 msgstr ""
 
 msgid "Synchronizing..."
-msgstr "Συγχρονισμός..."
+msgstr ""
 
 msgid "System"
 msgstr "Σύστημα"
@@ -2254,25 +2143,22 @@ msgid "System Log"
 msgstr "Καταγραφή Συστήματος"
 
 msgid "System Properties"
-msgstr "Ιδιότητες Συστήματος"
+msgstr ""
 
 msgid "System log buffer size"
 msgstr ""
 
 msgid "TCP:"
-msgstr "TCP:"
+msgstr ""
 
 msgid "TFTP Settings"
-msgstr "Ρυθμίσεις TFTP"
+msgstr ""
 
 msgid "TFTP server root"
 msgstr ""
 
 msgid "TX"
 msgstr "TX"
-
-msgid "TX Rate"
-msgstr ""
 
 msgid "Table"
 msgstr "Πίνακας"
@@ -2297,15 +2183,9 @@ msgid ""
 msgstr ""
 
 msgid ""
-"The IPv6 prefix assigned to the provider, usually ends with <code>::</code>"
-msgstr ""
-
-msgid ""
 "The allowed characters are: <code>A-Z</code>, <code>a-z</code>, <code>0-9</"
 "code> and <code>_</code>"
 msgstr ""
-"Οι επιτρεπόμενοι χαρακτήρες είναι: <code>A-Z</code>, <code>a-z</code>, "
-"<code>0-9</code> και <code>_</code>"
 
 msgid ""
 "The device file of the memory or partition (<abbr title=\"for example\">e.g."
@@ -2330,16 +2210,16 @@ msgid ""
 msgstr ""
 
 msgid "The following changes have been committed"
-msgstr "Οι παρακάτω αλλαγές έχουν υποβληθεί"
+msgstr ""
 
 msgid "The following changes have been reverted"
 msgstr "Οι παρακάτω αλλαγές έχουν αναιρεθεί"
 
 msgid "The following rules are currently active on this system."
-msgstr "Οι παρακάτω κανόνες είναι αυτή τη στιγμή ενεργοί σε αυτό το σύστημα."
+msgstr ""
 
 msgid "The given network name is not unique"
-msgstr "Το παρεχόμενο όνομα δικτύου δεν είναι μοναδικό"
+msgstr ""
 
 msgid ""
 "The hardware is not multi-SSID capable and existing configuration will be "
@@ -2347,21 +2227,20 @@ msgid ""
 msgstr ""
 
 msgid ""
-"The length of the IPv4 prefix in bits, the remainder is used in the IPv6 "
-"addresses."
-msgstr ""
-
-msgid "The length of the IPv6 prefix in bits"
-msgstr ""
-
-msgid ""
-"The network ports on this device can be combined to several <abbr title="
+"The network ports on your router can be combined to several <abbr title="
 "\"Virtual Local Area Network\">VLAN</abbr>s in which computers can "
 "communicate directly with each other. <abbr title=\"Virtual Local Area "
 "Network\">VLAN</abbr>s are often used to separate different network "
 "segments. Often there is by default one Uplink port for a connection to the "
 "next greater network like the internet and other ports for a local network."
 msgstr ""
+"Οι πόρτες δικτύου του δρομολογητή σας μπορούν να συνδυαστούν σε πολλά <abbr "
+"title=\"Virtual Local Area Network\">VLAN</abbr>s όπου οι υπολογιστές να "
+"επικοινωνούν απευθείας μεταξύ τους. Τα <abbr title=\"Virtual Local Area "
+"Network\">VLAN</abbr>s συχνά χρησιμοποιούνται για να διαχωρίσουν διαφορετικά "
+"τμήματα του δικτύου. Συχνά υπάρχει μία προεπιλεγμένη πόρτα Uplink για "
+"σύνδεση με ένα μεγαλύτερο δίκτυο όπως το internet και άλλες πόρτες για "
+"σύνδεση με το τοπικό δίκτυο."
 
 msgid "The selected protocol needs a device assigned"
 msgstr ""
@@ -2390,7 +2269,7 @@ msgstr ""
 "ότι επιλέξατε την γενική μορφή εικόνας για την πλατφόρμα σας."
 
 msgid "There are no active leases."
-msgstr "Δεν υπάρχουν ενεργά leases."
+msgstr ""
 
 msgid "There are no pending changes to apply!"
 msgstr ""
@@ -2409,9 +2288,6 @@ msgstr ""
 msgid ""
 "There is no password set on this router. Please configure a root password to "
 "protect the web interface and enable SSH."
-msgstr ""
-
-msgid "This IPv4 address of the relay"
 msgstr ""
 
 msgid ""
@@ -2481,13 +2357,10 @@ msgid ""
 msgstr ""
 
 msgid "Total Available"
-msgstr "Διαθέσιμο Συνολικά"
-
-msgid "Traceroute"
 msgstr ""
 
 msgid "Traffic"
-msgstr "Κίνηση"
+msgstr ""
 
 msgid "Transfer"
 msgstr "Μεταφέρθηκαν"
@@ -2514,40 +2387,34 @@ msgid "Tunnel ID"
 msgstr ""
 
 msgid "Tunnel Interface"
-msgstr "Διεπαφή Τούνελ"
+msgstr ""
 
 msgid "Turbo Mode"
 msgstr "Λειτουργία Turbo"
 
 msgid "Tx-Power"
-msgstr "Ισχύς Εκπομπής"
+msgstr ""
 
 msgid "Type"
 msgstr "Τύπος"
 
 msgid "UDP:"
-msgstr "UDP:"
-
-msgid "UMTS only"
 msgstr ""
 
 msgid "UMTS/GPRS/EV-DO"
-msgstr "UMTS/GPRS/EV-DO"
+msgstr ""
 
 msgid "USB Device"
-msgstr "Συσκευή USB"
+msgstr ""
 
 msgid "UUID"
-msgstr "UUID"
-
-msgid "Unable to dispatch"
 msgstr ""
 
 msgid "Unknown"
-msgstr "Άγνωστο"
+msgstr ""
 
 msgid "Unknown Error, password not changed!"
-msgstr "Άγνωστο Λάθος. ο κωδικός πρόσβασης δεν άλλαξε!"
+msgstr ""
 
 msgid "Unmanaged"
 msgstr ""
@@ -2580,7 +2447,7 @@ msgid "Use <code>/etc/ethers</code>"
 msgstr "Χρήση <code>/etc/ethers</code>"
 
 msgid "Use DHCP gateway"
-msgstr "Χρήση πύλης DHCP"
+msgstr ""
 
 msgid "Use DNS servers advertised by peer"
 msgstr ""
@@ -2604,7 +2471,7 @@ msgid "Use custom DNS servers"
 msgstr ""
 
 msgid "Use default gateway"
-msgstr "Χρήση προεπιλεγμένης πύλης"
+msgstr ""
 
 msgid "Use gateway metric"
 msgstr ""
@@ -2629,7 +2496,7 @@ msgid "Used"
 msgstr "Σε χρήση"
 
 msgid "Used Key Slot"
-msgstr "Χρησιμοποιούμενη Υποδοχή Κλειδιού"
+msgstr ""
 
 msgid "Username"
 msgstr "Όνομα Χρήστη"
@@ -2638,7 +2505,7 @@ msgid "VC-Mux"
 msgstr ""
 
 msgid "VLAN Interface"
-msgstr "Διεπαφή VLAN"
+msgstr ""
 
 msgid "VLANs on %q"
 msgstr ""
@@ -2647,7 +2514,7 @@ msgid "VLANs on %q (%s)"
 msgstr ""
 
 msgid "VPN Server"
-msgstr "Εξυπηρετητής VPN"
+msgstr ""
 
 msgid "Vendor Class to send when requesting DHCP"
 msgstr ""
@@ -2665,30 +2532,27 @@ msgid "WEP Open System"
 msgstr ""
 
 msgid "WEP Shared Key"
-msgstr "Μοιραζόμενο κλειδί WEP"
+msgstr ""
 
 msgid "WEP passphrase"
-msgstr "Κωδική φράση WEP"
+msgstr ""
 
 msgid "WMM Mode"
 msgstr "Υποστήριξη WMM"
 
 msgid "WPA passphrase"
-msgstr "Κωδική φράση WPA"
+msgstr ""
 
 msgid ""
 "WPA-Encryption requires wpa_supplicant (for client mode) or hostapd (for AP "
 "and ad-hoc mode) to be installed."
 msgstr ""
 
-msgid "Waiting for changes to be applied..."
-msgstr ""
-
-msgid "Waiting for command to complete..."
+msgid "Waiting for router..."
 msgstr ""
 
 msgid "Warning"
-msgstr "Προειδοποίηση"
+msgstr ""
 
 msgid "Warning: There are unsaved changes that will be lost while rebooting!"
 msgstr ""
@@ -2698,41 +2562,47 @@ msgstr ""
 msgid "Wifi"
 msgstr "Ασύρματο"
 
+msgid "Wifi networks in your local environment"
+msgstr "Τοπικά Ασύρματα δίκτυα"
+
 msgid "Wireless"
-msgstr "Ασύρματο"
+msgstr ""
 
 msgid "Wireless Adapter"
-msgstr "Ασύρματος Προσαρμογέας"
+msgstr "Ασύρματος Προσαρμογές"
 
+#, fuzzy
 msgid "Wireless Network"
-msgstr "Ασύρματο Δίκτυο"
+msgstr "Δημιουργία Δικτύου"
 
+#, fuzzy
 msgid "Wireless Overview"
-msgstr "Επισκόπηση Ασύρματου Δικτύου"
+msgstr "Ασύρματος Προσαρμογές"
 
+#, fuzzy
 msgid "Wireless Security"
-msgstr "Ασφάλεια Ασύρματου Δικτύου"
+msgstr "Ασύρματος Προσαρμογές"
 
 msgid "Wireless is disabled or not associated"
-msgstr "Το ασύρματο δίκτυο είναι απενεργοποιημένο ή μη συνδεδεμένο"
+msgstr ""
 
 msgid "Wireless is restarting..."
-msgstr "Το ασύρματο δίκτυο επανεκκινείται..."
+msgstr ""
 
 msgid "Wireless network is disabled"
-msgstr "Το ασύρματο δίκτυο είναι ανενεργό"
+msgstr ""
 
 msgid "Wireless network is enabled"
-msgstr "Το ασύρματο δίκτυο είναι ενεργό"
+msgstr ""
 
 msgid "Wireless restarted"
-msgstr "Το ασύρματο δίκτυο επανεκκινήθηκε"
+msgstr ""
 
 msgid "Wireless shut down"
-msgstr "Το ασύρματο δίκτυο τερματίστηκε"
+msgstr ""
 
 msgid "Write received DNS requests to syslog"
-msgstr "Καταγραφή των ληφθέντων DNS αιτήσεων στο syslog"
+msgstr ""
 
 msgid "XR Support"
 msgstr "Υποστήριξη XR"
@@ -2745,7 +2615,7 @@ msgstr ""
 "Μπορείτε να ενεργοποιήσετε ή να απενεργοποιήσετε σενάρια εκκίνησης εδώ. Οι "
 "αλλαγές θα εφαρμοστούν αφού επανεκκινήσετε τη συσκευή.<br /"
 "><strong>Προειδοποίηση: Αν απενεργοποιήσετε απαραίτητα σενάρια εκκίνησης "
-"όπως το \"network\", η συσκευή σας μπορεί να καταστεί μη-προσβάσιμη!</strong>"
+"όπως το \"network\", η συσκευή σας μπορεί να γίνει μη-προσβάσιμη!</strong>"
 
 msgid ""
 "You must enable Java Script in your browser or LuCI will not work properly."
@@ -2757,24 +2627,11 @@ msgstr ""
 msgid "auto"
 msgstr "αυτόματα"
 
-msgid "baseT"
-msgstr ""
-
 msgid "bridged"
 msgstr ""
 
-msgid "create:"
-msgstr ""
-
-#, fuzzy
 msgid "creates a bridge over specified interface(s)"
 msgstr "δημιουργεί μία γέφυρα μεταξύ των ορισμένων διεπαφών"
-
-msgid "dB"
-msgstr ""
-
-msgid "dBm"
-msgstr ""
 
 msgid "disable"
 msgstr "ανενεργό"
@@ -2789,55 +2646,25 @@ msgstr ""
 "αρχείο όπου θα αποθηκεύονται τα Leases του <abbr title=\"Dynamic Host "
 "Configuration Protocol\">DHCP</abbr>"
 
-msgid "forward"
-msgstr "προώθηση"
-
-msgid "full-duplex"
-msgstr ""
-
-msgid "half-duplex"
-msgstr ""
-
 msgid "help"
-msgstr "βοήθεια"
-
-msgid "hidden"
 msgstr ""
 
 msgid "if target is a network"
 msgstr "αν ο στόχος είναι ένα δίκτυο"
 
-msgid "input"
-msgstr "είσοδος"
-
-msgid "kB"
-msgstr ""
-
-msgid "kB/s"
-msgstr ""
-
-msgid "kbit/s"
-msgstr ""
-
 msgid "local <abbr title=\"Domain Name System\">DNS</abbr> file"
 msgstr "τοπικό αρχείο <abbr title=\"Domain Name System\">DNS</abbr>"
 
 msgid "no"
-msgstr "όχι"
-
-msgid "no link"
 msgstr ""
 
 msgid "none"
 msgstr "κανένα"
 
 msgid "off"
-msgstr "κλειστό"
+msgstr ""
 
 msgid "on"
-msgstr "ανοιχτό"
-
-msgid "open"
 msgstr ""
 
 msgid "routed"
@@ -2846,136 +2673,23 @@ msgstr ""
 msgid "tagged"
 msgstr ""
 
-msgid "unknown"
+msgid "unlimited"
 msgstr ""
 
-msgid "unlimited"
-msgstr "απεριόριστα"
-
 msgid "unspecified"
-msgstr "μη-καθορισμένο"
+msgstr ""
 
 msgid "unspecified -or- create:"
-msgstr "μη-καθορισμένο -ή- δημιουργείστε:"
+msgstr ""
 
 msgid "untagged"
 msgstr ""
 
 msgid "yes"
-msgstr "ναι"
+msgstr ""
 
 msgid "« Back"
-msgstr "« Πίσω"
-
-#~ msgid "Waiting for router..."
-#~ msgstr "Αναμονή για δρομολογητή..."
-
-#~ msgid "Enable builtin NTP server"
-#~ msgstr "Ενεργοποίηση ενσωματωμένου εξυπηρετητή NTP"
-
-#~ msgid "Active Leases"
-#~ msgstr "Ενεργά Leases"
-
-#~ msgid "Open"
-#~ msgstr "Άνοιγμα"
-
-#~ msgid "Bit Rate"
-#~ msgstr "Ρυθμός Δεδομένων"
-
-#~ msgid "Configuration / Apply"
-#~ msgstr "Παραμετροποίηση / Εφαρμογή"
-
-#~ msgid "Configuration / Changes"
-#~ msgstr "Παραμετροποίηση / Αλλαγές"
-
-#~ msgid "Configuration / Revert"
-#~ msgstr "Παραμετροποίηση / Επαναφορά"
-
-#~ msgid "MAC"
-#~ msgstr "MAC"
-
-#~ msgid "MAC Address"
-#~ msgstr "Διεύθυνση MAC"
-
-#~ msgid "<abbr title=\"Encrypted\">Encr.</abbr>"
-#~ msgstr "<abbr title=\"Encrypted\">Κρυπτ.</abbr>"
-
-#~ msgid "<abbr title=\"Wireless Local Area Network\">WLAN</abbr>-Scan"
-#~ msgstr "Σάρωση <abbr title=\"Wireless Local Area Network\">WLAN</abbr>"
-
-#~ msgid ""
-#~ "Choose the network you want to attach to this wireless interface. Select "
-#~ "<em>unspecified</em> to not attach any network or fill out the "
-#~ "<em>create</em> field to define a new network."
-#~ msgstr ""
-#~ "Επιλέξατε το δίκτυο που επιθυμείτε να προσαρτήσετε σε αυτήν την ασύρματη "
-#~ "διεπαφή. Επιλέξτε <em>απροσδιόριστο</em> για να μην προσαρτηθεί "
-#~ "οποιοδήποτε ή συμπληρώστε το πεδίο <em>δημιουργία</em> για να "
-#~ "προσδιορίσετε ένα νέο δίκτυο."
-
-#~ msgid "Create Network"
-#~ msgstr "Δημιουργία Δικτύου"
-
-#~ msgid "Link"
-#~ msgstr "Ζεύξη"
-
-#~ msgid "Networks"
-#~ msgstr "Δίκτυα"
-
-#~ msgid "Power"
-#~ msgstr "Ισχύς"
-
-#~ msgid "Wifi networks in your local environment"
-#~ msgstr "Τοπικά Ασύρματα δίκτυα"
-
-#~ msgid ""
-#~ "<abbr title=\"Classless Inter-Domain Routing\">CIDR</abbr>-Notation: "
-#~ "address/prefix"
-#~ msgstr ""
-#~ "Παράσταση <abbr title=\"Classless Inter-Domain Routing\">CIDR</abbr>: "
-#~ "διεύθυνση/πρόθεμα"
-
-#~ msgid "<abbr title=\"Domain Name System\">DNS</abbr>-Server"
-#~ msgstr "Εξυπηρετητής <abbr title=\"Domain Name System\">DNS</abbr>"
-
-#~ msgid "<abbr title=\"Internet Protocol Version 4\">IPv4</abbr>-Broadcast"
-#~ msgstr "<abbr title=\"Internet Protocol Version 4\">IPv4</abbr>-Broadcast"
-
-#~ msgid "<abbr title=\"Internet Protocol Version 6\">IPv6</abbr>-Address"
-#~ msgstr "Διεύθυνση <abbr title=\"Internet Protocol Version 6\">IPv6</abbr>"
-
-#~ msgid "IPv6 Setup"
-#~ msgstr "Διαχείριση IPv6"
-
-#~ msgid ""
-#~ "Note: If you choose an interface here which is part of another network, "
-#~ "it will be moved into this network."
-#~ msgstr ""
-#~ "Σημείωση: Εάν επιλέξετε μια διεπαφή εδώ η οποία είναι μέρος ενός άλλου "
-#~ "δικτύου, θα μετακινηθεί σε αυτό το δίκτυο."
-
-#~ msgid ""
-#~ "The network ports on your router can be combined to several <abbr title="
-#~ "\"Virtual Local Area Network\">VLAN</abbr>s in which computers can "
-#~ "communicate directly with each other. <abbr title=\"Virtual Local Area "
-#~ "Network\">VLAN</abbr>s are often used to separate different network "
-#~ "segments. Often there is by default one Uplink port for a connection to "
-#~ "the next greater network like the internet and other ports for a local "
-#~ "network."
-#~ msgstr ""
-#~ "Οι πόρτες δικτύου του δρομολογητή σας μπορούν να συνδυαστούν σε πολλά "
-#~ "<abbr title=\"Virtual Local Area Network\">VLAN</abbr>s όπου οι "
-#~ "υπολογιστές να επικοινωνούν απευθείας μεταξύ τους. Τα <abbr title="
-#~ "\"Virtual Local Area Network\">VLAN</abbr>s συχνά χρησιμοποιούνται για να "
-#~ "διαχωρίσουν διαφορετικά τμήματα του δικτύου. Συχνά υπάρχει μία "
-#~ "προεπιλεγμένη πόρτα Uplink για σύνδεση με ένα μεγαλύτερο δίκτυο όπως το "
-#~ "internet και άλλες πόρτες για σύνδεση με το τοπικό δίκτυο."
-
-#~ msgid "Enable buffering"
-#~ msgstr "Ενεργοποίηση buffering"
-
-#~ msgid "IPv6-over-IPv4"
-#~ msgstr "IPv6-over-IPv4"
+msgstr ""
 
 #~ msgid "Files to be kept when flashing a new firmware"
 #~ msgstr "Αρχεία που θα διατηρηθούν κατά το φλασάρισμα του firmware"
@@ -3447,7 +3161,7 @@ msgstr "« Πίσω"
 
 #~ msgid ""
 #~ "<abbr title=\"maximal\">max.</abbr> <abbr title=\"Extension Mechanisms "
-#~ "for Domain Name System\">EDNS0</abbr> packet size"
+#~ "for Domain Name System\">EDNS0</abbr> paket size"
 #~ msgstr ""
 #~ "<abbr title=\"μέγιστο\">μεγ.</abbr> μέγεθος πακέτου <abbr title="
 #~ "\"Extension Mechanisms for Domain Name System\">EDNS0</abbr>"

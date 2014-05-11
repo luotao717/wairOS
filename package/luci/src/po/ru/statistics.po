@@ -1,19 +1,18 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: LuCI: statistics\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-05-19 19:36+0200\n"
-"PO-Revision-Date: 2012-08-16 19:23+0300\n"
-"Last-Translator: Roman A. aka BasicXP <x12ozmouse@ya.ru>\n"
-"Language-Team: Russian <x12ozmouse@ya.ru>\n"
-"Language: ru\n"
+"PO-Revision-Date: 2011-07-26 12:03+0200\n"
+"Last-Translator: stanislav.fomichev <s@fomichev.me>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Language: ru\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Pootle 2.0.4\n"
-"X-Poedit-SourceCharset: UTF-8\n"
 
 msgid "Action (target)"
 msgstr "Действие (цель)"
@@ -25,7 +24,7 @@ msgid "Add matching rule"
 msgstr "Добавить правило выборки"
 
 msgid "Add multiple hosts separated by space."
-msgstr "Добавить несколько хостов, разделённых пробелом"
+msgstr ""
 
 msgid "Add notification command"
 msgstr "Добавить команду уведомления"
@@ -40,28 +39,28 @@ msgid "CPU Plugin Configuration"
 msgstr "Конфигурация модуля CPU"
 
 msgid "CSV Output"
-msgstr "Вывод в CSV"
+msgstr "CSV вывод"
 
 msgid "CSV Plugin Configuration"
-msgstr "Конфигурация модуля CSV"
+msgstr "Конфигурация CSV модуля"
 
 msgid "Cache collected data for"
-msgstr "Кэшировать собранную статистику в течение"
+msgstr "Кешировать собранную статистику для"
 
 msgid "Cache flush interval"
-msgstr "Интервал сброса кэша"
+msgstr "Интервал сброса кеша"
 
 msgid "Chain"
 msgstr "Цепочка"
 
 msgid "CollectLinks"
-msgstr "Сбор информации о соединениях (CollectLinks)"
+msgstr ""
 
 msgid "CollectRoutes"
-msgstr "Сбор информации о маршрутах (CollectRoutes)"
+msgstr ""
 
 msgid "CollectTopology"
-msgstr "Сбор информации о топологии (CollectTopology)"
+msgstr ""
 
 msgid "Collectd"
 msgstr "Collectd"
@@ -70,18 +69,18 @@ msgid "Collectd Settings"
 msgstr "Настройки Collectd"
 
 msgid ""
-"Collectd is a small daemon for collecting data from various sources through "
+"Collectd is a small daeomon for collecting data from various sources through "
 "different plugins. On this page you can change general settings for the "
 "collectd daemon."
 msgstr ""
-"Collectd - это сервис для сбора данных с разных модулей. На этой странице вы "
-"можете изменить настройки Сollectd."
+"Collectd это сервис для сбора данных с разных модулей. На этой странице вы "
+"можете изменить настройки collectd."
 
 msgid "Conntrack"
-msgstr "Отслеживание подключения (Conntrack)"
+msgstr ""
 
 msgid "Conntrack Plugin Configuration"
-msgstr "Настройка плагина Conntrack"
+msgstr ""
 
 msgid "DF Plugin Configuration"
 msgstr "Конфигурация модуля DF"
@@ -99,7 +98,7 @@ msgid "Datasets definition file"
 msgstr "Файл с определением набора данных"
 
 msgid "Destination ip range"
-msgstr "Диапазон IP-адресов назначения"
+msgstr "Диапазон ip адресов назначения"
 
 msgid "Directory for collectd plugins"
 msgstr "Директория с модулями collectd"
@@ -116,9 +115,6 @@ msgstr "Использование диска"
 msgid "Disk Usage"
 msgstr "Использование диска"
 
-msgid "Display Host »"
-msgstr ""
-
 msgid "Display timespan »"
 msgstr "Показать за промежуток »"
 
@@ -126,7 +122,7 @@ msgid "E-Mail Plugin Configuration"
 msgstr "Конфигурация модуля E-Mail"
 
 msgid "Email"
-msgstr "E-mail"
+msgstr "Email"
 
 msgid "Enable this plugin"
 msgstr "Включить этот модуль"
@@ -137,15 +133,14 @@ msgstr "Exec"
 msgid "Exec Plugin Configuration"
 msgstr "Конфигурация модуля Exec"
 
-#, fuzzy
 msgid "Filter class monitoring"
-msgstr "Мониторинг классов фильтров"
+msgstr "Filter class статистика"
 
 msgid "Firewall"
-msgstr "Firewall"
+msgstr "Межсетевой экран"
 
 msgid "Flush cache after"
-msgstr "Сбросить кэш после"
+msgstr "Сбросить кеш после"
 
 msgid "Forwarding between listen and server addresses"
 msgstr "Перенаправление между локальным адресом и адресом сервера"
@@ -154,14 +149,14 @@ msgid "Graphs"
 msgstr "Графики"
 
 msgid "Group"
-msgstr "Группа"
+msgstr ""
 
 msgid ""
 "Here you can define external commands which will be started by collectd in "
 "order to read certain values. The values will be read from stdout."
 msgstr ""
 "Здесь вы можете определить внешние команды, которые будут выполнены для "
-"чтения определённых значений. Значения будут считаны со стандартного вывода."
+"чтения определенных значений. Значения будут считаны со стандартного вывода."
 
 msgid ""
 "Here you can define external commands which will be started by collectd when "
@@ -169,24 +164,24 @@ msgid ""
 "will be feeded to the the called programs stdin."
 msgstr ""
 "Здесь вы можете определить внешние команды, которые будут выполнены, когда "
-"значения достигнут определённого порога. Значения будут переданы на "
+"значения достигнут определенного порога. Значения будут переданы на "
 "стандартный ввод вызванным программам."
 
 msgid ""
 "Here you can define various criteria by which the monitored iptables rules "
 "are selected."
 msgstr ""
-"Здесь вы можете указать различные критерии, по которым будут выбраны правила "
+"Здесь вы можете указать различные критерии по которым будут выбраны правила "
 "для сбора статистики."
 
 msgid "Host"
-msgstr "Хост"
+msgstr ""
 
 msgid "Hostname"
 msgstr "Имя хоста"
 
 msgid "IP or hostname where to get the txtinfo output from"
-msgstr "IP-адрес или имя хоста, с которых получать текстовый вывод"
+msgstr ""
 
 msgid "IRQ Plugin Configuration"
 msgstr "Конфигурация модуля IRQ"
@@ -196,6 +191,12 @@ msgstr "Игнорировать адреса-источники"
 
 msgid "Incoming interface"
 msgstr "Входящий интерфейс"
+
+msgid "Installed network plugins:"
+msgstr ""
+
+msgid "Installed output plugins:"
+msgstr ""
 
 msgid "Interface Plugin Configuration"
 msgstr "Конфигурация модуля Interface"
@@ -207,15 +208,13 @@ msgid "Interrupts"
 msgstr "Прерывания"
 
 msgid "Interval for pings"
-msgstr "Интервал для ping-запросов"
+msgstr ""
 
 msgid "Iptables Plugin Configuration"
 msgstr "Конфигурация модуля Iptables"
 
 msgid "Leave unselected to automatically determine interfaces to monitor."
 msgstr ""
-"Оставьте невыбранным для автоматического определения интерфейсов для "
-"мониторинга."
 
 msgid "Listen host"
 msgstr "Хост"
@@ -233,13 +232,13 @@ msgid "Maximum allowed connections"
 msgstr "Максимальное число соединений"
 
 msgid "Memory"
-msgstr "Память"
+msgstr ""
 
 msgid "Memory Plugin Configuration"
-msgstr "Конфигурация модуля Memory"
+msgstr ""
 
 msgid "Monitor all except specified"
-msgstr "Собирать статистику со всех, кроме указанных"
+msgstr ""
 
 msgid "Monitor all local listen ports"
 msgstr "Собирать статистику со всех портов, ожидающих соединения"
@@ -257,7 +256,7 @@ msgid "Monitor hosts"
 msgstr "Собирать статистику с хостов"
 
 msgid "Monitor interfaces"
-msgstr "Собирать статистику с интерфейсов"
+msgstr ""
 
 msgid "Monitor interrupts"
 msgstr "Собирать статистику по прерываниям"
@@ -272,7 +271,7 @@ msgid "Monitor processes"
 msgstr "Собирать статистику с процессов"
 
 msgid "Monitor remote ports"
-msgstr "Собирать статистику с удалённых портов"
+msgstr "Собирать статистику с удаленных портов"
 
 msgid "Name of the rule"
 msgstr "Название правила"
@@ -284,13 +283,18 @@ msgid "Netlink Plugin Configuration"
 msgstr "Конфигурация модуля Netlink"
 
 msgid "Network"
-msgstr "Network"
+msgstr "Сеть"
 
 msgid "Network Plugin Configuration"
 msgstr "Конфигурация модуля Network"
 
 msgid "Network plugins"
 msgstr "Сетевые модули"
+
+msgid ""
+"Network plugins are used to collect information about open tcp connections, "
+"interface traffic, iptables rules etc."
+msgstr ""
 
 msgid "Network protocol"
 msgstr "Сетевой протокол"
@@ -299,10 +303,10 @@ msgid "Number of threads for data collection"
 msgstr "Количество потоков сбора данных"
 
 msgid "OLSRd"
-msgstr "OLSRd"
+msgstr ""
 
 msgid "OLSRd Plugin Configuration"
-msgstr "Настройка плагина OLSRd"
+msgstr ""
 
 msgid "Only create average RRAs"
 msgstr "Создавать только средние RRA"
@@ -316,14 +320,21 @@ msgstr "Исходящий интерфейс"
 msgid "Output plugins"
 msgstr "Модули вывода"
 
+msgid ""
+"Output plugins provide different possibilities to store collected data. It "
+"is possible to enable multiple plugin at one, for example to store collected "
+"data in rrd databases and to transmit the data over the network to other "
+"collectd instances."
+msgstr ""
+
 msgid "Ping"
-msgstr "Ping"
+msgstr "Пинг"
 
 msgid "Ping Plugin Configuration"
 msgstr "Конфигурация модуля Ping"
 
 msgid "Port"
-msgstr "Порт"
+msgstr ""
 
 msgid "Processes"
 msgstr "Процессы"
@@ -332,21 +343,19 @@ msgid "Processes Plugin Configuration"
 msgstr "Конфигурация модуля Processes"
 
 msgid "Processes to monitor separated by space"
-msgstr "Процессы для мониторинга (разделённые пробелом)"
+msgstr ""
 
 msgid "Processor"
-msgstr "Processor"
+msgstr "Процессор"
 
 msgid "Qdisc monitoring"
-msgstr "Мониторинг Qdisc"
+msgstr "Qdisc статистика"
 
-#, fuzzy
 msgid "RRD XFiles Factor"
-msgstr "Фактор XFiles RRD"
+msgstr "RRD XFiles фактор"
 
-#, fuzzy
 msgid "RRD heart beat interval"
-msgstr "Интервал heartbeat RRD"
+msgstr "RRD heart beat интервал"
 
 msgid "RRD step interval"
 msgstr "Интервал шага RRD"
@@ -358,10 +367,10 @@ msgid "RRDTool Plugin Configuration"
 msgstr "Конфигурация модуля RRDTool"
 
 msgid "Rows per RRA"
-msgstr "Количество строк в RRA"
+msgstr "Количество строк на RRA"
 
 msgid "Script"
-msgstr "Скрипт"
+msgstr ""
 
 msgid "Seconds"
 msgstr "Секунды"
@@ -373,43 +382,43 @@ msgid "Server port"
 msgstr "Порт сервера"
 
 msgid "Shaping class monitoring"
-msgstr "Мониторинг классов шейпинга"
+msgstr "Shaping class статистика"
 
 msgid "Socket file"
-msgstr "Файл сокета"
+msgstr ""
 
 msgid "Socket group"
-msgstr "Группа сокета"
+msgstr ""
 
 msgid "Socket permissions"
-msgstr "Права доступа сокета"
+msgstr ""
 
 msgid "Source ip range"
-msgstr "Диапазон IP-адресов источника"
+msgstr "Диапазон ip адресов источника"
 
 msgid "Specifies what information to collect about links."
-msgstr "Указывает, какую информацию собирать о соединениях."
+msgstr ""
 
 msgid "Specifies what information to collect about routes."
-msgstr "Указывает, какую информацию собирать о маршрутах."
+msgstr ""
 
 msgid "Specifies what information to collect about the global topology."
-msgstr "Указывает, какую информацию собирать о глобальной топологии."
+msgstr ""
 
 msgid "Statistics"
-msgstr "Статистика"
+msgstr ""
 
 msgid "Storage directory"
 msgstr "Директория с данными"
 
 msgid "Storage directory for the csv files"
-msgstr "Директория для CSV-файлов"
+msgstr "Директория для csv файлов"
 
 msgid "Store data values as rates instead of absolute values"
 msgstr "Хранить данные в виде коэффициентов вместо абсолютных значений"
 
 msgid "Stored timespans"
-msgstr "Сохранённые промежутки времени"
+msgstr "Сохраненные промежутки времени"
 
 msgid "System Load"
 msgstr "Загрузка системы"
@@ -417,8 +426,13 @@ msgstr "Загрузка системы"
 msgid "System plugins"
 msgstr "Системные модули"
 
+msgid ""
+"System plugins collecting values about system state and ressource usage on "
+"the device.:"
+msgstr ""
+
 msgid "TCP Connections"
-msgstr "TCPConns"
+msgstr "TCP соединения"
 
 msgid "TCPConns Plugin Configuration"
 msgstr "Конфигурация модуля TCPConns"
@@ -427,54 +441,49 @@ msgid "TTL for network packets"
 msgstr "TTL для сетевых пакетов"
 
 msgid "TTL for ping packets"
-msgstr "TTL для ping-пакетов"
+msgstr "TTL для ping пакетов"
 
 msgid "Table"
 msgstr "Таблица"
-
-msgid "The NUT plugin reads information about Uninterruptible Power Supplies."
-msgstr ""
 
 msgid ""
 "The OLSRd plugin reads information about meshed networks from the txtinfo "
 "plugin of OLSRd."
 msgstr ""
-"Модуль OLSRd считывает информацию о узловых сетях с модуля txtinfo OLSRd."
 
 msgid ""
 "The conntrack plugin collects statistics about the number of tracked "
 "connections."
 msgstr ""
-"Модуль Conntrack собирает статистику о количестве отслеживаемых соединений."
 
 msgid "The cpu plugin collects basic statistics about the processor usage."
-msgstr "Модуль CPU собирает статистику по использованию процессора."
+msgstr "Модуль cpu собирает статистику по использованию процессора."
 
 msgid ""
 "The csv plugin stores collected data in csv file format for further "
 "processing by external programs."
 msgstr ""
-"Модуль CSV позволяет сохранить статистику в формате CSV для последующей "
+"Модуль csv позволяет сохранить статистику в формате csv для последующей "
 "обработки."
 
 msgid ""
 "The df plugin collects statistics about the disk space usage on different "
 "devices, mount points or filesystem types."
 msgstr ""
-"Модуль DF собирает статистику о доступном пространстве на различных "
+"Модуль df собирает статистику о доступном пространстве на различных "
 "устройствах, точках монтирования или файловых системах."
 
 msgid ""
 "The disk plugin collects detailled usage statistics for selected partitions "
 "or whole disks."
 msgstr ""
-"Модуль Disk собирает подробную статистику для выбранных разделов или дисков."
+"Модуль disk собирает подробную статистику для выбранных разделов или дисков."
 
 msgid ""
 "The dns plugin collects detailled statistics about dns related traffic on "
 "selected interfaces."
 msgstr ""
-"Модуль DNS собирает подробную статистику о DNS-трафике на выбранных "
+"Модуль dns собирает подробную статистику о dns трафике на выбранных "
 "интерфейсах."
 
 msgid ""
@@ -483,52 +492,50 @@ msgid ""
 "to be used in conjunction with Mail::SpamAssasin::Plugin::Collectd but can "
 "be used in other ways as well."
 msgstr ""
-"Модуль E-mail создает Unix-сокет, который может быть использован для "
-"передачи статистики эл. почты работающему сервису collectd. В основном, этот "
-"модуль предназначен для использования вместе с Mail::SpamAssasin::Plugin::"
-"Collectd."
+"Модуль email создает unix сокет, который может быть использован для передачи "
+"email статистики работающему сервису collectd. В основном, этот модуль "
+"предназначен для использования вместе с Mail::SpamAssasin::Plugin::Collectd."
 
 msgid ""
 "The exec plugin starts external commands to read values from or to notify "
 "external processes when certain threshold values have been reached."
 msgstr ""
-"Модуль Exec выполняет внешнюю команду в случае, когда определённые значения "
+"Модуль exec выполняет внешнюю команду в случае, когда определенные значения "
 "достигают заданного порога."
 
 msgid ""
 "The interface plugin collects traffic statistics on selected interfaces."
-msgstr "Модуль Interface собирает статистику на выбранных сетевых интерфейсах."
+msgstr "Модуль interface собирает статистику на выбранных сетевых интерфейсах."
 
 msgid ""
 "The iptables plugin will monitor selected firewall rules and collect "
 "informations about processed bytes and packets per rule."
 msgstr ""
-"Модуль Iptables собирает статистику с определённых правил межсетевого экрана."
+"Модуль iptables собирает статистику с определенных правил межсетевого экрана."
 
 msgid ""
 "The irq plugin will monitor the rate of issues per second for each selected "
 "interrupt. If no interrupt is selected then all interrupts are monitored."
 msgstr ""
-"Модуль IRQ собирает статистику по выбранным прерываниям. Если ни одно "
+"Модуль irq собирает статистику по выбранным прерываниям. Если ни одно "
 "прерывание не выбрано, сбор статистики будет проводиться по всем прерываниям."
 
 msgid ""
 "The iwinfo plugin collects statistics about wireless signal strength, noise "
 "and quality."
 msgstr ""
-"Модуль Iwinfo собирает статистику о беспроводном сигнале, шуме и качестве."
 
 msgid "The load plugin collects statistics about the general system load."
-msgstr "Модуль Load собирает статистику о загрузке системы."
+msgstr "Модуль load собирает статистику о загрузке системы."
 
 msgid "The memory plugin collects statistics about the memory usage."
-msgstr "Модуль Memory собирает статистику об использовании памяти."
+msgstr ""
 
 msgid ""
 "The netlink plugin collects extended informations like qdisc-, class- and "
 "filter-statistics for selected interfaces."
 msgstr ""
-"Модуль Netlink собирает расширенную статистику с выбранных интерфейсов."
+"Модуль netlink собирает расширенную статистику с выбранных интерфейсов."
 
 msgid ""
 "The network plugin provides network based communication between different "
@@ -536,23 +543,24 @@ msgid ""
 "client mode locally collected date is transferred to a collectd server "
 "instance, in server mode the local instance receives data from other hosts."
 msgstr ""
-"Модуль Network предоставляет возможность сетевого обмена данными между "
-"разными сервисами collectd. Collectd может работать в режиме сервера или "
-"клиента. В режиме клиента, локальная статистика передается collectd-серверу, "
-"в режиме сервера collectd собирает статистику с удалённых хостов."
+"Модуль network предоставляет возможность сетевого обмена данным между "
+"разными collectd сервисами. Collectd может работать в режиме сервера или "
+"клиента. В режиме клиента, локальная статистика передается collectd серверу, "
+"в режиме сервера collectd собирает статистику с удаленных хостов."
 
 msgid ""
 "The ping plugin will send icmp echo replies to selected hosts and measure "
 "the roundtrip time for each host."
 msgstr ""
-"Модуль Ping посылает ICMP-запросы выбранным хостам и измеряет время отклика."
+"Модуль ping посылает icmp запросы выбранным хостам и измеряет время отклика."
 
 msgid ""
 "The processes plugin collects informations like cpu time, page faults and "
 "memory usage of selected processes."
 msgstr ""
-"Модуль Processes собирает статистику для выбранных процессов об "
-"использовании ЦП, ошибках обращения к страницам памяти, использовании памяти."
+"Модуль processes собирает статистику для выбранных процессов об "
+"использовании cpu, ошибках обращения к страницам памяти, использовании "
+"памяти."
 
 msgid ""
 "The rrdtool plugin stores the collected data in rrd database files, the "
@@ -560,7 +568,7 @@ msgid ""
 "values will result in a very high memory consumption in the temporary "
 "directory. This can render the device unusable!</strong>"
 msgstr ""
-"Модуль Rrdtool сохраняет статистику в формате rrd для последующего "
+"Модуль rrdtool сохраняет статистику в формате rrd, для последующего "
 "построения диаграмм.<br /><br /><strong>Внимание: установка неверных "
 "параметров может привезти к высокому потреблению памяти во временной "
 "директории. Это, в свою очередь, может привести к отказу устройства!</strong>"
@@ -578,15 +586,20 @@ msgid ""
 "The tcpconns plugin collects informations about open tcp connections on "
 "selected ports."
 msgstr ""
-"Модуль TCPConns собирает информацию об открытых TCP-соединениях на выбранных "
+"Модуль tcpconns собирает информацию об открытых tcp соединениях на выбранных "
 "портах."
 
 msgid ""
 "The unixsock plugin creates a unix socket which can be used to read "
 "collected data from a running collectd instance."
 msgstr ""
-"Модуль UnixSock создает Unix-сокет, который может быть использован для "
+"Модуль unixsock создает unix сокет, который может быть использован для "
 "получения статистики от работающего сервиса collectd."
+
+msgid ""
+"The wireless plugin collects statistics about wireless signal strength, "
+"noise and quality."
+msgstr "Модуль wireless собирает статистику о силе, шуме и качестве сигнала."
 
 msgid ""
 "This section defines on which interfaces collectd will wait for incoming "
@@ -604,26 +617,17 @@ msgstr ""
 msgid "Try to lookup fully qualified hostname"
 msgstr "Пытаться определять имя хоста"
 
-msgid "UPS"
-msgstr ""
-
-msgid "UPS Plugin Configuration"
-msgstr ""
-
-msgid "UPS name in NUT ups@host format"
-msgstr ""
-
 msgid "UnixSock"
-msgstr "UnixSock"
+msgstr "Unix сокет"
 
 msgid "Unixsock Plugin Configuration"
-msgstr "Конфигурация модуля UnixSock"
+msgstr "Конфигурация модуля Unixsock"
 
 msgid "Used PID file"
-msgstr "Используемый PID-файл"
+msgstr "Использовать PID файл"
 
 msgid "User"
-msgstr "Пользователь"
+msgstr ""
 
 msgid "Verbose monitoring"
 msgstr "Расширенная статистика"
@@ -631,17 +635,20 @@ msgstr "Расширенная статистика"
 msgid "Wireless"
 msgstr "Wireless"
 
+msgid "Wireless Plugin Configuration"
+msgstr "Конфигурация модуля Wireless"
+
 msgid "Wireless iwinfo Plugin Configuration"
-msgstr "Конфигурация модуля Iwinfo"
+msgstr ""
 
 msgid "e.g. br-ff"
-msgstr "напр. br-ff"
+msgstr "например, br-ff"
 
 msgid "e.g. br-lan"
-msgstr "напр. br-lan"
+msgstr "например, br-lan"
 
 msgid "e.g. reject-with tcp-reset"
-msgstr "напр. reject-with tcp-reset"
+msgstr "например, reject-with tcp-reset"
 
 msgid "max. 16 chars"
 msgstr "не более 16 символов"
@@ -649,47 +656,8 @@ msgstr "не более 16 символов"
 msgid "reduces rrd size"
 msgstr "уменьшает размер rrd"
 
-#, fuzzy
 msgid "seconds; multiple separated by space"
 msgstr "секунды; разделяются пробелом"
 
 msgid "server interfaces"
 msgstr "интерфейсы сервера"
-
-#~ msgid "Installed network plugins:"
-#~ msgstr "Установленные сетевые модули:"
-
-#~ msgid "Installed output plugins:"
-#~ msgstr "Установленные модули вывода:"
-
-#~ msgid ""
-#~ "Network plugins are used to collect information about open tcp "
-#~ "connections, interface traffic, iptables rules etc."
-#~ msgstr ""
-#~ "Сетевые модули используются для сбора информации об открытых "
-#~ "TCP-соединениях, трафике, правилах iptables и т.п."
-
-#~ msgid ""
-#~ "Output plugins provide different possibilities to store collected data. "
-#~ "It is possible to enable multiple plugin at one, for example to store "
-#~ "collected data in rrd databases and to transmit the data over the network "
-#~ "to other collectd instances."
-#~ msgstr ""
-#~ "Модули вывода обеспечивают различные варианты сохранения собранных данных. "
-#~ "Можно включить несколько модулей, например, чтобы сохранить собранные данные "
-#~ "в базе данных RRD и передать их по сети другим инстанциям collectd."
-
-#~ msgid ""
-#~ "System plugins collecting values about system state and ressource usage "
-#~ "on the device.:"
-#~ msgstr ""
-#~ "Системные модули, собирающие данные о состоянии системы и использовании "
-#~ "ресурсов устройства:"
-
-#~ msgid ""
-#~ "The wireless plugin collects statistics about wireless signal strength, "
-#~ "noise and quality."
-#~ msgstr "Модуль Wireless собирает статистику о силе, шуме и качестве сигнала."
-
-#~ msgid "Wireless Plugin Configuration"
-#~ msgstr "Конфигурация модуля Wireless"

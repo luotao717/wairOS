@@ -1,137 +1,107 @@
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-05-28 02:08+0200\n"
-"PO-Revision-Date: 2012-03-18 16:25+0200\n"
-"Last-Translator: Vasilis <acinonyx@openwrt.gr>\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.0.4\n"
+"X-Generator: Translate Toolkit 1.1.1\n"
 
 msgid ""
 "<em>Via proxy</em> routes requests to the given target via the specifed "
 "upstream proxy, <em>Reject access</em> disables any upstream proxy for the "
 "target"
 msgstr ""
-"Το <em>μέσω proxy</em> δρομολογεί αιτήσεις προς τον συγκεκριμένο προορισμό "
-"μέσω του καθοριζόμενου διαμεσολαβητή ανωτέρου επιπέδου, Το <em>απόρριψη "
-"πρόσβασης</em> απενεργοποιεί τη χρήση διαμεσολαβητή ανωτέρου επιπέδου για το "
-"συγκεκριμένο προορισμό"
 
 msgid ""
 "Adds an \"X-Tinyproxy\" HTTP header with the client IP address to forwarded "
 "requests"
 msgstr ""
-"Προσθέτει μια κεφαλίδα HTTP \"X-Tinyproxy\" με τη διεύθυνση IP του πελάτη "
-"στις προωθούμενες αιτήσεις"
 
 msgid "Allowed clients"
-msgstr "Επιτρεπόμενοι πελάτες"
+msgstr ""
 
 msgid "Allowed connect ports"
-msgstr "Επιτρεπόμενες θύρες σύνδεσης"
+msgstr ""
 
-#, fuzzy
 msgid "Bind address"
-msgstr "Διεύθυνση στην οποία ακούει η υπηρεσία"
+msgstr ""
 
 msgid ""
 "By default, basic POSIX expressions are used for filtering. Enable this to "
 "activate extended regular expressions"
 msgstr ""
-"Προεπιλεγμένα, χρησιμοποιούνται απλές κανονικές εκφράσεις POSIX για το "
-"φιλτράρισμα. Ενεργοποιήστε αυτή την επιλογή για να χρησιμοποιούνται "
-"εκτεταμένες κανονικές εκφράσεις"
 
 msgid ""
 "By default, filter strings are treated as case-insensitive. Enable this to "
 "make the matching case-sensitive"
 msgstr ""
-"Προεπιλεγμένα, το φιλτράρισμα με συμβολοσειρές γίνεται χωρίς διάκριση πεζών "
-"κεφαλαίων. Ενεργοποιήστε αυτή την επιλογή για να γίνεται διάκριση πεζών "
-"κεφαλαίων"
 
 msgid ""
 "By default, filtering is done based on domain names. Enable this to match "
 "against URLs instead"
 msgstr ""
-"Προεπιλεγμένα, το φιλτράρισμα γίνεται βάσει του ονόματος τομέα. "
-"Ενεργοποιήστε αυτή την επιλογή για να γίνεται βάσει URL"
 
 msgid ""
 "By default, the filter rules act as blacklist. Enable this option to only "
 "allow matched URLs or domain names"
 msgstr ""
-"Προεπιλεγμένα, οι κανόνες φιλτραρίσματος λειτουργούν ως μαύρη λίστα. "
-"Ενεργοποιήστε αυτή την επιλογή ώστε να επιτρέπονται μόνο τα ονόματα τομέα ή "
-"URLs που ταιριάζουν"
 
 msgid ""
 "Can be either an IP address or range, a domain name or \".\" for any host "
 "without domain"
 msgstr ""
-"Μπορεί να είναι μια IP διεύθυνση ή εύρος, ένα όνομα τομέα ή \".\" για "
-"οποιοδήποτε σύστημα χωρίς όνομα τομέα"
-
-msgid "Configuration"
-msgstr ""
 
 msgid "Connection timeout"
-msgstr "Χρονικό όριο σύνδεσης"
+msgstr ""
 
 msgid "Default deny"
-msgstr "Άρνηση προεπιλεγμένα"
+msgstr ""
 
 msgid "Enable Tinyproxy server"
-msgstr "Ενεργοποίηση διαμεσολαβητή Tinyproxy"
+msgstr ""
 
 msgid "Error page"
-msgstr "Σελίδα σφάλματος"
-
-msgid "Failed to retrieve statistics from url:"
 msgstr ""
 
 msgid "Filter by RegExp"
-msgstr "Φιλτράρισμα με Κανονικές Εκφράσεις"
+msgstr ""
 
 msgid "Filter by URLs"
-msgstr "Φιλτράρισμα με URL"
+msgstr ""
 
 msgid "Filter case-sensitive"
-msgstr "Φιλτράρισμα με διάκριση πεζών/κεφαλαίων"
+msgstr ""
 
 msgid "Filter file"
-msgstr "Αρχείο φίλτρων"
+msgstr ""
 
 msgid "Filtering and ACLs"
-msgstr "Φιλτράρισμα και λίστες ελέγχου πρόσβασης"
+msgstr ""
 
 msgid "General settings"
-msgstr "Γενικές ρυθμίσεις"
+msgstr ""
 
 msgid "Group"
-msgstr "Ομάδα"
+msgstr ""
 
 msgid "HTML template file to serve for stat host requests"
 msgstr ""
-"Αρχείο προτύπου HTML που στέλνεται σε αιτήσεις για στατιστικά του συστήματος"
 
 msgid "HTML template file to serve when HTTP errors occur"
-msgstr "Αρχείο προτύπου HTML που στέλνεται όταν προκύπτουν σφάλματα HTML"
+msgstr ""
 
 msgid "Header whitelist"
-msgstr "Λευκή λίστα κεφαλίδων"
+msgstr ""
 
 msgid ""
 "List of IP addresses or ranges which are allowed to use the proxy server"
 msgstr ""
-"Λίστα διευθύνσεων IP ή εύρη αυτών στις οποίες επιτρέπεται η χρήση του "
-"διαμεσολαβητή"
 
 msgid ""
 "List of allowed ports for the CONNECT method. A single value \"0\" allows "
@@ -241,16 +211,10 @@ msgstr ""
 msgid "Statistics page"
 msgstr ""
 
-msgid "Status"
-msgstr ""
-
 msgid "Target host"
 msgstr ""
 
 msgid "Tinyproxy"
-msgstr ""
-
-msgid "Tinyproxy Status"
 msgstr ""
 
 msgid "Tinyproxy is a small and fast non-caching HTTP(S)-Proxy"

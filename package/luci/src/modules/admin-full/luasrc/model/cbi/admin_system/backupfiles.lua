@@ -10,7 +10,7 @@ You may obtain a copy of the License at
 
 	http://www.apache.org/licenses/LICENSE-2.0
 
-$Id: backupfiles.lua 7798 2011-10-26 23:43:04Z jow $
+$Id$
 ]]--
 
 

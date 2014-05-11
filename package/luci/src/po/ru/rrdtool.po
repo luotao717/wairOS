@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-05-19 19:36+0200\n"
-"PO-Revision-Date: 2012-03-26 15:36+0200\n"
-"Last-Translator: Anonymous Pootle User\n"
+"PO-Revision-Date: 2011-08-30 10:26+0200\n"
+"Last-Translator: Kamal <kamal.aliev@epscom.ru>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
@@ -77,284 +77,284 @@ msgstr "пакет/c"
 #. Chain \"%di\"
 #: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:13
 msgid "stat_ds_ipt_packets"
-msgstr "\"%di\""
+msgstr ""
 
 #. %H: Netlink - Transfer on %pi
 #: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:14
 msgid "stat_dg_title_netlink__if_octets"
-msgstr "%H: Netlink - передача на %pi"
+msgstr ""
 
 #. Bytes/s
 #: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:15
 msgid "stat_dg_label_netlink__if_octets"
-msgstr "байт/c"
+msgstr ""
 
 #. Bytes (%ds)
 #: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:16
 msgid "stat_ds_if_octets"
-msgstr "Байт (%ds)"
+msgstr ""
 
 #. %H: Netlink - Packets on %pi
 #: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:17
 msgid "stat_dg_title_netlink__if_packets"
-msgstr "%H: Netlink - пакеты на %pi"
+msgstr ""
 
 #. Packets/s
 #: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:18
 msgid "stat_dg_label_netlink__if_packets"
-msgstr "пакет/c"
+msgstr ""
 
 #. Processed (%ds)
 #: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:19
 msgid "stat_ds_if_packets"
-msgstr "Обработано (%ds)"
+msgstr ""
 
 #. Dropped   (%ds)
 #: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:20
 msgid "stat_ds_if_dropped"
-msgstr "Исключено (%ds)"
+msgstr ""
 
 #. Errors    (%ds)
 #: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:21
 msgid "stat_ds_if_errors"
-msgstr "Ошибок (%ds)"
+msgstr ""
 
 #. %H: Netlink - Multicast on %pi
 #: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:22
 msgid "stat_dg_title_netlink__if_multicast"
-msgstr "%H: Netlink - групповые пакеты на %pi"
+msgstr ""
 
 #. Packets/s
 #: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:23
 msgid "stat_dg_label_netlink__if_multicast"
-msgstr "пакет/с"
+msgstr ""
 
 #. Packets
 #: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:24
 msgid "stat_ds_if_multicast"
-msgstr "Пакеты"
+msgstr ""
 
 #. %H: Netlink - Collisions on %pi
 #: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:25
 msgid "stat_dg_title_netlink__if_collisions"
-msgstr "%H: Netlink - коллизии на %pi"
+msgstr ""
 
 #. Collisions/s
 #: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:26
 msgid "stat_dg_label_netlink__if_collisions"
-msgstr "коллиз/сек"
+msgstr ""
 
 #. Collisions
 #: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:27
 msgid "stat_ds_if_collisions"
-msgstr "Коллизии"
+msgstr ""
 
 #. %H: Netlink - Errors on %pi
 #: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:28
 msgid "stat_dg_title_netlink__if_tx_errors"
-msgstr "%H: Netlink - Ошибки на %pi"
+msgstr ""
 
 #. Errors/s
 #: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:29
 msgid "stat_dg_label_netlink__if_tx_errors"
-msgstr "ошибок/c"
+msgstr ""
 
 #. %di
 #: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:30
 msgid "stat_ds_if_tx_errors"
-msgstr "%di"
+msgstr ""
 
 #. %di
 #: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:31
 msgid "stat_ds_if_rx_errors"
-msgstr "%di"
+msgstr ""
 
 #. %H: Processes
 #: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:32
 msgid "stat_dg_title_processes"
-msgstr "%H: Процессы"
+msgstr ""
 
 #. Processes/s
 #: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:33
 msgid "stat_dg_label_processes"
-msgstr "Процессов/с"
+msgstr ""
 
 #. %di
 #: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:34
 msgid "stat_ds_ps_state"
-msgstr "%di"
+msgstr ""
 
 #. %H: Process %pi - used cpu time
 #: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:35
 msgid "stat_dg_title_processes__ps_cputime"
-msgstr "%H: Процесс %pi - время ЦП"
+msgstr ""
 
 #. Jiffies
 #: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:36
 msgid "stat_dg_label_processes__ps_cputime"
-msgstr "Jiffies"
+msgstr ""
 
 #. system
 #: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:37
 msgid "stat_ds_ps_cputime__syst"
-msgstr "система"
+msgstr ""
 
 #. user
 #: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:38
 msgid "stat_ds_ps_cputime__user"
-msgstr "пользователь"
+msgstr ""
 
 #. %H: Process %pi - threads and processes
 #: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:39
 msgid "stat_dg_title_processes__ps_count"
-msgstr "%H: Процесс %pi - потоков и процессов"
+msgstr ""
 
 #. Count
 #: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:40
 msgid "stat_dg_label_processes__ps_count"
-msgstr "Количество"
+msgstr ""
 
 #. %ds
 #: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:41
 msgid "stat_ds_ps_count"
-msgstr "%ds"
+msgstr ""
 
 #. %H: Process %pi - page faults
 #: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:42
 msgid "stat_dg_title_processes__ps_pagefaults"
-msgstr "%H: Процесс %pi - ошибки страниц"
+msgstr ""
 
 #. Pagefaults
 #: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:43
 msgid "stat_dg_label_processes__ps_pagefaults"
-msgstr "Ошибки страниц"
+msgstr ""
 
 #. page faults
 #: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:44
 msgid "stat_ds_ps_pagefaults"
-msgstr "ошибки страниц"
+msgstr ""
 
 #. %H: Process %pi - virtual memory size
 #: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:45
 msgid "stat_dg_title_processes__ps_rss"
-msgstr "%H: Процесс %pi - размер виртуальной памяти"
+msgstr ""
 
 #. Bytes
 #: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:46
 msgid "stat_dg_label_processes__ps_rss"
-msgstr "Байт"
+msgstr ""
 
 #. virtual memory
 #: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:47
 msgid "stat_ds_ps_rss"
-msgstr "виртуальная память"
+msgstr ""
 
 #. %H: Usage on Processor #%pi
 #: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:48
 msgid "stat_dg_title_cpu"
-msgstr "%H: Использование ЦП #%pi"
+msgstr ""
 
 #. %
 #: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:49
 msgid "stat_dg_label_cpu"
-msgstr "%"
+msgstr ""
 
 #. %di
 #: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:50
 msgid "stat_ds_cpu"
-msgstr "%di"
+msgstr ""
 
 #. %H: Transfer on %di
 #: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:51
 msgid "stat_dg_title_interface__if_octets"
-msgstr "%H: Передача на %di"
+msgstr ""
 
 #. Bytes/s
 #: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:52
 msgid "stat_dg_label_interface__if_octets"
-msgstr "байт/c"
+msgstr ""
 
 #. %H: Packets on %di
 #: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:53
 msgid "stat_dg_title_interface__if_packets"
-msgstr "%H: Пакетов на %di"
+msgstr ""
 
 #. Packets/s
 #: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:54
 msgid "stat_dg_label_interface__if_packets"
-msgstr "пакетов/c"
+msgstr ""
 
 #. %H: TCP-Connections to Port %pi
 #: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:55
 msgid "stat_dg_title_tcpconns"
-msgstr "%H: TCP соединений на порт %pi "
+msgstr ""
 
 #. Connections/s
 #: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:56
 msgid "stat_dg_label_tcpconns"
-msgstr "соединений/с"
+msgstr ""
 
 #. %di
 #: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:57
 msgid "stat_ds_tcp_connections"
-msgstr "%di"
+msgstr ""
 
 #. %H: Disk Space Usage on %di
 #: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:58
 msgid "stat_dg_title_df"
-msgstr "%H: Использование дискового пространства на %di"
+msgstr ""
 
 #. Bytes
 #: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:59
 msgid "stat_dg_label_df"
-msgstr "Байт"
+msgstr ""
 
 #. %ds
 #: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:60
 msgid "stat_ds_df__free"
-msgstr "%ds"
+msgstr ""
 
 #. %ds
 #: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:61
 msgid "stat_ds_df__used"
-msgstr "%ds"
+msgstr ""
 
 #. %H: Interrupts
 #: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:62
 msgid "stat_dg_title_irq"
-msgstr "%H: прерывания"
+msgstr ""
 
 #. Issues/s
 #: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:63
 msgid "stat_dg_label_irq"
-msgstr "запросов/с"
+msgstr ""
 
 #. IRQ %di
 #: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:64
 msgid "stat_ds_irq"
-msgstr "IRQ %di"
+msgstr ""
 
 #. %H: System Load
 #: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:65
 msgid "stat_dg_title_load"
-msgstr "%H: Загрузка системы"
+msgstr ""
 
 #. Load
 #: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:66
 msgid "stat_dg_label_load"
-msgstr "Загрузка"
+msgstr ""
 
 #. 1 min
 #: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:67
 msgid "stat_ds_load__shortterm"
-msgstr "1 мин."
+msgstr ""
 
 #. 5 min
 #: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:68
 msgid "stat_ds_load__midterm"
-msgstr "5 мин."
+msgstr ""
 
 #. 15 min
 #: applications/luci-statistics/luasrc/i18n/rrdtool.en.lua:69
 msgid "stat_ds_load__longterm"
-msgstr "15 мин."
+msgstr ""

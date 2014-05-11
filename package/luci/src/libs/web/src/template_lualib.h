@@ -21,7 +21,6 @@
 
 #include "template_parser.h"
 #include "template_utils.h"
-#include "template_lmo.h"
 
 #define TEMPLATE_LUALIB_META  "template.parser"
 

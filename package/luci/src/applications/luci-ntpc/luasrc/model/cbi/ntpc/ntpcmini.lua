@@ -10,7 +10,7 @@ You may obtain a copy of the License at
 
 	http://www.apache.org/licenses/LICENSE-2.0
 
-$Id: ntpcmini.lua 9558 2012-12-18 13:58:22Z jow $
+$Id$
 ]]--
 require("luci.tools.webadmin")
 m = Map("ntpclient", translate("Time Synchronisation"), translate("Synchronizes the system time"))
@@ -21,9 +21,8 @@ s.addremove = false
 
 s:option(DummyValue, "_time", translate("Current system time")).value = os.date("%c")
 
-interval = s:option(Value, "interval", translate("Update interval (in seconds)"))
-interval.datatype = "and(uinteger,min(1))"
-interval.rmempty = true
+s:option(Value, "interval", translate("Update interval (in seconds)")).rmempty = true
+
 
 s3 = m:section(TypedSection, "ntpserver", translate("Time Server"))
 s3.anonymous = true
@@ -31,8 +30,6 @@ s3.addremove = true
 s3.template = "cbi/tblsection"
 
 s3:option(Value, "hostname", translate("Hostname"))
-port = s3:option(Value, "port", translate("Port"))
-port.datatype = "port"
-port.rmempty = true
+s3:option(Value, "port", translate("Port")).rmempty = true
 
 return m

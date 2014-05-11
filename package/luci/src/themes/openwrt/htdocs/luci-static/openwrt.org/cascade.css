@@ -1,10 +1,5 @@
 @charset "utf-8";
 
-.lang_he {
-	direction: RTL;
-	unicode-bidi: embed;
-}
-
 @media all {
 
 html {
@@ -32,6 +27,10 @@ body {
 a img {
 	border: none;
 	text-decoration: none;
+}
+
+small {
+	white-space: nowrap;
 }
 
 ul.tabmenu {
@@ -65,10 +64,6 @@ ul.tabmenu li {
 	float: left;
 	display: block;
 	overflow: hidden;
-}
-
-.lang_he ul.tabmenu li {
-	float: right;
 }
 
 ul.tabmenu li a {
@@ -105,10 +100,6 @@ ul.l1 li a {
 
 ul.l1 li.tabmenu-item-logout a {
 	margin-left: 30px;
-}
-
-.lang_he ul.l1 li.tabmenu-item-logout a {
-	margin-right: 30px;
 }
 
 abbr,
@@ -173,10 +164,6 @@ div.hostinfo {
 	width: auto;
 	font-size: 80%;
 	padding: 0.5em;
-}
-
-.lang_he div.hostinfo {
-	float: right;
 }
 
 #xhr_poll_status {
@@ -264,10 +251,6 @@ html #menubar a:visited.warning {
 	float: right;
 }
 
-.lang_he #savemenu {
-	float: left;
-}
-
 .lang_de #submenu_admin_uci {
 	width: 12em;
 }
@@ -299,10 +282,6 @@ textarea#syslog {
 	border-width: 0 1px 1px 1px;
 	border-style: solid;
 	border-color: #444444;
-}
-
-.lang_he #maincontent {
-	direction: rtl;
 }
 
 #maincontent h2 {
@@ -468,8 +447,7 @@ input.cbi-input-password {
 	text-indent: 17px;
 }
 
-input.cbi-input-find,
-input.cbi-button-find {
+input.cbi-input-find {
 	background-image: url('../resources/cbi/find.gif');
 	color: #000000;
 	padding-left: 17px;
@@ -529,56 +507,8 @@ input.cbi-button-link {
 	padding-right: 1px;
 }
 
-input.cbi-input-download,
-input.cbi-button-download {
-	background-image: url('../resources/cbi/download.gif');
-	color: #000000;
-	padding-left: 17px;
-	padding-right: 1px;
-}
-
 input.cbi-input-remove,
 div.cbi-section-remove input {
-	background-image: url('../resources/cbi/remove.gif');
-	color: #000000;
-	padding-left: 17px;
-	padding-right: 1px;
-}
-
-input.cbi-button-up {
-	background-image: url('../resources/cbi/up.gif');
-	padding-left: 11px;
-	padding-right: 1px;
-}
-
-input.cbi-button-down {
-	background-image: url('../resources/cbi/down.gif');
-	padding-left: 11px;
-	padding-right: 1px;
-}
-
-input.cbi-button-edit {
-	background-image: url('../resources/cbi/edit.gif');
-	color: #000000;
-	padding-left: 17px;
-	padding-right: 1px;
-}
-
-input.cbi-button-reload {
-	background-image: url('../resources/cbi/reload.gif');
-	color: #000000;
-	padding-left: 17px;
-	padding-right: 1px;
-}
-
-input.cbi-button-reset {
-	background-image: url('../resources/cbi/reset.gif');
-	color: #000000;
-	padding-left: 17px;
-	padding-right: 1px;
-}
-
-input.cbi-button-remove {
 	background-image: url('../resources/cbi/remove.gif');
 	color: #000000;
 	padding-left: 17px;
@@ -652,11 +582,6 @@ table.cbi-section-table .cbi-rowstyle-1:hover,
 table.cbi-section-table .cbi-rowstyle-2:hover {
 	background-color: #b2c8d4;
 	color: #000000;
-}
-
-table.cbi-section-table .cbi-section-table-cell {
-	padding: 3px;
-	white-space: nowrap;
 }
 
 .cbi-section .cbi-rowstyle-1 h3 {
@@ -762,7 +687,6 @@ table.cbi-section-table td {
 tr.cbi-section-table-descr th {
 	font-weight: normal;
 	font-size: 90%;
-	vertical-align: top;
 }
 
 td.cbi-section-table-optionals {
@@ -901,64 +825,6 @@ div.cbi-tab-descr {
 
 .errorbox a {
 	color: #000000 !important;
-}
-
-
-.ifacebox {
-	background-color: #FFFFFF;
-	border: 1px solid #CCCCCC;
-	margin: 0 10px;
-	text-align: center;
-	white-space: nowrap;
-}
-
-.ifacebox .ifacebox-head {
-	border-bottom: 1px solid #CCCCCC;
-	padding: 2px;
-}
-
-.ifacebox .ifacebox-body {
-	padding: 2px;
-}
-
-
-.ifacebadge {
-	background-color: #FFFFFF;
-	border: 1px solid #CCCCCC;
-	padding: 2px;
-	margin-left: 2px;
-	display: inline-block;
-}
-
-.ifacebadge-active {
-	border-color: #000000;
-	font-weight: bold;
-}
-
-
-.zonebadge {
-	padding: 2px;
-	display: inline-block;
-	white-space: nowrap;
-	cursor: pointer;
-}
-
-.zonebadge em,
-.zonebadge strong {
-	margin: 3px;
-	display: inline-block;
-}
-
-.zonebadge input {
-	width: 6em;
-	height: 1.5em;
-}
-
-.zonebadge-empty {
-	border: 1px dashed #AAAAAA;
-	color: #AAAAAA;
-	font-style: italic;
-	font-size: smaller;
 }
 
 

@@ -9,7 +9,7 @@ You may obtain a copy of the License at
 
         http://www.apache.org/licenses/LICENSE-2.0
 
-$Id: rrdtool.lua 6060 2010-04-13 20:42:26Z jow $
+$Id$
 
 ]]--
 

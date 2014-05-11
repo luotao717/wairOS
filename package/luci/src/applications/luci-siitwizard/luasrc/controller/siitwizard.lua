@@ -10,7 +10,7 @@ You may obtain a copy of the License at
 
 http://www.apache.org/licenses/LICENSE-2.0
 
-$Id: siitwizard.lua 3934 2008-12-23 05:18:08Z jow $
+$Id$
 
 ]]--
 

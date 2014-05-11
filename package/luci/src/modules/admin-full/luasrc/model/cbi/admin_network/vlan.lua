@@ -10,11 +10,10 @@ You may obtain a copy of the License at
 
 	http://www.apache.org/licenses/LICENSE-2.0
 
+$Id$
 ]]--
 
-m = Map("network", translate("Switch"), translate("The network ports on this device can be combined to several <abbr title=\"Virtual Local Area Network\">VLAN</abbr>s in which computers can communicate directly with each other. <abbr title=\"Virtual Local Area Network\">VLAN</abbr>s are often used to separate different network segments. Often there is by default one Uplink port for a connection to the next greater network like the internet and other ports for a local network."))
-
-local switches = { }
+m = Map("network", translate("Switch"), translate("The network ports on your router can be combined to several <abbr title=\"Virtual Local Area Network\">VLAN</abbr>s in which computers can communicate directly with each other. <abbr title=\"Virtual Local Area Network\">VLAN</abbr>s are often used to separate different network segments. Often there is by default one Uplink port for a connection to the next greater network like the internet and other ports for a local network."))
 
 m.uci:foreach("network", "switch",
 	function(x)
@@ -201,13 +200,11 @@ m.uci:foreach("network", "switch",
 		end
 
 
-		local vid = s:option(Value, has_vlan4k or "vlan", "VLAN ID", "<div id='portstatus-%s'></div>" % switch_name)
-		local mx_vid = has_vlan4k and 4094 or (num_vlans - 1) 
+		local vid = s:option(Value, has_vlan4k or "vlan", "VLAN ID")
 
 		vid.rmempty = false
 		vid.forcewrite = true
 		vid.vlan_used = { }
-		vid.datatype = "and(uinteger,range("..min_vid..","..mx_vid.."))"
 
 		-- Validate user provided VLAN ID, make sure its within the bounds
 		-- allowed by the switch.
@@ -259,12 +256,14 @@ m.uci:foreach("network", "switch",
 
 		-- Build per-port off/untagged/tagged choice lists.
 		local pt
+		local off = 1
 		for pt = 0, num_ports - 1 do
 			local title
 			if pt == cpu_port then
+				off   = 0
 				title = translate("CPU")
 			else
-				title = translatef("Port %d", pt)
+				title = translatef("Port %d", pt + off)
 			end
 
 			local po = s:option(ListValue, tostring(pt), title)
@@ -279,14 +278,7 @@ m.uci:foreach("network", "switch",
 
 			port_opts[#port_opts+1] = po
 		end
-
-		switches[#switches+1] = switch_name
 	end
 )
-
--- Switch status template
-s = m:section(SimpleSection)
-s.template = "admin_network/switch_status"
-s.switches = switches
 
 return m

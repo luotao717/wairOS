@@ -9,16 +9,15 @@
 # You may not use this file except in compliance with the License.
 # You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
 
-. /lib/functions.sh
+. /etc/functions.sh
 
 echo "
-/* Meshwizard 0.0.8 */
+/* Meshwizard 0.0.4 */
 "
 
 # config
 export dir="/usr/bin/meshwizard"
 . $dir/functions.sh
-[ -f /proc/net/ipv6_route ] && export has_ipv6=1
 
 # Check which packages we have installed
 export has_luci=FALSE
@@ -59,28 +58,13 @@ $dir/helpers/setup_dnsmasq.sh
 $dir/helpers/setup_system.sh
 $dir/helpers/setup_olsrd.sh
 $dir/helpers/setup_firewall.sh
-$dir/helpers/setup_ssh.sh
-$dir/helpers/setup_uhttpd.sh
-$dir/helpers/setup_widgets.sh
 
 if [ "$wan_proto" == "static" ] && [ -n "$wan_ip4addr" ] && [ -n "$wan_netmask" ]; then
 	$dir/helpers/setup_wan_static.sh
 fi
 
-if [ "$wan_proto" == "dhcp" ]; then
-	$dir/helpers/setup_wan_dhcp.sh
-fi
-
 if [ "$lan_proto" == "static" ] && [ -n "$lan_ip4addr" ] && [ -n "$lan_netmask" ]; then
 	$dir/helpers/setup_lan_static.sh
-fi
-
-if [ "$ipv6_enabled" == 1 ] && [ "$has_ipv6" = 1 ]; then
-	$dir/helpers/setup_lan_ipv6.sh
-	# Setup auto-ipv6
-	if [ -n "$(echo "$ipv6_config" |grep auto-ipv6)" ]; then
-		$dir/helpers/setup_auto-ipv6.sh
-	fi
 fi
 
 # Setup policyrouting if internet sharing is disabled and wan is not used for olsrd
@@ -108,14 +92,8 @@ for net in $networks; do
 
 	$dir/helpers/setup_splash.sh $net
 	$dir/helpers/setup_firewall_interface.sh $net
-
-	if [ -n "$(echo "$ipv6_config" |grep auto-ipv6)" ]; then
-		$dir/helpers/setup_auto-ipv6-interface.sh $net
-	fi
 done
 
 ##### Reboot the router (because simply restarting services gave errors)
-
-echo "+ The wizard has finished and the router will reboot now."
 
 reboot

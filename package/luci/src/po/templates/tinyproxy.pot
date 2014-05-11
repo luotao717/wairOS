@@ -46,9 +46,6 @@ msgid ""
 "without domain"
 msgstr ""
 
-msgid "Configuration"
-msgstr ""
-
 msgid "Connection timeout"
 msgstr ""
 
@@ -59,9 +56,6 @@ msgid "Enable Tinyproxy server"
 msgstr ""
 
 msgid "Error page"
-msgstr ""
-
-msgid "Failed to retrieve statistics from url:"
 msgstr ""
 
 msgid "Filter by RegExp"
@@ -206,16 +200,10 @@ msgstr ""
 msgid "Statistics page"
 msgstr ""
 
-msgid "Status"
-msgstr ""
-
 msgid "Target host"
 msgstr ""
 
 msgid "Tinyproxy"
-msgstr ""
-
-msgid "Tinyproxy Status"
 msgstr ""
 
 msgid "Tinyproxy is a small and fast non-caching HTTP(S)-Proxy"

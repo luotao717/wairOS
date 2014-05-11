@@ -9,7 +9,7 @@ You may obtain a copy of the License at
 
         http://www.apache.org/licenses/LICENSE-2.0
 
-$Id: i18n.lua 9558 2012-12-18 13:58:22Z jow $
+$Id$
 
 ]]--
 
@@ -25,6 +25,9 @@ Instance = luci.util.class()
 function Instance.__init__( self, graph )
 	self.i18n  = luci.i18n
 	self.graph = graph
+
+	self.i18n.loadc("rrdtool")
+	self.i18n.loadc("statistics")
 end
 
 function Instance._subst( self, str, val )
@@ -47,15 +50,21 @@ function Instance._translate( self, key, alt )
 	end
 end
 
-function Instance.title( self, plugin, pinst, dtype, dinst, user_title )
+function Instance.title( self, plugin, pinst, dtype, dinst )
 
-	local title = user_title or
-		"p=%s/pi=%s/dt=%s/di=%s" % {
-			plugin,
-			(pinst and #pinst > 0) and pinst or "(nil)",
-			(dtype and #dtype > 0) and dtype or "(nil)",
-			(dinst and #dinst > 0) and dinst or "(nil)"
-		}
+	local title = self:_translate(
+		string.format( "stat_dg_title_%s_%s_%s", plugin, pinst, dtype ),
+		self:_translate(
+			string.format( "stat_dg_title_%s_%s", plugin, pinst ),
+			self:_translate(
+				string.format( "stat_dg_title_%s__%s", plugin, dtype ),
+				self:_translate(
+					string.format( "stat_dg_title_%s", plugin ),
+					self.graph:_mkpath( plugin, pinst, dtype )
+				)
+			)
+		)
+	)
 
 	return self:_subst( title, {
 		plugin = plugin,
@@ -66,13 +75,21 @@ function Instance.title( self, plugin, pinst, dtype, dinst, user_title )
 
 end
 
-function Instance.label( self, plugin, pinst, dtype, dinst, user_label )
+function Instance.label( self, plugin, pinst, dtype, dinst )
 
-	local label = user_label or
-		"dt=%s/di=%s" % {
-			(dtype and #dtype > 0) and dtype or "(nil)",
-			(dinst and #dinst > 0) and dinst or "(nil)"
-		}
+	local label = self:_translate(
+		string.format( "stat_dg_label_%s_%s_%s", plugin, pinst, dtype ),
+		self:_translate(
+			string.format( "stat_dg_label_%s_%s", plugin, pinst ),
+			self:_translate(
+				string.format( "stat_dg_label_%s__%s", plugin, dtype ),
+				self:_translate(
+					string.format( "stat_dg_label_%s", plugin ),
+					self.graph:_mkpath( plugin, pinst, dtype )
+				)
+			)
+		)
+	)
 
 	return self:_subst( label, {
 		plugin = plugin,
@@ -85,7 +102,7 @@ end
 
 function Instance.ds( self, source )
 
-	local label = source.title or self:_translate(
+	local label = self:_translate(
 		string.format( "stat_ds_%s_%s_%s", source.type, source.instance, source.ds ),
 		self:_translate(
 			string.format( "stat_ds_%s_%s", source.type, source.instance ),
@@ -104,5 +121,4 @@ function Instance.ds( self, source )
 		dinst = source.instance,
 		dsrc  = source.ds
 	} )
-
 end

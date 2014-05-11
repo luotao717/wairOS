@@ -2,9 +2,9 @@ msgid ""
 msgstr ""
 "PO-Revision-Date: 2011-06-14 15:40+0200\n"
 "Last-Translator: protx <lars.hardy@gmail.com>\n"
-"Language: no\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: no\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.4\n"
 
@@ -47,6 +47,13 @@ msgstr "5 minutters belastning"
 msgid "<abbr title=\"Basic Service Set Identifier\">BSSID</abbr>"
 msgstr "<abbr title=\"Basic Service Set Identifier\">BSSID</abbr>"
 
+msgid ""
+"<abbr title=\"Classless Inter-Domain Routing\">CIDR</abbr>-Notation: address/"
+"prefix"
+msgstr ""
+"<abbr title=\"Classless Inter-Domain Routing\">CIDR</abbr>-Notasjon: adresse/"
+"prefiks"
+
 msgid "<abbr title=\"Domain Name System\">DNS</abbr> query port"
 msgstr "<abbr title=\"Domain Name System\">DNS</abbr> spørre port"
 
@@ -60,17 +67,29 @@ msgstr ""
 "<abbr title=\"Domain Name System\">DNS</abbr> servere skal følge rekkefølgen "
 "i oppslagsfilen ved spørringer"
 
+msgid "<abbr title=\"Domain Name System\">DNS</abbr>-Server"
+msgstr "<abbr title=\"Domain Name System\">DNS</abbr>-Server"
+
+msgid "<abbr title=\"Encrypted\">Encr.</abbr>"
+msgstr "<abbr title=\"Encrypted\">Kryptert</abbr>"
+
 msgid "<abbr title=\"Extended Service Set Identifier\">ESSID</abbr>"
 msgstr "<abbr title=\"Extended Service Set Identifier\">ESSID</abbr>"
 
 msgid "<abbr title=\"Internet Protocol Version 4\">IPv4</abbr>-Address"
 msgstr "<abbr title=\"Internet Protocol Version 4\">IPv4</abbr>-Adresse"
 
+msgid "<abbr title=\"Internet Protocol Version 4\">IPv4</abbr>-Broadcast"
+msgstr "<abbr title=\"Internet Protocol Version 4\">IPv4</abbr>-Broadcast"
+
 msgid "<abbr title=\"Internet Protocol Version 4\">IPv4</abbr>-Gateway"
 msgstr "<abbr title=\"Internet Protocol Version 4\">IPv4</abbr>-Gateway"
 
 msgid "<abbr title=\"Internet Protocol Version 4\">IPv4</abbr>-Netmask"
 msgstr "<abbr title=\"Internet Protocol Version 4\">IPv4</abbr>-Nettmaske"
+
+msgid "<abbr title=\"Internet Protocol Version 6\">IPv6</abbr>-Address"
+msgstr "<abbr title=\"Internet Protocol Version 6\">IPv6</abbr>-Adresse"
 
 msgid ""
 "<abbr title=\"Internet Protocol Version 6\">IPv6</abbr>-Address or Network "
@@ -91,6 +110,9 @@ msgstr "<abbr title=\"Light Emitting Diode\">LED</abbr> Navn"
 msgid "<abbr title=\"Media Access Control\">MAC</abbr>-Address"
 msgstr "<abbr title=\"Media Access Control\">MAC</abbr>-Adresse"
 
+msgid "<abbr title=\"Wireless Local Area Network\">WLAN</abbr>-Scan"
+msgstr "<abbr title=\"Wireless Local Area Network\">WLAN</abbr>-Skanning"
+
 msgid ""
 "<abbr title=\"maximal\">Max.</abbr> <abbr title=\"Dynamic Host Configuration "
 "Protocol\">DHCP</abbr> leases"
@@ -100,16 +122,13 @@ msgstr ""
 
 msgid ""
 "<abbr title=\"maximal\">Max.</abbr> <abbr title=\"Extension Mechanisms for "
-"Domain Name System\">EDNS0</abbr> packet size"
+"Domain Name System\">EDNS0</abbr> paket size"
 msgstr ""
 "<abbr title=\"Maksimal\">Maks.</abbr> <abbr title=\"Extension Mechanisms for "
 "Domain Name System\">EDNS0</abbr> pakke størrelse"
 
 msgid "<abbr title=\"maximal\">Max.</abbr> concurrent queries"
 msgstr "<abbr title=\"Maximal\">Maks.</abbr> samtidige spørringer"
-
-msgid "<abbr title='Pairwise: %s / Group: %s'>%s - %s</abbr>"
-msgstr ""
 
 msgid "APN"
 msgstr "<abbr title=\"Aksesspunkt navn\">APN</abbr>"
@@ -172,11 +191,8 @@ msgstr "Aktive <abbr title=\"Internet Protocol Version 6\">IPv6</abbr>-Ruter"
 msgid "Active Connections"
 msgstr "Aktive Tilkoblinger"
 
-msgid "Active DHCP Leases"
-msgstr ""
-
-msgid "Active DHCPv6 Leases"
-msgstr ""
+msgid "Active Leases"
+msgstr "Aktive Leier"
 
 msgid "Ad-Hoc"
 msgstr "Ad-Hoc (Uavhengig)"
@@ -242,11 +258,6 @@ msgstr "Tillat oppstrøms svar i 127.0.0.0/8 nettet, f.eks for RBL tjenester"
 msgid "Allowed range is 1 to 65535"
 msgstr ""
 
-msgid ""
-"Always use 40MHz channels even if the secondary channel overlaps. Using this "
-"option does not comply with IEEE 802.11n-2009!"
-msgstr ""
-
 msgid "An additional network will be created if you leave this unchecked."
 msgstr "Et nytt nettverk vil bli opprettet hvis du tar bort haken."
 
@@ -256,26 +267,14 @@ msgstr "Antenne 1"
 msgid "Antenna 2"
 msgstr "Antenne 2"
 
-msgid "Antenna Configuration"
-msgstr ""
-
-msgid "Any zone"
-msgstr ""
-
 msgid "Apply"
 msgstr "Bruk"
 
 msgid "Applying changes"
 msgstr "Utfører endringer"
 
-msgid "Assign interfaces..."
-msgstr ""
-
 msgid "Associated Stations"
 msgstr "Tilkoblede Klienter"
-
-msgid "Atheros 802.11%s Wireless Controller"
-msgstr ""
 
 msgid "Authentication"
 msgstr "Godkjenning"
@@ -337,6 +336,9 @@ msgid ""
 "defined backup patterns."
 msgstr ""
 
+msgid "Bit Rate"
+msgstr "Bithastighet"
+
 msgid "Bitrate"
 msgstr "Bihastighet"
 
@@ -353,12 +355,6 @@ msgid "Bridge unit number"
 msgstr "Bro enhetsnummer"
 
 msgid "Bring up on boot"
-msgstr ""
-
-msgid "Broadcom 802.11%s Wireless Controller"
-msgstr ""
-
-msgid "Broadcom BCM%04x 802.11 Wireless Controller"
 msgstr ""
 
 msgid "Buffered"
@@ -412,9 +408,13 @@ msgstr ""
 "grensesnittet til det."
 
 msgid ""
-"Choose the network(s) you want to attach to this wireless interface or fill "
-"out the <em>create</em> field to define a new network."
+"Choose the network you want to attach to this wireless interface. Select "
+"<em>unspecified</em> to not attach any network or fill out the <em>create</"
+"em> field to define a new network."
 msgstr ""
+"Velg det nettverket du ønsker å knytte til dette trådløse grensesnittet. "
+"Velg <em>uspesifisert</em> for ikke tilknytte noe nettverk, eller fyll ut "
+"<em>opprett</em> feltet for å definere et nytt nettverk."
 
 msgid "Cipher"
 msgstr ""
@@ -453,6 +453,15 @@ msgstr "Komprimering"
 
 msgid "Configuration"
 msgstr "Konfigurasjon"
+
+msgid "Configuration / Apply"
+msgstr "Konfigurasjon / Bruk"
+
+msgid "Configuration / Changes"
+msgstr "Konfigurasjon / Endringer"
+
+msgid "Configuration / Revert"
+msgstr "Konfigurasjon / Tilbakestill"
 
 msgid "Configuration applied."
 msgstr "Konfigurasjons endring utført."
@@ -498,6 +507,9 @@ msgstr "Opprett/Tildel brannmur sone"
 msgid "Create Interface"
 msgstr "Opprett Grensesnitt"
 
+msgid "Create Network"
+msgstr "Opprett Nettverk"
+
 msgid "Create a bridge over multiple interfaces"
 msgstr "Opprett en bro over flere grensesnitt"
 
@@ -532,17 +544,11 @@ msgstr ""
 msgid "DHCP-Options"
 msgstr "DHCP-Alternativer"
 
-msgid "DHCPv6 Leases"
-msgstr ""
-
 msgid "DNS"
 msgstr "DNS"
 
 msgid "DNS forwardings"
 msgstr "DNS videresendinger"
-
-msgid "DUID"
-msgstr ""
 
 msgid "Debug"
 msgstr "Feilsøking"
@@ -729,14 +735,17 @@ msgstr ""
 msgid "Enable Jumbo Frame passthrough"
 msgstr "Aktiver Jumbo Frames gjennomgang"
 
-msgid "Enable NTP client"
-msgstr ""
-
 msgid "Enable TFTP server"
 msgstr "Aktiver TFTP server"
 
 msgid "Enable VLAN functionality"
 msgstr "Aktiver VLAN funksjonalitet"
+
+msgid "Enable buffering"
+msgstr ""
+
+msgid "Enable builtin NTP server"
+msgstr ""
 
 msgid "Enable learning and aging"
 msgstr "Aktiver 'læring' og 'aldring'"
@@ -856,9 +865,6 @@ msgstr ""
 msgid "Force"
 msgstr "Tving"
 
-msgid "Force 40MHz mode"
-msgstr ""
-
 msgid "Force CCMP (AES)"
 msgstr ""
 
@@ -896,12 +902,6 @@ msgstr "Ledig plass"
 msgid "Frequency Hopping"
 msgstr "Frekvens Hopping"
 
-msgid "GHz"
-msgstr ""
-
-msgid "GPRS only"
-msgstr ""
-
 msgid "Gateway"
 msgstr "Gateway"
 
@@ -915,9 +915,6 @@ msgid "General Setup"
 msgstr "Generelt Oppsett"
 
 msgid "Generate archive"
-msgstr ""
-
-msgid "Generic 802.11%s Wireless Controller"
 msgstr ""
 
 msgid "Given password confirmation did not match, password not changed!"
@@ -960,9 +957,6 @@ msgid ""
 msgstr ""
 "Her kan du lime inn felles SSH-nøkler(en per linje), for SSH godkjenning."
 
-msgid "Hermes 802.11b Wireless Controller"
-msgstr ""
-
 msgid "Hide <abbr title=\"Extended Service Set Identifier\">ESSID</abbr>"
 msgstr "Skjul <abbr title=\"Extended Service Set Identifier\">ESSID</abbr>"
 
@@ -987,6 +981,9 @@ msgstr "Vertsnavn"
 
 msgid "IP address"
 msgstr "IP adresse"
+
+msgid "IP-Aliases"
+msgstr "IP-Aliaser"
 
 msgid "IPv4"
 msgstr "IPv4"
@@ -1015,9 +1012,6 @@ msgstr ""
 msgid "IPv4 only"
 msgstr "Kun IPv4"
 
-msgid "IPv4 prefix length"
-msgstr ""
-
 msgid "IPv4-Address"
 msgstr "IPv4-Adresse"
 
@@ -1026,6 +1020,9 @@ msgstr "IPv6"
 
 msgid "IPv6 Firewall"
 msgstr "IPv6 Brannmur"
+
+msgid "IPv6 Setup"
+msgstr "IPv6 Oppsett"
 
 msgid "IPv6 WAN Status"
 msgstr "IPv6 WAN Status"
@@ -1039,22 +1036,10 @@ msgstr ""
 msgid "IPv6 only"
 msgstr "Kun IPv6"
 
-msgid "IPv6 prefix"
-msgstr ""
-
-msgid "IPv6 prefix length"
-msgstr ""
-
-msgid "IPv6-Address"
-msgstr ""
-
 msgid "IPv6-in-IPv4 (RFC4213)"
 msgstr ""
 
-msgid "IPv6-over-IPv4 (6rd)"
-msgstr ""
-
-msgid "IPv6-over-IPv4 (6to4)"
+msgid "IPv6-over-IPv4"
 msgstr ""
 
 msgid "Identity"
@@ -1156,9 +1141,6 @@ msgstr "Grensesnittet er slått av"
 msgid "Interfaces"
 msgstr "Grensesnitt"
 
-msgid "Internal Server Error"
-msgstr ""
-
 msgid "Invalid"
 msgstr "Ugyldig"
 
@@ -1208,12 +1190,6 @@ msgstr "Nøkkel #%d"
 msgid "Kill"
 msgstr "Drep"
 
-msgid "L2TP"
-msgstr ""
-
-msgid "L2TP Server"
-msgstr ""
-
 msgid "LCP echo failure threshold"
 msgstr ""
 
@@ -1255,6 +1231,9 @@ msgstr "Forklaring:"
 
 msgid "Limit"
 msgstr "Grense"
+
+msgid "Link"
+msgstr "Link"
 
 msgid "Link On"
 msgstr "Forbindelse"
@@ -1347,6 +1326,12 @@ msgstr "Logg ut"
 msgid "Lowest leased address as offset from the network address."
 msgstr "Laveste leide adresse, forskjøvet fra nettverks adressen."
 
+msgid "MAC"
+msgstr "MAC"
+
+msgid "MAC Address"
+msgstr "MAC Adresse"
+
 msgid "MAC-Address"
 msgstr "MAC-Adresse"
 
@@ -1358,12 +1343,6 @@ msgstr "MAC-Filter"
 
 msgid "MAC-List"
 msgstr "MAC-Liste"
-
-msgid "MB/s"
-msgstr ""
-
-msgid "MHz"
-msgstr ""
 
 msgid "MTU"
 msgstr "MTU"
@@ -1388,9 +1367,6 @@ msgstr "Maksimal holde tid"
 
 msgid "Maximum number of leased addresses."
 msgstr "Maksimalt antall utleide adresser"
-
-msgid "Mbit/s"
-msgstr ""
 
 msgid "Memory"
 msgstr "Minne"
@@ -1495,8 +1471,8 @@ msgstr "Nettverks Verktøy"
 msgid "Network boot image"
 msgstr "Nettverks boot image"
 
-msgid "Network without interfaces."
-msgstr ""
+msgid "Networks"
+msgstr "Nettverk"
 
 msgid "Next »"
 msgstr "Neste »"
@@ -1546,23 +1522,21 @@ msgstr "Ingen"
 msgid "Normal"
 msgstr "Normal"
 
-msgid "Not Found"
-msgstr ""
-
 msgid "Not associated"
 msgstr "Ikke tilknyttet"
-
-msgid "Not connected"
-msgstr ""
 
 msgid "Note: Configuration files will be erased."
 msgstr ""
 
+msgid ""
+"Note: If you choose an interface here which is part of another network, it "
+"will be moved into this network."
+msgstr ""
+"Vær oppmerksom på at om du velger et grensesnitt som allerede er med et "
+"annet nettverk, blir det flyttet til dette nettverket"
+
 msgid "Notice"
 msgstr "Merk"
-
-msgid "Nslookup"
-msgstr ""
 
 msgid "OK"
 msgstr "OK"
@@ -1591,14 +1565,14 @@ msgstr ""
 msgid "On-State Delay"
 msgstr "Forsinkelse ved tilstand -På-"
 
-msgid "One of hostname or mac address must be specified!"
-msgstr ""
-
 msgid "One or more fields contain invalid values!"
 msgstr "Ett eller flere felt inneholder ugyldige verdier!"
 
 msgid "One or more required fields have no value!"
 msgstr "Ett eller flere obligatoriske felter har ingen verdi!"
+
+msgid "Open"
+msgstr "Åpen"
 
 msgid "Open list..."
 msgstr ""
@@ -1730,9 +1704,6 @@ msgstr ""
 msgid "Physical Settings"
 msgstr "Fysiske Innstillinger"
 
-msgid "Ping"
-msgstr ""
-
 msgid "Pkts."
 msgstr "Pakker"
 
@@ -1754,8 +1725,8 @@ msgstr "Port %d"
 msgid "Port %d is untagged in multiple VLANs!"
 msgstr "Port %d er utagget i flere VLANs!"
 
-msgid "Port status:"
-msgstr ""
+msgid "Power"
+msgstr "Styrke"
 
 msgid ""
 "Presume peer to be dead after given amount of LCP echo failures, use 0 to "
@@ -1764,9 +1735,6 @@ msgstr ""
 
 msgid "Prevents client-to-client communication"
 msgstr "Hindrer klient-til-klient kommunikasjon"
-
-msgid "Prism2/2.5/3 802.11b Wireless Controller"
-msgstr ""
 
 msgid "Proceed"
 msgstr "Fortsett"
@@ -1789,29 +1757,17 @@ msgstr ""
 msgid "Protocol support is not installed"
 msgstr ""
 
-msgid "Provide NTP server"
-msgstr ""
-
 msgid "Provide new network"
 msgstr "Lag nytt nettverk"
 
 msgid "Pseudo Ad-Hoc (ahdemo)"
 msgstr "Pseudo Ad-Hoc (ahdemo)"
 
-msgid "Quality"
-msgstr ""
-
 msgid "RTS/CTS Threshold"
 msgstr "RTS/CTS Terskel"
 
 msgid "RX"
 msgstr "RX"
-
-msgid "RX Rate"
-msgstr ""
-
-msgid "RaLink 802.11%s Wireless Controller"
-msgstr ""
 
 msgid "Radius-Accounting-Port"
 msgstr ""
@@ -1839,26 +1795,34 @@ msgstr ""
 "Configuration Protocol\">DHCP</abbr>-Server"
 
 msgid ""
-"Really delete this interface? The deletion cannot be undone!\\nYou might "
-"lose access to this device if you are connected via this interface."
+"Really delete this interface? The deletion cannot be undone!\n"
+"You might lose access to this router if you are connected via this interface."
 msgstr ""
+"Fjerne dette grensesnittet? Slettingen kan ikke omgjøres!\n"
+"Du kan miste kontakten med ruteren om du er tilkoblet via dette "
+"grensesnittet."
 
 msgid ""
-"Really delete this wireless network? The deletion cannot be undone!\\nYou "
-"might lose access to this device if you are connected via this network."
+"Really delete this wireless network? The deletion cannot be undone!\n"
+"You might lose access to this router if you are connected via this network."
 msgstr ""
+"Fjerne dette trådløse nettverket? Slettingen kan ikke omgjøres!\n"
+"Du kan miste kontakten med ruteren om du er tilkoblet via dette nettverket."
 
 msgid "Really reset all changes?"
 msgstr ""
 
 msgid ""
-"Really shutdown interface \"%s\" ?\\nYou might lose access to this device if "
-"you are connected via this interface."
+"Really shutdown interface \"%s\" ?\n"
+"You might lose access to this router if you are connected via this interface."
 msgstr ""
+"Slå av dette grensesnittet? \"%s\" ?\n"
+"Du kan miste kontakten med ruteren om du er tilkoblet via dette "
+"grensesnittet."
 
 msgid ""
-"Really shutdown network ?\\nYou might lose access to this device if you are "
-"connected via this interface."
+"Really shutdown network ?\n"
+"You might lose access to this router if you are connected via this interface."
 msgstr ""
 
 msgid "Really switch protocol?"
@@ -2104,12 +2068,6 @@ msgstr "Programvare"
 msgid "Some fields are invalid, cannot save values!"
 msgstr "Noen felt er ugyldige, kan ikke lagre verdier!"
 
-msgid "Sorry, the object you requested was not found."
-msgstr ""
-
-msgid "Sorry, the server encountered an unexpected error."
-msgstr ""
-
 msgid ""
 "Sorry, there is no sysupgrade support present, a new firmware image must be "
 "flashed manually. Please refer to the OpenWrt wiki for device specific "
@@ -2243,9 +2201,6 @@ msgstr "TFTP server roten"
 msgid "TX"
 msgstr "TX"
 
-msgid "TX Rate"
-msgstr ""
-
 msgid "Table"
 msgstr "Tabell"
 
@@ -2275,10 +2230,6 @@ msgid ""
 msgstr ""
 "Pakken <em>libiwinfo-lua</em> er ikke installert. Du må installere denne  "
 "pakken for å kunne konfigurerer trådløse enheter!"
-
-msgid ""
-"The IPv6 prefix assigned to the provider, usually ends with <code>::</code>"
-msgstr ""
 
 msgid ""
 "The allowed characters are: <code>A-Z</code>, <code>a-z</code>, <code>0-9</"
@@ -2332,21 +2283,19 @@ msgstr ""
 "vil bli erstattet om du fortsetter."
 
 msgid ""
-"The length of the IPv4 prefix in bits, the remainder is used in the IPv6 "
-"addresses."
-msgstr ""
-
-msgid "The length of the IPv6 prefix in bits"
-msgstr ""
-
-msgid ""
-"The network ports on this device can be combined to several <abbr title="
+"The network ports on your router can be combined to several <abbr title="
 "\"Virtual Local Area Network\">VLAN</abbr>s in which computers can "
 "communicate directly with each other. <abbr title=\"Virtual Local Area "
 "Network\">VLAN</abbr>s are often used to separate different network "
 "segments. Often there is by default one Uplink port for a connection to the "
 "next greater network like the internet and other ports for a local network."
 msgstr ""
+"Nettverks portene på ruteren kan kombineres til flere <abbr title=\"Virtual "
+"Lokal Network\">VLAN</abbr>s der datamaskiner kan kommunisere direkte med "
+"hverandre. <abbr title=\"Virtual Lokal Network\">VLAN</abbr>s brukes ofte "
+"for å skille ulike nettverk segmenter. Det er vanlig og ha en uplink-port "
+"for tilkobling til større nettverk som internett og andre porter til lokalt "
+"nettverk."
 
 msgid "The selected protocol needs a device assigned"
 msgstr ""
@@ -2396,9 +2345,6 @@ msgid ""
 msgstr ""
 "Det er ikke satt noe passord på denne ruter. Vennligst konfigurer et "
 "passord, dette beskytter webgrensesnittet og aktiverer SSH."
-
-msgid "This IPv4 address of the relay"
-msgstr ""
 
 msgid ""
 "This is a list of shell glob patterns for matching files and directories to "
@@ -2468,9 +2414,6 @@ msgstr ""
 msgid "Total Available"
 msgstr "Totalt Tilgjengelig"
 
-msgid "Traceroute"
-msgstr ""
-
 msgid "Traffic"
 msgstr "Trafikk"
 
@@ -2513,9 +2456,6 @@ msgstr "Type"
 msgid "UDP:"
 msgstr "UDP:"
 
-msgid "UMTS only"
-msgstr ""
-
 msgid "UMTS/GPRS/EV-DO"
 msgstr ""
 
@@ -2524,9 +2464,6 @@ msgstr "USB Enhet"
 
 msgid "UUID"
 msgstr "UUID"
-
-msgid "Unable to dispatch"
-msgstr ""
 
 msgid "Unknown"
 msgstr ""
@@ -2672,11 +2609,8 @@ msgstr ""
 "WPA-Kryptering krever at wpa_supplicant (for klient-modus) eller hostapd "
 "(for AP og ad-hoc-modus) er installert."
 
-msgid "Waiting for changes to be applied..."
-msgstr ""
-
-msgid "Waiting for command to complete..."
-msgstr ""
+msgid "Waiting for router..."
+msgstr "Venter på ruter..."
 
 msgid "Warning"
 msgstr "Advarsel"
@@ -2686,6 +2620,9 @@ msgstr "Advarsel: Det er ulagrede endringer som vil gå tapt under omstarten!"
 
 msgid "Wifi"
 msgstr "Trådløs"
+
+msgid "Wifi networks in your local environment"
+msgstr "Trådløse nettverk i ditt nærmiljø"
 
 msgid "Wireless"
 msgstr "Trådløs"
@@ -2748,23 +2685,11 @@ msgstr "enhver"
 msgid "auto"
 msgstr "auto"
 
-msgid "baseT"
-msgstr ""
-
 msgid "bridged"
 msgstr "brokoblet"
 
-msgid "create:"
-msgstr ""
-
 msgid "creates a bridge over specified interface(s)"
 msgstr "Lager en bro mellom angitte grensesnitt"
-
-msgid "dB"
-msgstr ""
-
-msgid "dBm"
-msgstr ""
 
 msgid "disable"
 msgstr "Deaktiver"
@@ -2779,44 +2704,17 @@ msgstr ""
 "filen der gitt <abbr title=\"Dynamic Host Configuration Protocol\">DHCP</"
 "abbr>-leier vil bli lagret"
 
-msgid "forward"
-msgstr ""
-
-msgid "full-duplex"
-msgstr ""
-
-msgid "half-duplex"
-msgstr ""
-
 msgid "help"
 msgstr "Hjelp"
 
-msgid "hidden"
-msgstr ""
-
 msgid "if target is a network"
 msgstr "Dersom målet er et nettverk"
-
-msgid "input"
-msgstr ""
-
-msgid "kB"
-msgstr ""
-
-msgid "kB/s"
-msgstr ""
-
-msgid "kbit/s"
-msgstr ""
 
 msgid "local <abbr title=\"Domain Name System\">DNS</abbr> file"
 msgstr "lokal <abbr title=\"Domain Navn System\">DNS</abbr>-fil"
 
 msgid "no"
 msgstr "nei"
-
-msgid "no link"
-msgstr ""
 
 msgid "none"
 msgstr "ingen"
@@ -2827,17 +2725,11 @@ msgstr "av"
 msgid "on"
 msgstr ""
 
-msgid "open"
-msgstr ""
-
 msgid "routed"
 msgstr "rutet"
 
 msgid "tagged"
 msgstr "tagget"
-
-msgid "unknown"
-msgstr ""
 
 msgid "unlimited"
 msgstr "ubegrenset"
@@ -2856,132 +2748,6 @@ msgstr "ja"
 
 msgid "« Back"
 msgstr "« Tilbake"
-
-#~ msgid "Waiting for router..."
-#~ msgstr "Venter på ruter..."
-
-#~ msgid "Active Leases"
-#~ msgstr "Aktive Leier"
-
-#~ msgid "Open"
-#~ msgstr "Åpen"
-
-#~ msgid "KB"
-#~ msgstr "KB"
-
-#~ msgid "Bit Rate"
-#~ msgstr "Bithastighet"
-
-#~ msgid "Configuration / Apply"
-#~ msgstr "Konfigurasjon / Bruk"
-
-#~ msgid "Configuration / Changes"
-#~ msgstr "Konfigurasjon / Endringer"
-
-#~ msgid "Configuration / Revert"
-#~ msgstr "Konfigurasjon / Tilbakestill"
-
-#~ msgid "MAC"
-#~ msgstr "MAC"
-
-#~ msgid "MAC Address"
-#~ msgstr "MAC Adresse"
-
-#~ msgid "<abbr title=\"Encrypted\">Encr.</abbr>"
-#~ msgstr "<abbr title=\"Encrypted\">Kryptert</abbr>"
-
-#~ msgid "<abbr title=\"Wireless Local Area Network\">WLAN</abbr>-Scan"
-#~ msgstr "<abbr title=\"Wireless Local Area Network\">WLAN</abbr>-Skanning"
-
-#~ msgid ""
-#~ "Choose the network you want to attach to this wireless interface. Select "
-#~ "<em>unspecified</em> to not attach any network or fill out the "
-#~ "<em>create</em> field to define a new network."
-#~ msgstr ""
-#~ "Velg det nettverket du ønsker å knytte til dette trådløse grensesnittet. "
-#~ "Velg <em>uspesifisert</em> for ikke tilknytte noe nettverk, eller fyll ut "
-#~ "<em>opprett</em> feltet for å definere et nytt nettverk."
-
-#~ msgid "Create Network"
-#~ msgstr "Opprett Nettverk"
-
-#~ msgid "Link"
-#~ msgstr "Link"
-
-#~ msgid "Networks"
-#~ msgstr "Nettverk"
-
-#~ msgid "Power"
-#~ msgstr "Styrke"
-
-#~ msgid "Wifi networks in your local environment"
-#~ msgstr "Trådløse nettverk i ditt nærmiljø"
-
-#~ msgid ""
-#~ "<abbr title=\"Classless Inter-Domain Routing\">CIDR</abbr>-Notation: "
-#~ "address/prefix"
-#~ msgstr ""
-#~ "<abbr title=\"Classless Inter-Domain Routing\">CIDR</abbr>-Notasjon: "
-#~ "adresse/prefiks"
-
-#~ msgid "<abbr title=\"Domain Name System\">DNS</abbr>-Server"
-#~ msgstr "<abbr title=\"Domain Name System\">DNS</abbr>-Server"
-
-#~ msgid "<abbr title=\"Internet Protocol Version 4\">IPv4</abbr>-Broadcast"
-#~ msgstr "<abbr title=\"Internet Protocol Version 4\">IPv4</abbr>-Broadcast"
-
-#~ msgid "<abbr title=\"Internet Protocol Version 6\">IPv6</abbr>-Address"
-#~ msgstr "<abbr title=\"Internet Protocol Version 6\">IPv6</abbr>-Adresse"
-
-#~ msgid "IP-Aliases"
-#~ msgstr "IP-Aliaser"
-
-#~ msgid "IPv6 Setup"
-#~ msgstr "IPv6 Oppsett"
-
-#~ msgid ""
-#~ "Note: If you choose an interface here which is part of another network, "
-#~ "it will be moved into this network."
-#~ msgstr ""
-#~ "Vær oppmerksom på at om du velger et grensesnitt som allerede er med et "
-#~ "annet nettverk, blir det flyttet til dette nettverket"
-
-#~ msgid ""
-#~ "Really delete this interface? The deletion cannot be undone!\\nYou might "
-#~ "lose access to this router if you are connected via this interface."
-#~ msgstr ""
-#~ "Fjerne dette grensesnittet? Slettingen kan ikke omgjøres!\\nDu kan miste "
-#~ "kontakten med ruteren om du er tilkoblet via dette grensesnittet."
-
-#~ msgid ""
-#~ "Really delete this wireless network? The deletion cannot be undone!\\nYou "
-#~ "might lose access to this router if you are connected via this network."
-#~ msgstr ""
-#~ "Fjerne dette trådløse nettverket? Slettingen kan ikke omgjøres!\\nDu kan "
-#~ "miste kontakten med ruteren om du er tilkoblet via dette nettverket."
-
-#~ msgid ""
-#~ "Really shutdown interface \"%s\" ?\\nYou might lose access to this router "
-#~ "if you are connected via this interface."
-#~ msgstr ""
-#~ "Slå av dette grensesnittet? \"%s\" ?\\nDu kan miste kontakten med ruteren "
-#~ "om du er tilkoblet via dette grensesnittet."
-
-#~ msgid ""
-#~ "The network ports on your router can be combined to several <abbr title="
-#~ "\"Virtual Local Area Network\">VLAN</abbr>s in which computers can "
-#~ "communicate directly with each other. <abbr title=\"Virtual Local Area "
-#~ "Network\">VLAN</abbr>s are often used to separate different network "
-#~ "segments. Often there is by default one Uplink port for a connection to "
-#~ "the next greater network like the internet and other ports for a local "
-#~ "network."
-#~ msgstr ""
-#~ "Nettverks portene på ruteren kan kombineres til flere <abbr title="
-#~ "\"Virtual Lokal Network\">VLAN</abbr>s der datamaskiner kan kommunisere "
-#~ "direkte med hverandre. <abbr title=\"Virtual Lokal Network\">VLAN</abbr>s "
-#~ "brukes ofte for å skille ulike nettverk segmenter. Det er vanlig og ha en "
-#~ "uplink-port for tilkobling til større nettverk som internett og andre "
-#~ "porter til lokalt nettverk."
 
 #~ msgid "Custom Files"
 #~ msgstr "Egendefinerte Filer"
@@ -3395,6 +3161,9 @@ msgstr "« Tilbake"
 
 #~ msgid "Interface Status"
 #~ msgstr "Grensesnitt Status"
+
+#~ msgid "KB"
+#~ msgstr "KB"
 
 #~ msgid "Lead Development"
 #~ msgstr "Hovedutviklere"

@@ -9,7 +9,7 @@ You may obtain a copy of the License at
 
         http://www.apache.org/licenses/LICENSE-2.0
 
-$Id: netlink.lua 7987 2011-11-28 04:19:38Z jow $
+$Id$
 
 ]]--
 
@@ -88,7 +88,7 @@ for i, v in ipairs(devices) do
 end
 
 -- collectd_netlink.ignoreselected (IgnoreSelected)
-ignoreselected = s:option( Flag, "IgnoreSelected", translate("Monitor all except specified") )
+ignoreselected = s:option( Flag, "IgnoreSelected" )
 ignoreselected.default = 0
 ignoreselected:depends( "enable", 1 )
 

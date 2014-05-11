@@ -10,7 +10,7 @@ You may obtain a copy of the License at
 
 	http://www.apache.org/licenses/LICENSE-2.0
 
-$Id: system.lua 9655 2013-01-27 18:43:41Z jow $
+$Id$
 ]]--
 
 module("luci.controller.mini.system", package.seeall)
@@ -81,7 +81,7 @@ function action_upgrade()
 	local function image_supported()
 		-- XXX: yay...
 		return ( 0 == os.execute(
-			". /lib/functions.sh; " ..
+			". /etc/functions.sh; " ..
 			"include /lib/upgrade; " ..
 			"platform_check_image %q >/dev/null"
 				% tmpfile

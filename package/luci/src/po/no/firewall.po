@@ -4,50 +4,29 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid "%s in %s"
-msgstr ""
-
-msgid "%s%s with %s"
-msgstr ""
-
-msgid "%s, %s in %s"
-msgstr ""
-
-msgid "(Unnamed Entry)"
-msgstr ""
-
-msgid "(Unnamed Rule)"
-msgstr ""
-
-msgid "(Unnamed SNAT)"
-msgstr ""
-
-msgid "-- Please choose --"
-msgstr ""
-
-msgid "-- custom --"
-msgstr ""
-
-msgid "<var>%d</var> pkts. per <var>%s</var>"
-msgstr ""
-
-msgid "<var>%d</var> pkts. per <var>%s</var>, burst <var>%d</var> pkts."
-msgstr ""
-
-msgid "<var>%s</var> and limit to %s"
-msgstr ""
+msgid "(optional)"
+msgstr "(valgfritt)"
 
 msgid "Action"
 msgstr "Handling"
 
-msgid "Add"
-msgstr ""
+msgid "Advanced Options"
+msgstr "Avanserte Valg"
 
-msgid "Add and edit..."
-msgstr ""
+msgid "Advanced Rules"
+msgstr "Avanserte Regler"
 
 msgid "Advanced Settings"
 msgstr "Avanserte Innstillinger"
+
+msgid ""
+"Advanced rules let you customize the firewall to your needs. Only new "
+"connections will be matched. Packets belonging to already open connections "
+"are automatically allowed to pass the firewall."
+msgstr ""
+"Avanserte regler lar deg tilpasse brannmuren til dine behov. Kun nye "
+"tilkoblinger blir berørt. Pakker som tilhører eksisterende tilkoblinger "
+"slipper derfor igjennom brannmuren."
 
 msgid "Allow forward from <em>source zones</em>:"
 msgstr "Tillat videresending fra <em>kilde soner</em>:"
@@ -64,14 +43,11 @@ msgstr "Gjeldene nettverk"
 msgid "Custom Rules"
 msgstr "Egendefinerte Regler"
 
-msgid ""
-"Custom rules allow you to execute arbritary iptables commands which are not "
-"otherwise covered by the firewall framework. The commands are executed after "
-"each firewall restart, right after the default ruleset has been loaded."
-msgstr ""
+msgid "Custom Rules (/etc/firewall.user)"
+msgstr "Egendefinerte Regler (/etc/firewall.user)"
 
-msgid "Destination IP address"
-msgstr ""
+msgid "Destination"
+msgstr "Destinasjon"
 
 msgid "Destination address"
 msgstr "Destinasjons adresse"
@@ -82,14 +58,11 @@ msgstr "Destinasjons port"
 msgid "Destination zone"
 msgstr "Destinasjons sone"
 
-msgid "Do not rewrite"
-msgstr ""
+msgid "Device"
+msgstr "Enhet"
 
 msgid "Drop invalid packets"
 msgstr "Forkast ugyldige pakker"
-
-msgid "Enable"
-msgstr ""
 
 msgid "Enable NAT Loopback"
 msgstr "Aktiver NAT <abbr title=\"Loopback\">Tilbakekobling</abbr>"
@@ -100,32 +73,25 @@ msgstr "Aktiver SYN-flood beskyttelse"
 msgid "Enable logging on this zone"
 msgstr "Aktiver logging av denne sonen"
 
-msgid "External IP address"
-msgstr ""
-
 msgid "External port"
 msgstr "Ekstern port"
 
-msgid "External zone"
-msgstr ""
-
-msgid "Extra arguments"
-msgstr ""
+msgid "Family"
+msgstr "Adressefamilie"
 
 msgid "Firewall"
 msgstr "Brannmur"
 
-msgid "Firewall - Custom Rules"
-msgstr ""
-
-msgid "Firewall - Port Forwards"
-msgstr ""
-
-msgid "Firewall - Traffic Rules"
-msgstr ""
-
 msgid "Firewall - Zone Settings"
 msgstr "Brannmur - Sone Innstillinger"
+
+msgid ""
+"For DNAT, match incoming traffic directed at the given destination ip "
+"address. For SNAT rewrite the source address to the given address."
+msgstr ""
+"DNAT: Matcher innkommende trafikk som er rettet mot destinasjons IP-adressen "
+"du angir her. SNAT: Omskriver kilde IP-adressen slik at den blir lik den "
+"IP-adressen du angir her."
 
 msgid "Force connection tracking"
 msgstr "Tving sporing av tilkobling"
@@ -133,23 +99,8 @@ msgstr "Tving sporing av tilkobling"
 msgid "Forward"
 msgstr "Videresend"
 
-msgid "Forward to"
-msgstr ""
-
-msgid "From %s in %s"
-msgstr ""
-
-msgid "From %s in %s with source %s"
-msgstr ""
-
-msgid "From %s in %s with source %s and %s"
-msgstr ""
-
 msgid "General Settings"
 msgstr "Generelle Innstillinger"
-
-msgid "IPv4"
-msgstr ""
 
 msgid "IPv4 and IPv6"
 msgstr "IPv4 og IPv6"
@@ -157,14 +108,14 @@ msgstr "IPv4 og IPv6"
 msgid "IPv4 only"
 msgstr "Kun IPv4"
 
-msgid "IPv6"
-msgstr ""
-
 msgid "IPv6 only"
 msgstr "Kun IPv6"
 
 msgid "Input"
 msgstr "Inndata"
+
+msgid "Intended destination address"
+msgstr "Ønsket destinasjon adresse"
 
 msgid "Inter-Zone Forwarding"
 msgstr "Sone til Sone Videresending"
@@ -175,8 +126,8 @@ msgstr "Intern IP adresse"
 msgid "Internal port"
 msgstr "Intern port"
 
-msgid "Internal zone"
-msgstr ""
+msgid "Internal port (optional)"
+msgstr "Intern port (valgfritt)"
 
 msgid "Limit log messages"
 msgstr "Begrens logging"
@@ -187,76 +138,39 @@ msgstr "MSS Kontroll (Clamping)"
 msgid "Masquerading"
 msgstr "Masquerading"
 
-msgid "Match"
-msgstr ""
-
 msgid "Match ICMP type"
 msgstr "Match ICMP type"
-
-msgid "Match forwarded traffic to the given destination port or port range."
-msgstr ""
 
 msgid ""
 "Match incoming traffic directed at the given destination port or port range "
 "on this host"
-msgstr "Match innkommende trafikk som er rettet mot dette port/portområde"
+msgstr ""
+"Match innkommende trafikk som er rettet mot dette port/portområde"
 
 msgid ""
 "Match incoming traffic originating from the given source port or port range "
-"on the client host."
+"on the client host"
 msgstr ""
+"Match innkommende trafikk som kommer fra dette port/portområde"
 
 msgid "Name"
 msgstr "Navn"
 
-msgid "New SNAT rule"
-msgstr ""
-
-msgid "New forward rule"
-msgstr ""
-
-msgid "New input rule"
-msgstr ""
-
-msgid "New port forward"
-msgstr ""
-
-msgid "New source NAT"
-msgstr ""
-
-msgid "Only match incoming traffic directed at the given IP address."
-msgstr ""
-
-msgid "Only match incoming traffic from these MACs."
-msgstr ""
-
-msgid "Only match incoming traffic from this IP or range."
-msgstr ""
-
-msgid ""
-"Only match incoming traffic originating from the given source port or port "
-"range on the client host"
-msgstr ""
-
-msgid "Open ports on router"
-msgstr ""
-
-msgid "Other..."
-msgstr ""
-
 msgid "Output"
 msgstr "Utdata"
 
-msgid "Passes additional arguments to iptables. Use with care!"
-msgstr ""
+msgid "Overview"
+msgstr "Oversikt"
 
-msgid "Port Forwards"
-msgstr ""
+msgid "Port forwarding"
+msgstr "Port Videresending"
 
 msgid ""
-"Port forwarding allows remote computers on the Internet to connect to a "
-"specific computer or service within the private LAN."
+"Port forwarding allows to provide network services in the internal network "
+"to an external network."
 msgstr ""
+"<abbr title=\"Port Forwarding\">Port Videresending</abbr> tillater at "
+"tjenester fra det interne nettverket kan tilbys et eksternt nettverk."
 
 msgid "Protocol"
 msgstr "Protokoll"
@@ -269,6 +183,12 @@ msgstr ""
 msgid "Redirect matched incoming traffic to the specified internal host"
 msgstr "Videresender matchet innkommende trafikk til denne interne enhet"
 
+msgid "Redirection type"
+msgstr "Omadressering type"
+
+msgid "Redirections"
+msgstr "Omadresseringer"
+
 msgid "Restrict Masquerading to given destination subnets"
 msgstr "Begrens Masquerading til destinasjons subnett"
 
@@ -278,40 +198,17 @@ msgstr "Begrens Masqeuerading til kilde subnett"
 msgid "Restrict to address family"
 msgstr "Begrens til adresse familie"
 
-msgid "Rewrite matched traffic to the given address."
-msgstr ""
+msgid "Rules"
+msgstr "Regler"
 
-msgid ""
-"Rewrite matched traffic to the given source port. May be left empty to only "
-"rewrite the IP address."
-msgstr ""
-
-msgid "Rewrite to source %s"
-msgstr ""
-
-msgid "Rewrite to source %s, %s"
-msgstr ""
-
-msgid "SNAT IP address"
-msgstr ""
-
-msgid "SNAT port"
-msgstr ""
+msgid "Source"
+msgstr "Kilde"
 
 msgid "Source IP address"
 msgstr "Kilde IP adresse"
 
 msgid "Source MAC address"
 msgstr "Kilde MAC adresse"
-
-msgid "Source NAT"
-msgstr ""
-
-msgid ""
-"Source NAT is a specific form of masquerading which allows fine grained "
-"control over the source IP used for outgoing traffic, for example to map "
-"multiple WAN addresses to internal subnets."
-msgstr ""
 
 msgid "Source address"
 msgstr "Kilde adresse"
@@ -340,19 +237,9 @@ msgstr ""
 "Med valgene under konfigurerer man videresending mellom denne sone (%s) og "
 "andre soner. <em>Destinasjons soner</em> omhandler videresendt trafikk "
 "<strong>med opprinnelse fra %q</strong>. <em>Kilde soner</em> matcher "
-"videresendt trafikk fra andre soner <strong>rettet mot %q</strong>. Reglene "
-"ved videresending er <em>enveis</em>, d.v.s at videresending fra LAN til WAN "
-"<em>ikke</em> automatisk også tillater videresending fra WAN til LAN."
-
-msgid ""
-"This page allows you to change advanced properties of the port forwarding "
-"entry. In most cases there is no need to modify those settings."
-msgstr ""
-
-msgid ""
-"This page allows you to change advanced properties of the traffic rule "
-"entry, such as matched source and destination hosts."
-msgstr ""
+"videresendt trafikk fra andre soner <strong>rettet mot %q</strong>. "
+"Reglene ved videresending er <em>enveis</em>, d.v.s at videresending fra LAN "
+"til WAN <em>ikke</em> automatisk også tillater videresending fra WAN til LAN."
 
 msgid ""
 "This section defines common properties of %q. The <em>input</em> and "
@@ -361,50 +248,25 @@ msgid ""
 "forwarded traffic between different networks within the zone. <em>Covered "
 "networks</em> specifies which available networks are member of this zone."
 msgstr ""
-"Denne seksjonen definerer de vanligste valg for %q. Med <em>Inndata</em> og "
-"<em>Utdata</em> fastsetter man vanlige regler for trafikk gjennom sonen, "
-"mens <em>videresend</em> valget definerer regler for videresendt trafikk "
-"mellom forskjellige nettverk i sonen. <em>Gjeldene nettverk</em> "
-"spesifiserer hvilken av de tilgjengelige nettverk som er medlem av denne "
-"sone."
+"Denne seksjonen definerer de vanligste valg for %q. Med <em>Inndata</em> "
+"og <em>Utdata</em> fastsetter man vanlige regler for trafikk "
+"gjennom sonen, mens <em>videresend</em> valget definerer regler for "
+"videresendt trafikk mellom forskjellige nettverk i sonen. "
+"<em>Gjeldene nettverk</em> spesifiserer hvilken av de tilgjengelige nettverk "
+"som er medlem av denne sone."
 
-msgid "To %s at %s on <var>this device</var>"
-msgstr ""
-
-msgid "To %s in %s"
-msgstr ""
-
-msgid "To %s on <var>this device</var>"
-msgstr ""
-
-msgid "To %s, %s in %s"
-msgstr ""
-
-msgid "To source IP"
-msgstr ""
-
-msgid "To source port"
-msgstr ""
-
-msgid "Traffic Rules"
-msgstr ""
+msgid "Traffic Redirection"
+msgstr "Trafikk Omadressering"
 
 msgid ""
-"Traffic rules define policies for packets traveling between different zones, "
-"for example to reject traffic between certain hosts or to open WAN ports on "
-"the router."
+"Traffic redirection allows you to change the destination address of "
+"forwarded packets."
 msgstr ""
+"<abbr title=\"Traffic Redirection\">Trafikk Omadressering</abbr> lar deg "
+"endre destinasjons adresse på videresendte pakker."
 
-msgid "Via %s"
-msgstr ""
-
-msgid "Via %s at %s"
-msgstr ""
-
-msgid ""
-"You may specify multiple by selecting \"-- custom --\" and then entering "
-"protocols separated by space."
-msgstr ""
+msgid "Via"
+msgstr "Via"
 
 msgid "Zone %q"
 msgstr "Sone %q"
@@ -421,15 +283,6 @@ msgstr "godta"
 msgid "any"
 msgstr "alle"
 
-msgid "any host"
-msgstr ""
-
-msgid "any router IP"
-msgstr ""
-
-msgid "any zone"
-msgstr ""
-
 msgid "don't track"
 msgstr "ikke track"
 
@@ -438,90 +291,3 @@ msgstr "forkast"
 
 msgid "reject"
 msgstr "avslå"
-
-#~ msgid "Destination"
-#~ msgstr "Destinasjon"
-
-#~ msgid "Family"
-#~ msgstr "Adressefamilie"
-
-#~ msgid "Source"
-#~ msgstr "Kilde"
-
-#~ msgid "Via"
-#~ msgstr "Via"
-
-#~ msgid "(optional)"
-#~ msgstr "(valgfritt)"
-
-#~ msgid "Intended destination address"
-#~ msgstr "Ønsket destinasjon adresse"
-
-#~ msgid "Internal port (optional)"
-#~ msgstr "Intern port (valgfritt)"
-
-#~ msgid "Advanced Options"
-#~ msgstr "Avanserte Valg"
-
-#~ msgid "Advanced Rules"
-#~ msgstr "Avanserte Regler"
-
-#~ msgid ""
-#~ "Advanced rules let you customize the firewall to your needs. Only new "
-#~ "connections will be matched. Packets belonging to already open "
-#~ "connections are automatically allowed to pass the firewall."
-#~ msgstr ""
-#~ "Avanserte regler lar deg tilpasse brannmuren til dine behov. Kun nye "
-#~ "tilkoblinger blir berørt. Pakker som tilhører eksisterende tilkoblinger "
-#~ "slipper derfor igjennom brannmuren."
-
-#~ msgid "Custom Rules (/etc/firewall.user)"
-#~ msgstr "Egendefinerte Regler (/etc/firewall.user)"
-
-#~ msgid "Device"
-#~ msgstr "Enhet"
-
-#~ msgid ""
-#~ "For DNAT, match incoming traffic directed at the given destination ip "
-#~ "address. For SNAT rewrite the source address to the given address."
-#~ msgstr ""
-#~ "DNAT: Matcher innkommende trafikk som er rettet mot destinasjons IP-"
-#~ "adressen du angir her. SNAT: Omskriver kilde IP-adressen slik at den blir "
-#~ "lik den IP-adressen du angir her."
-
-#~ msgid ""
-#~ "Match incoming traffic originating from the given source port or port "
-#~ "range on the client host"
-#~ msgstr "Match innkommende trafikk som kommer fra dette port/portområde"
-
-#~ msgid "Overview"
-#~ msgstr "Oversikt"
-
-#~ msgid "Port forwarding"
-#~ msgstr "Port Videresending"
-
-#~ msgid ""
-#~ "Port forwarding allows to provide network services in the internal "
-#~ "network to an external network."
-#~ msgstr ""
-#~ "<abbr title=\"Port Forwarding\">Port Videresending</abbr> tillater at "
-#~ "tjenester fra det interne nettverket kan tilbys et eksternt nettverk."
-
-#~ msgid "Redirection type"
-#~ msgstr "Omadressering type"
-
-#~ msgid "Redirections"
-#~ msgstr "Omadresseringer"
-
-#~ msgid "Rules"
-#~ msgstr "Regler"
-
-#~ msgid "Traffic Redirection"
-#~ msgstr "Trafikk Omadressering"
-
-#~ msgid ""
-#~ "Traffic redirection allows you to change the destination address of "
-#~ "forwarded packets."
-#~ msgstr ""
-#~ "<abbr title=\"Traffic Redirection\">Trafikk Omadressering</abbr> lar deg "
-#~ "endre destinasjons adresse på videresendte pakker."

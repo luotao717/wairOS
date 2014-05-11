@@ -12,50 +12,29 @@ msgstr ""
 "20)) ? 1 : 2);;\n"
 "X-Generator: Pootle 2.0.4\n"
 
-msgid "%s in %s"
-msgstr ""
-
-msgid "%s%s with %s"
-msgstr ""
-
-msgid "%s, %s in %s"
-msgstr ""
-
-msgid "(Unnamed Entry)"
-msgstr ""
-
-msgid "(Unnamed Rule)"
-msgstr ""
-
-msgid "(Unnamed SNAT)"
-msgstr ""
-
-msgid "-- Please choose --"
-msgstr ""
-
-msgid "-- custom --"
-msgstr ""
-
-msgid "<var>%d</var> pkts. per <var>%s</var>"
-msgstr ""
-
-msgid "<var>%d</var> pkts. per <var>%s</var>, burst <var>%d</var> pkts."
-msgstr ""
-
-msgid "<var>%s</var> and limit to %s"
-msgstr ""
+msgid "(optional)"
+msgstr "(optional)"
 
 msgid "Action"
 msgstr "Actiune"
 
-msgid "Add"
-msgstr ""
+msgid "Advanced Options"
+msgstr "Optiuni avansate"
 
-msgid "Add and edit..."
-msgstr ""
+msgid "Advanced Rules"
+msgstr "Reguli avansate"
 
 msgid "Advanced Settings"
 msgstr "Setari avansate"
+
+msgid ""
+"Advanced rules let you customize the firewall to your needs. Only new "
+"connections will be matched. Packets belonging to already open connections "
+"are automatically allowed to pass the firewall."
+msgstr ""
+"Regulile avansate iti permit particularizarea firewall-ului dupa nevoi. "
+"Numai conexiunile noi vor fi luate in calcul. Pachetele care apartin unor "
+"conexiuni deja stabilite trec deja prin firewall."
 
 msgid "Allow forward from <em>source zones</em>:"
 msgstr "Permite trecerea din <em>zonele sursa</em>."
@@ -72,14 +51,11 @@ msgstr "Retele acoperite"
 msgid "Custom Rules"
 msgstr "Reguli suplimentare"
 
-msgid ""
-"Custom rules allow you to execute arbritary iptables commands which are not "
-"otherwise covered by the firewall framework. The commands are executed after "
-"each firewall restart, right after the default ruleset has been loaded."
-msgstr ""
+msgid "Custom Rules (/etc/firewall.user)"
+msgstr "Reguli suplimentare (/etc/firewall.user)"
 
-msgid "Destination IP address"
-msgstr ""
+msgid "Destination"
+msgstr "Destinatie"
 
 msgid "Destination address"
 msgstr "Adresa destinatie"
@@ -90,14 +66,11 @@ msgstr "Portul destinatie"
 msgid "Destination zone"
 msgstr "Zona destinatie"
 
-msgid "Do not rewrite"
-msgstr ""
+msgid "Device"
+msgstr "Dispozitiv"
 
 msgid "Drop invalid packets"
 msgstr "Descarca pachetele invalide"
-
-msgid "Enable"
-msgstr ""
 
 msgid "Enable NAT Loopback"
 msgstr "Activeaza loopback NAT"
@@ -108,32 +81,24 @@ msgstr "Activeaza protectia SYN-flood"
 msgid "Enable logging on this zone"
 msgstr "Activeaza log in aceasta zona"
 
-msgid "External IP address"
-msgstr ""
-
 msgid "External port"
 msgstr "Port extern"
 
-msgid "External zone"
-msgstr ""
-
-msgid "Extra arguments"
-msgstr ""
+msgid "Family"
+msgstr "Familia proto"
 
 msgid "Firewall"
 msgstr "Firewall"
 
-msgid "Firewall - Custom Rules"
-msgstr ""
-
-msgid "Firewall - Port Forwards"
-msgstr ""
-
-msgid "Firewall - Traffic Rules"
-msgstr ""
-
 msgid "Firewall - Zone Settings"
 msgstr "Setari zona la firewall"
+
+msgid ""
+"For DNAT, match incoming traffic directed at the given destination ip "
+"address. For SNAT rewrite the source address to the given address."
+msgstr ""
+"Pentru DNAT, leaga traficul venit redirectat catre destinatia IP. Pentru "
+"SNAT rescrie adresa sursa ca fiind adresa IP."
 
 msgid "Force connection tracking"
 msgstr "Forteaza urmarirea conexiunilor"
@@ -141,23 +106,8 @@ msgstr "Forteaza urmarirea conexiunilor"
 msgid "Forward"
 msgstr "Forward"
 
-msgid "Forward to"
-msgstr ""
-
-msgid "From %s in %s"
-msgstr ""
-
-msgid "From %s in %s with source %s"
-msgstr ""
-
-msgid "From %s in %s with source %s and %s"
-msgstr ""
-
 msgid "General Settings"
 msgstr "Setari generale"
-
-msgid "IPv4"
-msgstr ""
 
 msgid "IPv4 and IPv6"
 msgstr "IPv4 si IPv6"
@@ -165,14 +115,14 @@ msgstr "IPv4 si IPv6"
 msgid "IPv4 only"
 msgstr "doar IPv4"
 
-msgid "IPv6"
-msgstr ""
-
 msgid "IPv6 only"
 msgstr "doar IPv6"
 
 msgid "Input"
 msgstr "Input"
+
+msgid "Intended destination address"
+msgstr "Adresa destinatie intentionata"
 
 msgid "Inter-Zone Forwarding"
 msgstr "Forwardare intre-zone"
@@ -183,8 +133,8 @@ msgstr "Adresa IP interna"
 msgid "Internal port"
 msgstr "Port intern"
 
-msgid "Internal zone"
-msgstr ""
+msgid "Internal port (optional)"
+msgstr "Port intern (optional)"
 
 msgid "Limit log messages"
 msgstr "Limiteaza mesaje in log"
@@ -195,14 +145,8 @@ msgstr "Ajustare MSS"
 msgid "Masquerading"
 msgstr "Translatare"
 
-msgid "Match"
-msgstr ""
-
 msgid "Match ICMP type"
 msgstr "Potriveste pe tipul de ICMP"
-
-msgid "Match forwarded traffic to the given destination port or port range."
-msgstr ""
 
 msgid ""
 "Match incoming traffic directed at the given destination port or port range "
@@ -211,59 +155,24 @@ msgstr ""
 
 msgid ""
 "Match incoming traffic originating from the given source port or port range "
-"on the client host."
+"on the client host"
 msgstr ""
 
 msgid "Name"
 msgstr "Nume"
 
-msgid "New SNAT rule"
-msgstr ""
-
-msgid "New forward rule"
-msgstr ""
-
-msgid "New input rule"
-msgstr ""
-
-msgid "New port forward"
-msgstr ""
-
-msgid "New source NAT"
-msgstr ""
-
-msgid "Only match incoming traffic directed at the given IP address."
-msgstr ""
-
-msgid "Only match incoming traffic from these MACs."
-msgstr ""
-
-msgid "Only match incoming traffic from this IP or range."
-msgstr ""
-
-msgid ""
-"Only match incoming traffic originating from the given source port or port "
-"range on the client host"
-msgstr ""
-
-msgid "Open ports on router"
-msgstr ""
-
-msgid "Other..."
-msgstr ""
-
 msgid "Output"
 msgstr "Output"
 
-msgid "Passes additional arguments to iptables. Use with care!"
-msgstr ""
+msgid "Overview"
+msgstr "Sumar"
 
-msgid "Port Forwards"
-msgstr ""
+msgid "Port forwarding"
+msgstr "Forwardare catre port"
 
 msgid ""
-"Port forwarding allows remote computers on the Internet to connect to a "
-"specific computer or service within the private LAN."
+"Port forwarding allows to provide network services in the internal network "
+"to an external network."
 msgstr ""
 
 msgid "Protocol"
@@ -276,6 +185,12 @@ msgstr ""
 msgid "Redirect matched incoming traffic to the specified internal host"
 msgstr ""
 
+msgid "Redirection type"
+msgstr "Tipul de redirectare"
+
+msgid "Redirections"
+msgstr "Redirectari"
+
 msgid "Restrict Masquerading to given destination subnets"
 msgstr ""
 
@@ -285,40 +200,17 @@ msgstr ""
 msgid "Restrict to address family"
 msgstr ""
 
-msgid "Rewrite matched traffic to the given address."
-msgstr ""
+msgid "Rules"
+msgstr "Reguli"
 
-msgid ""
-"Rewrite matched traffic to the given source port. May be left empty to only "
-"rewrite the IP address."
-msgstr ""
-
-msgid "Rewrite to source %s"
-msgstr ""
-
-msgid "Rewrite to source %s, %s"
-msgstr ""
-
-msgid "SNAT IP address"
-msgstr ""
-
-msgid "SNAT port"
-msgstr ""
+msgid "Source"
+msgstr "Sursa"
 
 msgid "Source IP address"
 msgstr "Adresa IP sursa"
 
 msgid "Source MAC address"
 msgstr "Adresa MAC sursa"
-
-msgid "Source NAT"
-msgstr ""
-
-msgid ""
-"Source NAT is a specific form of masquerading which allows fine grained "
-"control over the source IP used for outgoing traffic, for example to map "
-"multiple WAN addresses to internal subnets."
-msgstr ""
 
 msgid "Source address"
 msgstr "Adresa sursa"
@@ -344,16 +236,6 @@ msgid ""
 msgstr ""
 
 msgid ""
-"This page allows you to change advanced properties of the port forwarding "
-"entry. In most cases there is no need to modify those settings."
-msgstr ""
-
-msgid ""
-"This page allows you to change advanced properties of the traffic rule "
-"entry, such as matched source and destination hosts."
-msgstr ""
-
-msgid ""
 "This section defines common properties of %q. The <em>input</em> and "
 "<em>output</em> options set the default policies for traffic entering and "
 "leaving this zone while the <em>forward</em> option describes the policy for "
@@ -361,43 +243,16 @@ msgid ""
 "networks</em> specifies which available networks are member of this zone."
 msgstr ""
 
-msgid "To %s at %s on <var>this device</var>"
-msgstr ""
-
-msgid "To %s in %s"
-msgstr ""
-
-msgid "To %s on <var>this device</var>"
-msgstr ""
-
-msgid "To %s, %s in %s"
-msgstr ""
-
-msgid "To source IP"
-msgstr ""
-
-msgid "To source port"
-msgstr ""
-
-msgid "Traffic Rules"
-msgstr ""
+msgid "Traffic Redirection"
+msgstr "Redirectarea traficului"
 
 msgid ""
-"Traffic rules define policies for packets traveling between different zones, "
-"for example to reject traffic between certain hosts or to open WAN ports on "
-"the router."
+"Traffic redirection allows you to change the destination address of "
+"forwarded packets."
 msgstr ""
 
-msgid "Via %s"
-msgstr ""
-
-msgid "Via %s at %s"
-msgstr ""
-
-msgid ""
-"You may specify multiple by selecting \"-- custom --\" and then entering "
-"protocols separated by space."
-msgstr ""
+msgid "Via"
+msgstr "Prin"
 
 msgid "Zone %q"
 msgstr "Zona %q"
@@ -414,87 +269,8 @@ msgstr "accept"
 msgid "any"
 msgstr "oricare"
 
-msgid "any host"
-msgstr ""
-
-msgid "any router IP"
-msgstr ""
-
-msgid "any zone"
-msgstr ""
-
-msgid "don't track"
-msgstr ""
-
 msgid "drop"
 msgstr ""
 
 msgid "reject"
 msgstr ""
-
-#~ msgid "Destination"
-#~ msgstr "Destinatie"
-
-#~ msgid "Family"
-#~ msgstr "Familia proto"
-
-#~ msgid "Source"
-#~ msgstr "Sursa"
-
-#~ msgid "Via"
-#~ msgstr "Prin"
-
-#~ msgid "(optional)"
-#~ msgstr "(optional)"
-
-#~ msgid "Intended destination address"
-#~ msgstr "Adresa destinatie intentionata"
-
-#~ msgid "Internal port (optional)"
-#~ msgstr "Port intern (optional)"
-
-#~ msgid "Advanced Options"
-#~ msgstr "Optiuni avansate"
-
-#~ msgid "Advanced Rules"
-#~ msgstr "Reguli avansate"
-
-#~ msgid ""
-#~ "Advanced rules let you customize the firewall to your needs. Only new "
-#~ "connections will be matched. Packets belonging to already open "
-#~ "connections are automatically allowed to pass the firewall."
-#~ msgstr ""
-#~ "Regulile avansate iti permit particularizarea firewall-ului dupa nevoi. "
-#~ "Numai conexiunile noi vor fi luate in calcul. Pachetele care apartin unor "
-#~ "conexiuni deja stabilite trec deja prin firewall."
-
-#~ msgid "Custom Rules (/etc/firewall.user)"
-#~ msgstr "Reguli suplimentare (/etc/firewall.user)"
-
-#~ msgid "Device"
-#~ msgstr "Dispozitiv"
-
-#~ msgid ""
-#~ "For DNAT, match incoming traffic directed at the given destination ip "
-#~ "address. For SNAT rewrite the source address to the given address."
-#~ msgstr ""
-#~ "Pentru DNAT, leaga traficul venit redirectat catre destinatia IP. Pentru "
-#~ "SNAT rescrie adresa sursa ca fiind adresa IP."
-
-#~ msgid "Overview"
-#~ msgstr "Sumar"
-
-#~ msgid "Port forwarding"
-#~ msgstr "Forwardare catre port"
-
-#~ msgid "Redirection type"
-#~ msgstr "Tipul de redirectare"
-
-#~ msgid "Redirections"
-#~ msgstr "Redirectari"
-
-#~ msgid "Rules"
-#~ msgstr "Reguli"
-
-#~ msgid "Traffic Redirection"
-#~ msgstr "Redirectarea traficului"

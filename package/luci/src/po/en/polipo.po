@@ -28,9 +28,6 @@ msgstr ""
 "Basic HTTP authentication supported. Provide username and password in "
 "username:password format."
 
-msgid "Configuration"
-msgstr ""
-
 msgid "DNS and Query Settings"
 msgstr ""
 
@@ -113,9 +110,6 @@ msgstr "Parent proxy authentication"
 msgid "Polipo"
 msgstr "Polipo"
 
-msgid "Polipo Status"
-msgstr ""
-
 msgid "Polipo is a small and fast caching web proxy."
 msgstr "Polipo is a small and fast caching web proxy."
 
@@ -178,9 +172,6 @@ msgstr ""
 "segment size."
 
 msgid "Size to which cached files should be truncated"
-msgstr ""
-
-msgid "Status"
 msgstr ""
 
 msgid "Syslog facility"

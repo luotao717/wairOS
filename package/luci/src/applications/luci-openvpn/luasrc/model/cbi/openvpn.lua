@@ -9,7 +9,7 @@ You may obtain a copy of the License at
 
 	http://www.apache.org/licenses/LICENSE-2.0
 
-$Id: openvpn.lua 8880 2012-07-09 06:25:04Z soma $
+$Id$
 ]]--
 
 local fs  = require "nixio.fs"

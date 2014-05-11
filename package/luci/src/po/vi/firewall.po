@@ -13,13 +13,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Pootle 1.1.0\n"
 
-msgid "%s in %s"
-msgstr ""
-
 msgid "%s%s with %s"
-msgstr ""
-
-msgid "%s, %s in %s"
 msgstr ""
 
 msgid "(Unnamed Entry)"
@@ -44,6 +38,12 @@ msgid "<var>%d</var> pkts. per <var>%s</var>, burst <var>%d</var> pkts."
 msgstr ""
 
 msgid "<var>%s</var> and limit to %s"
+msgstr ""
+
+msgid "Accept forward"
+msgstr ""
+
+msgid "Accept input"
 msgstr ""
 
 msgid "Action"
@@ -79,6 +79,9 @@ msgid ""
 "each firewall restart, right after the default ruleset has been loaded."
 msgstr ""
 
+msgid "Destination"
+msgstr "Điểm đến"
+
 msgid "Destination IP address"
 msgstr ""
 
@@ -92,7 +95,22 @@ msgstr "Cổng điểm đến"
 msgid "Destination zone"
 msgstr "Điểm đến"
 
+msgid "Disable"
+msgstr ""
+
+msgid "Discard forward"
+msgstr ""
+
+msgid "Discard input"
+msgstr ""
+
 msgid "Do not rewrite"
+msgstr ""
+
+msgid "Do not track forward"
+msgstr ""
+
+msgid "Do not track input"
 msgstr ""
 
 msgid "Drop invalid packets"
@@ -117,10 +135,10 @@ msgstr ""
 msgid "External port"
 msgstr "External port"
 
-msgid "External zone"
+msgid "Extra arguments"
 msgstr ""
 
-msgid "Extra arguments"
+msgid "Family"
 msgstr ""
 
 msgid "Firewall"
@@ -144,7 +162,10 @@ msgstr ""
 msgid "Forward"
 msgstr ""
 
-msgid "Forward to"
+msgid "Forward to %s in %s"
+msgstr ""
+
+msgid "Forward to %s, %s in %s"
 msgstr ""
 
 msgid "From %s in %s"
@@ -157,6 +178,15 @@ msgid "From %s in %s with source %s and %s"
 msgstr ""
 
 msgid "General Settings"
+msgstr ""
+
+msgid "IP"
+msgstr ""
+
+msgid "IP range"
+msgstr ""
+
+msgid "IPs"
 msgstr ""
 
 msgid "IPv4"
@@ -194,14 +224,17 @@ msgstr ""
 msgid "Limit log messages"
 msgstr ""
 
+msgid "MAC"
+msgstr ""
+
+msgid "MACs"
+msgstr ""
+
 #, fuzzy
 msgid "MSS clamping"
 msgstr "MSS Clamping"
 
 msgid "Masquerading"
-msgstr ""
-
-msgid "Match"
 msgstr ""
 
 msgid "Match ICMP type"
@@ -282,6 +315,12 @@ msgstr ""
 msgid "Redirect matched incoming traffic to the specified internal host"
 msgstr ""
 
+msgid "Refuse forward"
+msgstr ""
+
+msgid "Refuse input"
+msgstr ""
+
 msgid "Restrict Masquerading to given destination subnets"
 msgstr ""
 
@@ -305,11 +344,23 @@ msgstr ""
 msgid "Rewrite to source %s, %s"
 msgstr ""
 
+msgid "Rule is disabled"
+msgstr ""
+
+msgid "Rule is enabled"
+msgstr ""
+
+msgid "SNAT"
+msgstr ""
+
 msgid "SNAT IP address"
 msgstr ""
 
 msgid "SNAT port"
 msgstr ""
+
+msgid "Source"
+msgstr "Nguồn"
 
 #, fuzzy
 msgid "Source IP address"
@@ -372,6 +423,12 @@ msgid ""
 "networks</em> specifies which available networks are member of this zone."
 msgstr ""
 
+msgid "To %s"
+msgstr ""
+
+msgid "To %s at %s"
+msgstr ""
+
 msgid "To %s at %s on <var>this device</var>"
 msgstr ""
 
@@ -399,10 +456,7 @@ msgid ""
 "the router."
 msgstr ""
 
-msgid "Via %s"
-msgstr ""
-
-msgid "Via %s at %s"
+msgid "Via"
 msgstr ""
 
 msgid ""
@@ -434,20 +488,41 @@ msgstr ""
 msgid "any zone"
 msgstr ""
 
+msgid "day"
+msgstr ""
+
 msgid "don't track"
 msgstr ""
 
 msgid "drop"
 msgstr "drop"
 
+msgid "hour"
+msgstr ""
+
+msgid "minute"
+msgstr ""
+
+msgid "not"
+msgstr ""
+
+msgid "port"
+msgstr ""
+
+msgid "ports"
+msgstr ""
+
 msgid "reject"
 msgstr "Không chấp nhận"
 
-#~ msgid "Destination"
-#~ msgstr "Điểm đến"
+msgid "second"
+msgstr ""
 
-#~ msgid "Source"
-#~ msgstr "Nguồn"
+msgid "type"
+msgstr ""
+
+msgid "types"
+msgstr ""
 
 #~ msgid "Internal port (optional)"
 #~ msgstr "Internal port (tùy chọn)"

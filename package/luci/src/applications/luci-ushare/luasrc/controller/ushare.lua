@@ -9,7 +9,7 @@ You may obtain a copy of the License at
 
         http://www.apache.org/licenses/LICENSE-2.0
 
-$Id: ushare.lua 9558 2012-12-18 13:58:22Z jow $
+$Id$
 
 ]]--
 
@@ -23,5 +23,6 @@ function index()
 	local page
 
 	page = entry({"admin", "services", "ushare"}, cbi("ushare"), _("uShare"), 60)
+	page.i18n = "ushare"
 	page.dependent = true
 end

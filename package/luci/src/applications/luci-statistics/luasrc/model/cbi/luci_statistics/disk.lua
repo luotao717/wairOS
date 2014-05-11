@@ -9,7 +9,7 @@ You may obtain a copy of the License at
 
         http://www.apache.org/licenses/LICENSE-2.0
 
-$Id: disk.lua 7987 2011-11-28 04:19:38Z jow $
+$Id$
 
 ]]--
 
@@ -34,7 +34,7 @@ devices.rmempty = true
 devices:depends( "enable", 1 )
 
 -- collectd_disk.ignoreselected (IgnoreSelected)
-ignoreselected = s:option( Flag, "IgnoreSelected", translate("Monitor all except specified") )
+ignoreselected = s:option( Flag, "IgnoreSelected" )
 ignoreselected.default = 0
 ignoreselected:depends( "enable", 1 )
 

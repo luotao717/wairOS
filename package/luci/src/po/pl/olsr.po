@@ -1,85 +1,78 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"PO-Revision-Date: 2012-10-11 14:12+0200\n"
-"Last-Translator: mesiu84 <kmesek84@gmail.com>\n"
+"Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
-"Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Pootle 2.0.6\n"
 
 msgid "Active MID announcements"
-msgstr "Aktywne ogłoszenia MID"
+msgstr ""
 
 msgid "Active OLSR nodes"
-msgstr "Aktywne węzły OLSR"
+msgstr ""
 
 msgid "Active host net announcements"
-msgstr "Aktywne ogłoszenia hostnet"
+msgstr ""
 
 msgid "Advanced Settings"
-msgstr "Ustawienia zaawansowane"
+msgstr ""
 
 msgid "Allow gateways with NAT"
-msgstr "Zezwól na bramy z NAT"
+msgstr ""
 
 msgid "Allow the selection of an outgoing ipv4 gateway with NAT"
-msgstr "Zezwól na wybieranie wychodzącej bramy IPv4 przez NAT"
+msgstr ""
 
 msgid "Announce uplink"
-msgstr "Ogłaszaj uplink"
+msgstr ""
 
 msgid "Announced network"
-msgstr "Ogłaszana sieć"
+msgstr ""
 
 msgid "Both values must use the dotted decimal notation."
 msgstr ""
-"Obie wartości muszą używać zapisu dziesiętnego z kropką przed częścią "
-"dziesiętną."
 
 msgid "Broadcast address"
-msgstr "Adres rozgłoszeniowy (broadcast)"
+msgstr ""
 
 msgid "Configuration"
-msgstr "Konfiguracja"
+msgstr ""
 
 msgid "Device"
-msgstr "Urządzenie"
+msgstr ""
 
 msgid "Display"
-msgstr "Wyświetl"
+msgstr ""
 
 msgid "Downlink"
-msgstr "Downlink"
+msgstr ""
 
 msgid "Download Config"
-msgstr "Ustawienia pobierania"
+msgstr ""
 
 msgid "ETX"
-msgstr "ETX"
+msgstr ""
 
 msgid "Enable"
-msgstr "Włącz"
+msgstr ""
 
 msgid ""
 "Enable SmartGateway. If it is disabled, then all other SmartGateway "
 "parameters are ignored. Default is \"no\"."
 msgstr ""
-"Włącz SmartGateway. Jeśli wyłączone, wszystkie inne parametry SmartGateway "
-"są ignorowane. Domyślnie jest wyłączone."
 
 msgid "Enable this interface."
-msgstr "Włącz ten interfejs."
+msgstr ""
 
 msgid "Enabled"
-msgstr "Włączone"
+msgstr ""
 
 msgid "Expected retransmission count"
-msgstr "Oczekiwana wartość retransmisji"
+msgstr ""
 
 msgid "FIB metric"
 msgstr ""
@@ -93,60 +86,50 @@ msgid ""
 "Default is \"flat\"."
 msgstr ""
 
-# skorzystałem z niemieckiego tłumaczenia
 msgid "Fisheye mechanism for TCs (checked means on). Default is \"on\""
 msgstr ""
-"Mechanizm Fisheye dla TCs (zaznaczone oznacza \"włączone\"). Domyślnie jest "
-"\"włączone\""
 
 msgid "Gateway"
-msgstr "Brama"
+msgstr ""
 
 msgid "General Settings"
-msgstr "Ustawienia ogólne"
+msgstr ""
 
 msgid "General settings"
-msgstr "Ustawienia ogólne"
+msgstr ""
 
 msgid "HNA"
-msgstr "HNA"
+msgstr ""
 
 msgid "HNA Announcements"
-msgstr "Ogłoszenia HNA"
+msgstr ""
 
 msgid "HNA interval"
-msgstr "Interwał HNA"
+msgstr ""
 
 msgid "HNA validity time"
-msgstr "Czas poprawności HNA"
+msgstr ""
 
 msgid "Hello"
-msgstr "Hello"
+msgstr ""
 
 msgid "Hello interval"
-msgstr "Interwał Hello"
+msgstr ""
 
 msgid "Hello validity time"
-msgstr "Czas poprawności Hello"
+msgstr ""
 
 msgid "Hna4"
-msgstr "Hna4"
+msgstr ""
 
 msgid "Hna6"
-msgstr "Hna6"
+msgstr ""
 
 msgid "Hops"
-msgstr "Skoki (hops)"
+msgstr ""
 
 msgid "Hostname"
-msgstr "Nazwa hosta"
-
-msgid ""
-"Hosts in a OLSR routed network can announce connecitivity to external "
-"networks using HNA messages."
 msgstr ""
-"Hosty w sieci OLSR mogą ogłaszać połączenia z zewnętrznymi sieciami poprzez "
-"wiadomości HNA."
 
 msgid ""
 "Hysteresis for link sensing (only for hopcount metric). Hysteresis adds more "
@@ -155,71 +138,56 @@ msgid ""
 msgstr ""
 
 msgid "IP Addresses"
-msgstr "Adresy IP"
+msgstr ""
 
-#, fuzzy
 msgid ""
 "IP-version to use. If 6and4 is selected then one olsrd instance is started "
 "for each protocol."
 msgstr ""
-"Wersja protokołu IP. Jeśli jest wybrana 6and4 wtedy instancja olsrd jest "
-"uruchomiona dla każdego protokołu"
 
 msgid "IPv4"
-msgstr "IPv4"
+msgstr ""
 
 msgid "IPv4 broadcast"
-msgstr "Rozgłaszanie IPv4"
+msgstr ""
 
 msgid ""
 "IPv4 broadcast address for outgoing OLSR packets. One useful example would "
 "be 255.255.255.255. Default is \"0.0.0.0\", which triggers the usage of the "
 "interface broadcast IP."
 msgstr ""
-"Adres rozgłoszeniowy (broadcast) IPv4 dla wychodzących pakietów OLSR. "
-"Przydatnym przykładem byłoby 255.255.255.255. Domyślna wartość to \"0.0.0.0"
-"\" - jest wtedy używany adres rozgłoszeniowy interfejsu."
 
 msgid "IPv4 source"
-msgstr "Źródło IPv4"
+msgstr ""
 
 msgid ""
 "IPv4 src address for outgoing OLSR packages. Default is \"0.0.0.0\", which "
 "triggers usage of the interface IP."
 msgstr ""
-"Adres źródłowy IPv4 dla wychodzących pakietów. Domyślna wartość to \"0.0.0.0"
-"\" - jest wtedy używany adres IP interfejsu."
 
 msgid "IPv6"
-msgstr "IPv6"
+msgstr ""
 
 msgid "IPv6 multicast"
-msgstr "Multicast IPv6"
+msgstr ""
 
-# Nie mam pojęcia, jak to lepiej przetłumaczyć, ale w moich tłumaczeniach kieruję się zasadą "release early, release often".
 msgid ""
 "IPv6 multicast address. Default is \"FF02::6D\", the manet-router linklocal "
 "multicast."
 msgstr ""
-"Adres multicast IPv6. Domyślna wartość to \"FF02::6D\", multicast lokalnego "
-"routera."
 
 msgid ""
 "IPv6 network must be given in full notation, prefix must be in CIDR notation."
 msgstr ""
-"Sieć IPv6 musi być podana w pełnej notacji, prefiks musi być w notacji CIDR."
 
 msgid "IPv6 source"
-msgstr "Źródło IPv6"
+msgstr ""
 
 msgid ""
 "IPv6 src prefix. OLSRd will choose one of the interface IPs which matches "
 "the prefix of this parameter. Default is \"0::/0\", which triggers the usage "
 "of a not-linklocal interface IP."
 msgstr ""
-"Prefiks źródła IPv6. OLSRd wybierze jeden z adresów IP interfejsów, który "
-"będzie pasował do tego prefiksu. Domyślna wartość to \"0::/0\" - jest wtedy "
-"używany adres IP interfejsu."
 
 msgid "IPv6-Prefix of the uplink"
 msgstr ""
@@ -234,29 +202,25 @@ msgstr ""
 
 msgid ""
 "If this Node uses NAT for connections to the internet. Default is \"yes\"."
-msgstr "Czy węzeł korzysta z NAT do połączenia z Internetem. Domyślnie \"Tak\""
+msgstr ""
 
 msgid "Interface"
-msgstr "Interfejs"
+msgstr ""
 
 msgid ""
 "Interface Mode is used to prevent unnecessary packet forwarding on switched "
 "ethernet interfaces. valid Modes are \"mesh\" and \"ether\". Default is "
 "\"mesh\"."
 msgstr ""
-"Tryb interfejsu jest używany, aby zapobiec niepotrzebnemu przekazywaniu "
-"pakietów. Prawidłowe tryby to \"mesh\" i \"ether\". Domyślna wartość to "
-"\"mesh\"."
 
 msgid "Interfaces"
-msgstr "Interfejsy"
+msgstr ""
 
-# by Google :D po części
 msgid "Interfaces Defaults"
-msgstr "Standardy interfejsów"
+msgstr ""
 
 msgid "Internet protocol"
-msgstr "Protokół internetowy"
+msgstr ""
 
 msgid ""
 "Interval to poll network interfaces for configuration changes (in seconds). "
@@ -264,35 +228,31 @@ msgid ""
 msgstr ""
 
 msgid "Known OLSR routes"
-msgstr "Znane ścieżki OLSR"
-
-msgid "LQ"
-msgstr "LQ"
+msgstr ""
 
 msgid "LQ aging"
-msgstr "Starzenie się LQ"
+msgstr ""
 
 msgid "LQ algorithm"
-msgstr "Algorytm LQ"
+msgstr ""
 
 msgid "LQ fisheye"
-msgstr "LQ-Fisheye"
+msgstr ""
 
 msgid "LQ level"
-msgstr "Poziom LQ"
+msgstr ""
 
 msgid "Last hop"
-msgstr "Ostatni skok (hop)"
+msgstr ""
 
 msgid "Legend"
-msgstr "Legenda"
+msgstr ""
 
 msgid "Library"
-msgstr "Biblioteka"
+msgstr ""
 
-#, fuzzy
 msgid "Link Quality Settings"
-msgstr "Ustawienia jakości linków"
+msgstr ""
 
 msgid ""
 "Link quality aging factor (only for lq level 2). Tuning parameter for "
@@ -316,45 +276,42 @@ msgid ""
 msgstr ""
 
 msgid "LinkQuality Multiplicator"
-msgstr "Mnożnik LinkQuality"
+msgstr ""
 
 msgid "Links per node (average)"
-msgstr "Linków na węzeł (średnio)"
+msgstr ""
 
 msgid "Links total"
-msgstr "Linków w sumie"
+msgstr ""
 
 msgid "Local interface IP"
-msgstr "IP lokalnego interfejsu"
+msgstr ""
 
 msgid "MID"
-msgstr "MID"
+msgstr ""
 
 msgid "MID interval"
-msgstr "Interwał MID"
+msgstr ""
 
 msgid "MID validity time"
-msgstr "Czas poprawności MID"
+msgstr ""
 
 msgid "MTU"
-msgstr "MTU"
+msgstr ""
 
 msgid "Main IP"
-msgstr "Główny IP"
+msgstr ""
 
 msgid ""
 "Make sure that OLSRd is running, the \"txtinfo\" plugin is loaded, "
 "configured on port 2006 and accepts connections from \"127.0.0.1\"."
 msgstr ""
-"Upewnij się że OLSRd jest uruchomione, \"txtinfo\" plugin jest załadowany, "
-"skonfigurowany na porcie 2006 i akceptuje połączenia z 127.0.0.1 (localhost)"
 
-#, fuzzy
 msgid "Metric"
-msgstr "Miara"
+msgstr ""
 
 msgid "Mode"
-msgstr "Tryb"
+msgstr ""
 
 msgid ""
 "Multiply routes with the factor given here. Allowed values are between 0.01 "
@@ -364,91 +321,88 @@ msgid ""
 msgstr ""
 
 msgid "NAT threshold"
-msgstr "Próg NAT"
-
-msgid "NLQ"
-msgstr "NLQ"
+msgstr ""
 
 msgid "Neighbors"
-msgstr "Sąsiedzi"
+msgstr ""
 
 msgid "Neighbour IP"
-msgstr "IP sąsiadów"
+msgstr ""
 
 msgid "Neighbours"
-msgstr "Sąsiedzi"
+msgstr ""
 
 msgid "Netmask"
-msgstr "Maska sieciowa"
+msgstr ""
 
 msgid "Network"
-msgstr "Sieć"
+msgstr ""
 
 msgid "Network address"
-msgstr "Adres sieci"
+msgstr ""
 
 msgid "Nic changes poll interval"
 msgstr ""
 
 msgid "Nodes"
-msgstr "Węzły"
+msgstr ""
 
 msgid "OLSR"
-msgstr "OLSR"
+msgstr ""
 
 msgid "OLSR - Display Options"
 msgstr ""
 
 msgid "OLSR - HNA-Announcements"
-msgstr "OLSR - ogłoszenia HNA"
+msgstr ""
 
 msgid "OLSR - Plugins"
-msgstr "OLSR - pluginy"
+msgstr ""
 
 msgid "OLSR Daemon"
-msgstr "Demon OLSR"
+msgstr ""
 
 msgid "OLSR Daemon - Interface"
-msgstr "Demon OLSR - interfejs"
+msgstr ""
 
 msgid "OLSR connections"
-msgstr "Połączenia OLSR"
+msgstr ""
 
 msgid "OLSR gateway"
-msgstr "Brama OLSR"
+msgstr ""
 
 msgid "OLSR node"
-msgstr "Węzeł OLSR"
+msgstr ""
 
 msgid "Overview"
-msgstr "Przegląd"
+msgstr ""
 
 msgid "Overview of currently active OLSR host net announcements"
-msgstr "Przegląd aktywnych ogłoszeń hostnet OLSR"
+msgstr ""
 
 msgid "Overview of currently established OLSR connections"
-msgstr "Przegląd nawiązanych połączeń OLSR"
+msgstr ""
 
 msgid "Overview of currently known OLSR nodes"
-msgstr "Przegląd znanych węzłów OLSR"
+msgstr ""
 
 msgid "Overview of currently known routes to other OLSR nodes"
-msgstr "Przegląd znanych tras do innych węzłów OLSR"
+msgstr ""
 
 msgid "Overview of interfaces where OLSR is running"
-msgstr "Przegląd interfejsów z włączonym OLSR"
+msgstr ""
 
 msgid "Overview of known multiple interface announcements"
-msgstr "Przegląd znanych wielointerfejsowych ogłoszeń"
+msgstr ""
 
 msgid "Overview of smart gateways in this network"
-msgstr "Przegląd bram SmartGateway w tej sieci"
+msgstr ""
 
 msgid "Plugin configuration"
-msgstr "Ustawienia pluginu"
+msgstr ""
 
 msgid "Plugins"
-msgstr "Pluginy"
+msgstr ""
 
 msgid "Polling rate for OLSR sockets in seconds. Default is 0.05."
 msgstr ""
@@ -457,13 +411,13 @@ msgid "Pollrate"
 msgstr ""
 
 msgid "Port"
-msgstr "Port"
+msgstr ""
 
 msgid "Prefix"
-msgstr "Prefiks"
+msgstr ""
 
 msgid "Resolve"
-msgstr "Rozwiąż"
+msgstr ""
 
 msgid ""
 "Resolve hostnames on status pages. It is generally safe to allow this, but "
@@ -472,10 +426,10 @@ msgid ""
 msgstr ""
 
 msgid "Routes"
-msgstr "Trasy (routes)"
+msgstr ""
 
 msgid "Secondary OLSR interfaces"
-msgstr "Zapasowy interfejs OLSR"
+msgstr ""
 
 msgid ""
 "Sets the main IP (originator ip) of the router. This IP will NEVER change "
@@ -484,16 +438,16 @@ msgid ""
 msgstr ""
 
 msgid "SmartGW"
-msgstr "SmartGW"
+msgstr ""
 
 msgid "SmartGW announcements"
-msgstr "Ogłoszenia SmartGW"
+msgstr ""
 
 msgid "SmartGateway is not configured on this system."
-msgstr "SmartGateway jest nieskonfigurowane."
+msgstr ""
 
 msgid "Source address"
-msgstr "Adres źródłowy"
+msgstr ""
 
 msgid ""
 "Specifies the speed of the uplink in kilobits/s. First parameter is "
@@ -504,30 +458,28 @@ msgid "Speed of the uplink"
 msgstr ""
 
 msgid "State"
-msgstr "Stan"
+msgstr ""
 
 msgid "Status"
-msgstr "Status"
+msgstr ""
 
-#, fuzzy
 msgid "Success rate of packages received from the neighbour"
-msgstr "Wartość poprawnie otrzymanych od sąsiada pakietów"
+msgstr ""
 
-#, fuzzy
 msgid "Success rate of packages sent to the neighbour"
-msgstr "Wartość poprawnie wysłanych pakietów do sąsiada"
+msgstr ""
 
 msgid "TC"
-msgstr "TC"
+msgstr ""
 
 msgid "TC interval"
-msgstr "Interwał TC"
+msgstr ""
 
 msgid "TC validity time"
-msgstr "Czas poprawności TC"
+msgstr ""
 
 msgid "TOS value"
-msgstr "Wartość TOS"
+msgstr ""
 
 msgid ""
 "The OLSR daemon is an implementation of the Optimized Link State Routing "
@@ -543,14 +495,12 @@ msgid ""
 msgstr ""
 
 msgid "The interface OLSRd should serve."
-msgstr "Interfejs, który powinien oferować OLSRd."
+msgstr ""
 
 msgid ""
 "The port OLSR uses. This should usually stay at the IANA assigned port 698. "
 "It can have a value between 1 and 65535."
 msgstr ""
-"Port używany przez OLSR. Zwykle powinien pozostać na przydzielonym przez "
-"IANA porcie 698. Może mieć wartość pomiędzy 1 a 65535."
 
 msgid ""
 "This can be used to signal the external IPv6 prefix of the uplink to the "
@@ -563,7 +513,7 @@ msgid "Timing and Validity"
 msgstr ""
 
 msgid "Topology"
-msgstr "Topologia"
+msgstr ""
 
 msgid ""
 "Type of service value for the IP header of control traffic. Default is \"16"
@@ -571,32 +521,30 @@ msgid ""
 msgstr ""
 
 msgid "Unable to connect to the OLSR daemon!"
-msgstr "Połączenie z demonem OLSR nieudane!"
+msgstr ""
 
 msgid "Uplink"
-msgstr "Uplink"
+msgstr ""
 
 msgid "Uplink uses NAT"
-msgstr "Uplink używa NAT"
+msgstr ""
 
 msgid "Use hysteresis"
-msgstr "Używaj histerezy"
+msgstr ""
 
 msgid "Version"
-msgstr "Wersja"
+msgstr ""
 
 msgid "WLAN"
-msgstr "WLAN"
+msgstr ""
 
 msgid ""
 "Warning: kmod-ipip is not installed. Without kmod-ipip SmartGateway will not "
 "work, please install it."
 msgstr ""
-"Uwaga: kmod-ipip nie jest zainstalowany. Bez kmod-ipip bramy SmartGateway "
-"nie będą działać. Proszę go zainstalować."
 
 msgid "Weight"
-msgstr "Waga"
+msgstr ""
 
 msgid ""
 "When multiple links exist between hosts the weight of interface is used to "
@@ -607,13 +555,6 @@ msgid ""
 "0. For any other value of LinkQualityLevel, the interface ETX value is used "
 "instead."
 msgstr ""
-"Kiedy istnieje wiele połączeń między hostami, waga interfejsów określa, "
-"którego z nich użyć. Zwykle jest liczona automatycznie przez olsrd opartym "
-"na charakterystyce interfejsu, ale tu możesz podać stałą wartość. Olsrd "
-"wybierze połączenie z najniższą wartością.<br /><b>Uwaga:</b> Waga "
-"interfejsu jest używana tylko kiedy LinkQualityLevel jest ustawione na 0. "
-"Dla dowolnej innej wartości LinkQualityLevel, zamiast tego jest używana "
-"wartość ETX."
 
 msgid ""
 "Which kind of uplink is exported to the other mesh nodes. An uplink is "
@@ -622,4 +563,4 @@ msgid ""
 msgstr ""
 
 msgid "Willingness"
-msgstr "Gotowość"
+msgstr ""

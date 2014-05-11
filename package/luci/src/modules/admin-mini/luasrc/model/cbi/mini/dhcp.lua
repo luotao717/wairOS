@@ -10,7 +10,7 @@ You may obtain a copy of the License at
 
 	http://www.apache.org/licenses/LICENSE-2.0
 
-$Id: dhcp.lua 6019 2010-04-04 17:28:15Z jow $
+$Id$
 ]]--
 
 local uci = require "luci.model.uci".cursor()
