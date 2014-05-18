@@ -8,3 +8,4 @@
 cscope.*
 tags
 compile_log*
+*.swp
