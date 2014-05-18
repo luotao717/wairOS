@@ -682,6 +682,7 @@ void raeth_link_adjust(struct raeth_priv *rg)
 		netif_carrier_off(rg->dev);
 		if (netif_msg_link(rg))
 			pr_info("%s: link down\n", rg->dev->name);
+		return;
 	}
 
 	netif_carrier_on(rg->dev);

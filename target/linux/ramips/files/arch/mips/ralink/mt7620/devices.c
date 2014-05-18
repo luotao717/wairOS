@@ -104,6 +104,7 @@ static int mt7620_esw_set_port_mode(u8 port , u8 mode)
 		else if ( mode == MT7620_PM_MAC_TO_PHY ) 
 		{
 			gpio_val &= ~gpio_set_val;
+			mode_val |= 0x03 << mode_set_shift; /*RJ-45 Mode: PHY4*/
 			/*MAC to PHY MODE*/
 		}
 		else /*MT7620_PM_DISABLE*/ 
