@@ -1,0 +1,153 @@
+--- a/src/rfc2131.c
++++ b/src/rfc2131.c
+@@ -12,6 +12,21 @@
+      
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
++    *****  modify log: ***
++   option 60 modify : 按照电信标准扩展option60  
++   0                   1                   2                   3 				
++   0 1 2 3 4 5 6 7 0 1 2 3 4 5 6 7 0 1 2 3 4 5 6 7 0 1 2 3 4 5 6 7 
++   ++++++++++++++++++++++++++++++++++++++++++++++
++  |  code (60)     |     Length     |      Enterprise Code            |
++  -----------------------------------------------------
++  |  Field type     | Field Length  |      Field  Value                  |
++  ----------------------------------------------------
++  当前暂行实现field type = 2 
++  field value =
++  			STB
++  			Camera
++  			Computer
++  			Phone  
+ */
+ 
+ #include "dnsmasq.h"
+@@ -127,6 +142,7 @@ static int prune_vendor_opts(struct dhcp
+ static struct dhcp_opt *pxe_opts(int pxe_arch, struct dhcp_netid *netid, struct in_addr local);
+ struct dhcp_boot *find_boot(struct dhcp_netid *netid);
+ 
++static struct dhcp_netid * do_option60_extern(struct dhcp_packet *mess, size_t sz, struct dhcp_netid *netid);
+   
+ size_t dhcp_reply(struct dhcp_context *context, char *iface_name, int int_index,
+ 		  size_t sz, time_t now, int unicast_dest, int *is_inform, int pxe)
+@@ -722,8 +738,8 @@ size_t dhcp_reply(struct dhcp_context *c
+ 	    ucp[j] = 0;
+ 	  }
+     }
+-    
+-  for (vendor = daemon->dhcp_vendors; vendor; vendor = vendor->next)
++     /*option 60 handle: 处理option 60 的包信息*/ 
++/*  for (vendor = daemon->dhcp_vendors; vendor; vendor = vendor->next)
+     {
+       int mopt;
+       
+@@ -746,7 +762,33 @@ size_t dhcp_reply(struct dhcp_context *c
+ 	      }
+ 	}
+     }
++   */
++   /*只处理option 77 的信息*/
++    for (vendor = daemon->dhcp_vendors; vendor; vendor = vendor->next)
++    {
++      int mopt;
++      
++      if (vendor->match_type == MATCH_USER)
++	mopt = OPTION_USER_CLASS; 
++      else
++	continue;
++
++      if ((opt = option_find(mess, sz, mopt, 1)))
++	{
++	  int i;
++	  for (i = 0; i <= (option_len(opt) - vendor->len); i++)
++	    if (memcmp(vendor->data, option_ptr(opt, i), vendor->len) == 0)
++	      {
++		vendor->netid.next = netid;
++		netid = &vendor->netid;
++		break;
++	      }
++	}
++    }
+ 
++	/*处理option 60 的信息*/
++	netid = do_option60_extern(mess,sz,netid);
++	
+   /* mark vendor-encapsulated options which match the client-supplied vendor class,
+      save client-supplied vendor class */
+   if ((opt = option_find(mess, sz, OPTION_VENDOR_ID, 1)))
+@@ -2544,6 +2586,75 @@ static void do_options(struct dhcp_conte
+     }
+ }
+ 
++#define OPTION60_EX_ENCODE_OFF 2 /*Enterprise Code 长度 */
++static struct dhcp_netid * do_option60_extern(struct dhcp_packet *mess, size_t sz, struct dhcp_netid *netid)
++{
++  struct dhcp_vendor *vendor;
++  unsigned char *opt;
++  unsigned char type;
++  unsigned char typeLen =0;
++  unsigned char valueoff  = 0;
++  struct dhcp_netid *pc_netid = NULL;
++  unsigned char vedor_match = 0;
++  
++  for (vendor = daemon->dhcp_vendors; vendor; vendor = vendor->next)
++    {
++      int mopt;
++      
++      if (vendor->match_type == MATCH_VENDOR)
++	{
++	  mopt = OPTION_VENDOR_ID;      
++	  if (memcmp(vendor->data,"Computer",vendor->len) == 0)
++	    {
++              pc_netid = &vendor->netid;
++	    }
++	}
++      else
++	{
++	  continue;
++        }
++      if ((opt = option_find(mess, sz, mopt, 1)))
++    	{
++    	  int i = 0;
++		  
++	  /*忽略Enterprise Code 2 bytes*/
++	  i = OPTION60_EX_ENCODE_OFF;
++	  while(i < (option_len(opt) - vendor->len))
++	   	{
++	   		type = *(unsigned char *)option_ptr(opt,i++);			
++			typeLen = *(unsigned char *)option_ptr(opt,i++);
++			valueoff = i;
++			i += typeLen;
++			/*only support field type 2 */
++			if( type != 2 )
++				continue;
++			/*not match*/
++			if(typeLen != vendor->len)
++				continue;
++			
++			if(memcmp(vendor->data,option_ptr(opt,valueoff),vendor->len) == 0)
++			  {
++				vendor->netid.next = netid;
++				netid = &vendor->netid;
++				vedor_match = 1;
++    				break;
++			  }
++	   	}	  
++    	}
++    }
++  /*default vendor : CPU */
++  if(vedor_match  ==  0)
++  	{  		
++  	      if (pc_netid)
++  	      	  {
++  		     pc_netid->next = netid;
++		     netid = pc_netid;
++  	      	  }
++  	}
++  
++  return netid;
++}
++
+ #endif
+   
+ 

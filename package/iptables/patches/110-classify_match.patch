@@ -1,0 +1,121 @@
+--- /dev/null
++++ b/extensions/libxt_classify.c
+@@ -0,0 +1,103 @@
++
++#include <stdbool.h>
++#include <stdio.h>
++#include <string.h>
++#include <stdlib.h>
++#include <getopt.h>
++
++#include <xtables.h>
++#include <linux/netfilter/x_tables.h>
++#include <linux/netfilter/xt_classify_m.h>
++#include <linux/pkt_sched.h>
++
++static void classify_help(void)
++{
++	printf(
++"classify match options:\n"
++"--class MAJOR:MINOR    Match skb->priority value (always hexadecimal!)\n");
++}
++
++static const struct option classify_opts[] = {
++	{.name = "class",       .has_arg = true, .val = '1'},
++	XT_GETOPT_TABLEEND,
++};
++
++static int classify_string_to_priority(const char *s, unsigned int *p)
++{
++	unsigned int i, j;
++
++	if (sscanf(s, "%x:%x", &i, &j) != 2)
++		return 1;
++	
++	*p = TC_H_MAKE(i<<16, j);
++	return 0;
++}
++
++static int
++classify_parse(int c, char **argv, int invert, unsigned int *flags,
++           const void *entry, struct xt_entry_match **match)
++{
++	struct xt_classify_match_info *dinfo
++		= (struct xt_classify_match_info *)(*match)->data;
++
++	switch (c) {
++	case '1':
++		if (classify_string_to_priority(optarg, &dinfo->priority))
++			xtables_error(PARAMETER_PROBLEM,
++				   "Bad class value `%s'", optarg);
++		if (*flags)
++			xtables_error(PARAMETER_PROBLEM,
++			           "classify: Can't specify --class twice");
++		*flags = 1;
++		break;
++
++	default:
++		return 0;
++	}
++
++	return 1;
++}
++
++static void classify_check(unsigned int flags)
++{
++	if (!flags)
++		xtables_error(PARAMETER_PROBLEM,
++		           "classify match: Parameter --class is required");
++}
++
++static void
++classify_print(const void *ip, const struct xt_entry_match *match, int numeric)
++{
++	const struct xt_classify_match_info *dinfo =
++		(const struct xt_classify_match_info *)match->data;
++	printf("classify match ");
++	printf("%x:%x ", TC_H_MAJ(dinfo->priority)>>16, TC_H_MIN(dinfo->priority));
++}
++
++static void classify_save(const void *ip, const struct xt_entry_match *match)
++{
++	const struct xt_classify_match_info *dinfo =
++		(const struct xt_classify_match_info *)match->data;
++	printf("--class %.4x:%.4x ",
++	       TC_H_MAJ(dinfo->priority)>>16, TC_H_MIN(dinfo->priority));
++}
++
++static struct xtables_match classify_match = {
++	.family		= NFPROTO_UNSPEC,
++	.name 		= "classify",
++	.version 	= XTABLES_VERSION,
++	.size 		= XT_ALIGN(sizeof(struct xt_classify_match_info)),
++	.userspacesize	= XT_ALIGN(sizeof(struct xt_classify_match_info)),
++	.help		= classify_help,
++	.parse		= classify_parse,
++	.final_check	= classify_check,
++	.print		= classify_print,
++	.save		= classify_save,
++	.extra_opts	= classify_opts,
++};
++
++void _init(void)
++{
++	xtables_register_match(&classify_match);
++}
++
+--- /dev/null
++++ b/include/linux/netfilter/xt_classify_m.h
+@@ -0,0 +1,12 @@
++#ifndef _XT_CLASSIFY_M_H
++#define _XT_CLASSIFY_M_H
++
++#include <linux/types.h>
++
++/* match info */
++struct xt_classify_match_info {
++    __u32 priority;
++};
++
++#endif /* _XT_CLASSIFY_M_H */
++

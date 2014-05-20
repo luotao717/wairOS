@@ -5,8 +5,8 @@
 
 enable_console_login() {
 	local cons=$1
-#	local initline="$cons::askfirst:/bin/ash --login"
-	local initline="$cons::respawn:/sbin/getty -L $cons 115200 vt100"
+	local initline="$cons::askfirst:/bin/ash --login"
+#	local initline="$cons::respawn:/sbin/getty -L $cons 115200 vt100"
 
 	grep -qs "^$initline" /etc/inittab || {
 		echo "$initline" >> /etc/inittab
