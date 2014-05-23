@@ -1,0 +1,8 @@
+
+config 'UserInfo' 'userinfo'
+	option 'Status' '0'
+	option 'Limit' '10'
+	option 'Times' '0'
+	option 'Result' '99'
+	option 'flag' '1'
+ 

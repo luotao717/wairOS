@@ -1,0 +1,171 @@
+<%#
+LuCI - Lua Configuration Interface
+Copyright 2010 Jo-Philipp Wich <xm@subsignal.org>
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+	http://www.apache.org/licenses/LICENSE-2.0
+
+$Id: iface_overview.htm 7011 2011-05-03 03:20:15Z jow $
+
+-%>
+ <%+header%>
+ <script type="text/javascript">//<![CDATA[
+	var iwxhr = new XHR();
+	var update_status = function() {
+		iwxhr.get('<%=luci.dispatcher.build_url("admin", "status", "acs_status")%>', null,
+			function(x, ifcs)
+			{
+				var ifc = ifcs[0];
+			   	var inform = ifc.inform;
+			   	var requrest = ifc.requrest; 
+			   	var config = ifc.config;
+			   	
+				var a = document.getElementById('active-Inform-message');
+				if (a)
+					{ 
+				
+						if (inform =='no report(No remote management of WAN connections)'){
+							a.innerHTML  = '<%:Not reported(No remote management of WAN connections)%>';
+						}
+						else if (inform =='no report(WAN connection is not effective remote management)'){
+							a.innerHTML  = '<%:Not reported(WAN connection is not effective remote management)%>';
+						}
+						else if (inform =='no report(No DNS information management channel)'){
+							a.innerHTML  = '<%:Not reported(No DNS information management channel)%>';
+						}
+						else if (inform =='no report(ACS configuration parameters without)'){
+							a.innerHTML  = '<%:Not reported(ACS configuration parameters without)%>';
+						}
+						else if (inform =='no report(ACS DNS failures)'){
+							a.innerHTML  = '<%:Not reported(ACS DNS failures)%>' ;
+						}
+						else if (inform =='no report(Home gateway is starting)'){
+							a.innerHTML  = '<%:Not reported(Home gateway is starting)%>';
+						}
+						else if (inform =='no response'){
+							a.innerHTML  = '<%:Reported no response%>';
+						}
+						else if (inform =='interrupted'){
+							a.innerHTML  = '<%:Reporting process is interrupted%>';
+						}
+						else if(inform =='success'){
+							a.innerHTML  = '<%:Reported successful%>';
+						}
+						else{
+						 alert("Error");
+						 }
+				
+						
+					}						  
+					
+				var a = document.getElementById('rcv-itms-require-status');
+				if (a)
+					{ 
+						if(requrest=='no request'){
+							a.innerHTML  = '<%:Remote connection request is not received%>';
+						}
+						else if(requrest=='interrupted'){
+							a.innerHTML  = '<%:ITMS interrupt the process of initiating a remote connection%>';
+						}
+						else if(requrest=='success'){
+							a.innerHTML  = '<%:Initiated the process of successful remote connection%>';
+						}
+						else{
+							alert("Error")
+						}
+					
+						
+					}
+					
+				var a = document.getElementById('rcv-itms-config-status');
+				if (a)
+					{ 
+						if(config=='0'){
+							a.innerHTML  = '<%:Start the next issue%>';
+						}
+						else if(config=='1'){
+							a.innerHTML  = '<%:Successfully issued%>';	
+						}
+						else if(config=='2'){
+							a.innerHTML  = '<%:Issued fails%>';	
+						}
+						else if(config=='3'){
+							a.innerHTML  = '<%:Not issued%>';	
+						}
+						else{
+							alert("Error")
+						}
+					
+					}				  
+							
+		
+
+			//	window.setTimeout(update_status, 5000);
+			}
+		)
+	};
+
+	update_status();
+//]]></script>
+
+	<div class="cbi-content">
+    	<div class="cbi-section">
+        	<div class="cbi-section-bg">
+        	  	<div class="cbi-section-title"><%:Interactive Status %>&nbsp;&nbsp;</div>
+            </div>
+    	</div>
+   		<div class="cbi-section">    	
+   			<div class="cbi-section-bg"> 	 
+              	<div class="cbi-section-title"></div>      
+            </div>
+		</div>
+        <div class="cbi-section">
+            <div class="cbi-section-bg">       
+                <div class="cbi-table">
+                    <table width="630" border="1" class="cbi-table-list" cellpadding="1" cellspacing="0" align="center">
+                    <tr>
+                        <th class="cbi-table-title" ><%:Inform Active Reported %></th>                            
+						<td class="cbi-table-field" id="active-Inform-message" ></td>
+                    </tr>                                          
+                    </table>
+               	</div>  
+               	<div class="cbi-table">
+                     <tr><td>&nbsp;</td></tr>
+         			 <tr><td>&nbsp;</td></tr>
+               	</div> 
+               	<div class="cbi-table">
+                    <table width="630" border="1" class="cbi-table-list" cellpadding="1" cellspacing="0" align="center">
+                    <tr>
+                        <th class="cbi-table-title"><%:Receive IMTS Request Status %></th>                            
+						<td class="cbi-table-field" id="rcv-itms-require-status"></td>
+                    </tr>                                          
+                    </table>
+               	</div> 
+               	<div class="cbi-table">
+                     <tr><td>&nbsp;</td></tr>
+         			 <tr><td>&nbsp;</td></tr>
+               	</div> 
+               	<div class="cbi-table">
+                    <table width="630" border="1" class="cbi-table-list" cellpadding="1" cellspacing="0" align="center">
+                    <tr>
+                        <th class="cbi-table-title"><%:IMTS Issued Status%></th>                            
+						<td class="cbi-table-field" id="rcv-itms-config-status"></td>
+                    </tr>                                          
+                    </table>
+               	</div> 
+                 
+               	<div class="cbi-table">
+                     <tr><td>&nbsp;</td></tr>
+         			 <tr><td>&nbsp;</td></tr>
+               	</div>    
+			          
+            </div>
+    
+  		</div>
+	</div>
+	
+
+<%+footer%>

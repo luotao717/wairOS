@@ -1,0 +1,148 @@
+<%#
+LuCI - Lua Configuration Interface
+Copyright 2008 Steven Barth <steven@midlink.org>
+Copyright 2008 Jo-Philipp Wich <xm@leipzig.freifunk.net>
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+	http://www.apache.org/licenses/LICENSE-2.0
+
+$Id: index.htm 5453 2009-10-31 17:02:21Z jow $
+
+-%>
+
+
+<%+header%>
+
+		<div class="cbi-content">
+        	<div class="cbi-section">
+                <div class="cbi-section-bg">
+                    <div class="cbi-section-title"><%:Help%>&nbsp;&nbsp;</div>
+                </div>
+            </div>
+			<div class="cbi-section">
+          		<div class="cbi-section-bg">
+                    <div class="cbi-map">
+                        <div class="cbi-value">
+                            <div class="cbi-value-msg2 hand" onclick="eChange(this,0)">1&nbsp;<%:Status%></div>
+                        </div>
+                        <div id="sj" style="display:none">
+                            <div class="cbi-value">
+                                <div class="cbi-value-msg"><a href="/luci-static/help_content_asp.htm#Status"  target="_blank">1.1&nbsp;<%:Status%></a></div>
+                            </div>
+                            <div class="cbi-value">
+                                <div class="cbi-value-msg"><a href="/luci-static/help_content_asp.htm#WAN Status"  target="_blank">1.2&nbsp;<%:WAN Status%></a></div>
+                            </div>
+                            <div class="cbi-value">
+                                <div class="cbi-value-msg"><a href="/luci-static/help_content_asp.htm#LAN Status"  target="_blank">1.3&nbsp;<%:LAN Status%></a></div>
+                            </div>
+                            <div class="cbi-value">
+                                <div class="cbi-value-msg"><a href="/luci-static/help_content_asp.htm#WLAN"  target="_blank">1.4&nbsp;<%:WLAN Status%></a></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="cbi-map">
+                        <div class="cbi-value">
+                            <div class="cbi-value-msg2 hand" onclick="eChange(this,1)">2&nbsp;<%:Network%></div>
+                        </div>
+                        <div id="sj" style="display:none">
+                            <div class="cbi-value">
+                                <div class="cbi-value-msg"><a href="/luci-static/help_content_asp.htm#WAN"  target="_blank">2.1&nbsp;<%:Internet%></a></div>
+                            </div>
+                            <div class="cbi-value">
+                                <div class="cbi-value-msg"><a href="/luci-static/help_content_asp.htm#LAN"  target="_blank">2.2&nbsp;<%:LAN%></a></div>
+                            </div>
+                            <div class="cbi-value">
+                                <div class="cbi-value-msg"><a href="/luci-static/help_content_asp.htm#DHCP"  target="_blank">2.3&nbsp;<%:DHCP%></a></div>
+                            </div>
+                            <div class="cbi-value">
+                                <div class="cbi-value-msg"><a href="/luci-static/help_content_asp.htm#QoS"  target="_blank">2.4&nbsp;<%:Qos%></a></div>
+                            </div>
+                            <div class="cbi-value">
+                                <div class="cbi-value-msg"><a href="/luci-static/help_content_asp.htm#rem"  target="_blank">2.5&nbsp;<%:Remote%></a></div>
+                            </div>
+                            <div class="cbi-value">
+                                <div class="cbi-value-msg"><a href="/luci-static/help_content_asp.htm#time"  target="_blank">2.6&nbsp;<%:Time Synchronisation%></a></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="cbi-map">
+                        <div class="cbi-value">
+                            <div class="cbi-value-msg2 hand" onclick="eChange(this,2)">3&nbsp;<%:Security%></div>
+                        </div>
+                        <div id="sj" style="display:none">
+                            <div class="cbi-value">
+                                <div class="cbi-value-msg"><a href="/luci-static/help_content_asp.htm#firewall"  target="_blank">3.1&nbsp;<%:Firewall%></a></div>
+                            </div>
+                            <div class="cbi-value">
+                                <div class="cbi-value-msg"><a href="/luci-static/help_content_asp.htm#WAN access"  target="_blank">3.2&nbsp;<%:Url Filter%></a></div>
+                            </div>
+                            <div class="cbi-value">
+                                <div class="cbi-value-msg"><a href="/luci-static/help_content_asp.htm#MAC"  target="_blank">3.3&nbsp;<%:MAC Filter%></a></div>
+                            </div>
+                            <div class="cbi-value">
+                                <div class="cbi-value-msg"><a href="/luci-static/help_content_asp.htm#portfilter"  target="_blank">3.4&nbsp;<%:IP/Port Filter%></a></div>
+                            </div>
+                        </div>
+                    </div>
+         
+                    <div class="cbi-map">
+                        <div class="cbi-value">
+                            <div class="cbi-value-msg2 hand" onclick="eChange(this,3)">4&nbsp;<%:Services%></div>
+                        </div>
+                        <div id="sj" style="display:none">
+                            <div class="cbi-value">
+                                <div class="cbi-value-msg"><a href="/luci-static/help_content_asp.htm#DDNS"  target="_blank">4.1&nbsp;<%:DDNS%></a></div>
+                            </div>
+                            <div class="cbi-value">
+                                <div class="cbi-value-msg"><a href="/luci-static/help_content_asp.htm#NAT"  target="_blank">4.2&nbsp;<%:Advanced NAT%></a></div>
+                            </div>
+                            <div class="cbi-value">
+                                <div class="cbi-value-msg"><a href="/luci-static/help_content_asp.htm#port"  target="_blank">4.3&nbsp;<%:Port Forwarding%></a></div>
+                            </div>
+                            <div class="cbi-value">
+                                <div class="cbi-value-msg"><a href="/luci-static/help_content_asp.htm#UPNP"  target="_blank">4.4&nbsp;<%:UPNP%></a></div>
+                            </div>
+                        </div>
+                    </div>
+         
+                    <div class="cbi-map">
+                        <div class="cbi-value">
+                            <div class="cbi-value-msg2 hand" onclick="eChange(this,4)">5&nbsp;<%:System%></div>
+                        </div>
+                        <div id="sj" style="display:none">
+                            <div class="cbi-value">
+                                <div class="cbi-value-msg"><a href="/luci-static/help_content_asp.htm#admin"  target="_blank">5.1&nbsp;<%:Adminstration%></a></div>
+                            </div>
+                            <div class="cbi-value">
+                                <div class="cbi-value-msg"><a href="/luci-static/help_content_asp.htm#backup"  target="_blank">5.2&nbsp;<%:Backup/Restore%></a></div>
+                            </div>
+                            <div class="cbi-value">
+                                <div class="cbi-value-msg"><a href="/luci-static/help_content_asp.htm#upgrage"  target="_blank">5.3&nbsp;<%:Upgrade Firmware %></a></div>
+                            </div>
+                            <div class="cbi-value">
+                                <div class="cbi-value-msg"><a href="/luci-static/help_content_asp.htm#reboot"  target="_blank">5.4&nbsp;<%:Reboot%></a></div>
+                            </div>
+                            <div class="cbi-value">
+                                <div class="cbi-value-msg"><a href="/luci-static/help_content_asp.htm#syslog"  target="_blank">5.5&nbsp;<%:System log%></a></div>
+                            </div>
+                            <div class="cbi-value">
+                                <div class="cbi-value-msg"><a href="/luci-static/help_content_asp.htm#diag"  target="_blank">5.6&nbsp;<%:Diagnostics%></a></div>
+                            </div>
+                            <div class="cbi-value">
+                                <div class="cbi-value-msg"><a href="/luci-static/help_content_asp.htm#language"  target="_blank">5.7&nbsp;<%:Language%></a></div>
+                            </div>
+                            <div class="cbi-value">
+                                <div class="cbi-value-msg"><a href="/luci-static/help_content_asp.htm#log"  target="_blank">5.8&nbsp;<%:Logout%></a></div>
+                            </div>
+                        </div>
+                    </div>
+            	</div>
+			</div>
+        </div>
+
+<%+footer%>

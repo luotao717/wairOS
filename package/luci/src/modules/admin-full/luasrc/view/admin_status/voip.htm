@@ -1,0 +1,125 @@
+<%#
+LuCI - Lua Configuration Interface
+Copyright 2010 Jo-Philipp Wich <xm@subsignal.org>
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+	http://www.apache.org/licenses/LICENSE-2.0
+
+$Id: iface_overview.htm 7011 2011-05-03 03:20:15Z jow $
+
+-%>
+ <%+header%>
+ <script type="text/javascript">//<![CDATA[
+	var iwxhr = new XHR();
+	var update_status = function() {
+		iwxhr.get('<%=luci.dispatcher.build_url("admin", "status", "voip_status")%>', null,
+			function(x, ifcs)
+			{
+				var ifc = ifcs[0];
+			   	var ip = ifc.ip 
+			   	var ver = ifc.ver; 
+			   	var status = ifc.status;
+			   	
+				var a = document.getElementById('active-Inform-message');
+				if (a)
+					{ 
+						a.innerHTML  = ip ;
+					}						  
+					
+				var a = document.getElementById('rcv-itms-require-status');
+				if (a)
+					{ 
+						a.innerHTML  = ver  ;
+					}						  
+				var a = document.getElementById('rcv-itms-config-status');
+				if (a)
+					{ 
+					
+						if(status =='Unfixed'){
+							a.innerHTML  = '<%:Unfixed%>';
+						}
+						else if(status =='Idle'){
+							a.innerHTML  = '<%:Idle%>';
+						}
+						else if(status =='No Connection'){
+							a.innerHTML  ='<%:link down%>';
+						}
+						else if(status =='Ring'){
+							a.innerHTML  = '<%:Ring%>';
+						}
+						else if(status =='Busy'){
+							a.innerHTML  = '<%:Busying%>';
+						}
+					}				  
+							
+		
+
+			//	window.setTimeout(update_status, 5000);
+			}
+		)
+	};
+
+	update_status();
+//]]></script>
+
+	<div class="cbi-content">
+    	<div class="cbi-section">
+        	<div class="cbi-section-bg">
+        	  	<div class="cbi-section-title"><%:VOIP Status %>&nbsp;&nbsp;</div>
+            </div>
+    	</div>
+   		<div class="cbi-section">    	
+   			<div class="cbi-section-bg"> 	 
+              	<div class="cbi-section-title"></div>      
+            </div>
+		</div>
+        <div class="cbi-section">
+            <div class="cbi-section-bg">       
+                <div class="cbi-table">
+                    <table width="630" border="1" class="cbi-table-list" cellpadding="1" cellspacing="0" align="center">
+                    <tr>
+                        <th class="cbi-table-title" ><%:VOIP IP%></th>                            
+						<td class="cbi-table-field" id="active-Inform-message" ></td>
+                    </tr>                                          
+                    </table>
+               	</div>  
+               	<div class="cbi-table">
+                     <tr><td>&nbsp;</td></tr>
+         			 <tr><td>&nbsp;</td></tr>
+               	</div> 
+               	<div class="cbi-table">
+                    <table width="630" border="1" class="cbi-table-list" cellpadding="1" cellspacing="0" align="center">
+                    <tr>
+                        <th class="cbi-table-title"><%:VOIP Soft Version%></th>                            
+						<td class="cbi-table-field" id="rcv-itms-require-status"></td>
+                    </tr>                                          
+                    </table>
+               	</div> 
+               	<div class="cbi-table">
+                     <tr><td>&nbsp;</td></tr>
+         			 <tr><td>&nbsp;</td></tr>
+               	</div> 
+               	<div class="cbi-table">
+                    <table width="630" border="1" class="cbi-table-list" cellpadding="1" cellspacing="0" align="center">
+                    <tr>
+                        <th class="cbi-table-title"><%:VOIP Status%></th>                            
+						<td class="cbi-table-field" id="rcv-itms-config-status"></td>
+                    </tr>                                          
+                    </table>
+               	</div> 
+                 
+               	<div class="cbi-table">
+                     <tr><td>&nbsp;</td></tr>
+         			 <tr><td>&nbsp;</td></tr>
+               	</div>    
+			          
+            </div>
+    
+  		</div>
+	</div>
+	
+
+<%+footer%>

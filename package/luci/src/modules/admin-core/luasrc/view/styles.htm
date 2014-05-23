@@ -1,0 +1,23 @@
+<%+header%>
+
+	<div class="cbi-content">
+        <div class="cbi-section">
+        	<div class="cbi-section-bg">
+        		<div class="cbi-section-title"><%:Select Styles%>&nbsp;&nbsp;</div>
+            </div>
+    	</div>
+        <div class="cbi-section">
+            <div class="cbi-section-bg">
+                <div class="cbi-map">
+			<form method="post" action="<%=REQUEST_URI%>" enctype="multipart/form-data">
+			    <div class="cbi-value">
+                       		<div class="cbi-value-title"><%:Styles file%></div>
+                      		<div class="cbi-value-field"><input type="file" name="archive" /> <input class="cbi-button" type="submit" value="<%:Apply%>" /></div>
+                   	    </div>               
+			</form>
+                </div>               
+            </div>
+    	</div>
+    </div>
+
+<%+footer%>

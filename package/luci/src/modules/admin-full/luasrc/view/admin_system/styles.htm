@@ -1,0 +1,37 @@
+<%#
+LuCI - Lua Configuration Interface
+Copyright 2010 Jo-Philipp Wich <xm@subsignal.org>
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+	http://www.apache.org/licenses/LICENSE-2.0
+
+$Id: backup.htm 5448 2009-10-31 15:54:11Z jow $
+
+-%>
+
+<%+header%>
+
+	<div class="cbi-content">
+        <div class="cbi-section">
+        	<div class="cbi-section-bg">
+        		<div class="cbi-section-title"><%:Select Styles%>&nbsp;&nbsp;</div>
+            </div>
+    	</div>
+        <div class="cbi-section">
+            <div class="cbi-section-bg">
+                <div class="cbi-map">
+			<form method="post" action="<%=REQUEST_URI%>" enctype="multipart/form-data">
+			    <div class="cbi-value">
+                       		<div class="cbi-value-title"><%:Styles file%></div>
+                      		<div class="cbi-value-field"><input type="file" name="archive" /> <input class="cbi-button" type="submit" value="<%:Select%>" /></div>
+                   	    </div>               
+			</form>
+                </div>               
+            </div>
+    	</div>
+    </div>
+
+<%+footer%>

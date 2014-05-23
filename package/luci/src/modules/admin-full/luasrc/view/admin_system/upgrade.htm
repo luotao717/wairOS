@@ -1,0 +1,187 @@
+<%#
+LuCI - Lua Configuration Interface
+Copyright 2010 Jo-Philipp Wich <xm@subsignal.org>
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+	http://www.apache.org/licenses/LICENSE-2.0
+
+$Id: bandwidth.htm 6583 2010-11-28 18:01:07Z jow $
+
+-%>
+
+<%+header%>
+
+	<div class="cbi-content">
+        <div class="cbi-section">
+        	<div class="cbi-section-bg">
+        		<div class="cbi-section-title"><%:Flash Firmware%>&nbsp;&nbsp;</div>
+            </div>
+    	</div>
+		<div class="cbi-section">
+            <div class="cbi-section-bg">
+                <div class="cbi-map">
+<% if step == 1 then %>
+	<% if supported then %>
+<form method="post" action="<%=REQUEST_URI%>" enctype="multipart/form-data">
+					<div class="cbi-value">
+                        <div class="cbi-value-title"><%:Firmware image%></div>
+                        <div class="cbi-value-field"><input type="hidden" name="step" value="2" /><input type="file" name="image" /> </div>
+                        </div>
+                    <% if keepavail then -%>
+                    	<div class="cbi-value">
+                    		<div class="cbi-value-title"><%:Keep configuration files%></div>
+                    		<div class="cbi-value-field"><input type="checkbox" name="keepcfg" value="1" checked="checked" /></div>
+                    	</div>
+                    <% end -%> 
+                    <div class="cbi-value">
+                   	 <div class="cbi-value-title"></div>
+                    	<div class="cbi-value-field"><input class="cbi-button" type="submit" value="<%:Upload%>" /></div>
+                    </div>
+</form>
+	<% else %>
+					<div class="cbi-value">
+                        <div class="cbi-value-msg"><%:Sorry.
+                       the product does not support a system upgrade on this platform.
+                        You need to manually flash your device. %></div>
+            		</div>
+	<% end %>
+<% elseif step == 2 then %>
+		<div class="cbi-value">
+		<div class="cbi-value-msg">
+		<%:The flash image was uploaded.%></div>
+		</div>
+		
+		<div class="cbi-value">
+		<div class="cbi-value-msg">
+		<%:	Below is the checksum and file size listed,
+			compare them with the original file to ensure data integrity. %></div>
+		</div>   
+		<div class="cbi-value">
+                        <div class="cbi-value-msg"><%:Checksum%>: <code><%=checksum%></code></div>
+                    </div>
+					<div class="cbi-value">
+                        <div class="cbi-value-msg"><%:Size%>: <%
+                        local w = require "luci.tools.webadmin"
+                        write(w.byte_format(filesize))
+            
+                        if flashsize > 0 then
+                            write(luci.i18n.translatef(
+                                " (%s available)",
+                                w.byte_format(flashsize)
+                            ))
+                        end
+                    	%></div>
+                    </div>
+                    	<div class="cbi-value">
+		<div class="cbi-value-msg">
+			<%:Click Proceed below to start the flash procedure.%></div>
+		</div>   
+					<div class="cbi-value">
+                        <div class="cbi-value-msg">
+                        <form style="display:inline">
+                            <input type="hidden" name="step" value="3" />
+                            <input type="hidden" name="keepcfg" value="<%=keepconfig and "1" or "0"%>" />
+                            <input class="cbi-button" type="submit" value="<%:Proceed%>" />	
+                        </form>
+                        <form style="display:inline">
+                            <input type="hidden" name="step" value="1" />
+                            <input type="hidden" name="keepcfg" value="<%=keepconfig and "1" or "0"%>" />
+                            <input class="cbi-button" type="submit" value="<%:Cancel%>" />
+                        </form></div>
+                   </div>
+<% elseif step == 3 then %>
+					<div class="cbi-value">
+                        <div class="cbi-value-msg">
+                     </div>
+                      </div>
+
+
+
+
+				<div class="cbi-value" style="display:none; width:620px">
+							<span id="diag-rc-legend"></span>
+							<span id="diag-rc-output"></span>
+			    </div>
+			    		
+<script type="text/javascript">//<![CDATA[
+
+var legend = document.getElementById('diag-rc-legend');
+var output = document.getElementById('diag-rc-output');
+var seconds = 0;
+var handle;
+
+
+function startTimer() { 
+	handle = setInterval("timer()",1000); 
+} 
+
+
+ucreboot ="<%:The system is flashing now%>";
+function timer() { 
+	seconds += 1;
+	
+	if (legend && output)
+	{
+		if(seconds % 5 == 1) 
+			output.innerHTML = "<font size='4' color='red'>"+ ucreboot + " ."+"</font>";
+
+		if(seconds % 5 == 2) 
+			output.innerHTML = "<font size='4' color='red'>"+ ucreboot + " .."+"</font>";
+		if(seconds % 5 == 3) 
+			output.innerHTML = "<font size='4' color='red'>"+ ucreboot + " ..."+"</font>"; 
+		if(seconds % 5 == 4) 
+			output.innerHTML = "<font size='4' color='red'>"+ ucreboot + " ...."+"</font>"; 
+		if(seconds % 5 == 0) 
+			output.innerHTML = "<font size='4' color='red'>"+ ucreboot + " ....."+"</font>"; 
+
+		legend.parentNode.style.display = 'block';
+		legend.style.display = 'inline';
+	}	
+	if (seconds ==  300 )
+	  {
+		location.reload();
+	  }
+} 
+
+
+	setTimeout("startTimer()",1000); 
+//]]></script>
+	   
+                        
+                    <div class="cbi-value">
+                        <div class="cbi-value-msg">
+                        <%:Wait a few minutes until you try to reconnect.%></div>
+                        </div>
+                        
+                   <div class="cbi-value">
+                        <div class="cbi-value-msg">
+                       <%:It might be necessary to renew the address of your computer to reach the device
+                        again, depending on your settings.%></div>
+                    </div>	
+                                                <div class="cbi-value">
+                         <div class="cbi-value-msg"><font color="red">
+                        <%:DO NOT POWER OFF THE DEVICE%></font></div>
+                        </div>
+                                                <div class="cbi-value">
+                         <div class="cbi-value-msg"></div>
+                        </div>
+			<div>
+		    <script type="text/javascript">//<![CDATA[
+			var upxhr=new XHR();
+				upxhr.get('<%=REQUEST_URI%>', {step:4,keepcfg:<%=keepconfig and "1" or "0"%>},
+					function() {											
+						ucreboot ="<%:Update  finished! The system is rebooting now%>";
+					});			
+	    		//]]></script>
+			</div>
+<% end %>
+                </div>               
+            </div>
+    	</div>
+    </div>
+
+
+<%+footer%>

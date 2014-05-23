@@ -1,0 +1,229 @@
+<html>
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta http-equiv=Content-Script-Type content=text/javascript>
+
+</head>
+<body onLoad="FormLoad()">
+<form name=test>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" id=tab name=tab>
+<tr><td class="topHelpTitle" colspan="2">帮&nbsp;助&nbsp;文&nbsp;档</td></tr>
+<tr><td colspan="2">&nbsp;</td></tr>
+
+<tr><td class="tabHelpdata" colspan=2 bgcolor=#CCCCCC>一、状态信息<a name=状态></a></td></tr> 
+
+<tr name=statusEquip id=statusEquip >
+<td width=20>&nbsp;</td>
+<td class="tabdataleft">1.设备信息<a name="Status" id="设备信息"></a></td>
+</tr>
+<tr>
+<td width=20>&nbsp;</td>
+<td class="tabdataleft">
+
+<ul>
+<li>显示设备型号，设备标识号，硬件版本，软件版本等信息。</li>
+</ul>
+</td>
+</tr>
+
+<tr name=statusNetwork id=statusNetwork >
+<td width=20>&nbsp;</td>
+<td class="tabdataleft">2.网络侧信息<a name="WAN Status" id="网络侧信息"></a></td>
+</tr>
+<tr>
+<td width=20>&nbsp;</td>
+<td class="tabdataleft">
+<ul>
+<li id=statusNetwork_1>显示连接信息和DSL信息。 连接信息显示网络侧连接状态，各条PVC的IP地址、子网掩码，默认网关，DNS服务器信息，PVC及封装信息；DSL信息显示DSL的当前同步状态，连接状态，上下行速率，噪声裕量，交织深度，线路协议，线路衰减，输出功率，信道类型等。 </li>
+</ul>
+</td>
+</tr>
+
+<tr name=statusUser id=statusUser>
+<td width=20>&nbsp;</td>
+<td class="tabdataleft">3.用户侧信息<a name="LAN Status" id="用户侧信息"></a></td>
+</tr>
+<tr>
+<td width=20>&nbsp;</td>
+<td class="tabdataleft">
+<ul>
+<li id=statusUser_1>以太网接口信息。以太网接口信息显示网关IP地址，MAC地址，每个LAN口的状态、收发包和字节数。</li>
+</ul>
+</td>
+</tr>
+
+
+
+
+
+<tr>
+<td class="tabHelpdata" colspan=2 bgcolor=#CCCCCC>二、安全<a name=安全></a></td>
+</tr>
+
+
+<tr name=securityFirewall id=securityFirewall>
+<td>&nbsp;</td>
+<td class="tabdataleft">1.防火墙<a name="firewall"></a></td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td class="tabdataleft">&nbsp;(1).状态显示</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td class="tabdataleft"><ul>
+<li id=securityFirewall_1>防火墙设置:安全级别设置</li>
+</ul></td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td class="tabdataleft">&nbsp;(2).操作</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td class="tabdataleft"><ul>
+<li>安全级别设置:使用该操作，可以将防火墙等级设置为"<b>高</b>"，"<b>中</b>"或"<b>低</b>"。设置完成后，界面上显示新的防火墙状态。</li>
+</ul></td>
+</tr>
+
+<tr name=securityURL id=securityURL>
+<td>&nbsp;</td>
+<td class="tabdataleft">2.广域网访问设置<a name="WAN access" id="广域网访问设置"></a></td>
+</tr>
+
+<tr>
+<td>&nbsp;</td>
+<td class="tabdataleft">&nbsp;(1).状态显示</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td class="tabdataleft"><ul>
+<li>是否启用</li>
+<li>当前的过滤模式</li>
+</ul></td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td class="tabdataleft">&nbsp;(2).操作</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td class="tabdataleft"><ul>
+<li>设置</li>
+<ul>
+<li>启用广域网过滤:启动或关闭广域网访问功能，默认为“<strong>关闭</strong>”。设置完成后，界面上显示新的广域网访问状态。 </li>
+<li>过滤模式:“<b>黑名单”</b>或“<b>白名单”</b>；单击“更改模式”修改过滤当前的过滤模式。</li>
+<li>URL:输入正确的URL。添加一条URL到过滤列表中。</li>
+</ul>
+<li>过滤列表:显示已经过滤的URL列表。</li>
+<li>当前的过滤列表为黑名单时，过滤列表中的URL请求将被过滤；当前过滤列表为白名单时，只有过滤列表中的URL请求被接受。</li>
+</ul></td>
+</tr>
+
+<tr name=securityMAC id=securityMAC>
+<td>&nbsp;</td>
+<td class="tabdataleft">3.MAC过滤<a name="MAC"></a></td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td class="tabdataleft">&nbsp;(1).状态显示</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td class="tabdataleft"><ul>
+<li>是否启用</li>
+<li>当前的过滤模式</li>
+</ul></td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td class="tabdataleft">&nbsp;(2).操作</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td class="tabdataleft"><ul>
+<li>设置</li>
+<ul>
+<li>启用广域网MAC过滤:启动或关闭广域网访问功能，默认为“<strong>关闭</strong>”。设置完成后，界面上显示新的广域网访问状态。 </li>
+<li>过滤模式:“<b>黑名单”</b>或“<b>白名单”</b>；此操作修改当前的过滤模式。</li>
+<li>MAC地址:输入正确的MAC地址，添加一条MAC地址到过滤列表中。</li>
+</ul>
+<li>过滤列表:显示已经过滤的MAC地址列表。</li>
+<li>当前的过滤列表为黑名单时，具有过滤列表中的MAC地址的PC将无法访问Internet网络；当前过滤模式为白名单时，具有过滤列表中的MAC地址的PC才可以访问Internet网络；不管是黑名单还是白名单，LAN侧的PC都可以访问网关。</li>
+</ul></td>
+</tr>
+
+
+
+
+</tr>
+<tr><td class="tabHelpdata" colspan=2 bgcolor=#CCCCCC>三、系统管理<a name=系统管理></a></td></tr>
+<tr name=manageUser id=manageUser>
+<td>&nbsp;</td>
+<td class="tabdataleft">1.用户管理<a name="admin" id="用户管理"></a></td>
+</tr>
+
+
+<tr name=manageUser_3 id=manageUser_3>
+<td>&nbsp;</td>
+<td class="tabdataleft">&nbsp;(1)用户管理帐号</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td class="tabdataleft"><ul>
+<li>用户管理帐号和密码设置:使用用户管理帐号登录后,可修改用户管理帐号的用户名和密码，同时需要校验原密码。 </li>
+</ul></td>
+</tr>
+
+
+<tr name=manageBackup id=manageSyslog>
+<td>&nbsp;</td>
+<td class="tabdataleft">2. 备份和恢复<a name="backup" id="备份和恢复"></a></td>
+</tr>
+<tr name=manageSyslog_1 id=manageSyslog_1>
+<td>&nbsp;</td>
+<td class="tabdataleft"><ul><li>备份文件</li>
+<li> 恢复文件</li>
+</ul></td>
+</tr>
+
+<tr name=manageSyslog id=manageSyslog>
+<td>&nbsp;</td>
+<td class="tabdataleft">3. 固件升级<a name= "upgrade" id="固件升级"></a></td>
+</tr>
+<tr name=manageSyslog_1 id=manageSyslog_1>
+<td>&nbsp;</td>
+<td class="tabdataleft"><ul><li>固件升级</li>
+ 
+</ul></td>
+</tr>
+
+
+<tr name=manageReboot id=manageReboot>
+<td width=20>&nbsp;</td>
+<td class="tabdataleft">4.重启<a name="reboot" id="重启"></a></td>
+</tr>
+<tr name=manageDiag_1 id=manageDiag_1>
+<td width=20>&nbsp;</td>
+<td class="tabdataleft"><ul>
+<li>重启系统</li>
+</ul>	 	</td>
+</tr>
+
+<tr name=managelogout     id=managelogout>
+<td>&nbsp;</td>
+<td class="tabdataleft">5.注销<a name = "logout" id="注销" ></a></td>
+</tr>
+<tr name=manageSyslog_1 id=manageSyslog_1>
+<td>&nbsp;</td>
+<td class="tabdataleft"><ul><li>系统注销</li>
+</ul></td>
+</tr>
+
+</td></tr></table>
+</td></tr></table>
+</table>
+<form>
+</body>
+</html>

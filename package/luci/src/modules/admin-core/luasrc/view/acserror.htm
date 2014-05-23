@@ -1,0 +1,123 @@
+<%#
+LuCI - Lua Configuration Interface
+Copyright 2008 Steven Barth <steven@midlink.org>
+Copyright 2008 Jo-Philipp Wich <xm@leipzig.freifunk.net>
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+	http://www.apache.org/licenses/LICENSE-2.0
+
+$Id: sysauth.htm 5962 2010-03-27 21:48:35Z jow $
+
+-%>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title><%:China Telecom%></title>
+<!--<script type="text/javascript" src="resources/xhr.js"></script>-->
+
+
+<style type="text/css">
+body { font-family:Arial, Helvetica, sans-serif; font-size: 12px; margin: 150px 0px 0px 0px;background-image:url(<%=media%>/backg.jpg);background-position:center;background-repeat: no-repeat;background-attachment: fixed;}
+.login-text { width: 140px;}
+.login-button { width: 100px;}
+</style>
+</head>
+
+<body>
+
+<form method="post" id="acserr" name="acserr" action="<%=pcdata(luci.http.getenv("REQUEST_URI"))%>">
+<table cellspacing="0" cellpadding="0" width="400" align="center" border="0">
+         <tr>
+    <td>&nbsp;</td>
+  </tr>
+    </tr>
+          <tr>
+    <td>&nbsp;</td>
+  </tr>
+  
+      <tr>
+        <td colspan="2" align="right"><input type="submit" class="login-button" id="login3" name="login3" value="<%:Back to login%>" >
+       </td>
+      </tr>
+     <tr>
+        <td colspan="2" align="left"><font color="000000">
+      		  <%:Broadband account registration%>	
+          </font></td>
+      </tr>
+        <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+    <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><table cellspacing="0" cellpadding="4" width="100%" border="0">
+      <tr>
+        <td colspan="2" align="center"><font color="FF6600">
+        	<% if errcode == "login_a" then -%>
+        		<%:The registration is success,provision fail,please dial 10000 for help!%>        
+        	<%- elseif errcode == "login_c" then -%>
+        			<%:UserId doesnot exist! the registration is fail,please dial 10000 for help!%>
+        	<%- elseif errcode == "login_b"then -%>
+        	
+					<%:User Id doesnot exist!Pls try again!%>	
+        			<%:Times have to login:%>&nbsp;<%=number%>&nbsp;
+				
+        
+        	<%- elseif errcode == "login_e" then -%>
+        		<%:User Name doesnot exist! the registration is fail,please dial 10000 for help!%>
+        	<%- elseif errcode == "login_d" then -%>
+        	
+        				<%:User Name doesnot exist!Pls try again!%>		
+        			<%:Times have to login:%>&nbsp;<%=number%>&nbsp;
+				
+        	<%- elseif errcode == "login_g" then -%>
+        		<%:User Id and UserName donot match, the registration is fail,please dial 10000 for help!%>
+        	<%- elseif errcode == "login_f" then -%>
+        		
+        			<%:User Id and UserName donot match, Please Try again !%>			
+        				<%:Times have to login:%>&nbsp;<%=number%>&nbsp;
+			
+		 <%- elseif errcode == "login_h"then -%>
+        		<%:Registration Timeout! Please check the lines and try again%>
+        	<%- elseif errcode == "login_h"then -%>
+        		<%:Registration Times is out! Please please waiting 3 minutes%>
+        	
+        	<%- else -%>
+        		
+        	<%- end %>
+        	
+        </font></td>
+      </tr>
+        <tr>
+    <td>&nbsp;</td>
+  </tr>
+
+     <tr>
+        <td colspan="2" align="center"><input type="submit" class="login-button" value="<%:return%>"  >
+       </td>
+      </tr>
+          <tr>
+    <td>&nbsp;</td>
+  </tr>
+           <tr>
+        <td colspan="2" align="center"><%:China Telecom internet failures customer service hotline: 10 000 to 4 and to 2%>
+       </td>
+      </tr>
+    </table></td>
+  </tr>
+</table>
+</form>
+</body>
+</html>

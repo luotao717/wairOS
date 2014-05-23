@@ -1,0 +1,141 @@
+<%#
+LuCI - Lua Configuration Interface
+Copyright 2008 Steven Barth <steven@midlink.org>
+Copyright 2008-2010 Jo-Philipp Wich <xm@subsignal.org>
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+	http://www.apache.org/licenses/LICENSE-2.0
+
+$Id: header.htm 6844 2011-02-06 02:08:39Z jow $
+
+-%>
+<%
+require("luci.sys")
+local load1, load5, load15 = luci.sys.loadavg()
+local request  = require("luci.dispatcher").context.path
+local category = request[1]
+local request2 = require("luci.dispatcher").context.request
+local leaf     = request2[#request2]
+local tree     = luci.dispatcher.node()
+local cattree  = category and luci.dispatcher.node(category)
+local node     = luci.dispatcher.context.dispatched
+local hostname = luci.sys.hostname()
+local version= luci.util.exec("cat /etc/banner | grep Version | awk -F ' ' '{printf $2}'")
+
+local c = tree
+for i,r in ipairs(request) do
+	if c.nodes and c.nodes[r] then
+		c = c.nodes[r]
+		c._menu_selected = true
+	end
+end
+
+require("luci.i18n").loadc("base")
+require("luci.http").prepare_content("application/xhtml+xml")
+
+
+	local function nodeurl(prefix, name, query)
+		local url = controller .. prefix .. name .. "/"
+		if query then
+			url = url .. luci.http.build_querystring(query)
+		end
+		return pcdata(url)
+	end
+
+	local function subtree(prefix, node, level)
+		if not node.nodes or node.hidden then
+			return false
+		end
+
+		if not level then
+			level = 1
+		end
+
+		local index = {}
+		local count = 0
+		for k, n in pairs(node.nodes) do
+			if n.title and n.target then
+				table.insert(index, {name=k, order=n.order or 100})
+				count = count + 1
+			end
+		end
+
+		table.sort(index, function(a, b) return a.order < b.order end)
+
+		if count > 0 then
+%>
+	<div class="tabmenu<%=level%>">
+	<ul class="tabmenu l<%=level%>">
+		<%
+			local selected_node
+			local selected_name
+
+			for j, v in pairs(index) do
+				if #v.name > 0 then
+					local nnode = node.nodes[v.name]
+
+					if nnode._menu_selected then
+						selected_node = nnode
+						selected_name = v.name
+					end
+		%>
+			<li class="t<%=level%><% if nnode._menu_selected or (node.leaf and v.name == leaf) then %> active<% end %>">
+				<a href="<%=nodeurl(prefix, v.name, nnode.query)%>"><%=striptags(nnode.title)%></a>
+			</li>
+		<%
+				end
+			end
+		%>
+	</ul>
+    
+    <br style="clear:both" />
+<%
+			if selected_node then
+				subtree(prefix .. selected_name .. "/", selected_node, level + 1)
+			end
+%>
+	</div>
+<%
+		end
+	end
+
+
+-%>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<link rel="stylesheet" type="text/css" media="screen" href="<%=media%>/cascade.css" />
+<!--[if lt IE 7]><link rel="stylesheet" type="text/css" media="screen" href="<%=media%>/ie6_ex.css" /><![endif]-->
+<script type="text/javascript" src="<%=resource%>/xhr.js"></script>
+<script type="text/javascript" src="<%=resource%>/cbi.js"></script>
+<title><%=hostname%></title>
+</head>
+
+<body>
+<div class="main">
+    <div class="toper" align="center">
+        <div class="top_logo">&nbsp;</div>
+    </div>
+    
+    <div class="menubar" align="center">
+        <div class="settings_title"><%:Settings%></div>
+        <div class="settings_content">
+            <div class="model_title"><%:Sys Ver%>:&nbsp;<%=version%>&nbsp; &nbsp; &nbsp;</div>
+            <div class="model_content"><%:Model%>:<%=hostname%></div>
+            <div class="tabmenu">
+                <% if category then subtree("/" .. category .. "/", cattree) end %>
+            </div>
+        </div>
+    </div>
+    
+    <div class="mainbar" align="center">
+        <div class="mainbar1">&nbsp;</div>
+        <div class="mainbar2">&nbsp;</div>
+    </div>
+
+	<div id="maincontent">

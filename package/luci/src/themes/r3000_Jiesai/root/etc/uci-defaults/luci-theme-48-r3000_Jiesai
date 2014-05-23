@@ -1,0 +1,47 @@
+#!/bin/sh
+
+# product type: w and wv -- wv has the voip function
+# for richerlink china 
+#   	support change containts:
+#		wifi :
+#		wanctl:
+#		system:
+
+local hostname
+local portmap
+
+if [ -f  /etc/config/wireless ] ; then
+	hostname="JS-C603W"
+	portmap="lan1 lan2 lan3 lan4 wlan1 wlan2"
+	uci batch <<-EOF
+		set wireless.wifi_RF.countryid=156
+		commit wireless	
+	EOF
+else
+	hostname="JS-C603R"
+	portmap="lan1 lan2 lan3 lan4"
+fi
+
+uci batch <<-EOF
+	set luci.themes.r3000_Jiesai=/luci-static/r3000_Jiesai
+	set luci.main.mediaurlbase=/luci-static/r3000_Jiesai
+        commit luci
+	delete wanctl.wanlink_0
+	commit wanctl
+	add wanctl wanlink
+	set wanctl.wanlink_0.VlanID=-1
+	set wanctl.wanlink_0.Cos=0
+	set wanctl.wanlink_0.Servicemode=0
+	set wanctl.wanlink_0.Mode=0
+	set wanctl.wanlink_0.PortMap="$portmap"
+	commit wanctl
+	set system.system_0.hostname="$hostname"
+	commit system
+EOF
+	
+echo "/etc/config/wanctl" >/usr/lib/opkg/keep.conf
+#compatible the old production version 
+echo "$hostname" > /proc/sys/kernel/hostname
+#echo "DeviceName=$hostname" > /tmp/MME_devinfo
+sed -i 's/\(DeviceName=\)[^\n]*/\1'"${hostname}"'/g' /tmp/MME_devinfo
+exit 0

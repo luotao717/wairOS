@@ -1,0 +1,63 @@
+<%#
+LuCI - Lua Configuration Interface
+Copyright 2008 Steven Barth <steven@midlink.org>
+Copyright 2008-2011 Jo-Philipp Wich <xm@subsignal.org>
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+	http://www.apache.org/licenses/LICENSE-2.0
+
+$Id: lan.htm 7022 2011-05-04 21:04:31Z jow $
+
+-%>
+
+<%+header%>
+	
+    <div class="cbi-content">
+    	<div class="cbi-section">
+        	<div class="cbi-section-bg">
+        		<div class="cbi-section-title"><%:Interactions Establish%>&nbsp;&nbsp;</div>
+            </div>
+    	</div>
+    	<div class="cbi-section">
+            <div class="cbi-section-bg">
+                <div class="cbi-table">
+                	<table width="630" border="1" class="cbi-table-list" cellpadding="1" cellspacing="0" align="center">
+                    <tr>
+                        <td class="cbi-table-title"><%:Inform the initiative to report the situation%></td>
+                        <td class="cbi-table-field" id="wlan-ifc-status"><%:Not reported (WAN remote management connection not in force)%></td>
+                    </tr>
+                    <tr>
+                        <td class="cbi-table-title"><%:Accept the connection request of ITMS%></td>
+                        <td class="cbi-table-field" id="wlan-ifc-channel"><%:Gateway does not receive a remote connection request%></td>
+                    </tr>
+                
+                  
+                    </table>
+                </div>
+            </div>
+		</div>
+        <div class="cbi-section">
+            <div class="cbi-section-bg">
+                <div class="cbi-section-title"><%:Business configuration state issued%>&nbsp;&nbsp;</div>
+            </div>
+        </div>
+            
+        <div class="cbi-section">
+            <div class="cbi-section-bg">
+            	<div class="cbi-table">
+                	<table width="630" border="1" class="cbi-table-list" cellpadding="1" cellspacing="0" align="center">
+                    <tr>
+                        <td class="cbi-table-title"><%:Business configuration state issued%></td>
+                        <td class="cbi-table-field" id="lan-ifc-mac"><%:Business configuration successful%></td>
+                    </tr>
+                  
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<%+footer%>

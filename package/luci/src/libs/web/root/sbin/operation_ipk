@@ -1,0 +1,92 @@
+#!/bin/sh
+# open web to support opkg install *.ipk
+local DEFAULT_REBOOT=0
+local OPER_FILES=""
+local OPER_COMMAND=0
+local OPER_HELP=0
+local oper_ipk_file="/var/oper_ipk_file"
+local web_index_cache="/var/luci-indexcache"
+local IPKRESVERSE_DIR="/lib/reset_default/files/files_ipk"
+local IPK_FILES="luci_theme.ipk"
+#local DEBUG="echo"
+
+[ -z "$1" ] && OPER_HELP=1
+
+while [ -n "$1" ] ; do
+	case "$1" in 
+		--start) export OPER_COMMAND=1;; #open opkg web support
+		--stop)  export OPER_COMMAND=2;; #close opkg web support
+		--file)  export OPER_COMMAND=3; OPER_FILES="$2" shift; ;; #install ipk package
+		    -r)  DEFAULT_REBOOT=1;;
+		--help)	 export OPER_HELP=1;;
+		*)
+			echo "Invalid option : $1"
+			exit 1
+			;;	
+	esac
+	shift;
+done
+
+[ "$OPER_HELP" -eq 1 ] && {
+	cat <<EOF
+Usage: $0 [options]
+
+Options:
+	--start			support web to install ipk
+	--stop			close web of install ipk
+	--file	<filepath>	install ipk file 
+	-r 			reboot system
+	--help			usage
+EOF
+	exit 1
+} 
+if [ "$OPER_COMMAND" -eq 3  -a -z "$OPER_FILES" ] ;then
+	echo " Invalid option : null files to install "
+	exit 1
+fi
+
+#create or remove the file to open or remove the web page
+if [ "${OPER_COMMAND}" -eq 1 ] ;then
+#	echo "OPEN_INSTALL=${OPER_COMMAND}"
+	echo "OPEN_INSTALL=${OPER_COMMAND}" >> "${oper_ipk_file}"
+elif [ "${OPER_COMMAND}" -eq 2 ] ;then
+	[ -f "$oper_ipk_file" ] && {
+		${DEBUG} rm ${oper_ipk_file}
+	}	
+elif [ "${OPER_COMMAND}" -eq 3 ] ;then
+	
+	${DEBUG} opkg --force-depends --force-overwrite install "$OPER_FILES" 
+	[ "$?" -ne 0 ] && {
+		echo "operation_ipk install error" 
+		#opkg command running error	
+		return 2
+	}
+	[ -d "${IPKRESVERSE_DIR}" ] || {
+		mkdir -p "${IPKRESVERSE_DIR}"
+	}
+	cp -v "$OPER_FILES"  "${IPKRESVERSE_DIR}/${IPK_FILES}"
+	# 兼容原来的ipk，删除/etc/uci-defaults/luci-theme-*
+	ls /etc/uci-defaults/luci-theme-* >/dev/null 2>&1 
+	[ "$?" = "0" ] && {
+		echo `ls /etc/uci-defaults/` >> /tmp/tmpluci-theme
+		rm -f /etc/uci-defaults/luci-theme-*	
+	}
+	# end handle
+fi 
+
+if [ "${OPER_COMMAND}" -ne 3 ] ; then
+	#clear the web index 
+	${DEBUG} rm -rf "${web_index_cache}"
+fi
+
+echo "Success! Finished "
+#reboot system
+sleep 2
+
+[ "$DEFAULT_REBOOT" -eq "1" ] && {
+	echo "Ready to Reboot system now ..."
+	sleep 2	
+#	echo "reboot system now "
+	$DEBUG reboot
+}
+return 0

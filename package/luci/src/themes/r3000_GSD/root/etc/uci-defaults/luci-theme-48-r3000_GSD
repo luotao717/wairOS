@@ -1,0 +1,35 @@
+#!/bin/sh
+#product type : GSDS-8513W for only wifi, GSDS-8513WV for wifi and voip
+local hostname
+if [ -f  /etc/config/voip ] ; then
+        hostname="GSDS-8513WV"
+else
+        hostname="GSDS-8513W"
+fi
+uci batch <<-EOF
+	set luci.themes.r3000_GSD=/luci-static/r3000_GSD
+	set luci.main.mediaurlbase=/luci-static/r3000_GSD
+	set luci.main.lang=zh_cn
+        commit luci
+	delete wanctl.wanlink_0
+	commit wanctl
+	add wanctl wanlink
+	set wanctl.wanlink_0.VlanID=-1
+	set wanctl.wanlink_0.Cos=0
+	set wanctl.wanlink_0.Servicemode=0
+	set wanctl.wanlink_0.Mode=0
+	set wanctl.wanlink_0.PortMap="lan1 lan2 lan3 lan4 wlan1 wlan2"
+	commit wanctl
+	set system.system_0.hostname="$hostname"
+	commit system
+EOF
+echo "/etc/config/wanctl" >/usr/lib/opkg/keep.conf
+#compatible the old production version 
+echo "$hostname" > /proc/sys/kernel/hostname
+#echo "DeviceName=$hostname" > /tmp/MME_devinfo
+sed -i 's/\(DeviceName=\)[^\n]*/\1'"${hostname}"'/g' /tmp/MME_devinfo
+#remove the language configuration
+sed -i '/Language/d' /usr/lib/lua/luci/controller/admin/system.lua
+sed -i '/pagelang/d' /usr/lib/lua/luci/controller/admin/system.lua
+rm -rf /tmp/luci-indexcache
+	

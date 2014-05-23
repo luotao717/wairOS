@@ -1,0 +1,6 @@
+<%+cbi/valueheader%>
+	<%
+	local syslog = luci.sys.syslog()
+	luci.template.render("admin_system/syslog", {syslog=syslog})
+	%>
+<%+cbi/valuefooter%>

@@ -1,0 +1,7 @@
+#!/bin/sh
+uci batch <<-EOF
+	set luci.themes.r3000_base=/luci-static/r3000_base
+        commit luci
+EOF
+exit 0
+	

@@ -1,0 +1,44 @@
+<%#
+LuCI - Lua Configuration Interface
+Copyright 2008 Steven Barth <steven@midlink.org>
+Copyright 2008 Jo-Philipp Wich <xm@leipzig.freifunk.net>
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+	http://www.apache.org/licenses/LICENSE-2.0
+
+$Id: footer.htm 6384 2010-11-03 00:01:10Z jow $
+
+-%>
+</div>
+    <%
+	local request  = require("luci.dispatcher").context.path
+	local category = request[1]
+    %>
+    <script type="text/javascript">//<![CDATA[
+	var iwxhr = new XHR();
+
+	var autolog_status = function() {
+		iwxhr.get('<%=controller%>/<%=category%>/status/autolog', null,
+			function(x, info)
+			{
+				/*防止当用户认证失效时，传回认证页面，导致页面显示乱码，在认证失效时，点击ping ，返回登录页面*/
+				if (x.responseText.indexOf("<head>") > 0 && x.responseText.indexOf("</head>"))
+				   {
+						window.location.reload();
+						return true;
+				   }
+				window.setTimeout(autolog_status, 60000);
+			}
+		)
+	};
+	autolog_status();
+    //]]></script>
+<div class="footer" align="center">
+        <div class="foot_img">&nbsp;</div>
+    </div>
+</div>
+</body>
+</html>

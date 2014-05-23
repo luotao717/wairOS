@@ -1,0 +1,3 @@
+[ -n "${IPKG_INSTROOT}" ] || {
+        ( . /etc/uci-defaults/luci-theme-13-freifunk-hannover ) && rm -f /etc/uci-defaults/luci-theme-13-freifunk-hannover
+}

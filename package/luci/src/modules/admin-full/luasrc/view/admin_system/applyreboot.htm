@@ -1,0 +1,93 @@
+<%#
+LuCI - Lua Configuration Interface
+Copyright 2008 Steven Barth <steven@midlink.org>
+Copyright 2008 Jo-Philipp Wich <xm@leipzig.freifunk.net>
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+	http://www.apache.org/licenses/LICENSE-2.0
+
+$Id: applyreboot.htm 5448 2009-10-31 15:54:11Z jow $
+
+-%>
+<%+header%>
+<div class="cbi-content">
+    <div class="cbi-section">
+       	<div class="cbi-section-bg">
+        		<div class="cbi-section-title"></div>
+        </div>
+    </div>
+    <div class="cbi-section">
+         <div class="cbi-section-bg">
+         
+	         <div class="cbi-value">
+	         	<div class="cbi-value-title"><h2><a id="content" name="content"><%:System%></a></h2></div>		
+	    	 </div>
+	    	 <% if msg then%>
+	    	 <div class="cbi-value">
+	         	<div class="cbi-value-field"><p> <%=msg%></p></div>
+	         </div>
+	         
+	         <% else %>
+			 <div class="cbi-value">
+			 	<span id="diag-rc-legend"></span>
+			 	<span id="diag-rc-output"></span>			    
+			 </div>
+			 
+<script type="text/javascript">//<![CDATA[
+var legend = document.getElementById('diag-rc-legend');
+var output = document.getElementById('diag-rc-output');
+var seconds = 0; 
+var handle; 
+
+function startTimer() { 
+	handle = setInterval("timer()",1000); 
+} 
+
+var ucreboot = "<%:Please wait: Changes to Default%>";
+output.innerHTML = "<font size='4' color='red'>"+ ucreboot + " ."+"</font>";
+
+function timer() { 
+	seconds += 1;
+
+	if (legend && output)
+	{
+		if(seconds % 5 == 1) 
+			output.innerHTML = "<font size='4' color='red'>"+ ucreboot + " ."+"</font>";
+
+		if(seconds % 5 == 2) 
+			output.innerHTML = "<font size='4' color='red'>"+ ucreboot + " .."+"</font>";
+		if(seconds % 5 == 3) 
+			output.innerHTML = "<font size='4' color='red'>"+ ucreboot + " ..."+"</font>"; 
+		if(seconds % 5 == 4) 
+			output.innerHTML = "<font size='4' color='red'>"+ ucreboot + " ...."+"</font>"; 
+		if(seconds % 5 == 0) 
+			output.innerHTML = "<font size='4' color='red'>"+ ucreboot + " ....."+"</font>"; 
+
+		legend.parentNode.style.display = 'block';
+		legend.style.display = 'inline';
+	}
+
+} 
+setTimeout("startTimer()",1000); 
+//]]></script>
+<%- end -%>
+
+			
+	    	 <div class="cbi-value">
+	         	<div class="cbi-value-field"><p><%:After Changes applied : the Device will reboot%></p></div>		
+		    <script type="text/javascript">//<![CDATA[
+		    	var upxhr=new XHR();
+			upxhr.get('<%=controller%>/<%=category%>/admin/system/backup/', {backupcmd:"<%=backupcmd%>"},
+				function() {											
+					ucreboot ="<%:Set to Default finished! The system is rebooting now%>";
+				});			
+	    		//]]></script>
+	    	 </div>
+		</div>
+		
+    </div>
+</div>
+<%+footer%>

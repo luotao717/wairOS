@@ -1,0 +1,27 @@
+<%+cbi/valueheader%>
+	<%-
+		local uci = require "luci.model.uci".cursor()
+		local cbi = require "luci.cbi"
+		local dhcp_value =  uci:get("dhcp","dnsmasq_0","dhcp_en")
+		local attribute =  cbi.para_attribute_get("dhcp","dnsmasq_0","dhcp_en")
+	-%>
+	<%-if  attribute ==4 then-%>
+		<input type="hidden" value="1"<%=
+		attr("name", "cbi.cbe." .. self.config .. "." .. section .. "." .. self.option)
+		%> />
+		<input onclick="cbi_d_update_dhcp_r()" onchange="cbi_d_update_dhcp_r()" type="checkbox"<%=
+		attr("id", cbid) .. attr("name", cbid) .. attr("value", self.enabled or 1) ..
+		ifattr((self:cfgvalue(section) or self.default) == self.enabled, "checked", "checked")
+		%> />
+	<%-else-%>
+		<input type="hidden" value="1"<%=
+		attr("name", "cbi.cbe." .. self.config .. "." .. section .. "." .. self.option)
+		%> />
+		<input onclick="cbi_d_update_dhcp()" onchange="cbi_d_update_dhcp()" type="checkbox"<%=
+		attr("id", cbid) .. attr("name", cbid) .. attr("value", self.enabled or 1) ..
+		ifattr((self:cfgvalue(section) or self.default) == self.enabled, "checked", "checked")
+		%> />
+	
+	<%-end -%>
+
+<%+cbi/valuefooter%>

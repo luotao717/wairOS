@@ -1,0 +1,143 @@
+<%#
+LuCI - Lua Configuration Interface
+Copyright 2008 Steven Barth <steven@midlink.org>
+Copyright 2008-2011 Jo-Philipp Wich <xm@subsignal.org>
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+	http://www.apache.org/licenses/LICENSE-2.0
+
+$Id: index.htm 7022 2011-05-04 21:04:31Z jow $
+
+-%>
+
+<%
+	require "luci.fs"
+	require "luci.tools.status"
+
+	if luci.http.formvalue("status") == "1" then
+		local _, _, memtotal, memcached, membuffers, memfree = luci.sys.sysinfo()
+
+		local rv = {
+			uptime     = luci.sys.uptime(),
+			localtime  = os.date(),
+			loadavg    = { luci.sys.loadavg() },
+			memtotal   = memtotal,
+			memcached  = memcached,
+			membuffers = membuffers,
+			memfree    = memfree,
+		}
+
+		luci.http.prepare_content("application/json")
+		luci.http.write_json(rv)
+
+		return
+	end
+
+	local system, model = luci.sys.sysinfo()
+-%>
+
+<%+header%>
+
+<script type="text/javascript">//<![CDATA[
+	function progressbar(v, m)
+	{
+		var vn = parseInt(v) || 0;
+		var mn = parseInt(m) || 100;
+		var pc = Math.floor((100 / mn) * vn);
+
+		return String.format(
+			'<div style="width:200px; position:relative; border:1px solid #ffffff">' +
+				'<div style="background-color:#EF8218; width:%d%%; height:15px">' +
+					'<div style="position:absolute; left:0; top:0; padding-top:2px; text-align:center; width:100%%; color:#000000">' +
+						'%s / %s (%d%%)' +
+					'</div>' +
+				'</div>' +
+			'</div>', pc, v, m, pc
+		);
+	}
+
+	var iwxhr = new XHR();
+
+	var update_status = function() {
+		iwxhr.get('<%=REQUEST_URI%>', { status: 1 },
+			function(x, info)
+			{
+				var e;
+
+				if (e = document.getElementById('localtime'))
+					e.innerHTML = info.localtime;
+
+				if (e = document.getElementById('uptime'))
+					e.innerHTML = String.format('%t', info.uptime);
+
+				if (e = document.getElementById('memtotal'))
+					e.innerHTML = progressbar(
+						(info.memfree + info.membuffers + info.memcached) + " kB",
+						info.memtotal + " kB"
+					);
+
+				if (e = document.getElementById('memfree'))
+					e.innerHTML = progressbar(
+						info.memfree + " kB", info.memtotal + " kB"
+					);
+
+			//	window.setTimeout(update_status, 5000);
+			}
+		)
+	};
+
+	update_status();
+//]]></script>
+	<div class="cbi-content">
+        <div class="cbi-section">
+        	<div class="cbi-section-bg">
+        		<div class="cbi-section-title"><%:Status%>&nbsp;&nbsp;</div>
+            </div>
+    	</div>
+        <div class="cbi-section">
+            <div class="cbi-section-bg">    
+            	<div class="cbi-table">
+                	<table width="630" border="1" class="cbi-table-list" cellpadding="5" cellspacing="0" align="center">
+                  	<tr>
+                    	<td class="cbi-table-title"><%:Uptime%></td>
+                    	<td class="cbi-table-field"><span id="uptime">-</span></td>
+                	</tr>
+                    <tr>
+                        <td class="cbi-table-title"><%:Local Time%></td>
+                        <td class="cbi-table-field"><span id="localtime">-</span></td>
+                    </tr>
+                    <tr>
+                        <td class="cbi-table-title"><%:Device Name%></td>
+                        <td class="cbi-table-field"><%=luci.sys.hostname() or "?"%></td>
+                    </tr>
+                    <tr>
+                        <td class="cbi-table-title"><%:Firmware Version%></td>
+                        <td class="cbi-table-field"><%=pcdata(luci.version.softname)%>
+                         <%=pcdata(luci.version.softversion)%>
+                        </td>
+                    </tr>                    
+                    <tr>
+                        <td class="cbi-table-title"><%:Hardware Version%></td>
+                        <td class="cbi-table-field"><span id="hardwareId"><%=pcdata(luci.version.hardversion)%></span></td>
+                    </tr>                    
+                    <!--
+                    <tr>
+                        <td class="cbi-table-title"><%:Total%><%:Memory%></td>
+                        <td class="cbi-table-field"><span id="memtotal">-</span></td>
+                    </tr>
+                    <tr>
+                        <td class="cbi-table-title"><%:Free%><%:Memory%></td>
+                        <td class="cbi-table-field"><span id="memfree">-</span></td>
+                    </tr>
+                    -->
+                    </table>
+            	</div>
+			</div>
+        </div>
+	</div>
+
+
+<%+footer%>

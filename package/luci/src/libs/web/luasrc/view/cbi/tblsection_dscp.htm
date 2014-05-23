@@ -1,0 +1,162 @@
+<%-
+local rowcnt = 1
+function rowstyle()
+	rowcnt = rowcnt + 1
+	return (rowcnt % 2) + 1
+end
+
+function width(o)
+	if o.width then
+		if type(o.width) == 'number' then
+			return ' style="width:%dpx"' % o.width
+		end
+		return ' style="width:%s"' % o.width
+	end
+	return ''
+end
+-%>
+
+<!-- tblsection -->
+<div id="cbi_dscp">
+	<% if self.title and #self.title > 0 then -%>
+	<div class="cbi-bg">
+    		<div class="cbi-title"><%=self.title%></div>
+  	</div>
+	<%- end %>
+	<%- if self.sortable then -%>
+		<input type="hidden" id="cbi.sts.<%=self.config%>.<%=self.sectiontype%>" name="cbi.sts.<%=self.config%>.<%=self.sectiontype%>" value="" />
+	<%- end -%>
+	<div class="cbi-map">
+		<div class="cbi-table">
+			<%- local count = 0 -%>
+			<table width="100%" border="1" cellpadding="0" cellspacing="5" class="cbi-table-list">
+				<tr align="center">
+				<%- if not self.anonymous then -%>
+					<%- if self.sectionhead then -%>
+						<td><b><%=self.sectionhead%></b></td>
+					<%- else -%>
+						<td>&#160;</td>
+					<%- end -%>
+				<%- end -%>
+				<%- for i, k in pairs(self.children) do if not k.optional then -%>
+					<td><b>
+					<%- if k.titleref then -%><a title="<%=self.titledesc or translate('Go to relevant configuration page')%>" class="cbi-title-ref" href="<%=k.titleref%>"><%- end -%>
+						<%-=k.title-%>
+					<%- if k.titleref then -%></a><%- end -%>
+					</b></td>
+				<%- count = count + 1; end; end; if self.sortable then -%>
+					<td><b><%:Sort%></b></td>
+				<%- end; if self.extedit or self.addremove then -%>
+					<td><b><%:Operate%></b></td>
+				<%- count = count + 1; end -%>
+				</tr>		
+				<!--
+				<tr align="center">
+				<%- if not self.anonymous then -%>
+					<%- if self.sectiondesc then -%>
+						<td><%=self.sectiondesc%></td>
+					<%- else -%>
+						<td></td>
+					<%- end -%>
+				<%- end -%>
+				<%- for i, k in pairs(self.children) do if not k.optional then -%>
+					<td><b><%=k.description%></b></td>
+				<%- end; end; if self.sortable then -%>
+					<td></td>
+				<%- end; if self.extedit or self.addremove then -%>
+					<td></td>
+				<%- end -%>
+				</tr>
+				-->
+				<%- local isempty = true
+				    for i, k in ipairs(self:cfgsections()) do
+						section = k
+						isempty = false
+						scope = { valueheader = "cbi/cell_valueheader", valuefooter = "cbi/cell_valuefooter" }
+				-%>
+				<tr align="center" id="cbi-<%=self.config%>-<%=section%>">
+					<% if not self.anonymous then -%>
+						<td><h3><%=(type(self.sectiontitle) == "function") and self:sectiontitle(section) or k%></h3></td>
+					<%- end %>
+	
+	
+					<%-
+						for k, node in ipairs(self.children) do
+							if not node.optional then
+								node:render(section, scope or {})
+							end
+						end
+					-%>
+	
+					<%- if self.sortable then -%>
+						<td>
+							<a href="#" onclick="return cbi_row_swap(this, true,  'cbi.sts.<%=self.config%>.<%=self.sectiontype%>')" title="<%:Move up%>"><img src="<%=resource%>/cbi/up.gif" alt="<%:Move up%>" /></a>
+							<a href="#" onclick="return cbi_row_swap(this, false, 'cbi.sts.<%=self.config%>.<%=self.sectiontype%>')" title="<%:Move down%>"><img src="<%=resource%>/cbi/down.gif" alt="<%:Move down%>" /></a>
+						</td>
+					<%- end -%>
+	
+					<%- if self.extedit or self.addremove then -%>
+						<td>
+							<%- if self.extedit then -%>
+								<a href="
+								<%- if type(self.extedit) == "string" then -%>
+									<%=self.extedit:format(section)%>
+								<%- elseif type(self.extedit) == "function" then -%>
+									<%=self:extedit(section)%>
+								<%- end -%>
+								" title="<%:Edit%>"><img style="border: none" src="<%=resource%>/cbi/edit.gif" alt="<%:Edit%>" /></a>
+							<%- end; if self.addremove then %>
+								<!--<input type="image" value="<%:Delete%>" onclick="this.form.cbi_state='del-section'; return true" name="cbi.rts.<%=self.config%>.<%=k%>" alt="<%:Delete%>" title="<%:Delete%>" src="<%=resource%>/cbi/remove.gif" />-->
+								<input type="image" value="<%:Delete%>" onclick="return delclick();" name="cbi.rts.<%=self.config%>.<%=k%>" alt="<%:Delete%>" title="<%:Delete%>" src="<%=resource%>/cbi/remove.gif" />
+							<%- end -%>
+						</td>
+					<%- end -%>
+				</tr>
+				<%- end -%>
+				<script>
+					function delclick()
+					{
+						if (!confirm("Do you really want to delete the selected entry?"))	
+							return false;
+						else {
+							this.form.cbi_state='del-section';
+							return true;
+						}
+					}
+				</script>
+	
+				<%- if isempty then -%>
+				<tr align="center">
+					<td colspan="<%=count%>"><em><%:This section contains no values yet%></em></td>
+				</tr>
+				<%- end -%>
+			</table>
+		</div>
+    </div>
+    <% if self.error then %>
+        <div class="cbi-section-error">
+            <ul><% for _, c in pairs(self.error) do for _, e in ipairs(c) do -%>
+                <li><%=pcdata(e):gsub("\n","<br />")%></li>
+            <%- end end %></ul>
+        </div>
+    <% end %>
+
+    <%- if self.addremove then -%>
+        <% if self.template_addremove then include(self.template_addremove) else -%>
+        <div class="cbi-pages" align="center">
+            <% if self.anonymous then %>
+                <input class="cbi-button" type="submit" value="<%:Add%>" name="cbi.cts.<%=self.config%>.<%=self.sectiontype%>" title="<%:Add%>" />
+            <% else %>
+                <% if self.invalid_cts then -%><div class="cbi-section-error"><% end %>
+                <input type="text" id="cbi.cts.<%=self.config%>.<%=self.sectiontype%>" name="cbi.cts.<%=self.config%>.<%=self.sectiontype%>" />
+                <script type="text/javascript">cbi_validate_field('cbi.cts.<%=self.config%>.<%=self.sectiontype%>', true, 'uciname');</script>
+                <input class="cbi-button" type="submit" onclick="this.form.cbi_state='add-section'; return true" value="<%:Add%>" title="<%:Add%>" />
+                <% if self.invalid_cts then -%>
+                    <br /><%:Invalid%></div>
+                <%- end %>
+            <% end %>
+        </div>
+        <%- end %>
+    <%- end -%>
+</div>
+<!-- /tblsection -->

@@ -1,0 +1,12 @@
+#!/bin/sh
+opkg_uci_default_dir="/usr/lib/opkg/uci-default"
+[ -n "${IPKG_INSTROOT}" ] || {
+	[ ! -d ${opkg_uci_default_dir} ] && {
+		mkdir -p ${opkg_uci_default_dir} 
+	} 
+	cp -a /etc/uci-defaults/luci-theme-41-r3000_ODM ${opkg_uci_default_dir}/luci-theme-90-config
+
+	( . /etc/uci-defaults/luci-theme-41-r3000_ODM) &&	rm -f /etc/uci-defaults/luci-theme-41-r3000_ODM
+}
+
+exit 0

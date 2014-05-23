@@ -1,0 +1,511 @@
+<%#
+LuCI - Lua Configuration Interface
+Copyright 2008 Steven Barth <steven@midlink.org>
+Copyright 2008-2011 Jo-Philipp Wich <xm@subsignal.org>
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+	http://www.apache.org/licenses/LICENSE-2.0
+
+$Id: lan.htm 7022 2011-05-04 21:04:31Z jow $
+
+-%>
+
+<%-
+	local ntm = require "luci.model.network".init()
+	local utl = require "luci.util"
+	local ip = require "luci.ip"
+	local uci = require "luci.model.uci".cursor()
+	local sys = require "luci.sys"
+	local has_wifi = nixio.fs.access("/etc/config/wireless")
+	
+	local net
+	local netlist = { }
+	
+	
+	for _, net in ipairs(ntm:get_networks()) do
+--		if net:name() == "lan" or net:name() == "wan" then
+		if net:name() == "lan" then
+			netlist[#netlist+1] = net:name()
+		end
+	end
+
+	--wifi network
+	if has_wifi then
+		for _, dev in ipairs(ntm:get_wifidevs()) do
+
+			netlist[#netlist+1] = dev:name()
+	--[[
+			for i, wnet in ipairs(dev:get_wifinets()) do
+				netlist[#netlist+1] = wnet:name()
+			end
+	--]]
+		end
+	end
+	
+	--usb support
+	local has_usb = os.execute([[grep '/mnt/usb' /proc/mounts  >/dev/null 2>&1]]) == 0
+	local usbstatus ={}	
+	-- get the usb status
+	local usbdev = sys.usb_info()	
+	if usbdev then
+		for i,v in ipairs(usbdev) do
+			
+			local usbname
+			_,_,usbname=v:find("^(%w+)_")
+			if  usbname then
+				usbstatus[usbname] = "Connect"
+			end
+			
+		end
+	end
+		
+	-- lan switch port support
+	local has_lanport = nil
+	local lanportinfo={}
+
+	--check routin running of switch control 
+	local swrun = utl.exec(" ps | grep swSendCmd  | grep -v grep ")	
+	if swrun ~= "" then
+		has_lanport = 1 
+	end
+
+	if has_lanport then	
+	  for i=0,3,1 do 	  	
+	    lanportinfo[#lanportinfo + 1]= ntm:lannet_portinfo(i)
+	  end
+	end
+	--dhcp server
+	local has_dhcp = require"luci.fs".access("/etc/config/dhcp")	
+	local dhcpleases = require"luci.tools.status".dhcp_leases()
+	local arptbl = require"luci.sys".net.arptable()
+	local landevtbl = {}
+	
+	for i,landev in ipairs(dhcpleases) do
+			local ipaddr = landev.ipaddr
+			local itemtbl={}
+			if ipaddr then
+				itemtbl.ipaddr = landev.ipaddr
+				itemtbl.macaddr = landev.macaddr
+				itemtbl.expires = landev.expires
+			--	itemtbl.hostname = landev.hostname
+				landevtbl[ipaddr] = itemtbl
+			end
+	end
+
+	for i,landev in ipairs(arptbl) do
+		-- only lan	
+	
+		local finditem = 0
+		for ipaddr in pairs(landevtbl) do
+		
+			if ipaddr == landev["IP address"] then
+				finditem = 1
+				break
+			end
+		
+		end
+
+		if finditem ~= 1 then
+			-- only lan
+			if landev["Device"] == "br-lan" then
+				local ipaddr = landev["IP address"]
+				local itemtbl={}
+			
+				if ipaddr then
+					itemtbl.ipaddr = ipaddr
+					itemtbl.macaddr = landev["HW address"]
+					itemtbl.expires = 0					
+					landevtbl[ipaddr] = itemtbl
+				end
+		
+			end
+		end
+	
+	end
+	-- get the category of lan device ,need modify
+
+	local d1_s = uci:get("dhcp","d1","start")
+	local d1_e = uci:get("dhcp","d1","end")
+	local d2_s = uci:get("dhcp","d2","start")
+	local d2_e = uci:get("dhcp","d2","end")
+	local d3_s = uci:get("dhcp","d3","start")
+	local d3_e = uci:get("dhcp","d3","end")
+	local d4_s = uci:get("dhcp","d4","start")
+	local d4_e = uci:get("dhcp","d4","end")
+
+	d1_s = ip.IPv4(d1_s)
+	d1_e = ip.IPv4(d1_e)
+	
+	d2_s = ip.IPv4(d2_s)
+	d2_e = ip.IPv4(d2_e)
+	
+	d3_s = ip.IPv4(d3_s)
+	d3_e = ip.IPv4(d3_e)
+	
+	d4_s = ip.IPv4(d4_s)
+	d4_e = ip.IPv4(d4_e)
+	
+	for _,landev in pairs(landevtbl) do
+	
+		local lanaddr =ip.IPv4(landev.ipaddr)
+		if not d1_e:lower(lanaddr) and not d1_s:higher(lanaddr)  then
+			landev.category = "STB"
+		elseif  not d2_e:lower(lanaddr) and not d2_s:higher(lanaddr) then
+			landev.category = "Phone"
+		elseif not d3_e:lower(lanaddr) and  not d3_s:higher(lanaddr)  then
+			landev.category = "Camera"	
+		elseif  not d4_e:lower(lanaddr) and not d4_s:higher(lanaddr) then
+			landev.category = "Computer"
+		else
+			landev.category = "Unknown"
+		end
+		
+	end
+
+
+-%>
+
+<%+header%>
+
+<script type="text/javascript">//<![CDATA[
+
+	var iwxhr = new XHR();
+
+	var update_status = function() {
+		iwxhr.get('<%=luci.dispatcher.build_url("admin", "status", "iface_status", table.concat(netlist, ","))%>', null,
+			function(x, ifcs)
+			{
+			    
+				if (ifcs)
+				{
+					 
+					for (var i = 0; i < ifcs.length; i++)
+					{
+						
+						var ifc = ifcs[i];
+                        //alert("hello"+ifc.ifname);
+						var is_up = (ifc.flags && ifc.flags.up);
+						var rxb = ifc.stats ? ifc.stats["rx_bytes"] : 0;
+						var txb = ifc.stats ? ifc.stats["tx_bytes"] : 0;
+						var rxp = ifc.stats ? ifc.stats["rx_packets"] : 0;
+						var txp = ifc.stats ? ifc.stats["tx_packets"] : 0;
+						var rxerr = ifc.stats ? ifc.stats["rx_errors"] : 0;
+						var txerr = ifc.stats ? ifc.stats["tx_errors"] : 0;
+						var rxdrop = ifc.stats ? ifc.stats["rx_dropped"] : 0;
+						var txdrop = ifc.stats ? ifc.stats["tx_dropped"] : 0;
+						var mac = ifc.macaddr ? ifc.macaddr : '00:00:00:00:00:00';
+						var upt = '-';
+                               
+						var m = document.getElementById(ifc.id + '-ifc-mac');
+						if (m)
+						{
+							m.innerHTML = mac.toUpperCase();
+						}
+
+						var a = document.getElementById(ifc.id + '-ifc-addrs');
+						if (a)
+						{
+							if (ifc.ifname)
+							{
+								a.innerHTML = '';
+
+								if (ifc.ipaddrs && ifc.ipaddrs.length)
+								{									
+									for (var j = 0; j < ifc.ipaddrs.length; j++)
+										a.innerHTML += String.format(
+											'%s%s',
+											j ? ', ' : '',
+											ifc.ipaddrs[j].addr											
+										);
+								}								
+
+								if (!a.innerHTML)
+									a.innerHTML = '<em><%:No address configured on this interface.%></em>'
+							}
+							else
+							{
+								a.innerHTML = '<em><%:Interface not present or not connected yet.%></em>';
+							}
+						}
+						
+						if (ifc.ifname)
+						{
+							//rx
+							
+							  var a = document.getElementById(ifc.id + '-ifc-name');
+							  if (a)
+							  { 
+							     a.innerHTML  = ifc.ifname;
+							  }
+							  //rx
+							  var a = document.getElementById(ifc.id + '-rx-ifc-byte');
+							  if (a)
+							  { 
+							 
+							     a.innerHTML  = rxb;
+							  }
+							  var a = document.getElementById(ifc.id + '-rx-ifc-pkts');
+							  if (a)
+							  { 
+							     a.innerHTML  = rxp;
+							  }
+							  var a = document.getElementById(ifc.id + '-rx-ifc-error');
+							  if (a)
+							  { 
+							     a.innerHTML  = rxerr;
+							  }
+							  var a = document.getElementById(ifc.id + '-rx-ifc-drop');
+							  if (a)
+							  { 
+							     a.innerHTML  = rxdrop;
+							  }
+							  //tx
+							  var a = document.getElementById(ifc.id + '-tx-ifc-byte');
+							  if (a)
+							  { 
+							     a.innerHTML  = txb;
+							  }
+							  var a = document.getElementById(ifc.id + '-tx-ifc-pkts');
+							  if (a)
+							  { 
+							     a.innerHTML  = txp;
+							  }
+							  var a = document.getElementById(ifc.id + '-tx-ifc-error');
+							  if (a)
+							  { 
+							     a.innerHTML  = txerr;
+							  }
+							  var a = document.getElementById(ifc.id + '-tx-ifc-drop');
+							  if (a)
+							  { 
+							     a.innerHTML  = txdrop;
+							  }						  
+						}
+						
+					}
+				}
+
+			//	window.setTimeout(update_status, 5000);
+			}
+		)
+	};
+
+	update_status();
+//]]></script>
+	<div class="cbi-content">
+		<% if has_wifi then %>
+		<% for _, dev in ipairs(ntm:get_wifidevs()) do %>
+			<div class="cbi-section">
+	        	<div class="cbi-section-bg">
+	        		<div class="cbi-section-title"><%:WLAN Status%>&nbsp;&nbsp;</div>
+	            </div>
+	    	</div>
+	    	<div class="cbi-section">
+	            <div class="cbi-section-bg">
+	                <div class="cbi-table">
+	                	<table width="630" border="1" class="cbi-table-list" cellpadding="1" cellspacing="0" align="center">                	
+	                    <tr>
+	                        <td class="cbi-table-title"><%:Wireless Status%></td>
+	                        <% if dev:get("enabled") == "1" then%>  
+	                        <td class="cbi-table-field" id="wlan-ifc-status"><%:enable%></td>
+	                        <%else%>
+	                          <td class="cbi-table-field" id="wlan-ifc-status"><%:disable%></td>
+	                        <%end%>
+	                    </tr>
+	                    <% if dev:get("enabled") == "1"  then %>
+	                         <% if dev:get("channel") == "0"  then %>
+		                    <tr>
+		                        <td class="cbi-table-title"><%:Channel%></td>
+		                        <td class="cbi-table-field" id="wlan-ifc-channel"><%:auto%></td>
+		                    </tr>
+		                    <%else%>
+		                    	<tr>
+		                        <td class="cbi-table-title"><%:Channel%></td>
+		                        <td class="cbi-table-field" id="wlan-ifc-channel"><%=dev:get("channel")%></td>
+		                    </tr>
+		                    <%end%>
+	                    <% end %>	    
+	                    
+	                    </table>                 
+	                </div>
+	                <div class="cbi-table">
+	                	    <tr><td>&nbsp;</td></tr>
+	                	    <tr><td>&nbsp;</td></tr>
+	                </div>
+	                <div class="cbi-table">
+	                	<table width="630" border="1" class="cbi-table-list" cellpadding="1" cellspacing="0" align="center">
+	                	<tr>
+	      
+	                	<th class="cbi-table-title" colspan="4"><%:RX%></th>
+						<th class="cbi-table-title" colspan="4"><%:TX%></th>						
+	                	</tr>
+	                	<tr>
+	                		
+	                		<th class="cbi-table-title"><%:Bytes%></th>
+	                		<th class="cbi-table-title"><%:Packets%></th>
+				            <th class="cbi-table-title"><%:Error%></th>
+					        <th class="cbi-table-title"><%:Drop%></th>	
+					        <th class="cbi-table-title"><%:Bytes%></th>
+	                		<th class="cbi-table-title"><%:Packets%></th>
+					        <th class="cbi-table-title"><%:Error%></th>
+					        <th class="cbi-table-title"><%:Drop%></th>						
+	                	</tr>
+	                	
+	                	<% local   wlannet="wifi0" %>              	
+	                	<tr>    
+	                	     
+	                        <td class="cbi-table-field" id="<%=wlannet%>-rx-ifc-byte">-</td>
+	                        <td class="cbi-table-field" id="<%=wlannet%>-rx-ifc-pkts">-</td>
+							<td class="cbi-table-field" id="<%=wlannet%>-rx-ifc-error">-</td>
+							<td class="cbi-table-field" id="<%=wlannet%>-rx-ifc-drop">-</td>
+							<td class="cbi-table-field" id="<%=wlannet%>-tx-ifc-byte">-</td>
+	                        <td class="cbi-table-field" id="<%=wlannet%>-tx-ifc-pkts">-</td>
+							<td class="cbi-table-field" id="<%=wlannet%>-tx-ifc-error">-</td>
+							<td class="cbi-table-field" id="<%=wlannet%>-tx-ifc-drop">-</td>
+	                    </tr> 	     
+	                    </table>   
+	                </div>
+	                <div class="cbi-table">
+	                	    <tr><td>&nbsp;</td></tr>
+	                	    <tr><td>&nbsp;</td></tr>
+	                </div>
+	            </div>
+			</div>
+		<% end %>  
+		<% end %>  
+        <div class="cbi-section">
+        	<div class="cbi-section-bg">
+        		<div class="cbi-section-title"><%:LAN Status%>&nbsp;&nbsp;</div>
+            </div>
+    	</div>
+        <div class="cbi-section">
+            <div class="cbi-section-bg">
+            	<div class="cbi-table">
+                	<table width="630" border="1" class="cbi-table-list" cellpadding="1" cellspacing="0" align="center">
+                	<tr>
+                        <td class="cbi-table-title"><%:MAC Address%></td>
+                        <td class="cbi-table-field" id="lan-ifc-mac">-</td>
+                    </tr>
+                    <tr>
+                        <td class="cbi-table-title"><%:IP Address%></td>
+                        <td class="cbi-table-field" id="lan-ifc-addrs">-</td>
+                    </tr>               
+                    </table>           
+                </div>
+                <div class="cbi-table">
+                	    <tr><td>&nbsp;</td></tr>
+                	    <tr><td>&nbsp;</td></tr>
+                </div>                
+		<% if  has_lanport  then %>
+			<div class="cbi-table">
+                   <table width="630" border="1" class="cbi-table-list" cellpadding="1" cellspacing="0" align="center">
+               	        <tr>
+               	            <th class="cbi-table-title"><%:LAN-1%></th>
+               		    <th class="cbi-table-title"><%:LAN-2%></th>
+			    <th class="cbi-table-title"><%:LAN-3%></th>
+		            <th class="cbi-table-title"><%:LAN-4%></th>
+                        </tr>
+                       	<tr>                       
+                       	<%if lanportinfo[1].link == 1 then %>
+                         		<td class="cbi-table-field" id="lan1-ifc-status"><%:link up%></td>
+                           <%else%>
+                            	<td class="cbi-table-field" id="lan1-ifc-status"><%:link down%></td>
+                            <%end%>
+                           <%if lanportinfo[2].link == 1 then %>
+                         		<td class="cbi-table-field" id="lan2-ifc-status"><%:link up%></td>
+                           <%else%>
+                            	<td class="cbi-table-field" id="lan2-ifc-status"><%:link down%></td>
+                            <%end%>
+                            <%if lanportinfo[3].link == 1 then %>
+                         		<td class="cbi-table-field" id="lan3-ifc-status"><%:link up%></td>
+                           <%else%>
+                            	<td class="cbi-table-field" id="lan3-ifc-status"><%:link down%></td>
+                            <%end%>
+                            <%if lanportinfo[4].link == 1 then %>
+                         		<td class="cbi-table-field" id="lan4-ifc-status"><%:link up%></td>
+                           <%else%>
+                            	<td class="cbi-table-field" id="lan4-ifc-status"><%:link down%></td>
+                            <%end%>
+                        </tr>                   
+                    </table>                 
+       	        </div>
+                    <div class="cbi-table">
+                    	    <tr><td>&nbsp;</td></tr>
+                    	    <tr><td>&nbsp;</td></tr>
+                    </div>
+                    
+		<% end %>
+			<div class="cbi-table">
+               	<table width="630" border="1" class="cbi-table-list" cellpadding="1" cellspacing="0" align="center">
+                    <tr>
+                        <th class="cbi-table-title"><%:Device%></th>
+                	<th class="cbi-table-title"><%:IP Address%></th>
+			<th class="cbi-table-title"><%:MAC Address%></th>
+			<th class="cbi-table-title"><%:Status%></th>
+                    </tr>
+                    <% for _ ,landev in pairs(landevtbl) do %>
+                         <tr>  
+                         	  <%if landev.category =="Unknown" then%>
+                         	       <td class="cbi-table-field" id="dev-ifc-category"><%:Unknown%></td>
+                         	  <%else%>
+                            	 <td class="cbi-table-field" id="dev-ifc-category"><%=landev.category%></td>
+                              <%end%>
+                              <td class="cbi-table-field" id="dev-ifc-addrs"><%=landev.ipaddr%></td>
+			      <td class="cbi-table-field" id="dev-ifc-mac"><%=landev.macaddr%></td>
+			      <%if landev.expires == 0 then%>
+			   	   	<td class="cbi-table-field" id="dev-ifc-status"><%:Static%></td>
+			      <%else%>
+			 		<td class="cbi-table-field" id="dev-ifc-status"><%:Dynamic%></td>
+			      <%end%>
+                         </tr>                   
+                     <% end %>
+                </table>   
+                 </div>
+                    <div class="cbi-table">
+                    	    <tr><td>&nbsp;</td></tr>
+                    	    <tr><td>&nbsp;</td></tr>
+                    </div>
+                    <div class="cbi-table">
+                	<table width="630" border="1" class="cbi-table-list" cellpadding="1" cellspacing="0" align="center">
+                	<tr>
+
+                		<th class="cbi-table-title" colspan="4"><%:RX%></th>
+						<th class="cbi-table-title" colspan="4"><%:TX%></th>						
+                	</tr>
+                	<tr>
+                	
+                		<th class="cbi-table-title"><%:Bytes%></th>
+                		<th class="cbi-table-title"><%:Packets%></th>
+						<th class="cbi-table-title"><%:Error%></th>
+						<th class="cbi-table-title"><%:Drop%></th>	
+						<th class="cbi-table-title"><%:Bytes%></th>
+                		<th class="cbi-table-title"><%:Packets%></th>
+						<th class="cbi-table-title"><%:Error%></th>
+						<th class="cbi-table-title"><%:Drop%></th>						
+                	</tr>
+                	<tr>    
+                  
+                        <td class="cbi-table-field" id="lan-rx-ifc-byte">-</td>
+                        <td class="cbi-table-field" id="lan-rx-ifc-pkts">-</td>
+						<td class="cbi-table-field" id="lan-rx-ifc-error">-</td>
+						<td class="cbi-table-field" id="lan-rx-ifc-drop">-</td>
+						<td class="cbi-table-field" id="lan-tx-ifc-byte">-</td>
+                        <td class="cbi-table-field" id="lan-tx-ifc-pkts">-</td>
+						<td class="cbi-table-field" id="lan-tx-ifc-error">-</td>
+						<td class="cbi-table-field" id="lan-tx-ifc-drop">-</td>
+                    </tr>                   
+                    </table>   
+			</div>
+                    <div class="cbi-table">
+                    	    <tr><td>&nbsp;</td></tr>
+                    	    <tr><td>&nbsp;</td></tr>
+                    </div>   
+            </div>
+    	</div>
+
+	</div>
+
+<%+footer%>

@@ -1,0 +1,193 @@
+<%#
+LuCI - Lua Configuration Interface
+Copyright 2008 Steven Barth <steven@midlink.org>
+Copyright 2008 Jo-Philipp Wich <xm@leipzig.freifunk.net>
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+	http://www.apache.org/licenses/LICENSE-2.0
+
+$Id: index.htm 5453 2009-10-31 17:02:21Z jow $
+
+-%>
+<%
+	local http = require "luci.http"
+	local conf = require "luci.config"
+	assert(conf.main,
+		"/etc/config/luci seems to be corrupt, unable to find section 'main'")
+
+	local lang = conf.main.lang or "auto"
+	if lang == "auto" then
+		local aclang = http.getenv("HTTP_ACCEPT_LANGUAGE") or ""
+		for lpat in aclang:gmatch("[%w-]+") do
+			lpat = lpat and lpat:gsub("-", "_")
+			if conf.languages[lpat] then
+				lang = lpat
+				break
+			end
+		end
+	end
+%>
+<% if lang =="zh_cn" then%>
+
+<%+header_help%>
+		<div class="cbi-content">
+        	<div class="cbi-section">
+                <div class="cbi-section-bg">
+                    <div class="cbi-section-title"><%:Help%>&nbsp;&nbsp;</div>
+                </div>
+            </div>
+			<div class="cbi-section">
+          		<div class="cbi-section-bg">
+                    <div class="cbi-map">
+                        <div class="cbi-value">
+                            <div class="cbi-value-msg2 hand" onclick="toggleDl('status')">1&nbsp;<%:Status%></div>
+                        </div>
+                        <div id="status" style="display:none">
+                            <div class="cbi-value">
+                                <div class="cbi-value-msg"><a href="/luci-static/help_content_asp1.htm#Status"  target="_blank">1.1&nbsp;<%:Status%></a></div>
+                            </div>
+                            <div class="cbi-value">
+                                <div class="cbi-value-msg"><a href="/luci-static/help_content_asp1.htm#WAN Status"  target="_blank">1.2&nbsp;<%:WAN Status%></a></div>
+                            </div>
+                            <div class="cbi-value">
+                                <div class="cbi-value-msg"><a href="/luci-static/help_content_asp1.htm#LAN Status"  target="_blank">1.3&nbsp;<%:LAN Status%></a></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="cbi-map">
+                        <div class="cbi-value">
+                            <div class="cbi-value-msg2 hand" onclick="toggleDl('network')">2&nbsp;<%:Network%></div>
+                        </div>
+                        <div id="network" style="display:none">
+                            <div class="cbi-value">
+                                <div class="cbi-value-msg"><a href="/luci-static/help_content_asp1.htm#WLAN"  target="_blank">2.1&nbsp;<%:WLAN%></a></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="cbi-map">
+                        <div class="cbi-value">
+                            <div class="cbi-value-msg2 hand" onclick="toggleDl('security')">3&nbsp;<%:Security%></div>
+                        </div>
+                        <div id="security" style="display:none">
+                            <div class="cbi-value">
+                                <div class="cbi-value-msg"><a href="/luci-static/help_content_asp1.htm#firewall"  target="_blank">3.1&nbsp;<%:Firewall%></a></div>
+                            </div>
+                            <div class="cbi-value">
+                                <div class="cbi-value-msg"><a href="/luci-static/help_content_asp1.htm#WAN access"  target="_blank">3.2&nbsp;<%:Url Filter%></a></div>
+                            </div>
+                            <div class="cbi-value">
+                                <div class="cbi-value-msg"><a href="/luci-static/help_content_asp1.htm#MAC"  target="_blank">3.3&nbsp;<%:MAC Filter%></a></div>
+                            </div>
+              
+                        </div>
+                    </div>
+                    <div class="cbi-map">
+                        <div class="cbi-value">
+                            <div class="cbi-value-msg2 hand" onclick="toggleDl('system')">4&nbsp;<%:System%></div>
+                        </div>
+                        <div id="system" style="display:none">
+                            <div class="cbi-value">
+                                <div class="cbi-value-msg"><a href="/luci-static/help_content_asp1.htm#admin"  target="_blank">4.1&nbsp;<%:Adminstration%></a></div>
+                            </div>
+                            <div class="cbi-value">
+                                <div class="cbi-value-msg"><a href="/luci-static/help_content_asp1.htm#backup"  target="_blank">4.2&nbsp;<%:Backup/Restore%></a></div>
+                            </div>
+                           <div class="cbi-value">
+                                <div class="cbi-value-msg"><a href="/luci-static/help_content_asp1.htm#reboot"  target="_blank">4.3&nbsp;<%:Reboot%></a></div>
+                            </div>
+                            <div class="cbi-value">
+                                <div class="cbi-value-msg"><a href="/luci-static/help_content_asp1.htm#logout"  target="_blank">4.4&nbsp;<%:Logout%></a></div>
+                            </div>
+                        </div>
+                    </div>
+            	</div>
+			</div>
+        </div>
+
+<%+footer%>
+
+<%else%>
+<%+header_help%>
+		<div class="cbi-content">
+        	<div class="cbi-section">
+                <div class="cbi-section-bg">
+                    <div class="cbi-section-title"><%:Help%>&nbsp;&nbsp;</div>
+                </div>
+            </div>
+			<div class="cbi-section">
+          		<div class="cbi-section-bg">
+                    <div class="cbi-map">
+                        <div class="cbi-value">
+                            <div class="cbi-value-msg2 hand" onclick="toggleDl('status')">1&nbsp;<%:Status%></div>
+                        </div>
+                        <div id="status" style="display:none">
+                            <div class="cbi-value">
+                                <div class="cbi-value-msg">1.1&nbsp;<%:Status%></a></div>
+                            </div>
+                            <div class="cbi-value">
+                                <div class="cbi-value-msg">1.2&nbsp;<%:WAN Status%></a></div>
+                            </div>
+                            <div class="cbi-value">
+                                <div class="cbi-value-msg">1.3&nbsp;<%:LAN Status%></a></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="cbi-map">
+                        <div class="cbi-value">
+                            <div class="cbi-value-msg2 hand" onclick="toggleDl('network')">2&nbsp;<%:Network%></div>
+                        </div>
+                        <div id="network" style="display:none">
+                            <div class="cbi-value">
+                                <div class="cbi-value-msg"><a href="/luci-static/help_content_asp1.htm#WLAN"  target="_blank">2.1&nbsp;<%:WLAN%></a></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="cbi-map">
+                        <div class="cbi-value">
+                            <div class="cbi-value-msg2 hand" onclick="toggleDl('security')">3&nbsp;<%:Security%></div>
+                        </div>
+                        <div id="security" style="display:none">
+                            <div class="cbi-value">
+                                <div class="cbi-value-msg">3.1&nbsp;<%:Firewall%></a></div>
+                            </div>
+                            <div class="cbi-value">
+                                <div class="cbi-value-msg">3.2&nbsp;<%:Url Filter%></a></div>
+                            </div>
+                            <div class="cbi-value">
+                                <div class="cbi-value-msg">3.3&nbsp;<%:MAC Filter%></a></div>
+                            </div>
+              
+                        </div>
+                    </div>
+                    <div class="cbi-map">
+                        <div class="cbi-value">
+                            <div class="cbi-value-msg2 hand" onclick="toggleDl('system')">4&nbsp;<%:System%></div>
+                        </div>
+                        <div id="system" style="display:none">
+                            <div class="cbi-value">
+                                <div class="cbi-value-msg">4.1&nbsp;<%:Adminstration%></a></div>
+                            </div>
+                            <div class="cbi-value">
+                                <div class="cbi-value-msg">4.2&nbsp;<%:Backup/Restore%></a></div>
+                            </div>
+                           <div class="cbi-value">
+                                <div class="cbi-value-msg">4.3&nbsp;<%:Reboot%></a></div>
+                            </div>
+                            <div class="cbi-value">
+                                <div class="cbi-value-msg">4.4&nbsp;<%:Logout%></a></div>
+                            </div>
+                        </div>
+                    </div>
+            	</div>
+			</div>
+        </div>
+
+<%+footer%>
+<%end%>
