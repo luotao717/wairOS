@@ -1,0 +1,155 @@
+#
+# Makefile for the GoAhead web server reference source base
+#  for the uClinux OS
+#
+# Copyright (c) GoAhead Software, Inc. 1995-2000
+#
+# $Id: //WIFI_SOC/release/SDK_4_1_0_0/source/user/goahead/src/Makefile#2 $
+#
+
+NAME	= goahead
+
+# User Management switch
+UMSW	= -DUSER_MANAGEMENT_SUPPORT
+
+
+
+# If-Modified-Support switches (requires math library, libm.a)
+# IFMODSW = -DWEBS_IF_MODIFIED_SUPPORT
+# IFMODLIB = /usr/lib/libm.a
+
+# Dependencies
+DEPEND_FILES	= asp.o balloc.o base64.o cgi.o default.o  \
+				  ejlex.o ejparse.o form.o \
+				  h.o handler.o mime.o misc.o page.o \
+				  ringq.o rom.o \
+				  sock.o sockGen.o $(SSLPATCHFILE) \
+				  security.o sym.o uemf.o url.o value.o \
+				  md5c.o um.o umui.o websda.o emfdb.o \
+				  webrom.o webs.o websuemf.o \
+				  utils.o $(NAME).o
+
+
+
+CFLAGS	+= -DWEBS -DUEMF -DOS="LINUX" -DLINUX $(UMSW) $(DASW) $(SSLSW) $(IFMODSW)
+CFLAGS  += -Wall -fno-strict-aliasing
+#CFLAGS	+= -I$(ROOTDIR)/lib/libnvram -I$(ROOTDIR)/$(LINUXDIR)/drivers/char -I$(ROOTDIR)/$(LINUXDIR)/include
+#CFLAGS  += -I$(ROOTDIR)/$(LINUXDIR)/drivers/flash 
+OTHERS	= -DB_STATS -DB_FILL -DDEBUG
+LDFLAGS	+= $(SSLLIB) $(IFMODLIB)
+#LDLIBS	+= -lnvram
+
+
+all:	$(NAME)
+
+#
+#	Primary link
+#
+$(NAME): clean_inet $(DEPEND_FILES)
+	$(CC) -o $@ $(DEPEND_FILES) $(LDFLAGS) $(EXTRALIBS) $(LDLIBS)
+	$(STRIP) --remove-section=.note --remove-section=.comment $@
+
+clean:
+	rm -f $(NAME) *.o
+
+clean_inet:
+	rm -f internet.o
+
+#
+#	Dependencies
+#
+asp.o:  webs.h wsIntrn.h ej.h ejIntrn.h uemf.h
+
+balloc.o: balloc.c uemf.h
+
+base64.o:  base64.c webs.h wsIntrn.h  ej.h ejIntrn.h uemf.h
+
+cgi.o:  webs.h wsIntrn.h uemf.h
+
+default.o:  default.c webs.h wsIntrn.h ej.h ejIntrn.h uemf.h $(CONF_H)
+
+ejlex.o:  ejlex.c ej.h ejIntrn.h uemf.h
+
+ejparse.o:  ejparse.c ej.h ejIntrn.h uemf.h
+
+emfdb.o:  emfdb.h wsIntrn.h uemf.h
+
+firewall.o: firewall.c webs.h firewall.h $(CONF_H) $(UCONF_H)
+
+form.o:  form.c webs.h wsIntrn.h ej.h ejIntrn.h uemf.h
+
+goahead.o: goahead.c uemf.h wsIntrn.h internet.h utils.h wireless.h firewall.h management.h qos.h $(CONF_H) $(UCONF_H) $(BUSYBOXCONF_H)
+
+h.o:  h.c uemf.h
+
+handler.o:  handler.c webs.h wsIntrn.h ej.h ejIntrn.h uemf.h
+
+inic.o: inic.c inic.h internet.h utils.h webs.h $(CONF_H)
+
+legacy.o: legacy.c legacy.h internet.h utils.h webs.h $(CONF_H)
+
+internet.o: internet.c internet.h utils.h webs.h  $(CONF_H) $(UCONF_H) $(BUSYBOXCONF_H)
+
+management.o: management.c management.h webs.h $(CONF_H) $(UCONF_H) 
+
+matrix_ssl.o: matrix_ssl.c wsIntrn.h webs.h websSSL.h sslSocket.h
+
+md5c.o:  md5.h wsIntrn.h uemf.h
+
+media.o: media.c media.h webs.h
+
+mime.o:  mime.c webs.h wsIntrn.h ej.h ejIntrn.h uemf.h
+
+misc.o:  misc.c uemf.h
+
+page.o:  page.c webs.h wsIntrn.h ej.h ejIntrn.h uemf.h
+
+ringq.o:  ringq.c uemf.h
+
+rom.o:  rom.c webs.h wsIntrn.h ej.h ejIntrn.h uemf.h
+
+security.o:  security.c webs.h wsIntrn.h ej.h ejIntrn.h uemf.h $(CONF_H)
+
+sock.o:  sock.c uemf.h
+
+sockGen.o:  sockGen.c uemf.h $(CONF_H)
+
+sslSocket.o: sslSocket.c sslSocket.h
+
+station.o: station.c station.h oid.h stapriv.h webs.h $(CONF_H) $(UCONF_H)
+
+usb.o: usb.c usb.h webs.h $(UCONF_H)
+
+sym.o:  sym.c uemf.h
+
+uemf.o:  uemf.c uemf.h
+
+um.o:  webs.h wsIntrn.h um.h uemf.h
+
+umui.o:  webs.h wsIntrn.h um.h uemf.h
+
+url.o:  url.c webs.h wsIntrn.h ej.h ejIntrn.h uemf.h
+
+utils.o: utils.c utils.h webs.h $(CONF_H) $(UCONF_H)
+
+value.o:  value.c uemf.h
+
+webrom.o:  webrom.c webs.h wsIntrn.h uemf.h
+
+webs.o:  webs.c webs.h wsIntrn.h ej.h ejIntrn.h uemf.h $(CONF_H)
+
+websda.o:  webs.h wsIntrn.h websda.h uemf.h
+
+websuemf.o:  websuemf.c webs.h wsIntrn.h ej.h ejIntrn.h uemf.h
+
+websSSL.o:  websSSL.c websSSL.h wsIntrn.h ej.h ejIntrn.h uemf.h
+
+wireless.o: wireless.c wireless.h internet.h utils.h webs.h $(CONF_H) $(UCONF_H)
+
+wps.o: wps.c wps.h utils.h webs.h internet.h wireless.h station.h oid.h $(CONF_H)
+
+wps_inic.o: wps_inic.c wps.h utils.h webs.h internet.h oid.h $(CONF_H)
+
+wps_unique.o: wps_unique.c wps.h utils.h webs.h internet.h oid.h $(CONF_H)
+
+qos.o: qos.h utils.h $(CONF_H)

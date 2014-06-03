@@ -1,0 +1,52 @@
+td {
+	FONT-SIZE: 12px; COLOR: #000000; FONT-FAMILY:Arial, Helvetica, sans-serif
+}
+BODY {
+    FONT-SIZE: 12px
+}
+.button {
+	FONT-SIZE: 12px; FONT-FAMILY:Arial, Helvetica, sans-serif; width:100px;
+}
+.button3 {
+	FONT-SIZE: 12px; FONT-FAMILY:Arial, Helvetica, sans-serif; width:130px;
+}
+.table {
+	BORDER-RIGHT: #1651ab 1px solid; BORDER-TOP: #1651ab 1px solid; LIST-STYLE-POSITION: inside; FONT-SIZE: 12px; BORDER-LEFT: #1651ab 1px solid; COLOR: #2e338b; BORDER-BOTTOM: #1651ab 1px solid; WHITE-SPACE: normal; LIST-STYLE-TYPE: circle
+}
+.title {
+	font-weight:bold; font-size:14px;
+}
+.title2 {
+	font-weight:bold;
+}
+.thead {
+	width:25%;
+}
+.tcenter {
+	background-color:#CCCCCC; height:25px; font-weight:bold;
+}
+
+#wps_progress_bar {
+	width:250px;
+	height:15;
+	margin:0 auto;
+	border:1px solid gray;
+}
+
+#loading {
+   width:300px;
+   height:160px;
+   background-color:#333333;
+   color:#ffffff;
+   position:absolute;
+   left:50%;
+   top:50%;
+   margin-top:-150px;
+   margin-left:-250px;
+   text-align:center;
+   font-family: Arial, Helvetica, sans-serif; 
+}
+h2 {
+	font-weight:bold; font-size:14px;
+}
+ 
