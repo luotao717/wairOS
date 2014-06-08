@@ -77,7 +77,8 @@ platform_check_image() {
 	[ "$ARGC" -gt 1 ] && return 1
 
 	case "$board" in
-	wifi-router)
+	wifi-router | \
+	wifi-router-poe )
 		[ "$magic_long" != "27051956"  ] && {
 			echo "Invalid image type."
 			return 1
@@ -94,7 +95,8 @@ platform_do_upgrade() {
 	local board=$(ramips_board_name)
 
 	case "$board" in
-	wifi-router)
+	wifi-router | \
+	wifi-router-poe )
 		default_do_upgrade "$ARGV"
 		;;
 	*)

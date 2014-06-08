@@ -15,3 +15,13 @@ define Profile/WIFI_ROUTER/Description
 endef
 
 $(eval $(call Profile,WIFI_ROUTER))
+
+define Profile/WIFI_ROUTER_POE
+	NAME:=Richerlink WIFI-ROUTER-POE reference board
+endef
+
+define Profile/WIFI_ROUTER_POE/Description
+	Package set optimized for the Ralink MT7620: WIFI-ROUTER-POE reference board.
+endef
+
+$(eval $(call Profile,WIFI_ROUTER_POE))

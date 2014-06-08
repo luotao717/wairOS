@@ -33,6 +33,9 @@ ramips_board_detect() {
 	machine=$(awk 'BEGIN{FS="[ \t]+:[ \t]"} /machine/ {print $2}' /proc/cpuinfo)
 
 	case "$machine" in
+	*WIFI-ROUTER-POE*)
+		name="wifi-router-poe"
+		;;
 	*WIFI-ROUTER*)
 		name="wifi-router"
 		;;
