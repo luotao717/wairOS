@@ -17,7 +17,7 @@ endef
 $(eval $(call Profile,WIFI_ROUTER))
 
 define Profile/WIFI_ROUTER_POE
-	NAME:=Richerlink WIFI-ROUTER-POE reference board
+	NAME:=WiairOS WIFI-ROUTER-POE reference board
 endef
 
 define Profile/WIFI_ROUTER_POE/Description
