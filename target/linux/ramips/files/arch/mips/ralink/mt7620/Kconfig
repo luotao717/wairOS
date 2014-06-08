@@ -6,6 +6,11 @@ config MT7620_MACH_WIFI_ROUTER
 	bool "Demo WifiRouter support"
 	select RALINK_DEV_GPIO_BUTTONS
 	select RALINK_DEV_GPIO_LEDS
+
+config MT7620_MACH_WIFI_ROUTER_POE
+	bool "Demo WifiRouter PoE support"
+	select RALINK_DEV_GPIO_BUTTONS
+	select RALINK_DEV_GPIO_LEDS
 endmenu
 
 endif
