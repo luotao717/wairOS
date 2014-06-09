@@ -28,6 +28,3 @@ export PPP_IFACE PPP_TTY PPP_SPEED PPP_LOCAL PPP_REMOTE PPP_IPPARAM
 		[ -x "$SCRIPT" ] && "$SCRIPT" "$@"
 	done
 }
-#[ -z "$PPP_IPPARAM" ] ||  iptables -t nat -A POSTROUTING -s 192.168.1.0/24 -o pppoe-wan -j MASQUERADE
-
-
