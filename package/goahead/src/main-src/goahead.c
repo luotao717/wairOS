@@ -41,7 +41,7 @@ void	formDefineUserMgmt(void);
  *	Change configuration here
  */
 
-static char_t		*rootWeb = T("/etc_ro/web");		/* Root web directory */
+static char_t		*rootWeb = T("/wwwg");		/* Root web directory */
 static char_t		*password = T("");				/* Security password */
 static int			port = 80;						/* Server port */
 static int			retries = 5;					/* Server port retries */

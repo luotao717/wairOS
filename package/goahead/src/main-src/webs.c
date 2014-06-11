@@ -67,7 +67,7 @@ static int 		websLogFd;						/* Log file handle */
 #endif
 
 static int		websListenSock;					/* Listen socket */
-static char_t	websRealm[64] = T("TOTOLINK");	/* Realm name */
+static char_t	websRealm[64] = T("WIFI CLOUD");	/* Realm name */
 
 static int		websOpenCount = 0;		/* count of apps using this module */
 
