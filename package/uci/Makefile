@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2008 OpenWrt.org
+# Copyright (C) 2008-2011 OpenWrt.org
 #
 # This is free software, licensed under the GNU General Public License v2.
 # See /LICENSE for more information.
@@ -7,13 +7,13 @@
 
 include $(TOPDIR)/rules.mk
 
-UCI_VERSION=2011-01-19
-UCI_RELEASE=1
+UCI_VERSION=12012009
+UCI_RELEASE=7
 
 PKG_NAME:=uci
 PKG_VERSION:=$(UCI_VERSION)$(if $(UCI_RELEASE),.$(UCI_RELEASE))
-PKG_RELEASE:=1
-PKG_REV:=a5eb996e0f04d911ff61479508bbc3e17b16ff0c
+PKG_RELEASE:=4
+PKG_REV:=aa3ab8012bfbf793d2884c08ea924545a04e9544
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=git://nbd.name/uci.git
@@ -104,7 +104,7 @@ endef
 
 define Build/InstallDev
 	$(INSTALL_DIR) $(1)/usr/include
-	$(CP) $(PKG_BUILD_DIR)/uci{,_config,map}.h $(1)/usr/include
+	$(CP) $(PKG_BUILD_DIR)/uci{,_config}.h $(1)/usr/include
 	$(INSTALL_DIR) $(1)/usr/lib
 	$(CP) $(PKG_BUILD_DIR)/libuci.so* $(1)/usr/lib
 	$(CP) $(PKG_BUILD_DIR)/libuci.a $(1)/usr/lib
