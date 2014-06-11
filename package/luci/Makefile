@@ -383,6 +383,9 @@ $(eval $(call application,upnp,Universal Plug & Play configuration module,\
 $(eval $(call application,ntpc,NTP time synchronisation configuration module,\
 	+PACKAGE_luci-app-ntpc:ntpclient))
 
+$(eval $(call application,wifidog,wifidog configuration module,\
+	+PACKAGE_luci-app-wifidog:wifidog))
+
 $(eval $(call application,ddns,Dynamic DNS configuration module,\
 	+PACKAGE_luci-app-ddns:ddns-scripts))
 
