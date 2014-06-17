@@ -37,7 +37,7 @@ CFLAGS  += -Wall -fno-strict-aliasing
 #CFLAGS  += -I$(ROOTDIR)/$(LINUXDIR)/drivers/flash 
 OTHERS	= -DB_STATS -DB_FILL -DDEBUG
 LDFLAGS	+= $(SSLLIB) $(IFMODLIB)
-#LDLIBS	+= -lnvram
+LDLIBS	+= -luci
 
 
 all:	$(NAME)

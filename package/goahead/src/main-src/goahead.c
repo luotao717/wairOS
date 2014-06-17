@@ -25,6 +25,7 @@
 #include	<unistd.h> 
 #include	<sys/types.h>
 #include	<sys/wait.h>
+#include	<uci.h>
 
 #ifdef WEBS_SSL_SUPPORT
 #include	"websSSL.h"
@@ -156,7 +157,7 @@ static int initWebs(void)
 	char			host[128];
 #else
 //	const char			*lan_ip = nvram_bufget(RT2860_NVRAM, "lan_ipaddr");
-	const char			*lan_ip = "192.168.1.1";
+	const char			*lan_ip = "192.168.11.1";
 #endif
 	char			webdir[128];
 	char			*cp;
@@ -174,7 +175,39 @@ static int initWebs(void)
 //	char *admu = (char *) nvram_bufget(RT2860_NVRAM, "Login");
 //	char *admp = (char *) nvram_bufget(RT2860_NVRAM, "Password");
 	char *admu = "admin";
-	char *admp = "123456";	
+	char *admp = "123456";
+	struct uci_context *c;
+	struct uci_ptr p;
+	struct uci_package * pkg = NULL;  
+	char *a = strdup("network.lan.ipaddr");
+	char *bb = strdup("network.lan.ipaddr=192.168.1.4");
+	c = uci_alloc_context ();
+	if (UCI_OK != uci_load(c, "network", &pkg)) 
+	{
+		printf("\r\nerror in file");
+	}
+	if (uci_lookup_ptr (c, &p, a, 1) != UCI_OK)
+    {
+      uci_perror (c, "XXX");
+      return 1;
+    }
+	printf("\r\ndasdasdasd\r\n");
+	printf("\r\nuci ip = %s\n", p.o->v.string);
+	strcpy(p.o->v.string,"192.168.1.3");
+	p.value="192.168.1.3";
+	uci_set(c,&p);
+	printf("\r\nuci ip2 = %s\n", p.o->v.string);
+	uci_commit(c, &p.p, 1);
+	if (uci_lookup_ptr (c, &p,bb, 1) != UCI_OK)
+    {
+      uci_perror (c, "XXX");
+      return 1;
+    }
+	uci_set(c,&p);
+	printf("\r\nuci ip3 = %s\n", p.o->v.string);
+	uci_commit(c, &p.p, 0);
+	uci_free_context (c);
+	free (a);
 	umOpen();
 	//umRestore(T("umconfig.txt"));
 	//winfred: instead of using umconfig.txt, we create 'the one' adm defined in nvram
