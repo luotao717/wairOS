@@ -108,7 +108,7 @@ define Package/RalinkAP-util/install
 	$(INSTALL_DIR) $(1)/etc/config/
 	$(INSTALL_CONF) ./files/wireless.conf $(1)/etc/config/wireless
 	$(INSTALL_DIR) $(1)/lib/wifi/
-	$(INSTALL_DATA) ./files/RT5392AP.sh $(1)/lib/wifi/
+	$(INSTALL_BIN) ./files/RT5392AP.sh $(1)/lib/wifi/
 endef
 
 $(eval $(call BuildPackage,RalinkAP-util))
