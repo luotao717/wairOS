@@ -15,6 +15,9 @@ wifi-router)
 wifi-router-poe)
 	ucidef_set_led_timer "system" "system" "demo:green:system" "550" "350"
 	;;
+wifi-router-wallpoe)
+	ucidef_set_led_timer "system" "system" "demo:green:system" "550" "350"
+	;;
 esac
 
 ucidef_commit_leds

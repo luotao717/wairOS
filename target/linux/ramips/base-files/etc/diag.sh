@@ -36,6 +36,9 @@ get_status_led() {
 	wifi-router-poe)
 	#	status_led="demo:green:system"
 		;;
+	wifi-router-wallpoe)
+	#	status_led="demo:green:system"
+		;;
 	esac;
 }
 

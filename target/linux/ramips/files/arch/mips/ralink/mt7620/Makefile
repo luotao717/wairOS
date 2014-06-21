@@ -14,3 +14,5 @@ obj-$(CONFIG_EARLY_PRINTK)		+= early_printk.o
 obj-$(CONFIG_MT7620_MACH_WIFI_ROUTER)	+= mach-wifi-router.o
 
 obj-$(CONFIG_MT7620_MACH_WIFI_ROUTER_POE)	+= mach-wifi-router-poe.o
+
+obj-$(CONFIG_MT7620_MACH_WIFI_ROUTER_WALLPOE)	+= mach-wifi-router-wallpoe.o

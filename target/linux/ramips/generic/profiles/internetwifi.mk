@@ -25,3 +25,13 @@ define Profile/WIFI_ROUTER_POE/Description
 endef
 
 $(eval $(call Profile,WIFI_ROUTER_POE))
+
+define Profile/WIFI_ROUTER_WALLPOE
+	NAME:=WiairOS WIFI-ROUTER-WALLPOE reference board
+endef
+
+define Profile/WIFI_ROUTER_WALLPOE/Description
+	Package set optimized for the Ralink MT7620: WIFI-ROUTER-WALLPOE reference board.
+endef
+
+$(eval $(call Profile,WIFI_ROUTER_WALLPOE))

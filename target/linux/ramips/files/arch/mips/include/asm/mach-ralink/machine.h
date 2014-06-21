@@ -15,4 +15,5 @@ enum ramips_mach_type {
 	RAMIPS_MACH_GENERIC,
 	RAMIPS_MACH_WIFI_ROUTER,/* Demo Wifi Router */
 	RAMIPS_MACH_WIFI_ROUTER_POE,/* Demo Wifi Router POE */
+	RAMIPS_MACH_WIFI_ROUTER_WALLPOE,/* Demo Wifi Router WALLPOE */
 };

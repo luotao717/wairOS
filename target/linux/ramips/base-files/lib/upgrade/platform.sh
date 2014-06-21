@@ -78,7 +78,8 @@ platform_check_image() {
 
 	case "$board" in
 	wifi-router | \
-	wifi-router-poe )
+	wifi-router-poe | \
+	wifi-router-wallpoe )
 		[ "$magic_long" != "27051956"  ] && {
 			echo "Invalid image type."
 			return 1
@@ -96,7 +97,8 @@ platform_do_upgrade() {
 
 	case "$board" in
 	wifi-router | \
-	wifi-router-poe )
+	wifi-router-poe | \
+	wifi-router-wallpoe )
 		default_do_upgrade "$ARGV"
 		;;
 	*)

@@ -158,7 +158,10 @@ endef
 
 #wifi_router_mtdlayout_8M=mtdparts=spi0.0:192k(u-boot)ro,64k(u-boot-config)ro,64k(Factory),960k(kernel),15104k(rootfs),16064k@0x50000(firmware)
 wifi_router_mtdlayout_8M=mtdparts=spi0.0:192k(u-boot)ro,64k(u-boot-config)ro,64k(Factory),960k(kernel),6912k(rootfs),7872k@0x50000(firmware)
+
 wifi_router_poe_mtdlayout_4M=mtdparts=spi0.0:192k(u-boot)ro,64k(u-boot-config)ro,896k(kernel),2880k(rootfs),64k(Factory),3776k@0x40000(firmware)
+
+wifi_router_wallpoe_mtdlayout_4M=mtdparts=spi0.0:192k(u-boot)ro,64k(u-boot-config)ro,896k(kernel),2880k(rootfs),64k(Factory),3776k@0x40000(firmware)
 
 define Image/BuildKernel
 	cp $(KDIR)/vmlinux.elf $(VMLINUX).elf
@@ -282,9 +285,11 @@ endef
 #$(eval $(call SingleProfile,AthLzma,$(fs_64k),WIFI_ROUTER_8M,wifi-router-8M,WIFI-ROUTER,ttyS1,115200,$$(wifi_router_mtdlayout_8M),983040,15466496,KRuImage))
 $(eval $(call SingleProfile,AthLzma,$(fs_64k),WIFI_ROUTER_8M,wifi-router-8M,WIFI-ROUTER,ttyS1,115200,$$(wifi_router_mtdlayout_8M),983040,7077888,KRuImage)) #test only use 8M ,for fast speed
 $(eval $(call SingleProfile,AthLzma,$(fs_64k),WIFI_ROUTER_POE_4M,wifi-router-poe-4M,WIFI-ROUTER-POE,ttyS1,57600,$$(wifi_router_poe_mtdlayout_4M),917504,2949120,KRuImage)) 
+$(eval $(call SingleProfile,AthLzma,$(fs_64k),WIFI_ROUTER_WALLPOE_4M,wifi-router-wallpoe-4M,WIFI-ROUTER-WALLPOE,ttyS1,57600,$$(wifi_router_wallpoe_mtdlayout_4M),917504,2949120,KRuImage)) 
 
 $(eval $(call MultiProfile,WIFI_ROUTER,WIFI_ROUTER_8M))
 $(eval $(call MultiProfile,WIFI_ROUTER-POE,WIFI_ROUTER_POE_4M))
+$(eval $(call MultiProfile,WIFI_ROUTER-WALLPOE,WIFI_ROUTER_WALLPOE_4M))
 $(eval $(call MultiProfile,Default,$(SINGLE_PROFILES)))
 $(eval $(call MultiProfile,Minimal,$(SINGLE_PROFILES)))
 
