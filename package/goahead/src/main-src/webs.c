@@ -824,6 +824,9 @@ static int websParseFirst(webs_t wp, char_t *text)
 	if (gstrcmp(ext, T(".asp")) == 0) {
 		wp->flags |= WEBS_ASP;
 	}
+	if (gstrcmp(ext, T(".htm")) == 0) {
+		wp->flags |= WEBS_ASP;
+	}
 	bfree(B_L, buf);
 
 	websUrlType(url, wp->type, TSZ(wp->type));

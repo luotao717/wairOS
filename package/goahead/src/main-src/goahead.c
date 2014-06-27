@@ -176,6 +176,7 @@ static int initWebs(void)
 //	char *admp = (char *) nvram_bufget(RT2860_NVRAM, "Password");
 	char *admu = "admin";
 	char *admp = "123456";
+/*
 	struct uci_context *c;
 	struct uci_ptr p;
 	struct uci_package * pkg = NULL;  
@@ -208,6 +209,7 @@ static int initWebs(void)
 	uci_commit(c, &p.p, 0);
 	uci_free_context (c);
 	free (a);
+	*/
 	umOpen();
 	//umRestore(T("umconfig.txt"));
 	//winfred: instead of using umconfig.txt, we create 'the one' adm defined in nvram
@@ -303,6 +305,8 @@ static int initWebs(void)
 //	formDefineFirewall();
 //	formDefineManagement();
 
+	formDefineNetwork();
+
 /*
  *	Create the Form handlers for the User Management pages
  */
@@ -329,7 +333,7 @@ static int websHomePageHandler(webs_t wp, char_t *urlPrefix, char_t *webDir,
  *	If the empty or "/" URL is invoked, redirect default URLs to the home page
  */
 	if (*url == '\0' || gstrcmp(url, T("/")) == 0) {
-		websRedirect(wp, T("home.asp"));
+		websRedirect(wp, T("index.htm"));
 		return 1;
 	}
 	return 0;

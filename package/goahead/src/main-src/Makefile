@@ -27,7 +27,7 @@ DEPEND_FILES	= asp.o balloc.o base64.o cgi.o default.o  \
 				  security.o sym.o uemf.o url.o value.o \
 				  md5c.o um.o umui.o websda.o emfdb.o \
 				  webrom.o webs.o websuemf.o \
-				  utils.o $(NAME).o
+				  utils.o wairosNetwork.o $(NAME).o
 
 
 
@@ -78,7 +78,7 @@ firewall.o: firewall.c webs.h firewall.h $(CONF_H) $(UCONF_H)
 
 form.o:  form.c webs.h wsIntrn.h ej.h ejIntrn.h uemf.h
 
-goahead.o: goahead.c uemf.h wsIntrn.h internet.h utils.h wireless.h firewall.h management.h qos.h $(CONF_H) $(UCONF_H) $(BUSYBOXCONF_H)
+goahead.o: goahead.c uemf.h wsIntrn.h internet.h utils.h wireless.h firewall.h management.h qos.h wairosNetwork.h $(CONF_H) $(UCONF_H) $(BUSYBOXCONF_H)
 
 h.o:  h.c uemf.h
 
@@ -153,3 +153,5 @@ wps_inic.o: wps_inic.c wps.h utils.h webs.h internet.h oid.h $(CONF_H)
 wps_unique.o: wps_unique.c wps.h utils.h webs.h internet.h oid.h $(CONF_H)
 
 qos.o: qos.h utils.h $(CONF_H)
+
+wairosNetwork.o :wairosNetwork.h $(CONF_H)
