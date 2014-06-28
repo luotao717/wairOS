@@ -99,6 +99,11 @@ static const u32 ramips_reg_table[RAETH_REG_COUNT] = {
 	[RAETH_REG_RST_GL] = REG_FE_RST_GL,
 };
 
+extern int rl_mtd_read(
+	char *name,
+	loff_t from,
+	size_t len,
+	u_char *buf);
 
 static struct net_device * ramips_dev;
 static void __iomem *ramips_fe_base = 0;
@@ -759,7 +764,16 @@ static int __init raeth_probe(struct net_device *dev)
 	pdata->reset_fe();
 
 	memcpy(dev->dev_addr, pdata->mac, ETH_ALEN);
-       dsadsadas;
+	//ddsadfsdfsd;
+#if 1 //by luo for read mac from flash
+	err = rl_mtd_read("Factory", 0x0028, 6, read_mac);
+	printk(KERN_INFO "read mac: ret: %d  mac %02X.%02X.%02X.%02X.%02X.%02X \n",err,
+			read_mac[0],read_mac[1],read_mac[2],read_mac[3],read_mac[4],read_mac[5]);
+       if ( err == 0)
+	{
+		memcpy(dev->dev_addr, read_mac, ETH_ALEN);
+	}
+#endif
 #ifdef   DO_MAC_READ
 /*	net_srandom(jiffies);*/
  	err = mt7620_mtd_read_nm("Factory", GMAC_BASE_OFFSET, ETH_ALEN, read_mac);
