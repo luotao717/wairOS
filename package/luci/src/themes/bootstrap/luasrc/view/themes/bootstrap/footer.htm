@@ -22,9 +22,7 @@ You may obtain a copy of the License at
 
 	local categories = disp.node_childs(tree)
 %>
-   <footer><a href="http://luci.subsignal.org/">Powered by <%= luci.__appname__ .. " (" .. luci.__version__ .. ")" %></a>
-
-    <%=luci.version.distversion%>
+   <footer>
 
     <% if #categories > 1 then %>
      <ul class="breadcrumb pull-right" id="modemenu">

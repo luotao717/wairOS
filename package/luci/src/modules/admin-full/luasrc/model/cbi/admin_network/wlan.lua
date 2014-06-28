@@ -57,7 +57,7 @@ end
 
 m = Map("wireless", translate("Wireless"), "")
 m.pagewlanaction = true
-m.redirect = dsp.build_url("admin", "network", "wlan")
+m.redirect = dsp.build_url("admin", "wireless", "wlan")
 
 local value_hmode 
 
@@ -363,7 +363,7 @@ wpsenable:depends({idx="SSID1",securityMode="WPAPSKWPA2PSK"})
 pbc = s:option(Button, "wps_pbc", translate("Start PBC"))
 function pbc.write(self,s)
 	os.execute("/sbin/dowps.sh pbc &")
-	luci.http.redirect(dsp.build_url("admin", "network", "wlan"))
+	luci.http.redirect(dsp.build_url("admin", "wireless", "wlan"))
 end
 pbc:depends("WPSEnable", "1")
 
@@ -395,7 +395,7 @@ function pin.write(self,s)
 	local pin=fs.readfile("/tmp/.Enrollee_pin") or ""
 	pin=pin:gsub("\n","")
 	os.execute("/sbin/dowps.sh pin " .. pin .. " &")
-	luci.http.redirect(dsp.build_url("admin", "network", "wlan"))
+	luci.http.redirect(dsp.build_url("admin", "wireless", "wlan"))
 end
 pin:depends("WPSEnable", "1")
 ]]

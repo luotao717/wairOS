@@ -18,7 +18,7 @@ module("luci.controller.admin.network", package.seeall)
 function index()
 	local uci = require("luci.model.uci").cursor()
 	local net = require "luci.model.network".init(uci)
-	local has_wifi = nixio.fs.stat("/etc/config/wireless")
+--	local has_wifi = nixio.fs.stat("/etc/config/wireless")
 	local has_switch = false
 
 	uci:foreach("network", "switch",

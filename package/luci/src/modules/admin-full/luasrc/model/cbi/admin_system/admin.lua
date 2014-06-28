@@ -38,7 +38,7 @@ function m.on_commit(map)
 
 	if v1 and v2 and #v1 > 0 and #v2 > 0 then
 		if v1 == v2 then
-			if luci.sys.user.setpasswd("root", v1) == 0 then
+			if luci.sys.user.setpasswd("useradmin", v1) == 0 then
 				m.message = translate("Password successfully changed!")
 			else
 				m.message = translate("Unknown Error, password not changed!")
@@ -84,8 +84,8 @@ pa.default  = pa.enabled
 pa.rmempty  = false
 
 
-ra = s:option(Flag, "RootPasswordAuth", translate("Allow root logins with password"),
-	translate("Allow the <em>root</em> user to login with password"))
+ra = s:option(Flag, "RootPasswordAuth", translate("Allow useradmin logins with password"),
+	translate("Allow the <em>useradmin</em> user to login with password"))
 
 ra.enabled  = "on"
 ra.disabled = "off"

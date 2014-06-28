@@ -2574,6 +2574,9 @@ msgstr "无线"
 msgid "Wifi networks in your local environment"
 msgstr "本地无线热点"
 
+msgid "AP Management"
+msgstr "AP管理"
+
 msgid "Wireless"
 msgstr "无线"
 
