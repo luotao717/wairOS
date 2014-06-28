@@ -116,5 +116,5 @@ static void __init wif_router_init(void)
 	mt7620_register_wdt();
 }
 
-MIPS_MACHINE(RAMIPS_MACH_WIFI_ROUTER, "WIFI-ROUTER", "Demo WIFI-ROUTER reference board",
+MIPS_MACHINE(RAMIPS_MACH_WIFI_ROUTER, "WIFI-ROUTER", "FansupCM7620",
 	     wif_router_init);

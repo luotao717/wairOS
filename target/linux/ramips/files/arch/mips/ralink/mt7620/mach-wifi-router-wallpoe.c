@@ -116,5 +116,8 @@ static void __init wifi_router_wallpoe_init(void)
 	mt7620_register_wdt();
 }
 
-MIPS_MACHINE(RAMIPS_MACH_WIFI_ROUTER_WALLPOE, "WIFI-ROUTER-WALLPOE", "Demo WIFI-ROUTER-WALLPOE reference board",
+/*MIPS_MACHINE(RAMIPS_MACH_WIFI_ROUTER_WALLPOE, "WIFI-ROUTER-WALLPOE", "Demo WIFI-ROUTER-WALLPOE reference board",
+	     wifi_router_wallpoe_init);
+*/
+MIPS_MACHINE(RAMIPS_MACH_WIFI_ROUTER_WALLPOE, "WIFI-ROUTER-WALLPOE", "FansupCL7620",
 	     wifi_router_wallpoe_init);

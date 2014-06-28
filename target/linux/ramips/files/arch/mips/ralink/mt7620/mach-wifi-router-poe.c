@@ -116,5 +116,5 @@ static void __init wifi_router_poe_init(void)
 	mt7620_register_wdt();
 }
 
-MIPS_MACHINE(RAMIPS_MACH_WIFI_ROUTER_POE, "WIFI-ROUTER-POE", "Demo WIFI-ROUTER-POE reference board",
+MIPS_MACHINE(RAMIPS_MACH_WIFI_ROUTER_POE, "WIFI-ROUTER-POE", "FansupWL7620",
 	     wifi_router_poe_init);

@@ -33,13 +33,16 @@ ramips_board_detect() {
 	machine=$(awk 'BEGIN{FS="[ \t]+:[ \t]"} /machine/ {print $2}' /proc/cpuinfo)
 
 	case "$machine" in
-	*WIFI-ROUTER-WALLPOE*)
+	*WIFI-ROUTER-WALLPOE* |\
+	*FansupCL7620*)
 		name="wifi-router-wallpoe"
 		;;
-	*WIFI-ROUTER-POE*)
+	*WIFI-ROUTER-POE* |\
+	*FansupWL7620*)
 		name="wifi-router-poe"
 		;;
-	*WIFI-ROUTER*)
+	*WIFI-ROUTER* |\
+	*FansupCM7620*)
 		name="wifi-router"
 		;;
 	esac

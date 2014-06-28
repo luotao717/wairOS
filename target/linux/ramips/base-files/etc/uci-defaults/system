@@ -1,0 +1,30 @@
+#!/bin/sh
+#
+# Copyright (C) 2014 OpenWrt.org
+#
+
+. /lib/functions/uci-defaults.sh
+. /lib/ramips.sh
+
+board=$(ramips_board_name)
+
+case "$board" in
+wifi-router) 
+	uci set system.@system[-1].hostname="Fansup" 
+#	set system.@system[-1].hwtype="FansupCM7620"
+	;;
+wifi-router-poe) 
+	uci set system.@system[-1].hostname="Fansup" 
+#	set system.@system[-1].hwtype="FansupWL7620"
+	;;
+wifi-router-wallpoe) 
+	uci set system.@system[-1].hostname="Fansup" 
+#	set system.@system[-1].hwtype="FansupCL7620"
+	;;
+*)
+	;;
+esac
+
+uci commit system 
+
+exit 0
