@@ -509,6 +509,8 @@ $(eval $(call theme,base,Common base for all themes))
 $(eval $(call theme,openwrt,OpenWrt.org (default),,,1))
 $(eval $(call theme,fledermaus,Fledermaus Theme))
 
+$(eval $(call theme,bootstrap,Bootstrap Theme))
+
 $(eval $(call theme,freifunk,alternative Freifunk Theme,\
 	Stefan Pirwitz <stefan-at-freifunk-bno-dot-de>))
 
