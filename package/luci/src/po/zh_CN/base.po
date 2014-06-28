@@ -2568,6 +2568,45 @@ msgstr "警告"
 msgid "Warning: There are unsaved changes that will be lost while rebooting!"
 msgstr "警告: 有尚未保存的更改，重启后将丢失!"
 
+msgid "Cloud"
+msgstr "云管理平台"
+
+msgid "Bind Device"
+msgstr "绑定设备"
+
+msgid "Bind Device"
+msgstr "绑定设备"
+
+msgid "Unbind Device"
+msgstr "解绑设备"
+
+msgid "Device Binded"
+msgstr "设备已绑定"
+
+msgid "Device Unbinded"
+msgstr "设备已解绑"
+
+msgid "Status Unknown"
+msgstr "未知状态"
+
+msgid "Bind Device Account"
+msgstr "绑定设备用户"
+
+msgid "Bind Device Password"
+msgstr "绑定设备密码"
+
+msgid "Bind"
+msgstr "绑定"
+
+msgid "Unbind"
+msgstr "解绑"
+
+msgid "Collect Waiting..."
+msgstr "正在操作，请等待..."
+
+msgid "Please get account and password from 'RippleTek Cloud Management Platform'->'device management', fill and operate device bind."
+msgstr "请填写从‘RippleTek 云管理平台’->‘设备管理’上获取的设备帐号和密码，进行操作"
+
 msgid "Wifi"
 msgstr "无线"
 

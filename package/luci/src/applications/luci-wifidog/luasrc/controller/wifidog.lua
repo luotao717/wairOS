@@ -16,25 +16,25 @@ module("luci.controller.wifidog", package.seeall)
 
 function index()
 	require("luci.i18n")
-	luci.i18n.loadc("wifidog")
+--	luci.i18n.loadc("wifidog")
 	
-	entry({"admin", "cloud"}, alias("admin", "cloud", "dev_bind"), luci.i18n.translate("Cloud"), 25).index = true 
+	entry({"admin", "cloud"}, alias("admin", "cloud", "dev_bind"), _("Cloud"), 25).index = true 
 
-	--local devbind = entry({"admin", "cloud", "dev_bind"}, cbi("wifidog/dev_bind"), luci.i18n.translate("dev_bind"), 10)
-	local devbind = entry({"admin", "cloud", "dev_bind"}, call("dev_bind"), luci.i18n.translate("Bind Device"), 10)
-	devbind.i18n = "wifidog"
+	--local devbind = entry({"admin", "cloud", "dev_bind"}, cbi("wifidog/dev_bind"), _("dev_bind"), 10)
+	local devbind = entry({"admin", "cloud", "dev_bind"}, call("dev_bind"), _("Bind Device"), 10)
+--	devbind.i18n = "wifidog"
 	
-	--local devunbind = entry({"admin", "cloud", "dev_unbind"}, cbi("wifidog/dev_unbind"), luci.i18n.translate("dev_unbind"), 20)
-	local devunbind = entry({"admin", "cloud", "dev_unbind"}, call("dev_unbind"), luci.i18n.translate("Unbind Device"), 20)
-	devunbind.i18n = "wifidog"
+	--local devunbind = entry({"admin", "cloud", "dev_unbind"}, cbi("wifidog/dev_unbind"), _("dev_unbind"), 20)
+	local devunbind = entry({"admin", "cloud", "dev_unbind"}, call("dev_unbind"), _("Unbind Device"), 20)
+--	devunbind.i18n = "wifidog"
 
 	--
 	if not nixio.fs.access("/etc/config/authserver.conf") then
 		return
 	end
 	
-	local page = entry({"admin", "network", "wifidog"}, cbi("wifidog/wifidog"), luci.i18n.translate("wifidog"), 50)
-	page.i18n = "wifidog"
+	local page = entry({"admin", "network", "wifidog"}, cbi("wifidog/wifidog"), _("wifidog"), 50)
+--	page.i18n = "wifidog"
 	page.dependent = true
 
 end
@@ -63,13 +63,13 @@ function dev_bind()
 	local status = info:match("status:([^\n]+)")
 
 	if status == "1" then -- Bind
-		Status_Message = "Device Binded"
+		Status_Message = luci.i18n.translate("Device Binded")
 	elseif status == "2" then
-		Status_Message = "Device Unbinded"
+		Status_Message = luci.i18n.translate("Device Unbinded")
 	elseif status == "0" then --running
 		bind = "3"
 	else
-		Status_Message = "Status Unknown"
+		Status_Message = luci.i18n.translate("Status Unknown")
 	end
 	
 	luci.template.render("wifidog/dev_bind", {bind=bind, Status_Message = Status_Message})
@@ -91,7 +91,7 @@ function dev_unbind()
 
 	if not nixio.fs.access("/etc/wifidog/bindstatus" ) then
 		bind = "2"; 
-		luci.template.render("wifidog/dev_bind", {bind=bind, Status_Message = Status_Message})
+		luci.template.render("wifidog/dev_unbind", {bind=bind, Status_Message = Status_Message})
 		return
 	end
 
@@ -99,15 +99,15 @@ function dev_unbind()
 	local status = info:match("status:([^\n]+)")
 
 	if status == "1" then -- Bind
-		Status_Message = "Device Binded"
+		Status_Message = luci.i18n.translate("Device Binded")
 	elseif status == "2" then
-		Status_Message = "Device Unbinded"
+		Status_Message = luci.i18n.translate("Device Unbinded")
 	elseif status == "0" then --running
 		bind = "3"
 	else
-		Status_Message = "Status Unknown"
+		Status_Message = luci.i18n.translate("Status Unknown")
 	end
 	
-	luci.template.render("wifidog/dev_bind", {bind=bind, Status_Message = Status_Message})
+	luci.template.render("wifidog/dev_unbind", {bind=bind, Status_Message = Status_Message})
 end
 
