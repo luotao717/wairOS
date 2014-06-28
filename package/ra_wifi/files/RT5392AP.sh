@@ -1,6 +1,9 @@
-#
-append DRIVERS "RT5392AP"
+#!/bin/sh
 
+#append DRIVERS "RT5392AP"
+
+. /etc/functions.sh
+config_load wireless
 scan_RT5392AP() {
     for vif in $VIFS; do
         config_get ifname "$vif" ifname
@@ -30,16 +33,15 @@ disable_RT5392AP() {
 # configure the device, then set up the
 # network (including adding the device to the bridge).
 enable_RT5392AP() {
-	local device=$DEVICES
+	local device=RT5392AP
+  local HT_GI=
+  local HT_BW=
+  config_get HT_BW "$device" HtBw	# 0:20MHz, 1:20/40MHz
+  config_get HT_GI "$device" HtGi	# 1:400ns, 0:800ns
+  echo $HT_BW
+  echo $HT_GI
     
-	config_get ifname $DEVICES ifname
-     
-    local HT_GI=
-    local HT_BW=
-    config_get HT_BW "$device" HtBw	# 0:20MHz, 1:20/40MHz
-    config_get HT_GI "$device" HtGi	# 1:400ns, 0:800ns
-    
-    local first=1
+  local first=1
 	local SSID1=
 	local SSID2=
 	local SSID3=
@@ -47,17 +49,18 @@ enable_RT5392AP() {
 	local AuthMode=
 	local EncrypType=
 	local DefaultKeyID=
-    local Key1Type= 
-    local Key2Type= 
-    local Key3Type= 
-    local Key4Type=
+  local Key1Type= 
+  local Key2Type= 
+  local Key3Type= 
+  local Key4Type=
 	local WPAPSK1=
 	local WPAPSK2=
 	local WPAPSK3=
 	local WPAPSK4=
-    local HideSSID=
+  local HideSSID=
 
-    for vif in $VIFS; do
+	OURVIFS="ra0 ra1"
+    for vif in $OURVIFS; do
 
 		config_get ssid "$vif" ssid
 		case "$vif" in
@@ -70,7 +73,9 @@ enable_RT5392AP() {
 			"ra3")
 				SSID4="$ssid";;
 		esac
-	
+		echo $SSID1
+		echo $SSID2
+		echo $SSID3
 		config_get securityMode "$vif" securityMode 	## NONE,WEP,WPAPSK,WPA2PSK,WPAPSKWPA2PSK
 			case "$securityMode" in  
 				"WEP")
@@ -175,13 +180,15 @@ enable_RT5392AP() {
     eval sed -i 's/^HT_BW=.*$/HT_BW="$HT_BW"/g' $DAT
 	eval sed -i 's/^HT_GI=.*$/HT_GI="$HT_GI"/g' $DAT
 	eval sed -i 's/^HideSSID=.*$/HideSSID="$HideSSID"/g' $DAT
+	echo 666
+	echo $WPAPSK2
 
     ## igmp enable
     #iwpriv ra0 set IgmpSnEnable=1
-    for	vif in $VIFS; do
+    for	vif in $OURVIFS; do
 		ifconfig $vif up
     done
-    for vif in $VIFS; do
+    for vif in $OURVIFS; do
 		
 		# Apply any global radio config 
 		[ "$first" = 1 ] && {
@@ -315,7 +322,7 @@ enable_RT5392AP() {
 	  		#unbridge "$vif"
 	  	else
 	  		ifconfig "$vif" up
-	  		#brctl addif br-lan "$vif"
+	  		brctl addif br-lan "$vif"
 			if true; then
 			config_get WPSEnable "$vif" WPSEnable
 			case "$securityMode" in
@@ -411,3 +418,6 @@ getValue() {
         fi
     fi
 }
+
+enable_RT5392AP
+echo 11111

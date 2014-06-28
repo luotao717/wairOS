@@ -1,0 +1,78 @@
+config dnsmasq dnsmasq_0
+	option domainneeded	1
+	option boguspriv	1
+	option filterwin2k	0  # enable for dial on demand
+	option localise_queries	1
+	option rebind_protection 1  # disable if upstream must serve RFC1918 addresses
+	option rebind_localhost 1  # enable for RBL checking and similar services
+	#list rebind_domain example.lan  # whitelist RFC1918 responses for domains
+	option local	'/lan/'
+	option domain	'lan'
+	option expandhosts	1
+	option nonegcache	0
+	option authoritative	1
+	option readethers	1
+	option leasefile	'/tmp/dhcp.leases'
+	option resolvfile	'/tmp/resolv.conf.auto'
+	#list server		'/mycompany.local/1.2.3.4'
+	#option nonwildcard	1
+	#list interface		br-lan
+	#list notinterface	lo
+	#list bogusnxdomain     '64.94.110.11'
+	option dhcp_en		1
+	option 'manual_dns' '0'
+	option 'dns1' '192.168.1.1'
+
+
+config vendorclass v1
+	option  networkid	n1
+	option 	vendorclass	'STB'
+
+config vendorclass v2
+	option  networkid	n2
+	option 	vendorclass	'Phone'
+
+config vendorclass v3
+	option  networkid	n3
+	option 	vendorclass	'Camera'
+
+config vendorclass v4
+	option  networkid	n4
+	option 	vendorclass	'Computer'
+
+config dhcp d1
+	option networkid 	n1
+	option start		192.168.1.10
+	option end 		192.168.1.20
+	option netmask		255.255.255.0
+	option leasetime	12h
+
+config dhcp d2
+	option networkid 	n2
+	option start		192.168.1.30
+	option end 		192.168.1.40
+	option netmask		255.255.255.0
+	option leasetime	12h
+
+config dhcp d3
+	option networkid 	n3
+	option start		192.168.1.50
+	option end 		192.168.1.60
+	option netmask		255.255.255.0
+	option leasetime	12h
+
+config dhcp d4
+	option networkid 	n4
+	option start		192.168.1.70
+	option end 		192.168.1.80
+	option netmask		255.255.255.0
+	option leasetime	12h
+
+config dhcp lan
+	option interface	lan
+	option start 	100
+	option limit	150
+	option leasetime	12h
+config dhcp wan
+	option interface	wan
+	option ignore	1

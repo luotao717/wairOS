@@ -11,9 +11,7 @@ PKG_NAME:=wifidog
 PKG_VERSION:=20090925
 PKG_RELEASE:=1
 
-PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
-PKG_SOURCE_URL:= @SF/$(PKG_NAME)
-PKG_MD5SUM:=e3ecacba67a91b6ea3c1072ba6c5a0b4
+PKG_BUILD_DIR := $(BUILD_DIR)/$(PKG_NAME)
 
 PKG_FIXUP:=libtool
 PKG_INSTALL:=1
@@ -27,6 +25,11 @@ define Package/wifidog
   DEPENDS:=+iptables-mod-extra +iptables-mod-ipopt +iptables-mod-nat +iptables-mod-nat-extra +libpthread
   TITLE:=A wireless captive portal solution
   URL:=http://www.wifidog.org
+endef
+
+define Build/Prepare
+	mkdir -p $(PKG_BUILD_DIR)
+	$(CP) ./src/* $(PKG_BUILD_DIR)/
 endef
 
 define Package/wifidog/description
@@ -50,8 +53,8 @@ define Package/wifidog/install
 	$(INSTALL_DIR) $(1)/etc
 	$(INSTALL_DATA) ./files/wifidog.conf $(1)/etc/
 	$(INSTALL_DATA) $(PKG_BUILD_DIR)/wifidog-msg.html $(1)/etc/
-	$(INSTALL_DIR) $(1)/etc/init.d
-	$(INSTALL_BIN) ./files/$(PKG_NAME).init $(1)/etc/init.d/wifidog
+#	$(INSTALL_DIR) $(1)/etc/init.d
+#	$(INSTALL_BIN) ./files/$(PKG_NAME).init $(1)/etc/init.d/wifidog
 endef
 
 $(eval $(call BuildPackage,wifidog))

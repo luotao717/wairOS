@@ -1,9 +1,13 @@
 #!/bin/sh /etc/rc.common
 # Copyright (C) 2006 OpenWrt.org
+
+wanproto=`uci get network.wan.proto`
 START=50
 
 start() {
-	pppoe-start
+	if [ "$wanproto" = "pppoe" ]; then
+		pppoe-start
+	fi
 }
 
 stop() {

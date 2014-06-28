@@ -26,9 +26,10 @@ define Build/Prepare
 endef
 
 define Package/wifidog_ext/install
-	$(INSTALL_DIR) $(1)/bin $(1)/etc $(1)/etc/init.d
+	$(INSTALL_DIR) $(1)/bin $(1)/etc $(1)/etc/init.d $(1)/usr $(1)/usr/bin
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/bin/* $(1)/bin/
 	$(CP) ./files/etc/* $(1)/etc/
+	$(CP) ./files/usr/bin/* $(1)/usr/bin/
 	$(INSTALL_BIN) ./files/wifidog_ext.init $(1)/etc/init.d/wifidog_ext
 endef
 

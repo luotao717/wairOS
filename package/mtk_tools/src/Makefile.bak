@@ -1,0 +1,21 @@
+#
+#	Makefile -- Build instructions for user level apps
+#
+
+
+#
+# Include architecture specific build rules.
+#
+
+
+dir_y = wmac
+dir_n =
+dir_  =
+
+all:
+	$(MAKE) -j$(HOST_NCPU) $(sort $(dir_y)) || exit $$?
+
+
+.PHONY: $(sort $(dir_y))
+
+

@@ -1,0 +1,32 @@
+#
+# Copyright (C) 2008-2010 OpenWrt.org
+#
+# This is free software, licensed under the GNU General Public License v2.
+# See /LICENSE for more information.
+#
+
+include $(TOPDIR)/rules.mk
+
+PKG_NAME:=mtktools
+PKG_RELEASE:=1
+
+include $(INCLUDE_DIR)/package.mk
+
+define Package/mtk-tools
+  SECTION:=utils
+  CATEGORY:=Utilities
+  DEPENDS:=RalinkAP-util
+  TITLE:=tools for mtk soc
+endef
+
+define Build/Prepare
+	mkdir -p $(PKG_BUILD_DIR)
+	$(CP) ./src/* $(PKG_BUILD_DIR)/
+endef
+
+define Package/mtk-tools/install
+	$(INSTALL_DIR) $(1)/usr/sbin
+	$(INSTALL_BIN) $(PKG_BUILD_DIR)/bin/* $(1)/usr/sbin/
+endef
+
+$(eval $(call BuildPackage,mtk-tools))

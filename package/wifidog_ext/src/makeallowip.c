@@ -210,11 +210,12 @@ int main()
 	FILE * allowfile = fopen("/etc/allow.conf","w+");
 	fwrite(allow_buf,1,strlen(allow_buf),allowfile);
 	fclose(allowfile);
-	system("rm /usr/local/etc/wifidog.conf");
+	system("rm -f /etc/wifidog.conf");
 	usleep(10000);
 	system("/usr/bin/getip.sh");
 	usleep(10000);
+	system("/usr/bin/getwanmac.sh");
+	usleep(10000);
 	system("/etc/makeconf.sh");
 	usleep(20000);
-
 }

@@ -759,7 +759,7 @@ static int __init raeth_probe(struct net_device *dev)
 	pdata->reset_fe();
 
 	memcpy(dev->dev_addr, pdata->mac, ETH_ALEN);
-
+       dsadsadas;
 #ifdef   DO_MAC_READ
 /*	net_srandom(jiffies);*/
  	err = mt7620_mtd_read_nm("Factory", GMAC_BASE_OFFSET, ETH_ALEN, read_mac);

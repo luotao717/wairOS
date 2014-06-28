@@ -1,0 +1,3 @@
+rm -f /etc/gwid.conf
+ifconfig eth0  | sed -n '/HWaddr/ s/^.*HWaddr //pg' | sed 's/://g' | awk -F" " '{print $1}'  >> /etc/gwid.conf
+
