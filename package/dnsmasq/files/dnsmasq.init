@@ -311,6 +311,7 @@ dhcp_add() {
 
 	leasetime="${leasetime:-12h}"
 	append args "--dhcp-range=192.168.1.$start,192.168.1.$limit,$leasetime"
+	append args "--address=/fansup.lan/192.168.1.1"
 	echo $args
 #	dhcp_option_add "$cfg" "$networkid"
 	echo $args

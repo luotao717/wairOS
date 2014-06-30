@@ -76,7 +76,7 @@ thread_ping(void *arg)
 		debug(LOG_DEBUG, "Running ping()");
 		ping();
             register_our();
-            bound_our();
+            //bound_our();
 		
 		/* Sleep for config.checkinterval seconds... */
 		timeout.tv_sec = time(NULL) + config_get_config()->checkinterval;
