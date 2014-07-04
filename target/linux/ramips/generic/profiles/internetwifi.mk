@@ -16,6 +16,17 @@ endef
 
 $(eval $(call Profile,WIFI_ROUTER))
 
+define Profile/WIFI_ROUTER_V2
+	NAME:=WiairOS WIFI-ROUTER_V2 reference board
+	PACKAGES:=kmod-usb-core kmod-usb2
+endef
+
+define Profile/WIFI_ROUTER_V2/Description
+	Package set optimized for the Ralink MT7620: WIFI-ROUTER_V2 reference board.
+endef
+
+$(eval $(call Profile,WIFI_ROUTER_V2))
+
 define Profile/WIFI_ROUTER_POE
 	NAME:=WiairOS WIFI-ROUTER-POE reference board
 endef

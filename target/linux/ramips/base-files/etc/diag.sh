@@ -33,6 +33,9 @@ get_status_led() {
 	wifi-router)
 	#	status_led="demo:green:system"
 		;;
+	wifi-router_v2)
+	#	status_led="demo:green:system"
+		;;
 	wifi-router-poe)
 	#	status_led="demo:green:system"
 		;;

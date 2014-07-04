@@ -78,6 +78,7 @@ platform_check_image() {
 
 	case "$board" in
 	wifi-router | \
+	wifi-router_v2 | \
 	wifi-router-poe | \
 	wifi-router-wallpoe )
 		[ "$magic_long" != "27051956"  ] && {
@@ -97,6 +98,7 @@ platform_do_upgrade() {
 
 	case "$board" in
 	wifi-router | \
+	wifi-router_v2 | \
 	wifi-router-poe | \
 	wifi-router-wallpoe )
 		default_do_upgrade "$ARGV"

@@ -13,6 +13,10 @@ wifi-router)
 	uci set system.@system[-1].hostname="Fansup" 
 #	set system.@system[-1].hwtype="FansupCM7620"
 	;;
+wifi-router_v2) 
+	uci set system.@system[-1].hostname="Fansup" 
+#	set system.@system[-1].hwtype="FansupCM7620"
+	;;
 wifi-router-poe) 
 	uci set system.@system[-1].hostname="Fansup" 
 #	set system.@system[-1].hwtype="FansupWL7620"

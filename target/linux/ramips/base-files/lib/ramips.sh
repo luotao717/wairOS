@@ -41,6 +41,9 @@ ramips_board_detect() {
 	*FansupWL7620*)
 		name="wifi-router-poe"
 		;;
+	*FansupCM7620_V2*)
+		name="wifi-router_v2"
+		;;
 	*WIFI-ROUTER* |\
 	*FansupCM7620*)
 		name="wifi-router"

@@ -284,10 +284,11 @@ endef
 #*******************************************
 #$(eval $(call SingleProfile,AthLzma,$(fs_64k),WIFI_ROUTER_8M,wifi-router-8M,WIFI-ROUTER,ttyS1,115200,$$(wifi_router_mtdlayout_8M),983040,15466496,KRuImage))
 $(eval $(call SingleProfile,AthLzma,$(fs_64k),WIFI_ROUTER_8M,wifi-router-8M,WIFI-ROUTER,ttyS1,115200,$$(wifi_router_mtdlayout_8M),983040,7077888,KRuImage)) #test only use 8M ,for fast speed
+$(eval $(call SingleProfile,AthLzma,$(fs_64k),WIFI_ROUTER_V2_8M,wifi-router_v2-8M,WIFI-ROUTER_V2,ttyS1,115200,$$(wifi_router_mtdlayout_8M),983040,7077888,KRuImage)) #test only use 8M ,for fast speed
 $(eval $(call SingleProfile,AthLzma,$(fs_64k),WIFI_ROUTER_POE_4M,wifi-router-poe-4M,WIFI-ROUTER-POE,ttyS1,57600,$$(wifi_router_poe_mtdlayout_4M),917504,2949120,KRuImage)) 
 $(eval $(call SingleProfile,AthLzma,$(fs_64k),WIFI_ROUTER_WALLPOE_4M,wifi-router-wallpoe-4M,WIFI-ROUTER-WALLPOE,ttyS1,57600,$$(wifi_router_wallpoe_mtdlayout_4M),917504,2949120,KRuImage)) 
 
-$(eval $(call MultiProfile,WIFI_ROUTER,WIFI_ROUTER_8M))
+$(eval $(call MultiProfile,WIFI_ROUTER,WIFI_ROUTER_8M WIFI_ROUTER_V2_8M ))
 $(eval $(call MultiProfile,WIFI_ROUTER-POE,WIFI_ROUTER_POE_4M))
 $(eval $(call MultiProfile,WIFI_ROUTER-WALLPOE,WIFI_ROUTER_WALLPOE_4M))
 $(eval $(call MultiProfile,Default,$(SINGLE_PROFILES)))

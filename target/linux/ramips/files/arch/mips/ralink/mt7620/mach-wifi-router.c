@@ -92,7 +92,7 @@ static struct gpio_led wif_router_leds_gpio[] __initdata = {
 	}
 };
 
-static void __init wif_router_init(void)
+static void __init wifi_router_init(void)
 {
 	mt7620_gpio_init((MT7620_GPIO_MODE_GPIO << MT7620_GPIO_MODE_UART0_SHIFT) | MT7620_GPIO_MODE_I2C	);
 	mt7620_register_spi(wif_router_spi_slave_info,
@@ -116,5 +116,32 @@ static void __init wif_router_init(void)
 	mt7620_register_wdt();
 }
 
+static void __init wifi_router_v2_init(void)
+{
+	mt7620_gpio_init((MT7620_GPIO_MODE_GPIO << MT7620_GPIO_MODE_UART0_SHIFT) | MT7620_GPIO_MODE_I2C	);
+	mt7620_register_spi(wif_router_spi_slave_info,
+			    ARRAY_SIZE(wif_router_spi_slave_info));
+	mt7620_esw_data.vlan_config = MT7620_ESW_VLAN_CONFIG_WLLLLL/*MT7620_ESW_VLAN_CONFIG_NLLLLW*/;
+
+	mt7620_esw_data.p4_phy_mode = MT7620_PM_MAC_TO_PHY ; 
+	mt7620_esw_data.p5_phy_mode = MT7620_PM_MAC_TO_PHY /*MT7620_PM_MII_TO_MAC*/; 
+
+
+	mt7620_register_ethernet();
+
+	ramips_register_gpio_leds(-1, ARRAY_SIZE(wif_router_leds_gpio),
+				  wif_router_leds_gpio);
+
+	ramips_register_gpio_buttons(-1, WIFI_ROUTER_KEYS_POLL_INTERVAL,
+				     ARRAY_SIZE(wif_router_gpio_buttons),
+				     wif_router_gpio_buttons);
+	mt7620_register_wifi();
+	mt7620_register_usb();
+	mt7620_register_wdt();
+}
+
 MIPS_MACHINE(RAMIPS_MACH_WIFI_ROUTER, "WIFI-ROUTER", "FansupCM7620",
-	     wif_router_init);
+	     wifi_router_init);
+
+MIPS_MACHINE(RAMIPS_MACH_WIFI_ROUTER_V2, "WIFI-ROUTER_V2", "FansupCM7620_V2",
+	     wifi_router_v2_init);
