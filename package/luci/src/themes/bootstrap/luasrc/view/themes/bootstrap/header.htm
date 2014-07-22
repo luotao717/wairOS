@@ -16,7 +16,7 @@ You may obtain a copy of the License at
 	local http = require "luci.http"
 	local disp = require "luci.dispatcher"
 
-	local hostname = sys.hostname()
+	local hostname = sys.hostname() .. "OS"
 
 	local request  = disp.context.path
 	local request2 = disp.context.request

@@ -1134,8 +1134,8 @@ msgstr "无效的VLAN ID！只允许 %d 至 %d 之间。"
 msgid "Invalid VLAN ID given! Only unique IDs are allowed"
 msgstr "无效的VLAN ID！禁止重复的ID"
 
-msgid "Invalid username and/or password! Please try again."
-msgstr "用户名或密码错误！请重试。"
+msgid "Invalid password! Please try again."
+msgstr "密码错误！请重试。"
 
 msgid ""
 "It appears that you try to flash an image that does not fit into the flash "
@@ -1676,6 +1676,10 @@ msgstr "数据包"
 
 msgid "Please enter your username and password."
 msgstr "请输入用户名和密码。"
+
+msgid "Please enter your password."
+msgstr "请输入密码。"
+
 
 msgid "Please wait: Device rebooting..."
 msgstr "设备重启中..."
@@ -2537,6 +2541,42 @@ msgstr "版本"
 msgid "WDS"
 msgstr "WDS"
 
+msgid "WEP Mode"
+msgstr "WEP 模式"
+
+msgid "WEP Key Length"
+msgstr "WEP 密钥长度"
+
+msgid "WEP Key Index"
+msgstr "WEP 密钥索引"
+
+msgid "WEP Key 1"
+msgstr "WEP 密钥1"
+
+msgid "WEP Key 2"
+msgstr "WEP 密钥2"
+
+msgid "WEP Key 3"
+msgstr "WEP 密钥3"
+
+msgid "WEP Key 4"
+msgstr "WEP 密钥4"
+
+msgid "40-bit: the key is 5 characters or 10 hex-digits;<br />104-bit: the key is 13 characters or 26 hex-digits"
+msgstr "40-bit: 密钥长度是5个字母或者10个16进制数字;<br /> 104-bit: 密钥是13个字母或者26个16进制数字"
+
+msgid "the length of key is no less than 8 and no more than 64"
+msgstr "密钥长度大于等于8 小于等于64"
+
+msgid "Open"
+msgstr "WEP开放认证"
+
+msgid "Share"
+msgstr "WEP共享密钥"
+
+msgid "Open+Share"
+msgstr "WEP开放共享密钥"
+
 msgid "WEP Open System"
 msgstr "WEP开放认证"
 
@@ -2587,7 +2627,7 @@ msgid "Device Unbinded"
 msgstr "设备已解绑"
 
 msgid "Status Unknown"
-msgstr "未知状态"
+msgstr "操作失败（未知状态 ）"
 
 msgid "Bind Device Account"
 msgstr "绑定设备用户"
@@ -2618,6 +2658,54 @@ msgstr "本地无线热点"
 
 msgid "AP Management"
 msgstr "AP管理"
+
+msgid "Basic Settings"
+msgstr "基本设置"
+
+msgid "Wireless Settings"
+msgstr "使能无线设置"
+
+msgid "Enable Wireless"
+msgstr "无线使能"
+
+msgid "Network Type"
+msgstr "网络类型"
+
+msgid "Channel Bandwidth"
+msgstr "频道带宽"
+
+msgid "Rate"
+msgstr "速率"
+
+msgid "Tx Power"
+msgstr "发射功率等级"
+
+msgid "Guard Interval"
+msgstr "保护间隔"
+
+msgid "Security Settings"
+msgstr "安全设置"
+
+msgid "SSID Index"
+msgstr "SSID索引"
+
+msgid "Enable SSID"
+msgstr "使能SSID"
+
+msgid "Hidden SSID"
+msgstr "隐藏SSID"
+
+msgid "Encrypt Type"
+msgstr "加密类型"
+
+msgid "WPA Cipher"
+msgstr "WPA 加密"
+
+msgid "WPA Key"
+msgstr "WPA 密钥"
+
+msgid "WPA Key is empty, please input again !"
+msgstr "WPA 密钥为空，请重新输入"
 
 msgid "Wireless"
 msgstr "无线"

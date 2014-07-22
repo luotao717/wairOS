@@ -48,10 +48,12 @@ function dev_bind()
 	local bind = nil
 	local Status_Message = "";
 
-	if account then
-		bind = "1";
-		-- running the script
-		luci.sys.call("/usr/sbin/wifidog_devbind.sh bind %s %s" %{ account, password })
+	if account and account ~= "" then
+		if password and password ~= "" then 
+			bind = "1";
+			-- running the script
+			luci.sys.call("/usr/sbin/wifidog_devbind.sh bind %s %s" %{ account, password })
+		end
 	end
 
 	if not nixio.fs.access("/etc/wifidog/bindstatus" ) then
@@ -84,10 +86,12 @@ function dev_unbind()
 	local bind = nil
 	local Status_Message = "";
 
-	if account then
-		bind = "1";
-		-- running the script
-		luci.sys.call("/usr/sbin/wifidog_devbind.sh unbind %s %s" %{ account, password })
+	if account and account ~= "" then
+		if password and password ~= "" then 
+			bind = "1";
+			-- running the script
+			luci.sys.call("/usr/sbin/wifidog_devbind.sh unbind %s %s" %{ account, password })
+		end
 	end
 
 	if not nixio.fs.access("/etc/wifidog/bindstatus" ) then
