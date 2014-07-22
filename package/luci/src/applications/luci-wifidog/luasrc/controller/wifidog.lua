@@ -28,14 +28,15 @@ function index()
 	local devunbind = entry({"admin", "cloud", "dev_unbind"}, call("dev_unbind"), _("Unbind Device"), 20)
 --	devunbind.i18n = "wifidog"
 
+--[[	
 	--
 	if not nixio.fs.access("/etc/config/authserver.conf") then
 		return
 	end
-	
 	local page = entry({"admin", "network", "wifidog"}, cbi("wifidog/wifidog"), _("wifidog"), 50)
 --	page.i18n = "wifidog"
 	page.dependent = true
+--]]
 
 end
 

@@ -19,6 +19,7 @@ function index()
 	local uci = require("luci.model.uci").cursor()
 	local net = require "luci.model.network".init(uci)
 --	local has_wifi = nixio.fs.stat("/etc/config/wireless")
+--[[
 	local has_switch = false
 
 	uci:foreach("network", "switch",
@@ -27,6 +28,7 @@ function index()
 			return false
 		end
 	)
+--]]
 
 	local page
 
@@ -35,13 +37,14 @@ function index()
 	page.title  = _("Network")
 	page.order  = 50
 	page.index  = true
-
+--[[
 	if has_switch then
 		page  = node("admin", "network", "vlan")
 		page.target = cbi("admin_network/vlan")
 		page.title  = _("Switch")
 		page.order  = 20
 	end
+--]]
 
 	if has_wifi and has_wifi.size > 0 then
 		entry({"admin", "network", "wlan"}, cbi("admin_network/wlan"), _("Wifi"), 15)  	
@@ -81,7 +84,7 @@ function index()
 		end
 	--]]
 	end
-
+--[[
 	page = entry({"admin", "network", "network"}, arcombine(cbi("admin_network/network"), cbi("admin_network/ifaces")), _("Interfaces"), 10)
 	page.leaf   = true
 	page.subindex = true
@@ -111,7 +114,8 @@ function index()
 			end
 		end
 	)
-
+--]]
+--[[
 	if nixio.fs.access("/etc/config/dhcp") then
 		page = node("admin", "network", "dhcp")
 		page.target = cbi("admin_network/dhcp")
@@ -126,6 +130,7 @@ function index()
 		page.title  = _("Hostnames")
 		page.order  = 40
 	end
+--]]
 
 	page  = node("admin", "network", "routes")
 	page.target = cbi("admin_network/routes")

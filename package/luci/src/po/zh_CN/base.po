@@ -2607,6 +2607,9 @@ msgstr "正在操作，请等待..."
 msgid "Please get account and password from 'RippleTek Cloud Management Platform'->'device management', fill and operate device bind."
 msgstr "请填写从‘Fansup 云管理平台’->‘设备管理’上获取的设备帐号和密码，进行操作"
 
+msgid "technical support by Yinjuinfo Technology Co.,Ltd"
+msgstr "银聚通讯为您提供技术支持"
+
 msgid "Wifi"
 msgstr "无线"
 
