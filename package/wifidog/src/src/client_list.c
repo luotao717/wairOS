@@ -131,6 +131,22 @@ client_list_find(const char *ip, const char *mac)
     return NULL;
 }
 
+int client_list_allnumber(void)
+{
+    int          clientnumber=0;
+     t_client         *ptr;
+
+    ptr = firstclient;
+    while (NULL != ptr) 
+    {
+       clientnumber++;
+        ptr = ptr->next;
+    }
+
+    return clientnumber;
+}
+
+
 /**
  * Finds a  client by its IP, returns NULL if the client could not
  * be found

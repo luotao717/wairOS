@@ -103,6 +103,10 @@ ping(void)
         size_t	        	totalbytes;
 	int			sockfd, nfds, done;
 	char			request[MAX_BUF];
+     char myssid[128]={0};
+     char myincome[128]={0};
+     char myoutcome[128]={0};
+     int allclient=0;
 	fd_set			readfds;
 	struct timeval		timeout;
 	FILE * fh;
@@ -113,7 +117,24 @@ ping(void)
 	auth_server = get_auth_server();
 	
 	debug(LOG_WARNING, "Entering ping()");
-	
+
+      if ((fh = popen("uci get wireless.ra0.ssid","r"))) 
+       {
+		fscanf(fh, "%s", myssid);
+		fclose(fh);
+	}
+	 if ((fh = popen("cat /proc/net/dev | grep eth1.2 | tr : \" \" | awk '{print $2}'","r"))) 
+       {
+		fscanf(fh, "%s", myincome);
+		fclose(fh);
+	}
+      if ((fh = popen("cat /proc/net/dev | grep eth1.2 | tr : \" \" | awk '{print $10}'","r"))) 
+       {
+		fscanf(fh, "%s", myoutcome);
+		fclose(fh);
+	}
+
+      allclient=client_list_allnumber();
 	/*
 	 * The ping thread does not really try to see if the auth server is actually
 	 * working. Merely that there is a web server listening at the port. And that
@@ -156,7 +177,7 @@ ping(void)
 	 * Prep & send request
 	 */
 	snprintf(request, sizeof(request) - 1,
-			"GET %s%sgw_id=%s&sys_uptime=%lu&sys_memfree=%u&sys_load=%.2f&wifidog_uptime=%lu HTTP/1.0\r\n"
+			"GET %s%sgw_id=%s&sys_uptime=%lu&sys_memfree=%u&sys_load=%.2f&wifidog_uptime=%lu&cpu_usage=%s&type=%s&ssid=%s&client_num=%d&incoming=%s&outgoing=%s HTTP/1.0\r\n"
 			"User-Agent: WiFiDog %s\r\n"
 			"Host: %s\r\n"
 			"\r\n",
@@ -167,6 +188,12 @@ ping(void)
 			sys_memfree,
 			sys_load,
 			(long unsigned int)((long unsigned int)time(NULL) - (long unsigned int)started_time),
+			"MTK7620N",
+			"fangzhi",
+			myssid,
+			allclient,
+			myincome,
+			myoutcome,
 			VERSION,
 			auth_server->authserv_hostname);
 
