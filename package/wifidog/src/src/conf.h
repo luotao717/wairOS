@@ -183,15 +183,15 @@ t_firewall_rule *get_ruleset(const char *);
 void parse_trusted_mac_list(char *);
 
 #define LOCK_CONFIG() do { \
-	debug(LOG_DEBUG, "Locking config"); \
+	debug(LOG_WARNING, "Locking config"); \
 	pthread_mutex_lock(&config_mutex); \
-	debug(LOG_DEBUG, "Config locked"); \
+	debug(LOG_WARNING, "Config locked"); \
 } while (0)
 
 #define UNLOCK_CONFIG() do { \
-	debug(LOG_DEBUG, "Unlocking config"); \
+	debug(LOG_WARNING, "Unlocking config"); \
 	pthread_mutex_unlock(&config_mutex); \
-	debug(LOG_DEBUG, "Config unlocked"); \
+	debug(LOG_WARNING, "Config unlocked"); \
 } while (0)
 
 #endif /* _CONFIG_H_ */

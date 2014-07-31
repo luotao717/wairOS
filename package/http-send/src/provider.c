@@ -631,7 +631,7 @@ int FANSUPBOUND_update_entry(struct userInfo_cxy *info)
 	char user[64], auth[64];
 
 
-       system("echo 0 > /etc/wifidog/bindstatus");
+       system("echo status:0 > /etc/wifidog/bindstatus");
        //printf("\r\nhhhhhh\r\n");
 	len = sprintf(user,"%s:%s", info->usrname , info->usrpwd);
 	base64_encode(user, len, auth, 64);

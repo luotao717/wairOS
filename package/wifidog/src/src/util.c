@@ -119,9 +119,9 @@ execute(char *cmd_line, int quiet)
         }
 
         /* for the parent:      */
-	debug(LOG_DEBUG, "Waiting for PID %d to exit", pid);
+	debug(LOG_WARNING, "Waiting for PID %d to exit", pid);
 	rc = waitpid(pid, &status, 0);
-	debug(LOG_DEBUG, "Process PID %d exited", rc);
+	debug(LOG_WARNING, "Process PID %d exited", rc);
 
         return (WEXITSTATUS(status));
 }
@@ -297,7 +297,7 @@ get_ext_iface(void)
 	struct	timespec	timeout;
 	device = (char *)malloc(16);
 	gw = (char *)malloc(16);
-	debug(LOG_DEBUG, "get_ext_iface(): Autodectecting the external interface from routing table");
+	debug(LOG_WARNING, "get_ext_iface(): Autodectecting the external interface from routing table");
 	while(keep_detecting) {
 		input = fopen("/proc/net/route", "r");
 		while (!feof(input)) {

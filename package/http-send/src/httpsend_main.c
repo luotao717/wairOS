@@ -126,11 +126,11 @@ int main(int argc,char *argv[])
        {
            if(ret == 0)
            {
-                system("echo 1 > /etc/wifidog/bindstatus");
+                system("echo status:1 > /etc/wifidog/bindstatus");
            }
            else
            {
-                system("echo 2 > /etc/wifidog/bindstatus");
+                system("echo status:2 > /etc/wifidog/bindstatus");
            }
        }
        else
@@ -138,11 +138,11 @@ int main(int argc,char *argv[])
             
             if(ret == 0)
             {
-                 system("echo 2 > /etc/wifidog/bindstatus");
+                 system("echo status:2 > /etc/wifidog/bindstatus");
             }
             else
             {
-                 system("echo 1 > /etc/wifidog/bindstatus");
+                 system("echo status:1 > /etc/wifidog/bindstatus");
             }
        }
 	return ret;

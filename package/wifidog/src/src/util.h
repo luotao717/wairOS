@@ -63,15 +63,15 @@ int is_auth_online();
 char * get_status_text();
 
 #define LOCK_GHBN() do { \
-	debug(LOG_DEBUG, "Locking wd_gethostbyname()"); \
+	debug(LOG_WARNING, "Locking wd_gethostbyname()"); \
 	pthread_mutex_lock(&ghbn_mutex); \
-	debug(LOG_DEBUG, "wd_gethostbyname() locked"); \
+	debug(LOG_WARNING, "wd_gethostbyname() locked"); \
 } while (0)
 
 #define UNLOCK_GHBN() do { \
-	debug(LOG_DEBUG, "Unlocking wd_gethostbyname()"); \
+	debug(LOG_WARNING, "Unlocking wd_gethostbyname()"); \
 	pthread_mutex_unlock(&ghbn_mutex); \
-	debug(LOG_DEBUG, "wd_gethostbyname() unlocked"); \
+	debug(LOG_WARNING, "wd_gethostbyname() unlocked"); \
 } while (0)
 
 #endif /* _UTIL_H_ */

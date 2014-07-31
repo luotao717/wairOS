@@ -6,7 +6,7 @@ echo 'AuthServer {' >> /etc/wifidog.conf
 echo Hostname `cat /etc/config/authserver.conf`  >> /etc/wifidog.conf
 echo 'SSLAvailable no
 SSLPort 443
-HTTPPort 9001
+HTTPPort 8099
 Path /fcp/router/
 LoginScriptPathFragment login?
 PortalScriptPathFragment tosuccess?

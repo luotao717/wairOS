@@ -291,6 +291,7 @@ dhcp_add() {
 	echo 11223
 #	[ -n "$networkid" ] || return 0
 
+	config_get ipaddr "$net" ipaddr
 	config_get start "$cfg" start
 	echo 00000
 	echo $start
@@ -310,8 +311,18 @@ dhcp_add() {
 	config_get_bool dynamicdhcp "$cfg" dynamicdhcp 1
 
 	leasetime="${leasetime:-12h}"
-	append args "--dhcp-range=192.168.1.$start,192.168.1.$limit,$leasetime"
-	append args "--address=/fansup.lan/192.168.1.1"
+	start="$(dhcp_calc "${start:-100}")"
+	limit="${limit:-150}"
+	[ "$limit" -gt 0 ] && limit=$((limit-1))
+	ipaddr=`uci get network.lan.ipaddr`
+	netmask=`uci get network.lan.netmask`
+	echo $ipaddr
+	echo $netmask
+	echo $start
+	echo $limit
+	eval "$(ipcalc.sh $ipaddr $netmask $start $limit)"
+	append args "--dhcp-range=lan,$START,$END,$NETMASK,$leasetime"
+	append args "--address=/fansup.lan/$ipaddr"
 	echo $args
 #	dhcp_option_add "$cfg" "$networkid"
 	echo $args

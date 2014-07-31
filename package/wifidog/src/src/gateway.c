@@ -150,7 +150,7 @@ void get_clients_from_parent(void) {
 
 		if (!onechar) {
 			/* We have a complete entry in linebuffer - parse it */
-			debug(LOG_DEBUG, "Received from parent: [%s]", linebuffer);
+			debug(LOG_WARNING, "Received from parent: [%s]", linebuffer);
 			running1 = linebuffer;
 			while ((token1 = strsep(&running1, "|")) != NULL) {
 				if (!command) {
@@ -256,11 +256,11 @@ sigchld_handler(int s)
 	int	status;
 	pid_t rc;
 	
-	debug(LOG_DEBUG, "Handler for SIGCHLD called. Trying to reap a child");
+	debug(LOG_WARNING, "Handler for SIGCHLD called. Trying to reap a child");
 
 	rc = waitpid(-1, &status, WNOHANG);
 
-	debug(LOG_DEBUG, "Handler for SIGCHLD reaped child PID %d", rc);
+	debug(LOG_WARNING, "Handler for SIGCHLD reaped child PID %d", rc);
 }
 
 /** Exits cleanly after cleaning up the firewall.  
@@ -310,7 +310,7 @@ init_signals(void)
 {
 	struct sigaction sa;
 
-	debug(LOG_DEBUG, "Initializing signal handlers");
+	debug(LOG_WARNING, "Initializing signal handlers");
 	
 	sa.sa_handler = sigchld_handler;
 	sigemptyset(&sa.sa_mask);
@@ -379,23 +379,23 @@ main_loop(void)
 
 	/* If we don't have the Gateway IP address, get it. Can't fail. */
 	if (!config->gw_address) {
-		debug(LOG_DEBUG, "Finding IP address of %s", config->gw_interface);
+		debug(LOG_WARNING, "Finding IP address of %s", config->gw_interface);
 		if ((config->gw_address = get_iface_ip(config->gw_interface)) == NULL) {
 			debug(LOG_ERR, "Could not get IP address information of %s, exiting...", config->gw_interface);
 			exit(1);
 		}
-		debug(LOG_DEBUG, "%s = %s", config->gw_interface, config->gw_address);
+		debug(LOG_WARNING, "%s = %s", config->gw_interface, config->gw_address);
 	}
 
 	/* If we don't have the Gateway ID, construct it from the internal MAC address.
 	 * "Can't fail" so exit() if the impossible happens. */
 	if (!config->gw_id) {
-    	debug(LOG_DEBUG, "Finding MAC address of %s", config->gw_interface);
+    	debug(LOG_WARNING, "Finding MAC address of %s", config->gw_interface);
     	if ((config->gw_id = get_iface_mac(config->gw_interface)) == NULL) {
 			debug(LOG_ERR, "Could not get MAC address information of %s, exiting...", config->gw_interface);
 			exit(1);
 		}
-		debug(LOG_DEBUG, "%s = %s", config->gw_interface, config->gw_id);
+		debug(LOG_WARNING, "%s = %s", config->gw_interface, config->gw_id);
 	}
 
 	/* Initializes the web server */
@@ -405,12 +405,14 @@ main_loop(void)
 		exit(1);
 	}
 
-	debug(LOG_DEBUG, "Assigning callbacks to web server");
+	debug(LOG_WARNING, "Assigning callbacks to web server");
 	httpdAddCContent(webserver, "/", "wifidog", 0, NULL, http_callback_wifidog);
 	httpdAddCContent(webserver, "/wifidog", "", 0, NULL, http_callback_wifidog);
 	httpdAddCContent(webserver, "/wifidog", "about", 0, NULL, http_callback_about);
 	httpdAddCContent(webserver, "/wifidog", "status", 0, NULL, http_callback_status);
 	httpdAddCContent(webserver, "/wifidog", "auth", 0, NULL, http_callback_auth);
+       //by luotao for weixin
+       httpdAddCContent(webserver, "/wifidog", "wxLogin", 0, NULL, http_callback_wxLogin);
 
 	httpdAddC404Content(webserver, http_callback_404);
 

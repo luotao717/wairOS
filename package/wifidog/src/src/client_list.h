@@ -80,15 +80,15 @@ t_client *client_list_find_by_token(const char *token);
 void client_list_delete(t_client *client);
 
 #define LOCK_CLIENT_LIST() do { \
-	debug(LOG_DEBUG, "Locking client list"); \
+	debug(LOG_WARNING, "Locking client list"); \
 	pthread_mutex_lock(&client_list_mutex); \
-	debug(LOG_DEBUG, "Client list locked"); \
+	debug(LOG_WARNING, "Client list locked"); \
 } while (0)
 
 #define UNLOCK_CLIENT_LIST() do { \
-	debug(LOG_DEBUG, "Unlocking client list"); \
+	debug(LOG_WARNING, "Unlocking client list"); \
 	pthread_mutex_unlock(&client_list_mutex); \
-	debug(LOG_DEBUG, "Client list unlocked"); \
+	debug(LOG_WARNING, "Client list unlocked"); \
 } while (0)
 
 #endif /* _CLIENT_LIST_H_ */

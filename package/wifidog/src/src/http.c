@@ -122,12 +122,14 @@ http_callback_404(httpd *webserver, request *r)
 				url);
 		} else {			
 			debug(LOG_INFO, "Got client MAC address for ip %s: %s", r->clientAddr, mac);
-			safe_asprintf(&urlFragment, "%sgw_address=%s&gw_port=%d&gw_id=%s&mac=%s&url=%s",
+			safe_asprintf(&urlFragment, "%sgw_address=%s&gw_port=%d&gw_id=%s&mac=%s&clientMac=%s&routerMac=%s&url=%s",
 				auth_server->authserv_login_script_path_fragment,
 				config->gw_address,
 				config->gw_port, 
 				config->gw_id,
 				mac,
+				mac,
+				config->gw_id,
 				url);
 		}
 
@@ -197,9 +199,39 @@ void http_send_redirect_to_auth(request *r, char *urlFragment, char *text)
 		auth_server->authserv_path,
 		urlFragment
 	);
+       debug(LOG_WARNING, "\r\n tt %s---%s\r\n", urlFragment,text);
 	http_send_redirect(r, url, text);
 	free(url);	
 }
+
+/*  by luotao for weixin  */
+void http_send_redirect_to_wxLogin(request *r, char *urlFragment, char *text)
+{
+	char *protocol = NULL;
+	int port = 80;
+	t_auth_serv	*auth_server = get_auth_server();
+
+	if (auth_server->authserv_use_ssl) {
+		protocol = "https";
+		port = auth_server->authserv_ssl_port;
+	} else {
+		protocol = "http";
+		port = auth_server->authserv_http_port;
+	}
+			    		
+	char *url = NULL;
+	safe_asprintf(&url, "%s://%s:%d%s%s",
+		protocol,
+		auth_server->authserv_hostname,
+		port,
+		auth_server->authserv_path,
+		urlFragment
+	);
+       debug(LOG_WARNING, "\r\n weixinlogin %s---%s\r\n", urlFragment,text);
+	http_send_redirect(r, url, text);
+	free(url);	
+}
+
 
 /** @brief Sends a redirect to the web browser 
  * @param r The request 
@@ -211,7 +243,7 @@ void http_send_redirect(request *r, char *url, char *text)
 		char *header = NULL;
 		char *response = NULL;
 							/* Re-direct them to auth server */
-		debug(LOG_DEBUG, "Redirecting client browser to %s", url);
+		debug(LOG_WARNING, "Redirecting client browser to %s", url);
 		safe_asprintf(&header, "Location: %s",
 			url
 		);
@@ -253,7 +285,7 @@ http_callback_auth(httpd *webserver, request *r)
 			LOCK_CLIENT_LIST();
 			
 			if ((client = client_list_find(r->clientAddr, mac)) == NULL) {
-				debug(LOG_DEBUG, "New client for %s", r->clientAddr);
+				debug(LOG_WARNING, "New client for %s", r->clientAddr);
 				client_list_append(r->clientAddr, mac, token->value);
 			} else if (logout) {
 			    t_authresponse  authresponse;
@@ -266,7 +298,7 @@ http_callback_auth(httpd *webserver, request *r)
 			    				    	
 			    fw_deny(client->ip, client->mac, client->fw_connection_state);
 			    client_list_delete(client);
-			    debug(LOG_DEBUG, "Got logout from %s", client->ip);
+			    debug(LOG_WARNING, "Got logout from %s", client->ip);
 			    
 			    /* Advertise the logout if we have an auth server */
 			    if (config->auth_servers != NULL) {
@@ -288,7 +320,7 @@ http_callback_auth(httpd *webserver, request *r)
 			    free(ip);
  			} 
  			else {
-				debug(LOG_DEBUG, "Client for %s is already in the client list", client->ip);
+				debug(LOG_WARNING, "Client for %s is already in the client list", client->ip);
 			}
 			UNLOCK_CLIENT_LIST();
 			if (!logout) {
@@ -301,6 +333,49 @@ http_callback_auth(httpd *webserver, request *r)
 		send_http_page(r, "WiFiDog error", "Invalid token");
 	}
 }
+
+
+// by luotao for weixin
+void 
+http_callback_wxLogin(httpd *webserver, request *r)
+{
+	t_client	*client;
+	httpVar * token;
+       httpVar * weixin;
+	char	*mac,*url;
+       s_config	*config = config_get_config();
+	httpVar *optmode = httpdGetVariableByName(r, "opt");
+	if ((weixin = httpdGetVariableByName(r, "weixin"))) 
+       {
+		/* They supplied variable "token" */
+		if (!(mac = arp_get(r->clientAddr))) 
+              {
+			/* We could not get their MAC address */
+			debug(LOG_ERR, "Failed to retrieve MAC address for ip %s", r->clientAddr);
+			send_http_page(r, "WiFiDog Error", "Failed to retrieve your MAC address");
+		} 
+             else 
+             {
+			/* We have their MAC address */
+                    char *urlFragment;
+			safe_asprintf(&urlFragment, "%sweixin=%s&opt=%s&gw_id=%s&clientMac=%s&routerMac=%s",
+				"authAccess?",
+				weixin->value,
+				optmode->value, 
+				config->gw_id,
+				mac,
+				config->gw_id);
+                    http_send_redirect_to_wxLogin(r, urlFragment, "Redirect to wxlogin page");
+		      free(urlFragment);
+		      free(mac);
+		}
+	} else 
+	{
+		/* They did not supply variable "token" */
+		send_http_page(r, "WiFiDog error", "Invalid weixin name");
+	}
+}
+
 
 void send_http_page(request *r, const char *title, const char* message)
 {

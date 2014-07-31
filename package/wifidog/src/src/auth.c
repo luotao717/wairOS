@@ -80,7 +80,7 @@ thread_client_timeout_check(const void *arg)
 		/* No longer needs to be locked */
 		pthread_mutex_unlock(&cond_mutex);
 	
-		debug(LOG_DEBUG, "Running fw_counter()");
+		debug(LOG_WARNING, "Running fw_counter()");
 	
 		fw_sync_with_authserver();
 	}
@@ -184,9 +184,9 @@ authenticate_client(request *r)
 		client->fw_connection_state = FW_MARK_KNOWN;
 		fw_allow(client->ip, client->mac, FW_MARK_KNOWN);
         served_this_session++;
-		safe_asprintf(&urlFragment, "%sgw_id=%s",
+		safe_asprintf(&urlFragment, "%sgw_id=%s&token=%s",
 			auth_server->authserv_portal_script_path_fragment,
-			config->gw_id
+			config->gw_id,client->token
 		);
 		http_send_redirect_to_auth(r, urlFragment, "Redirect to portal");
 		free(urlFragment);

@@ -91,7 +91,7 @@ extern pid_t restart_orig_pid;
 int
 fw_allow(char *ip, char *mac, int fw_connection_state)
 {
-    debug(LOG_DEBUG, "Allowing %s %s with fw_connection_state %d", ip, mac, fw_connection_state);
+    debug(LOG_WARNING, "Allowing %s %s with fw_connection_state %d", ip, mac, fw_connection_state);
 
     return iptables_fw_access(FW_ACCESS_ALLOW, ip, mac, fw_connection_state);
 }
@@ -106,7 +106,7 @@ fw_allow(char *ip, char *mac, int fw_connection_state)
 int
 fw_deny(char *ip, char *mac, int fw_connection_state)
 {
-    debug(LOG_DEBUG, "Denying %s %s with fw_connection_state %d", ip, mac, fw_connection_state);
+    debug(LOG_WARNING, "Denying %s %s with fw_connection_state %d", ip, mac, fw_connection_state);
 
     return iptables_fw_access(FW_ACCESS_DENY, ip, mac, fw_connection_state);
 }

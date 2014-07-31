@@ -108,7 +108,7 @@ iptables_do_command(const char *format, ...)
 
 	iptables_insert_gateway_id(&cmd);
 
-	debug(LOG_DEBUG, "Executing command: %s", cmd);
+	debug(LOG_WARNING, "Executing command: %s", cmd);
 
 	rc = execute(cmd, fw_quiet);
 
@@ -178,16 +178,16 @@ iptables_load_ruleset(const char * table, const char *ruleset, const char *chain
 	t_firewall_rule		*rule;
 	char			*cmd;
 
-	debug(LOG_DEBUG, "Load ruleset %s into table %s, chain %s", ruleset, table, chain);
+	debug(LOG_WARNING, "Load ruleset %s into table %s, chain %s", ruleset, table, chain);
 
 	for (rule = get_ruleset(ruleset); rule != NULL; rule = rule->next) {
 		cmd = iptables_compile(table, chain, rule);
-		debug(LOG_DEBUG, "Loading rule \"%s\" into table %s, chain %s", cmd, table, chain);
+		debug(LOG_WARNING, "Loading rule \"%s\" into table %s, chain %s", cmd, table, chain);
 		iptables_do_command(cmd);
 		free(cmd);
 	}
 
-	debug(LOG_DEBUG, "Ruleset %s loaded into table %s, chain %s", ruleset, table, chain);
+	debug(LOG_WARNING, "Ruleset %s loaded into table %s, chain %s", ruleset, table, chain);
 }
 
 	void
@@ -355,14 +355,14 @@ iptables_fw_destroy(void)
 {
 	fw_quiet = 1;
 
-	debug(LOG_DEBUG, "Destroying our iptables entries");
+	debug(LOG_WARNING, "Destroying our iptables entries");
 
 	/*
 	 *
 	 * Everything in the MANGLE table
 	 *
 	 */
-	debug(LOG_DEBUG, "Destroying chains in the MANGLE table");
+	debug(LOG_WARNING, "Destroying chains in the MANGLE table");
 	iptables_fw_destroy_mention("mangle", "PREROUTING", TABLE_WIFIDOG_TRUSTED);
 	iptables_fw_destroy_mention("mangle", "PREROUTING", TABLE_WIFIDOG_OUTGOING);
 	iptables_fw_destroy_mention("mangle", "POSTROUTING", TABLE_WIFIDOG_INCOMING);
@@ -378,7 +378,7 @@ iptables_fw_destroy(void)
 	 * Everything in the NAT table
 	 *
 	 */
-	debug(LOG_DEBUG, "Destroying chains in the NAT table");
+	debug(LOG_WARNING, "Destroying chains in the NAT table");
 	iptables_fw_destroy_mention("nat", "PREROUTING", TABLE_WIFIDOG_OUTGOING);
 	iptables_do_command("-t nat -F " TABLE_WIFIDOG_AUTHSERVERS);
 	iptables_do_command("-t nat -F " TABLE_WIFIDOG_OUTGOING);
@@ -398,7 +398,7 @@ iptables_fw_destroy(void)
 	 * Everything in the FILTER table
 	 *
 	 */
-	debug(LOG_DEBUG, "Destroying chains in the FILTER table");
+	debug(LOG_WARNING, "Destroying chains in the FILTER table");
 	iptables_fw_destroy_mention("filter", "FORWARD", TABLE_WIFIDOG_WIFI_TO_INTERNET);
 	iptables_do_command("-t filter -F " TABLE_WIFIDOG_WIFI_TO_INTERNET);
 	iptables_do_command("-t filter -F " TABLE_WIFIDOG_AUTHSERVERS);
@@ -440,7 +440,7 @@ iptables_fw_destroy_mention(
 
 	iptables_insert_gateway_id(&victim);
 
-	debug(LOG_DEBUG, "Attempting to destroy all mention of %s from %s.%s", victim, table, chain);
+	debug(LOG_WARNING, "Attempting to destroy all mention of %s from %s.%s", victim, table, chain);
 
 	safe_asprintf(&command, "iptables -t %s -L %s -n --line-numbers -v", table, chain);
 	iptables_insert_gateway_id(&command);
@@ -456,7 +456,7 @@ iptables_fw_destroy_mention(
 				/* Found victim - Get the rule number into rulenum*/
 				if (sscanf(line, "%9[0-9]", rulenum) == 1) {
 					/* Delete the rule: */
-					debug(LOG_DEBUG, "Deleting rule %s from %s.%s because it mentions %s", rulenum, table, chain, victim);
+					debug(LOG_WARNING, "Deleting rule %s from %s.%s because it mentions %s", rulenum, table, chain, victim);
 					safe_asprintf(&command2, "-t %s -D %s %s", table, chain, rulenum);
 					iptables_do_command(command2);
 					free(command2);
@@ -541,13 +541,13 @@ iptables_fw_counters_update(void)
 				debug(LOG_WARNING, "I was supposed to read an IP address but instead got [%s] - ignoring it", ip);
 				continue;
 			}
-			debug(LOG_DEBUG, "Read outgoing traffic for %s: Bytes=%llu", ip, counter);
+			debug(LOG_WARNING, "Read outgoing traffic for %s: Bytes=%llu", ip, counter);
 			LOCK_CLIENT_LIST();
 			if ((p1 = client_list_find_by_ip(ip))) {
 				if ((p1->counters.outgoing - p1->counters.outgoing_history) < counter) {
 					p1->counters.outgoing = p1->counters.outgoing_history + counter;
 					p1->counters.last_updated = time(NULL);
-					debug(LOG_DEBUG, "%s - Updated counter.outgoing to %llu bytes.  Updated last_updated to %d", ip, counter, p1->counters.last_updated);
+					debug(LOG_WARNING, "%s - Updated counter.outgoing to %llu bytes.  Updated last_updated to %d", ip, counter, p1->counters.last_updated);
 				}
 			} else {
 				debug(LOG_ERR, "Could not find %s in client list", ip);
@@ -580,12 +580,12 @@ iptables_fw_counters_update(void)
 				debug(LOG_WARNING, "I was supposed to read an IP address but instead got [%s] - ignoring it", ip);
 				continue;
 			}
-			debug(LOG_DEBUG, "Read incoming traffic for %s: Bytes=%llu", ip, counter);
+			debug(LOG_WARNING, "Read incoming traffic for %s: Bytes=%llu", ip, counter);
 			LOCK_CLIENT_LIST();
 			if ((p1 = client_list_find_by_ip(ip))) {
 				if ((p1->counters.incoming - p1->counters.incoming_history) < counter) {
 					p1->counters.incoming = p1->counters.incoming_history + counter;
-					debug(LOG_DEBUG, "%s - Updated counter.incoming to %llu bytes", ip, counter);
+					debug(LOG_WARNING, "%s - Updated counter.incoming to %llu bytes", ip, counter);
 				}
 			} else {
 				debug(LOG_ERR, "Could not find %s in client list", ip);

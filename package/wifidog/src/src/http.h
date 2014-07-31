@@ -40,6 +40,9 @@ void http_callback_status(httpd *webserver, request *r);
 /**@brief Callback for libhttpd, main entry point post login for auth confirmation */
 void http_callback_auth(httpd *webserver, request *r);
 
+//by luotao for weixin login
+void http_callback_wxLogin(httpd *webserver, request *r);
+
 /** @brief Sends a HTML page to web browser */
 void send_http_page(request *r, const char *title, const char* message);
 
@@ -47,4 +50,7 @@ void send_http_page(request *r, const char *title, const char* message);
 void http_send_redirect(request *r, char *url, char *text);
 /** @brief Convenience function to redirect the web browser to the authe server */
 void http_send_redirect_to_auth(request *r, char *urlFragment, char *text);
+/*  by luotao for weixin */
+void http_send_redirect_to_wxLogin(request *r, char *urlFragment, char *text);
+
 #endif /* _HTTP_H_ */

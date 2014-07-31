@@ -54,6 +54,14 @@ t_authcode auth_server_request(t_authresponse *authresponse,
 			unsigned long long int incoming,
 			unsigned long long int outgoing);
 
+/****by luotao for weixin ***********/
+t_authcode wxLogin_server_request(
+			const char *ip,
+			const char *mac,
+			const char *weixinname,
+			const char *optmode);
+
+
 /** @brief Tries really hard to connect to an auth server.  Returns a connected file descriptor or -1 on error */
 int connect_auth_server();
 

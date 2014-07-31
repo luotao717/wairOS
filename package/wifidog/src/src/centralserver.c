@@ -92,7 +92,7 @@ auth_server_request(t_authresponse *authresponse, const char *request_type, cons
 	memset(buf, 0, sizeof(buf));
         safe_token=httpdUrlEncode(token);
 	snprintf(buf, (sizeof(buf) - 1),
-		"GET %s%sstage=%s&ip=%s&mac=%s&token=%s&incoming=%llu&outgoing=%llu&gw_id=%s HTTP/1.0\r\n"
+		"GET %s%sstage=%s&ip=%s&mac=%s&token=%s&clientMac=%s&routerMac=%s&incoming=%llu&outgoing=%llu&gw_id=%s HTTP/1.0\r\n"
 		"User-Agent: WiFiDog %s\r\n"
 		"Host: %s\r\n"
 		"\r\n",
@@ -102,6 +102,8 @@ auth_server_request(t_authresponse *authresponse, const char *request_type, cons
 		ip,
 		mac,
 		safe_token,
+		mac,
+		 config_get_config()->gw_id,
 		incoming,
 		outgoing,
                 config_get_config()->gw_id,
@@ -111,10 +113,10 @@ auth_server_request(t_authresponse *authresponse, const char *request_type, cons
 
         free(safe_token);
 
-	debug(LOG_DEBUG, "Sending HTTP request to auth server: [%s]\n", buf);
+	debug(LOG_WARNING, "Sending HTTP request to auth server: [%s]\n", buf);
 	send(sockfd, buf, strlen(buf), 0);
 
-	debug(LOG_DEBUG, "Reading response");
+	debug(LOG_WARNING, "Reading response");
 	numbytes = totalbytes = 0;
 	done = 0;
 	do {
@@ -141,7 +143,7 @@ auth_server_request(t_authresponse *authresponse, const char *request_type, cons
 			}
 			else {
 				totalbytes += numbytes;
-				debug(LOG_DEBUG, "Read %d bytes, total now %d", numbytes, totalbytes);
+				debug(LOG_WARNING, "Read %d bytes, total now %d", numbytes, totalbytes);
 			}
 		}
 		else if (nfds == 0) {
@@ -161,7 +163,7 @@ auth_server_request(t_authresponse *authresponse, const char *request_type, cons
 	close(sockfd);
 
 	buf[totalbytes] = '\0';
-	debug(LOG_DEBUG, "HTTP Response from Server: [%s]", buf);
+	debug(LOG_WARNING, "HTTP Response from Server: [%s]", buf);
 	
 	if ((tmp = strstr(buf, "Auth: "))) {
 		if (sscanf(tmp, "Auth: %d", (int *)&authresponse->authcode) == 1) {
@@ -180,6 +182,104 @@ auth_server_request(t_authresponse *authresponse, const char *request_type, cons
 	return(AUTH_ERROR);
 }
 
+
+/*        by luotao for weixin */
+t_authcode
+wxLogin_server_request(const char *ip, const char *mac, const char *weixinname,const char *optmode)
+{
+	int sockfd;
+	ssize_t	numbytes;
+	size_t totalbytes;
+	char buf[MAX_BUF];
+	char *tmp;
+        char *safe_token;
+	int done, nfds;
+	fd_set			readfds;
+	struct timeval		timeout;
+	t_auth_serv	*auth_server = NULL;
+	auth_server = get_auth_server();
+	
+	sockfd = connect_auth_server();
+	if (sockfd == -1) {
+		/* Could not connect to any auth server */
+		return (AUTH_ERROR);
+	}
+
+	/**
+	 * TODO: XXX change the PHP so we can harmonize stage as request_type
+	 * everywhere.
+	 */
+	memset(buf, 0, sizeof(buf));
+	snprintf(buf, (sizeof(buf) - 1),
+		"GET %s%sweixin=%s&opt=%s&ip=%s&clientMac=%s&routerMac=%s&gw_id=%s HTTP/1.0\r\n"
+		"User-Agent: WiFiDog %s\r\n"
+		"Host: %s\r\n"
+		"\r\n",
+		auth_server->authserv_path,
+		"authAccess?",
+		weixinname,
+		optmode,
+		ip,
+		mac,
+		config_get_config()->gw_id,
+                config_get_config()->gw_id,
+		VERSION,
+		auth_server->authserv_hostname
+	);
+
+	debug(LOG_WARNING, "Sending HTTP request to wxLogin server: [%s]\n", buf);
+	send(sockfd, buf, strlen(buf), 0);
+
+	debug(LOG_WARNING, "Reading response");
+	numbytes = totalbytes = 0;
+	done = 0;
+	do {
+		FD_ZERO(&readfds);
+		FD_SET(sockfd, &readfds);
+		timeout.tv_sec = 30; /* XXX magic... 30 second is as good a timeout as any */
+		timeout.tv_usec = 0;
+		nfds = sockfd + 1;
+
+		nfds = select(nfds, &readfds, NULL, NULL, &timeout);
+
+		if (nfds > 0) {
+			/** We don't have to use FD_ISSET() because there
+			 *  was only one fd. */
+			numbytes = read(sockfd, buf + totalbytes, MAX_BUF - (totalbytes + 1));
+			if (numbytes < 0) {
+				debug(LOG_ERR, "An error occurred while reading from auth server: %s", strerror(errno));
+				/* FIXME */
+				close(sockfd);
+				return (AUTH_ERROR);
+			}
+			else if (numbytes == 0) {
+				done = 1;
+			}
+			else {
+				totalbytes += numbytes;
+				debug(LOG_WARNING, "Read %d bytes, total now %d", numbytes, totalbytes);
+			}
+		}
+		else if (nfds == 0) {
+			debug(LOG_ERR, "Timed out reading data via select() from auth server");
+			/* FIXME */
+			close(sockfd);
+			return (AUTH_ERROR);
+		}
+		else if (nfds < 0) {
+			debug(LOG_ERR, "Error reading data via select() from auth server: %s", strerror(errno));
+			/* FIXME */
+			close(sockfd);
+			return (AUTH_ERROR);
+		}
+	} while (!done);
+
+	close(sockfd);
+	/* XXX Never reached because of the above if()/else pair. */
+	return(AUTH_ERROR);
+}
+
+
 /* Tries really hard to connect to an auth server. Returns a file descriptor, -1 on error
  */
 int connect_auth_server() {
@@ -194,7 +294,7 @@ int connect_auth_server() {
 		mark_auth_offline();
 	}
 	else {
-		debug(LOG_DEBUG, "Connected to auth server");
+		debug(LOG_WARNING, "Connected to auth server");
 		mark_auth_online();
 	}
 	return (sockfd);
@@ -229,7 +329,7 @@ int _connect_auth_server(int level) {
 	for (auth_server = config->auth_servers; auth_server; auth_server = auth_server->next) {
 		num_servers++;
 	}
-	debug(LOG_DEBUG, "Level %d: Calculated %d auth servers in list", level, num_servers);
+	debug(LOG_WARNING, "Level %d: Calculated %d auth servers in list", level, num_servers);
 
 	if (level > num_servers) {
 		/*
@@ -245,7 +345,7 @@ int _connect_auth_server(int level) {
 	 */
 	auth_server = config->auth_servers;
 	hostname = auth_server->authserv_hostname;
-	debug(LOG_DEBUG, "Level %d: Resolving auth server [%s]", level, hostname);
+	debug(LOG_WARNING, "Level %d: Resolving auth server [%s]", level, hostname);
 	h_addr = wd_gethostbyname(hostname);
 	if (!h_addr) {
 		/*
@@ -253,17 +353,17 @@ int _connect_auth_server(int level) {
 		 *
 		 * Can we resolve any of the popular servers ?
 		 */
-		debug(LOG_DEBUG, "Level %d: Resolving auth server [%s] failed", level, hostname);
+		debug(LOG_WARNING, "Level %d: Resolving auth server [%s] failed", level, hostname);
 
 		for (popularserver = popular_servers; *popularserver; popularserver++) {
-			debug(LOG_DEBUG, "Level %d: Resolving popular server [%s]", level, *popularserver);
+			debug(LOG_WARNING, "Level %d: Resolving popular server [%s]", level, *popularserver);
 			h_addr = wd_gethostbyname(*popularserver);
 			if (h_addr) {
-				debug(LOG_DEBUG, "Level %d: Resolving popular server [%s] succeeded = [%s]", level, *popularserver, inet_ntoa(*h_addr));
+				debug(LOG_WARNING, "Level %d: Resolving popular server [%s] succeeded = [%s]", level, *popularserver, inet_ntoa(*h_addr));
 				break;
 			}
 			else {
-				debug(LOG_DEBUG, "Level %d: Resolving popular server [%s] failed", level, *popularserver);
+				debug(LOG_WARNING, "Level %d: Resolving popular server [%s] failed", level, *popularserver);
 			}
 		}
 
@@ -279,7 +379,7 @@ int _connect_auth_server(int level) {
 			 *
 			 * The auth server's DNS server is probably dead. Try the next auth server
 			 */
-			debug(LOG_DEBUG, "Level %d: Marking auth server [%s] as bad and trying next if possible", level, hostname);
+			debug(LOG_WARNING, "Level %d: Marking auth server [%s] as bad and trying next if possible", level, hostname);
 			if (auth_server->last_ip) {
 				free(auth_server->last_ip);
 				auth_server->last_ip = NULL;
@@ -295,7 +395,7 @@ int _connect_auth_server(int level) {
 			 * and nothing we can do will make it work
 			 */
 			mark_offline();
-			debug(LOG_DEBUG, "Level %d: Failed to resolve auth server and all popular servers. "
+			debug(LOG_WARNING, "Level %d: Failed to resolve auth server and all popular servers. "
 					"The internet connection is probably down", level);
 			return(-1);
 		}
@@ -305,14 +405,14 @@ int _connect_auth_server(int level) {
 		 * DNS resolving was successful
 		 */
 		ip = safe_strdup(inet_ntoa(*h_addr));
-		debug(LOG_DEBUG, "Level %d: Resolving auth server [%s] succeeded = [%s]", level, hostname, ip);
+		debug(LOG_WARNING, "Level %d: Resolving auth server [%s] succeeded = [%s]", level, hostname, ip);
 
 		if (!auth_server->last_ip || strcmp(auth_server->last_ip, ip) != 0) {
 			/*
 			 * But the IP address is different from the last one we knew
 			 * Update it
 			 */
-			debug(LOG_DEBUG, "Level %d: Updating last_ip IP of server [%s] to [%s]", level, hostname, ip);
+			debug(LOG_WARNING, "Level %d: Updating last_ip IP of server [%s] to [%s]", level, hostname, ip);
 			if (auth_server->last_ip) free(auth_server->last_ip);
 			auth_server->last_ip = ip;
 
@@ -330,7 +430,7 @@ int _connect_auth_server(int level) {
 		/*
 		 * Connect to it
 		 */
-		debug(LOG_DEBUG, "Level %d: Connecting to auth server %s:%d", level, hostname, auth_server->authserv_http_port);
+		debug(LOG_WARNING, "Level %d: Connecting to auth server %s:%d", level, hostname, auth_server->authserv_http_port);
 		their_addr.sin_family = AF_INET;
 		their_addr.sin_port = htons(auth_server->authserv_http_port);
 		their_addr.sin_addr = *h_addr;
@@ -347,7 +447,7 @@ int _connect_auth_server(int level) {
 			 * Failed to connect
 			 * Mark the server as bad and try the next one
 			 */
-			debug(LOG_DEBUG, "Level %d: Failed to connect to auth server %s:%d (%s). Marking it as bad and trying next if possible", level, hostname, auth_server->authserv_http_port, strerror(errno));
+			debug(LOG_WARNING, "Level %d: Failed to connect to auth server %s:%d (%s). Marking it as bad and trying next if possible", level, hostname, auth_server->authserv_http_port, strerror(errno));
 			close(sockfd);
 			mark_auth_server_bad(auth_server);
 			return _connect_auth_server(level); /* Yay recursion! */
@@ -356,7 +456,7 @@ int _connect_auth_server(int level) {
 			/*
 			 * We have successfully connected
 			 */
-			debug(LOG_DEBUG, "Level %d: Successfully connected to auth server %s:%d", level, hostname, auth_server->authserv_http_port);
+			debug(LOG_WARNING, "Level %d: Successfully connected to auth server %s:%d", level, hostname, auth_server->authserv_http_port);
 			return sockfd;
 		}
 	}

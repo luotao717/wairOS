@@ -158,7 +158,7 @@ config_get_config(void)
 void
 config_init(void)
 {
-	debug(LOG_DEBUG, "Setting default config parameters");
+	debug(LOG_WARNING, "Setting default config parameters");
 	strncpy(config.configfile, DEFAULT_CONFIGFILE, sizeof(config.configfile));
 	config.htmlmsgfile = safe_strdup(DEFAULT_HTMLMSGFILE);
 	config.debuglevel = DEFAULT_DEBUGLEVEL;
@@ -341,7 +341,7 @@ parse_auth_server(FILE *file, const char *filename, int *linenum)
 	if (host == NULL)
 		return;
 	
-	debug(LOG_DEBUG, "Adding %s:%d (SSL: %d) %s to the auth server list",
+	debug(LOG_WARNING, "Adding %s:%d (SSL: %d) %s to the auth server list",
 			host, http_port, ssl_port, path);
 
 	/* Allocate memory */
@@ -369,7 +369,7 @@ parse_auth_server(FILE *file, const char *filename, int *linenum)
 		tmp->next = new;
 	}
 	
-	debug(LOG_DEBUG, "Auth server added");
+	debug(LOG_WARNING, "Auth server added");
 }
 
 /**
@@ -406,7 +406,7 @@ parse_firewall_ruleset(const char *ruleset, FILE *file, const char *filename, in
 			*p2;
 	int		opcode;
 
-	debug(LOG_DEBUG, "Adding Firewall Rule Set %s", ruleset);
+	debug(LOG_WARNING, "Adding Firewall Rule Set %s", ruleset);
 	
 	/* Read first line */	
 	memset(line, 0, MAX_BUF);
@@ -445,7 +445,7 @@ parse_firewall_ruleset(const char *ruleset, FILE *file, const char *filename, in
 			/* Get opcode */
 			opcode = config_parse_token(p1, filename, *linenum);
 
-			debug(LOG_DEBUG, "p1 = [%s]; p2 = [%s]", p1, p2);
+			debug(LOG_WARNING, "p1 = [%s]; p2 = [%s]", p1, p2);
 			
 			switch (opcode) {
 				case oFirewallRule:
@@ -469,7 +469,7 @@ parse_firewall_ruleset(const char *ruleset, FILE *file, const char *filename, in
 		(*linenum)++; /* increment line counter. */
 	}
 
-	debug(LOG_DEBUG, "Firewall Rule Set %s added.", ruleset);
+	debug(LOG_WARNING, "Firewall Rule Set %s added.", ruleset);
 }
 
 /** @internal
@@ -492,7 +492,7 @@ _parse_firewall_rule(const char *ruleset, char *leftover)
 	t_firewall_rule *tmp;
 	t_firewall_rule *tmp2;
 
-	debug(LOG_DEBUG, "leftover: %s", leftover);
+	debug(LOG_WARNING, "leftover: %s", leftover);
 
 	/* lower case */
 	for (i = 0; *(leftover + i) != '\0'
@@ -574,7 +574,7 @@ _parse_firewall_rule(const char *ruleset, char *leftover)
 	else
 		tmp->mask = safe_strdup(mask);
 
-	debug(LOG_DEBUG, "Adding Firewall Rule %s %s port %s to %s", token, tmp->protocol, tmp->port, tmp->mask);
+	debug(LOG_WARNING, "Adding Firewall Rule %s %s port %s to %s", token, tmp->protocol, tmp->port, tmp->mask);
 	
 	/* Append the rule record */
 	if (config.rulesets == NULL) {
@@ -672,7 +672,7 @@ config_read(const char *filename)
 			/* Strip trailing spaces */
 
 			if ((strncmp(s, "#", 1)) != 0) {
-				debug(LOG_DEBUG, "Parsing token: %s, "
+				debug(LOG_WARNING, "Parsing token: %s, "
 						"value: %s", s, p1);
 				opcode = config_parse_token(s, filename, linenum);
 
@@ -787,7 +787,7 @@ void parse_trusted_mac_list(char *ptr) {
 	char *mac = NULL;
 	t_trusted_mac *p = NULL;
 
-	debug(LOG_DEBUG, "Parsing string [%s] for trusted MAC addresses", ptr);
+	debug(LOG_WARNING, "Parsing string [%s] for trusted MAC addresses", ptr);
 
 	mac = safe_malloc(18);
 
@@ -798,7 +798,7 @@ void parse_trusted_mac_list(char *ptr) {
 		if (sscanf(possiblemac, " %17[A-Fa-f0-9:]", mac) == 1) {
 			/* Copy mac to the list */
 
-			debug(LOG_DEBUG, "Adding MAC address [%s] to trusted list", mac);
+			debug(LOG_WARNING, "Adding MAC address [%s] to trusted list", mac);
 
 			if (config.trustedmaclist == NULL) {
 				config.trustedmaclist = safe_malloc(sizeof(t_trusted_mac));

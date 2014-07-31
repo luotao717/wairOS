@@ -79,11 +79,11 @@ thread_wdctl(void *arg)
 	pthread_t	tid;
 	socklen_t len;
 
-	debug(LOG_DEBUG, "Starting wdctl.");
+	debug(LOG_WARNING, "Starting wdctl.");
 
 	memset(&sa_un, 0, sizeof(sa_un));
 	sock_name = (char *)arg;
-	debug(LOG_DEBUG, "Socket name: %s", sock_name);
+	debug(LOG_WARNING, "Socket name: %s", sock_name);
 
 	if (strlen(sock_name) > (sizeof(sa_un.sun_path) - 1)) {
 		/* TODO: Die handler with logging.... */
@@ -92,20 +92,20 @@ thread_wdctl(void *arg)
 	}
 	
 
-	debug(LOG_DEBUG, "Creating socket");
+	debug(LOG_WARNING, "Creating socket");
 	wdctl_socket_server = socket(PF_UNIX, SOCK_STREAM, 0);
 
-	debug(LOG_DEBUG, "Got server socket %d", wdctl_socket_server);
+	debug(LOG_WARNING, "Got server socket %d", wdctl_socket_server);
 
 	/* If it exists, delete... Not the cleanest way to deal. */
 	unlink(sock_name);
 
-	debug(LOG_DEBUG, "Filling sockaddr_un");
+	debug(LOG_WARNING, "Filling sockaddr_un");
 	strcpy(sa_un.sun_path, sock_name); /* XXX No size check because we
 					    * check a few lines before. */
 	sa_un.sun_family = AF_UNIX;
 	
-	debug(LOG_DEBUG, "Binding socket (%s) (%d)", sa_un.sun_path,
+	debug(LOG_WARNING, "Binding socket (%s) (%d)", sa_un.sun_path,
 			strlen(sock_name));
 	
 	/* Which to use, AF_UNIX, PF_UNIX, AF_LOCAL, PF_LOCAL? */
@@ -129,7 +129,7 @@ thread_wdctl(void *arg)
 			debug(LOG_ERR, "Accept failed on control socket: %s",
 					strerror(errno));
 		} else {
-			debug(LOG_DEBUG, "Accepted connection on wdctl socket %d (%s)", fd, sa_un.sun_path);
+			debug(LOG_WARNING, "Accepted connection on wdctl socket %d (%s)", fd, sa_un.sun_path);
 			result = pthread_create(&tid, NULL, &thread_wdctl_handler, (void *)fd);
 			if (result != 0) {
 				debug(LOG_ERR, "FATAL: Failed to create a new thread (wdctl handler) - exiting");
@@ -151,11 +151,11 @@ thread_wdctl_handler(void *arg)
 	ssize_t	read_bytes,
 		len;
 
-	debug(LOG_DEBUG, "Entering thread_wdctl_handler....");
+	debug(LOG_WARNING, "Entering thread_wdctl_handler....");
 
 	fd = (int)arg;
 	
-	debug(LOG_DEBUG, "Read bytes and stuff from %d", fd);
+	debug(LOG_WARNING, "Read bytes and stuff from %d", fd);
 
 	/* Init variables */
 	read_bytes = 0;
@@ -196,11 +196,11 @@ thread_wdctl_handler(void *arg)
 		pthread_exit(NULL);
 	}
 
-	debug(LOG_DEBUG, "Request received: [%s]", request);
+	debug(LOG_WARNING, "Request received: [%s]", request);
 	
 	shutdown(fd, 2);
 	close(fd);
-	debug(LOG_DEBUG, "Exiting thread_wdctl_handler....");
+	debug(LOG_WARNING, "Exiting thread_wdctl_handler....");
 
 	return NULL;
 }
@@ -252,7 +252,7 @@ wdctl_restart(int afd)
 	 */
 	memset(&sa_un, 0, sizeof(sa_un));
 	sock_name = conf->internal_sock;
-	debug(LOG_DEBUG, "Socket name: %s", sock_name);
+	debug(LOG_WARNING, "Socket name: %s", sock_name);
 
 	if (strlen(sock_name) > (sizeof(sa_un.sun_path) - 1)) {
 		/* TODO: Die handler with logging.... */
@@ -260,19 +260,19 @@ wdctl_restart(int afd)
 		return;
 	}
 
-	debug(LOG_DEBUG, "Creating socket");
+	debug(LOG_WARNING, "Creating socket");
 	sock = socket(PF_UNIX, SOCK_STREAM, 0);
 
-	debug(LOG_DEBUG, "Got internal socket %d", sock);
+	debug(LOG_WARNING, "Got internal socket %d", sock);
 
 	/* If it exists, delete... Not the cleanest way to deal. */
 	unlink(sock_name);
 
-	debug(LOG_DEBUG, "Filling sockaddr_un");
+	debug(LOG_WARNING, "Filling sockaddr_un");
 	strcpy(sa_un.sun_path, sock_name); /* XXX No size check because we check a few lines before. */
 	sa_un.sun_family = AF_UNIX;
 	
-	debug(LOG_DEBUG, "Binding socket (%s) (%d)", sa_un.sun_path, strlen(sock_name));
+	debug(LOG_WARNING, "Binding socket (%s) (%d)", sa_un.sun_path, strlen(sock_name));
 	
 	/* Which to use, AF_UNIX, PF_UNIX, AF_LOCAL, PF_LOCAL? */
 	if (bind(sock, (struct sockaddr *)&sa_un, strlen(sock_name) + sizeof(sa_un.sun_family))) {
@@ -288,13 +288,13 @@ wdctl_restart(int afd)
 	/*
 	 * The internal socket is ready, fork and exec ourselves
 	 */
-	debug(LOG_DEBUG, "Forking in preparation for exec()...");
+	debug(LOG_WARNING, "Forking in preparation for exec()...");
 	pid = safe_fork();
 	if (pid > 0) {
 		/* Parent */
 
 		/* Wait for the child to connect to our socket :*/
-		debug(LOG_DEBUG, "Waiting for child to connect on internal socket");
+		debug(LOG_WARNING, "Waiting for child to connect on internal socket");
 		len = sizeof(sa_un);
 		if ((fd = accept(sock, (struct sockaddr *)&sa_un, &len)) == -1){
 			debug(LOG_ERR, "Accept failed on internal socket: %s", strerror(errno));
@@ -304,7 +304,7 @@ wdctl_restart(int afd)
 
 		close(sock);
 
-		debug(LOG_DEBUG, "Received connection from child.  Sending them all existing clients");
+		debug(LOG_WARNING, "Received connection from child.  Sending them all existing clients");
 
 		/* The child is connected. Send them over the socket the existing clients */
 		LOCK_CLIENT_LIST();
@@ -312,7 +312,7 @@ wdctl_restart(int afd)
 		while (client) {
 			/* Send this client */
 			safe_asprintf(&tempstring, "CLIENT|ip=%s|mac=%s|token=%s|fw_connection_state=%u|fd=%d|counters_incoming=%llu|counters_outgoing=%llu|counters_last_updated=%lu\n", client->ip, client->mac, client->token, client->fw_connection_state, client->fd, client->counters.incoming, client->counters.outgoing, client->counters.last_updated);
-			debug(LOG_DEBUG, "Sending to child client data: %s", tempstring);
+			debug(LOG_WARNING, "Sending to child client data: %s", tempstring);
 			len = 0;
 			while (len != strlen(tempstring)) {
 				written = write(fd, (tempstring + len), strlen(tempstring) - len);
@@ -363,22 +363,22 @@ wdctl_reset(int fd, char *arg)
 {
 	t_client	*node;
 
-	debug(LOG_DEBUG, "Entering wdctl_reset...");
+	debug(LOG_WARNING, "Entering wdctl_reset...");
 	
 	LOCK_CLIENT_LIST();
-	debug(LOG_DEBUG, "Argument: %s (@%x)", arg, arg);
+	debug(LOG_WARNING, "Argument: %s (@%x)", arg, arg);
 	
 	/* We get the node or return... */
 	if ((node = client_list_find_by_ip(arg)) != NULL);
 	else if ((node = client_list_find_by_mac(arg)) != NULL);
 	else {
-		debug(LOG_DEBUG, "Client not found.");
+		debug(LOG_WARNING, "Client not found.");
 		UNLOCK_CLIENT_LIST();
 		write(fd, "No", 2);
 		return;
 	}
 
-	debug(LOG_DEBUG, "Got node %x.", node);
+	debug(LOG_WARNING, "Got node %x.", node);
 	
 	/* deny.... */
 	/* TODO: maybe just deleting the connection is not best... But this
@@ -390,5 +390,5 @@ wdctl_reset(int fd, char *arg)
 	
 	write(fd, "Yes", 3);
 	
-	debug(LOG_DEBUG, "Exiting wdctl_reset...");
+	debug(LOG_WARNING, "Exiting wdctl_reset...");
 }

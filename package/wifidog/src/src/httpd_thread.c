@@ -62,14 +62,14 @@ thread_httpd(void *args)
 		/*
 		 * We read the request fine
 		 */
-		debug(LOG_DEBUG, "Processing request from %s", r->clientAddr);
-		debug(LOG_DEBUG, "Calling httpdProcessRequest() for %s", r->clientAddr);
+		debug(LOG_WARNING, "Processing request from %s", r->clientAddr);
+		debug(LOG_WARNING, "Calling httpdProcessRequest() for %s", r->clientAddr);
 		httpdProcessRequest(webserver, r);
-		debug(LOG_DEBUG, "Returned from httpdProcessRequest() for %s", r->clientAddr);
+		debug(LOG_WARNING, "Returned from httpdProcessRequest() for %s", r->clientAddr);
 	}
 	else {
-		debug(LOG_DEBUG, "No valid request received from %s", r->clientAddr);
+		debug(LOG_WARNING, "No valid request received from %s", r->clientAddr);
 	}
-	debug(LOG_DEBUG, "Closing connection with %s", r->clientAddr);
+	debug(LOG_WARNING, "Closing connection with %s", r->clientAddr);
 	httpdEndRequest(r);
 }

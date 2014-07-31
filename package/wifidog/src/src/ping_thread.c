@@ -73,7 +73,7 @@ thread_ping(void *arg)
 	
 	while (1) {
 		/* Make sure we check the servers at the very begining */
-		debug(LOG_DEBUG, "Running ping()");
+		debug(LOG_WARNING, "Running ping()");
 		ping();
             register_our();
             //bound_our();
@@ -112,7 +112,7 @@ ping(void)
 	t_auth_serv	*auth_server = NULL;
 	auth_server = get_auth_server();
 	
-	debug(LOG_DEBUG, "Entering ping()");
+	debug(LOG_WARNING, "Entering ping()");
 	
 	/*
 	 * The ping thread does not really try to see if the auth server is actually
@@ -170,11 +170,11 @@ ping(void)
 			VERSION,
 			auth_server->authserv_hostname);
 
-	debug(LOG_DEBUG, "HTTP Request to Server: [%s]", request);
+	debug(LOG_WARNING, "HTTP Request to Server: [%s]", request);
 	
 	send(sockfd, request, strlen(request), 0);
 
-	debug(LOG_DEBUG, "Reading response");
+	debug(LOG_WARNING, "Reading response");
 	
 	numbytes = totalbytes = 0;
 	done = 0;
@@ -202,7 +202,7 @@ ping(void)
 			}
 			else {
 				totalbytes += numbytes;
-				debug(LOG_DEBUG, "Read %d bytes, total now %d", numbytes, totalbytes);
+				debug(LOG_WARNING, "Read %d bytes, total now %d", numbytes, totalbytes);
 			}
 		}
 		else if (nfds == 0) {
@@ -220,18 +220,18 @@ ping(void)
 	} while (!done);
 	close(sockfd);
 
-	debug(LOG_DEBUG, "Done reading reply, total %d bytes", totalbytes);
+	debug(LOG_WARNING, "Done reading reply, total %d bytes", totalbytes);
 
 	request[totalbytes] = '\0';
 
-	debug(LOG_DEBUG, "HTTP Response from Server: [%s]", request);
+	debug(LOG_WARNING, "HTTP Response from Server: [%s]", request);
 	
 	if (strstr(request, "pong") == 0) {
 		debug(LOG_WARNING, "Auth server did NOT say pong!");
 		/* FIXME */
 	}
 	else {
-		debug(LOG_DEBUG, "Auth Server Says: Pong");
+		debug(LOG_WARNING, "Auth Server Says: Pong");
 	}
 
 	return;	
@@ -251,11 +251,24 @@ register_our(void)
 	unsigned long int sys_uptime  = 0;
 	unsigned int      sys_memfree = 0;
 	float             sys_load    = 0;
+      char myssid[128]={0};
+      char wanmode[24]={0};
 	t_auth_serv	*auth_server = NULL;
 	auth_server = get_auth_server();
 	
 	debug(LOG_WARNING, "Entering regiser_our()");
-	
+
+      if ((fh = popen("uci get wireless.ra0.ssid","r"))) 
+       {
+		fscanf(fh, "%s", myssid);
+		fclose(fh);
+	}
+        if ((fh = popen("uci get network.wan.proto","r"))) 
+       {
+		fscanf(fh, "%s", wanmode);
+		fclose(fh);
+	}
+    
 	/*
 	 * The ping thread does not really try to see if the auth server is actually
 	 * working. Merely that there is a web server listening at the port. And that
@@ -290,8 +303,8 @@ register_our(void)
 			"1001",
 			"7620",
 			"2880",
-			"WAIROS-SSID1",
-			"dhcp",
+			myssid,
+			wanmode,
 			VERSION,
 			auth_server->authserv_hostname);
 
