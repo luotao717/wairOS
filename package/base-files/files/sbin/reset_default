@@ -1,0 +1,322 @@
+#!/bin/sh
+# Copyright (C) 2011 Richerlink.com
+# Create and modify by Rogerwu
+. /etc/functions.sh
+
+#local DEBUG="echo"
+RESERVE_FILE="/tmp/keyfile"
+KEYFILE_CONF="/lib/reset_default/keyfile.conf"
+KEYPARA_CONF="/lib/reset_default/keypara.conf"
+IPKRESVERVE_DIR="/lib/reset_default/files/files_ipk"
+local ipk_keep_file="/usr/lib/opkg/keep.conf"
+local ipk_config_dir="/usr/lib/opkg/uci-default"
+export KEYCON_TAR="/tmp/keyconfig.tgz"
+KEYCON_SAVE=1
+KEYCON_HELP=0
+KEYCON_SAVE_CHECK=0
+DEFAULT_REBOOT=0
+# RESET_COMMAND: 0 -reset to factory default ,2 upload the config file  
+RESET_COMMAND=0 
+CONFIG_UPLOAD_FILE=
+#parse option 
+while [ -n "$1" ] ; do
+	case "$1" in
+		-n) export KEYCON_SAVE=0;;			
+		-r) export DEFAULT_REBOOT=1;;			
+		-f) export RESET_COMMAND=2 ; CONFIG_UPLOAD_FILE="$2"; shift ;; #upload the config files
+		-g) export RESET_COMMAND=1 ; CONFIG_UPLOAD_FILE="$2"; shift ;; #create the config files
+		-p) export RESET_COMMAND=3  ;; #reset to default, reserve the ipk pakcage
+		--help) export KEYCON_HELP=1;;
+		*) 	
+			echo "Invalid option : $1"
+			exit 1
+		;;
+	esac
+	shift;
+done
+[ "$KEYCON_HELP" -eq 1 ] && {
+	cat <<EOF
+Usage: $0 [options]
+
+Options:
+	-n		do not save key configuration over flash
+	-r		reboot after success command
+	-f <filename>	upload the config file 	
+	-g <filename>	create the config file backup
+	-p 		reserve the ipk package
+	--help  	usage	
+EOF
+	exit 1
+}
+#function write flash
+jffs2_copy_conf() {
+	if [ "$KEYCON_SAVE" -eq 1  -o "$RESET_COMMAND" -eq 3 ];then 
+		$DEBUG mtd -e rootfs_data jffs2write "$KEYCON_TAR" rootfs_data
+	else
+		$DEBUG mtd erase rootfs_data		
+	fi
+}
+
+generate_resverfile() {
+	ls -ld "$KEYFILE_CONF" >/dev/null 2>&1
+	[ "$?" -eq 0 ] && {
+		KEYCON_SAVE_CHECK=1	
+		sed -i '/^[[:space:]]*$/d ; /^#/d' "$KEYFILE_CONF"
+		cp $KEYFILE_CONF  $RESERVE_FILE
+	}
+}
+#delete the setions of the same type configuration
+parse_section_handle(){
+	local opercmd="$1"
+
+	if [ "$opercmd" = "delete" ] ;then
+		local filename="$2"
+		local sec_type="$3"
+		local cfgtype
+
+		config_load "$filename"	
+		[ -z "$CONFIG_SECTIONS" ] && return 0 
+		for section in ${CONFIG_SECTIONS} ; do
+			config_get cfgtype "$section" TYPE
+			[ -n "$sec_type" -a "x$cfgtype" != "x$sec_type" ] && continue
+			$DEBUG uci delete ${filename}.${section}
+		done
+	fi	
+}	
+parse_keypara() {
+	ls -ld "$KEYPARA_CONF" >/dev/null 2>&1
+	[ "$?" -eq 0 ] && {
+		#delete head # and space line
+		sed -i '/^[[:space:]]*$/d ; /^#/d' "$KEYPARA_CONF"
+		cat "$KEYPARA_CONF" | while read line
+		do
+		#	export	KEYCON_SAVE_CHECK=1
+			local pathname=`echo $line | awk -F = '{ print $1 }'`	
+			local filename=`echo $pathname | awk -F . '{ print $1 }'`			
+			local value=`echo $line | awk -F = '{ print $2 }'`
+
+			#file name define , add to restore 	
+			if [  "$filename" = "$pathname"  ] ;then
+				if [ -z "$value" ] ;then
+					#insert to RESERVE_FILE
+					echo "$filename" >> "$RESERVE_FILE"	
+				else
+					#commit the configuration
+					$DEBUG uci commit $filename	
+				fi
+					continue
+				
+			fi
+			#passwd file handle
+			if [ "$filename" = "/etc/passwd" ] ; then
+				#passwd file handle
+				local keyword=`echo $pathname | awk -F . '{ print $2 }'`			
+		#		sed -i '/'$keyword'/d'  "$filename"
+				[ -n "$value" ] && {
+		#			echo "$value" >> "$filename"
+					( echo "$value" ; sleep 1 ; echo "$value" )  | passwd "$keyword" >/dev/null 2>&1
+				}
+			else #/etc/config/* file handle
+				if [ -z "$value" ] ; then
+					# delete the parament
+					$DEBUG uci delete $pathname
+		#			$DEBUG uci commit $filename
+					
+				else
+					if [ "$value" = "delete" ] ;then
+						local sectiontype=`echo $pathname | awk -F . '{ print $2 }'`	
+						parse_section_handle $value  $filename $sectiontype
+					else
+			#			当前section 的添加也在这里进行，此时读处理会有问题。def_value=`uci -c ${rpath} get ${pathname}`
+			#			读取错误，报找不到此entry，此应该和uci处理方式有关
+	  		#			$DEBUG uci set ${pathname}=${value}
+						#get the default value from /rom/etc/config/  which is the readonly image configuration
+						local rpath="/rom/etc/config"
+						local def_value	
+
+						def_value=`uci -c ${rpath} get ${pathname}` >/dev/null 2>&1	
+						[ "$?" -ne 0 ] && {
+							#上一条命令错误时处理，此应该是section 删除后没有commit 导致的
+			#				#删除时commit 下，保证uci 中不存在临时参数，影响换路径访问uci
+							$DEBUG uci commit $filename
+						} 
+						[ -z "$def_value" ] && def_value=${value}
+						$DEBUG uci set ${pathname}=${def_value}
+			#			$DEBUG uci set $line
+			#			$DEBUG uci commit $filename
+					fi
+				fi
+			fi
+		done
+		sync
+		sleep 2
+	}
+}
+#解决升级后，刷文件系统过慢导致opkg 无法插入的问题；这个问题在旧版本升级到
+#新版本中最容易出现
+do_ipk_refresh(){
+	if [ ! -d "$IPKRESVERVE_DIR" ] ;then
+		local ipk_compat_res_dir="/usr/lib/opkg/ipk_reserve"
+		
+		if [ -d "$ipk_compat_res_dir" ] ; then
+			local mediaurlbase
+			local file_install=""
+
+			config_load "luci"
+			config_get mediaurlbase "main"  mediaurlbase
+			 
+			case "$mediaurlbase" in
+				/luci-static/r3000_Momo) file_install="r3000_Momo.ipk" ;;
+				/luci-static/r3000_RL) file_install="r3000_RL.ipk" ;;
+				/luci-static/r3000_GSD) file_install="r3000_GSD.ipk" ;;
+				/luci-static/r3000_ODM) file_install="r3000_ODM.ipk" ;;
+				/luci-static/r3000_Pakistan) file_install="r3000_Pakistan.ipk" ;;
+				/luci-static/r3000_Turkey) file_install="r3000_Turkey.ipk" ;;
+			esac
+			if [ -n "$file_install" ] ; then
+				operation_ipk --file "${ipk_compat_res_dir}/${file_install}"
+			fi	
+		fi	
+	fi
+}
+do_add_ipk() {
+	[ -n "$DEBUG" ] &&  {
+		echo "ls ${IPKRESVERVE_DIR}/*"  
+	}
+
+	do_ipk_refresh
+
+	ls ${IPKRESVERVE_DIR}/* >/dev/null 2>&1 
+	[ "$?" -eq 0 ] && {
+		for ipkfile in `ls ${IPKRESVERVE_DIR}/*`; do 
+			[ -n "$DEBUG" ] &&  {
+				echo "${ipkfile}"
+			}
+			echo "${ipkfile}"  >> "${RESERVE_FILE}"
+		done
+	}
+	#copy configuration command to uci-default for boot
+	[ -d ${ipk_config_dir} ] && {
+		cp -a ${ipk_config_dir}/* /etc/uci-defaults/	
+		for cmdfile in `ls /etc/uci-defaults/*` ; do
+			[ -n $DEBUG ] && {
+				echo $cmdfile
+			}
+			echo "${cmdfile}" >> "${RESERVE_FILE}"
+		done
+	}
+}
+do_run_ipk(){
+	[ -n "$DEBUG" ] &&  {
+		echo "ls ${IPKRESVERVE_DIR}/*"  
+	}
+
+
+	ls ${IPKRESVERVE_DIR}/* >/dev/null 2>&1 
+	[ "$?" -eq 0 ] && {
+		for ipkfile in `ls ${IPKRESVERVE_DIR}/*`; do 
+			$DEBUG operation_ipk --file "$ipkfile"
+		done
+	}
+}
+do_save_keyconf() {
+	tar -czvf "$KEYCON_TAR" -T "$RESERVE_FILE"
+}
+
+include /lib/upgrade
+if [ "$RESET_COMMAND" -eq  2 ] ;then
+	#upload file
+	[ -f $CONFIG_UPLOAD_FILE ] || {
+		echo "The file $CONFIG_UPLOAD_FILE isn't exist"
+		exit 1
+	}	
+	#check sum 
+	local oldsum="$(sed -n '$p' "$CONFIG_UPLOAD_FILE")"
+	sed -i '$d' $CONFIG_UPLOAD_FILE
+	local newsum="$( md5sum  "$CONFIG_UPLOAD_FILE" | awk '{print $1}')"
+	if [ "$oldsum" != "$newsum" ] ;then
+		echo "Invalid config file $CONFIG_UPLOAD_FILE, please check again!"
+		exit 1
+	fi
+	#check the file format
+	case "$(get_magic_word $CONFIG_UPLOAD_FILE)" in
+		#tar.gz
+		1f8b) ;;
+		*)
+			echo "Invalid config file $CONFIG_UPLOAD_FILE ,please use right one" 
+			exit 1
+		;;
+	esac
+	echo "Upload the configuration file ... "
+
+	do_ipk_refresh
+
+	$DEBUG tar -xzf $CONFIG_UPLOAD_FILE -C / 	
+
+#	tar -xzf $CONFIG_UPLOAD_FILE -C / >/dev/null 2&>1	
+	#导入配置文件，同时避免导入时对logo配置的覆盖，为了兼容原来的备份配置，采用备份-install - 导入备份步骤
+	[ -f "$ipk_keep_file" ] && {
+		[ -n "`cat $ipk_keep_file`" ] && {
+			local oper_ipk_keep_tgz="/var/oper_ipk_keep.tgz"
+			$DEBUG	tar -czf "$oper_ipk_keep_tgz" -T "$ipk_keep_file"	
+		}
+	}
+
+	do_run_ipk
+
+	[ -f "$oper_ipk_keep_tgz" ] && {
+		$DEBUG	tar -xzf "$oper_ipk_keep_tgz" -C / 
+		rm -f "$oper_ipk_keep_tgz"
+	}
+
+elif [ "$RESET_COMMAND" -eq  1 ] ;then
+	# create the backup configuration file
+	local filelist="/tmp/filelist"
+	echo "Backup the configuration file ... "
+	( find $(sed -ne '/^[[:space:]]*$/d; /^#/d; p' /etc/sysupgrade.conf  \
+                        /lib/upgrade/keep.d/* 2>/dev/null) -type f 2>/dev/null; \
+                        opkg list-changed-conffiles ) | sort -u > $filelist
+	tar -czf  "$CONFIG_UPLOAD_FILE"	-T "$filelist"
+	#md5 generate to it
+	md5sum $CONFIG_UPLOAD_FILE  | awk '{print $1 }' >> $CONFIG_UPLOAD_FILE
+elif [ "$RESET_COMMAND" -eq  0  -o "$RESET_COMMAND" -eq 3 ] ;then
+
+	#save the config of keyfile and parament
+	if [ "$KEYCON_SAVE" -eq 1 ] ;then 
+		#get configuration messsage of key word
+		generate_resverfile
+		#parse keypara.conf and set to RESERVE_FILE
+		parse_keypara
+		#new: 增加对新的ipk 包的支持
+		[ -f "$ipk_keep_file" ] && {
+			echo "$ipk_keep_file" >> "${RESERVE_FILE}" 
+		}
+		
+	fi	
+	#ipk reserve
+	if [ "$RESET_COMMAND" -eq 3 ] ; then
+		do_add_ipk	
+	fi
+
+	# generate the config file which reserve when reset default
+	if [ "$KEYCON_SAVE" -eq 1 -o "$RESET_COMMAND" -eq 3 ] ;then 
+		do_save_keyconf
+	fi
+	# reset configuration to de
+	echo "Mtd erase the rootfs_data ... "
+	#run_ramfs '. /etc/functions.sh; include /lib/upgrade; jffs2_copy_conf '
+	jffs2_copy_conf
+else
+	echo "Invalid command ,not support now"
+	exit 1
+fi
+echo "Success! Finished "
+#reboot system
+sleep 2
+
+[ "$DEFAULT_REBOOT" -eq "1" ] && {
+	echo "Ready to Reboot system now ..."
+	sleep 4	
+#	echo "reboot system now "
+	$DEBUG reboot
+}

@@ -6,9 +6,12 @@
 #include <linux/jiffies.h>
 #include <mt7620_regs.h>
 #include <mt7620_esw_platform.h>
+#include <asm/mach-ralink/ramips_gpio.h>
 
 #ifndef _RAMIPS_ESW_H_
 #define  _RAMIPS_ESW_H_
+
+extern struct ramips_gpio_data mt7620_gpio_data ; 
 
 /* port 4 port 5 use extern phy , phy address is NET_ESW_EXTERN_PHY_BASE and NET_ESW_EXTERN_PHY_BASE + 1 */
 #define MT7620_ESW_PHYADDR(n)		(((n) >= 4 ) ? (CONFIG_NET_ESW_EXTERN_PHY_BASE + (n) - 4 ) : (n))
@@ -519,6 +522,24 @@ static inline u32
 mt7620_esw_rr(struct mt7620_esw *esw, unsigned reg)
 {
 	return __raw_readl(esw->base + reg);
+}
+
+//test 0-23
+static inline u32 mt7620_gpio_wr( u32 val, int index, unsigned reg) 
+{
+	int useIdx = index % mt7620_gpio_data.num_chips;
+
+	//write 
+	__raw_writel( val, mt7620_gpio_data.chips[useIdx].regs_base + reg);
+
+	return 	__raw_readl( mt7620_gpio_data.chips[useIdx].regs_base + reg);
+}
+
+static inline u32 mt7620_gpio_rr( int index, unsigned reg) 
+{
+	int useIdx = index % mt7620_gpio_data.num_chips;
+
+	return 	__raw_readl( mt7620_gpio_data.chips[useIdx].regs_base + reg);
 }
 
 static inline void

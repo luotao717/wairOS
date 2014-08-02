@@ -1,5 +1,7 @@
 #include "ramips_esw.h"
 
+/*#define  DEBUG_GPIO*/
+
 static u8  raeth_esw_lan_portmaps = 0;
 static u8  raeth_esw_wan_portmaps = 0;
  
@@ -1591,7 +1593,42 @@ mt7620_esw_set_vlan_ports(struct switch_dev *dev, struct switch_val *val)
 
 	return 0;
 }
+#ifdef  DEBUG_GPIO
+static int
+mt7620_set_switch_reg(struct switch_dev *dev, const struct switch_attr *attr,
+		struct switch_val *val)
+{
+	struct mt7620_esw *esw = container_of(dev, struct mt7620_esw, swdev);
+	struct switch_reg *regrw = val->value.regrw;
+	u32 readval=0;
 
+	printk(KERN_ALERT "gpio register: reg:0x%.08X val:0x%.08X \r\n",
+			regrw->addr, regrw->data);
+
+	readval = mt7620_gpio_wr(regrw->data, 0, regrw->addr );
+
+	printk(KERN_ALERT "gpio register: reg:0x%.08X val:0x%.08X readval:0x%.08X \r\n",
+			regrw->addr, regrw->data, readval);
+
+	return 0;
+}
+
+static int
+mt7620_get_switch_reg(struct switch_dev *dev, const struct switch_attr *attr,
+		struct switch_val *val)
+{
+	struct mt7620_esw *esw = container_of(dev, struct mt7620_esw, swdev);
+	struct switch_reg *regrw = val->value.regrw;
+	u32 readval;
+			
+	readval =  mt7620_gpio_rr( 0, regrw->addr );
+	regrw->data = readval;
+
+	printk(KERN_ALERT" the gpio reg read! reg:0x%.08X val: 0x%.08X \r\n",
+			regrw->addr, regrw->data);
+	return 0;
+}
+#else /* DEBUG_GPIO */
 static int
 mt7620_set_switch_reg(struct switch_dev *dev, const struct switch_attr *attr,
 		struct switch_val *val)
@@ -1638,6 +1675,7 @@ mt7620_get_switch_reg(struct switch_dev *dev, const struct switch_attr *attr,
 			regrw->addr,regrw->data,is_fe? "Yes":"No");	
 	return 0;
 }
+#endif /*DEBUG_GPIO*/
 
 static int
 mt7620_set_switch_phy_reg(struct switch_dev *dev, const struct switch_attr *attr,

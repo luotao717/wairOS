@@ -150,7 +150,7 @@ static struct ramips_gpio_chip mt7620_gpio_chips[] = {
 	},
 };
 
-static struct ramips_gpio_data mt7620_gpio_data = {
+struct ramips_gpio_data mt7620_gpio_data = {
 	.chips = mt7620_gpio_chips,
 	.num_chips = ARRAY_SIZE(mt7620_gpio_chips),
 };
