@@ -57,7 +57,7 @@ end
 
 m = Map("wireless", translate("Wireless"), "")
 m.pagewlanaction = true
-m.redirect = dsp.build_url("admin", "wireless", "wlan")
+--m.redirect = dsp.build_url("admin", "wireless", "wlan")
 
 local value_hmode 
 
@@ -238,7 +238,8 @@ GuardInterval:depends({hwmode="11n"})
 
 
 --////////////////////////
-s = m:section(TypedSection, "wifi_iface", translate("Security Settings"))
+--s = m:section(TypedSection, "wifi_iface", translate("Security Settings"))
+s = m:section(NamedSection, "ra0", "wifi_iface", translate("Security Settings"))
 s.anonymous = true
 s.addremove = false
 --all section of same type show title

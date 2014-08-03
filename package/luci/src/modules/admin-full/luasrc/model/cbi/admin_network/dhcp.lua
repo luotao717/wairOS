@@ -25,8 +25,8 @@ s.anonymous = true
 s.addremove = false
 
 s:tab("general", translate("General Settings"))
-s:tab("files", translate("Resolv and Hosts Files"))
-s:tab("tftp", translate("TFTP Settings"))
+--s:tab("files", translate("Resolv and Hosts Files"))
+--s:tab("tftp", translate("TFTP Settings"))
 s:tab("advanced", translate("Advanced Settings"))
 
 s:taboption("general", Flag, "domainneeded",
@@ -39,7 +39,7 @@ s:taboption("general", Flag, "authoritative",
 	translate("This is the only <abbr title=\"Dynamic Host Configuration Protocol\">DHCP</" ..
 		"abbr> in the local network"))
 
-
+--[[
 s:taboption("files", Flag, "readethers",
 	translate("Use <code>/etc/ethers</code>"),
 	translate("Read <code>/etc/ethers</code> to configure the <abbr title=\"Dynamic Host " ..
@@ -69,7 +69,7 @@ hf = s:taboption("files", DynamicList, "addnhosts",
 
 hf:depends("nohosts", "")
 hf.optional = true
-
+--]]
 
 s:taboption("advanced", Flag, "boguspriv",
 	translate("Filter private"),
@@ -194,7 +194,7 @@ cq.optional = true
 cq.datatype = "uinteger"
 cq.placeholder = 150
 
-
+--[[
 s:taboption("tftp", Flag, "enable_tftp",
 	translate("Enable TFTP server")).optional = true
 
@@ -214,7 +214,7 @@ db = s:taboption("tftp", Value, "dhcp_boot",
 db.optional = true
 db:depends("enable_tftp", "1")
 db.placeholder = "pxelinux.0"
-
+--]]
 
 m:section(SimpleSection).template = "admin_network/lease_status"
 

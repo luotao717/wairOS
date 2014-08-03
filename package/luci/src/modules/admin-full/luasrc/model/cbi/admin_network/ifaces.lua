@@ -163,11 +163,12 @@ s.addremove = false
 
 s:tab("general",  translate("General Setup"))
 s:tab("advanced", translate("Advanced Settings"))
-s:tab("physical", translate("Physical Settings"))
-
+--s:tab("physical", translate("Physical Settings"))
+--[[
 if has_firewall then
 	s:tab("firewall", translate("Firewall Settings"))
 end
+--]]
 
 
 st = s:taboption("general", DummyValue, "__status", translate("Status"))
@@ -216,17 +217,19 @@ p_switch.inputstyle = "apply"
 
 local _, pr
 for _, pr in ipairs(nw:get_protocols()) do
+  if arg[1] == "lan" and pr:proto() == "static" or arg[1] ~= "lan" then
 	p:value(pr:proto(), pr:get_i18n())
 	if pr:proto() ~= net:proto() then
 		p_switch:depends("proto", pr:proto())
 	end
+  end
 end
 
 
 auto = s:taboption("advanced", Flag, "auto", translate("Bring up on boot"))
 auto.default = (net:proto() == "none") and auto.disabled or auto.enabled
 
-
+--[[
 if not net:is_virtual() then
 	br = s:taboption("physical", Flag, "type", translate("Bridge interfaces"), translate("creates a bridge over specified interface(s)"))
 	br.enabled = "bridge"
@@ -304,8 +307,8 @@ if not net:is_virtual() then
 	ifname_multi.cfgvalue = ifname_single.cfgvalue
 	ifname_multi.write = ifname_single.write
 end
-
-
+--]]
+--[[
 if has_firewall then
 	fwzone = s:taboption("firewall", Value, "_fwzone",
 		translate("Create / Assign firewall-zone"),
@@ -340,7 +343,7 @@ if has_firewall then
 	end
 end
 
-
+--]]
 function p.write() end
 function p.remove() end
 function p.validate(self, value, section)
@@ -391,7 +394,7 @@ end
 --
 -- Display IP Aliases
 --
-
+--[[
 if not net:is_floating() then
 	s2 = m:section(TypedSection, "alias", translate("IP-Aliases"))
 	s2.addremove = true
@@ -439,7 +442,7 @@ if not net:is_floating() then
 	dns.optional = true
 	dns.datatype = "ip4addr"
 end
-
+--]]
 
 --
 -- Display DNS settings if dnsmasq is available

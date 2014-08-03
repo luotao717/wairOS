@@ -16,11 +16,12 @@ $Id$
 module("luci.controller.admin.system", package.seeall)
 
 function index()
-	entry({"admin", "system"}, alias("admin", "system", "system"), _("System"), 30).index = true
+--	entry({"admin", "system"}, alias("admin", "system", "system"), _("System"), 30).index = true
+	entry({"admin", "system"}, alias("admin", "system", "system"), _("Time Synchronization"), 30).index = true
 	entry({"admin", "system", "system"}, cbi("admin_system/system"), _("System"), 1)
 	entry({"admin", "system", "clock_status"}, call("action_clock_status"))
 
-	entry({"admin", "system", "admin"}, cbi("admin_system/admin"), _("Administration"), 2)
+	entry({"admin", "system", "admin"}, cbi("admin_system/admin"), _("Admin Password"), 2)
 --[[
 	if nixio.fs.access("/bin/opkg") then
 		entry({"admin", "system", "packages"}, call("action_packages"), _("Software"), 10)

@@ -424,6 +424,13 @@ msgstr ""
 "点击\"生成备份\"即可下载以tar存档的当前配置文件。点击\"执行复位\"可恢复路由到"
 "初始的默认配置状态(仅squashfs格式的固件有效)。"
 
+msgid ""
+"To reset the firmware to its initial state, click "
+"\"Perform reset\" (only possible with squashfs images)."
+msgstr ""
+"点击\"执行复位\"可恢复路由到"
+"初始的默认配置状态(仅squashfs格式的固件有效)。"
+
 msgid "Client"
 msgstr "客户端"
 
@@ -937,6 +944,11 @@ msgid ""
 "Here you can configure the basic aspects of your device like its hostname or "
 "the timezone."
 msgstr "这里可以配置路由器的部分基本信息，比如主机名和时区。"
+
+msgid ""
+"Here you can configure the basic aspects of your device like "
+"the time."
+msgstr "这里可以配置路由器的部分基本信息，比如时间。"
 
 msgid ""
 "Here you can paste public SSH-Keys (one per line) for SSH public-key "
@@ -1826,6 +1838,9 @@ msgstr "重启中..."
 msgid "Reboots the operating system of your device"
 msgstr "重启设备的系统"
 
+msgid "Reboots your device will need 1-3 minutes, Please Waiting..."
+msgstr "重启路由器需要耗费1-3分钟时间，请等待"
+
 msgid "Receive"
 msgstr "接收"
 
@@ -1999,7 +2014,7 @@ msgid "Setup DHCP Server"
 msgstr "配置DHCP服务器"
 
 msgid "Setup Time Synchronization"
-msgstr ""
+msgstr "时间同步配置"
 
 msgid "Show current backup file list"
 msgstr "显示当前备份文件列表"
@@ -2647,6 +2662,18 @@ msgstr "正在操作，请等待..."
 msgid "Please get account and password from 'RippleTek Cloud Management Platform'->'device management', fill and operate device bind."
 msgstr "请填写从‘Fansup 云管理平台’->‘设备管理’上获取的设备帐号和密码，进行操作"
 
+msgid "Please get account and password from \""
+msgstr "请填写从\""
+
+msgid "RippleTek Cloud Management Platform"
+msgstr "Fansup 云管理平台"
+
+msgid "\"->\"device management\", fill and operate device bind."
+msgstr "\"->‘设备管理’上获取的设备帐号和密码，进行绑定操作"
+
+msgid "\"->\"device management\", fill and operate device unbind."
+msgstr "\"->\"设备管理\"上获取的设备帐号和密码，进行解绑操作"
+
 msgid "technical support by Yinjuinfo Technology Co.,Ltd"
 msgstr "银聚通讯为您提供技术支持"
 
@@ -2663,10 +2690,10 @@ msgid "Basic Settings"
 msgstr "基本设置"
 
 msgid "Wireless Settings"
-msgstr "使能无线设置"
+msgstr "启用无线设置"
 
 msgid "Enable Wireless"
-msgstr "无线使能"
+msgstr "打开无线功能"
 
 msgid "Network Type"
 msgstr "网络类型"
@@ -3167,8 +3194,8 @@ msgstr "« 后退"
 #~ msgid "Addresses"
 #~ msgstr "地址"
 
-#~ msgid "Admin Password"
-#~ msgstr "管理密码"
+msgid "Admin Password"
+msgstr "修改密码"
 
 #~ msgid "Alias"
 #~ msgstr "别名"

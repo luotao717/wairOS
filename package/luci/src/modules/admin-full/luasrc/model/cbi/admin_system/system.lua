@@ -22,17 +22,17 @@ require("luci.config")
 local m, s, o
 local has_ntpd = luci.fs.access("/usr/sbin/ntpd")
 
-m = Map("system", translate("System"), translate("Here you can configure the basic aspects of your device like its hostname or the timezone."))
+m = Map("system", translate("Time Synchronization"), translate("Here you can configure the basic aspects of your device like the time."))
 m:chain("luci")
 
 
-s = m:section(TypedSection, "system", translate("System Properties"))
+s = m:section(TypedSection, "system", translate("Setup Time Synchronization"))
 s.anonymous = true
 s.addremove = false
 
 s:tab("general",  translate("General Settings"))
-s:tab("logging",  translate("Logging"))
-s:tab("language", translate("Language and Style"))
+--s:tab("logging",  translate("Logging"))
+--s:tab("language", translate("Language and Style"))
 
 
 --
@@ -42,7 +42,7 @@ s:tab("language", translate("Language and Style"))
 o = s:taboption("general", DummyValue, "_systime", translate("Local Time"))
 o.template = "admin_system/clock_status"
 
-
+--[[
 o = s:taboption("general", Value, "hostname", translate("Hostname"))
 o.datatype = "hostname"
 
@@ -50,7 +50,6 @@ function o.write(self, section, value)
 	Value.write(self, section, value)
 	luci.sys.hostname(value)
 end
-
 
 o = s:taboption("general", ListValue, "zonename", translate("Timezone"))
 o:value("UTC")
@@ -73,10 +72,12 @@ function o.write(self, section, value)
 end
 
 
+--]]
+
 --
 -- Logging
 --
-
+--[[
 o = s:taboption("logging", Value, "log_size", translate("System log buffer size"), "kiB")
 o.optional    = true
 o.placeholder = 16
@@ -107,12 +108,12 @@ o.default = 8
 o:value(5, translate("Debug"))
 o:value(8, translate("Normal"))
 o:value(9, translate("Warning"))
-
+--]]
 
 --
 -- Langauge & Style
 --
-
+--[[
 o = s:taboption("language", ListValue, "_lang", translate("Language"))
 o:value("auto")
 
@@ -148,7 +149,7 @@ function o.write(self, section, value)
 	m.uci:set("luci", "main", "mediaurlbase", value)
 end
 
-
+--]]
 --
 -- NTP
 --
