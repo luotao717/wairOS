@@ -217,7 +217,13 @@ p_switch.inputstyle = "apply"
 
 local _, pr
 for _, pr in ipairs(nw:get_protocols()) do
-  if arg[1] == "lan" and pr:proto() == "static" or arg[1] ~= "lan" then
+  if arg[1] == "lan" then
+	  if pr:proto() == "static" then
+		p:value(pr:proto(), pr:get_i18n())
+	  else
+		p_switch:depends("proto", pr:proto())
+	  end
+  else
 	p:value(pr:proto(), pr:get_i18n())
 	if pr:proto() ~= net:proto() then
 		p_switch:depends("proto", pr:proto())
