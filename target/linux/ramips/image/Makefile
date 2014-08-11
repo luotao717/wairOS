@@ -161,7 +161,8 @@ wifi_router_mtdlayout_8M=mtdparts=spi0.0:192k(u-boot)ro,64k(u-boot-config)ro,64k
 
 wifi_router_poe_mtdlayout_4M=mtdparts=spi0.0:192k(u-boot)ro,64k(u-boot-config)ro,896k(kernel),2880k(rootfs),64k(Factory),3776k@0x40000(firmware)
 
-wifi_router_wallpoe_mtdlayout_4M=mtdparts=spi0.0:192k(u-boot)ro,64k(u-boot-config)ro,896k(kernel),2880k(rootfs),64k(Factory),3776k@0x40000(firmware)
+#wifi_router_wallpoe_mtdlayout_4M=mtdparts=spi0.0:192k(u-boot)ro,64k(u-boot-config)ro,896k(kernel),2880k(rootfs),64k(Factory),3776k@0x40000(firmware)
+wifi_router_wallpoe_mtdlayout_4M=mtdparts=spi0.0:128k(u-boot)ro,64k(u-boot-config)ro,64k(Factory),896k(kernel),2944k(rootfs),3840k@0x40000(firmware)
 
 define Image/BuildKernel
 	cp $(KDIR)/vmlinux.elf $(VMLINUX).elf
