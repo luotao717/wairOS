@@ -3,6 +3,8 @@
 START=66
 
 start() {
+	/usr/bin/getwanip.sh
+	/bin/upgrade_daemon &
 	/bin/mythstart &
 }
 

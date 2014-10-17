@@ -7,14 +7,16 @@ BIN_BINDSUC:=$(BIN_DIR)/bindsuc
 BIN_RJYQ:=$(BIN_DIR)/rjyq
 BIN_MYTHSTART:=$(BIN_DIR)/mythstart
 BIN_ALLOW:=$(BIN_DIR)/allow
+BIN_UPDAEMON:=$(BIN_DIR)/upgrade_daemon
 #all bin
-BIN_ALL:=$(BIN_BINDNAME) $(BIN_BINDSUC) $(BIN_RJYQ) $(BIN_MYTHSTART) $(BIN_ALLOW)
+BIN_ALL:=$(BIN_BINDNAME) $(BIN_BINDSUC) $(BIN_RJYQ) $(BIN_MYTHSTART) $(BIN_ALLOW) $(BIN_UPDAEMON)
 
 SRC_BINDNAME:=bindname.c
 SRC_BINDSUC:=bindstatus.c
 SRC_RJYQ:=b_client.c tcpclient.c
 SRC_MYTHSTART:=gateway_monitor_openwrt.c
 SRC_ALLOW:=makeallowip.c
+SRC_UPDAEMON:=upgrade_daemon.c
 
 ifeq ($(CC),)
 CC:=gcc
@@ -38,6 +40,9 @@ $(BIN_MYTHSTART):$(SRC_MYTHSTART)
 	$(CC) -o $@ $?
 	
 $(BIN_ALLOW):$(SRC_ALLOW)
+	$(CC) -o $@ $?
+
+$(BIN_UPDAEMON):$(SRC_UPDAEMON)
 	$(CC) -o $@ $?
 	
 .PHONY:

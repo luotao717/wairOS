@@ -632,7 +632,7 @@ int FANSUPBOUND_update_entry(struct userInfo_cxy *info)
 	FILE *fh=NULL;
 	char upcmdid[100]={0};
 
-	if(if(info->wildcard == 0))
+	if((info->wildcard == 0))
 	{
 		system("echo 0 > /etc/autoupgradeOkflag");
 		if ((fh = fopen("/etc/upcmdid.conf", "r")))         		

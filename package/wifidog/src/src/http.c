@@ -244,8 +244,32 @@ void http_send_redirect(request *r, char *url, char *text)
 		char *message = NULL;
 		char *header = NULL;
 		char *response = NULL;
+		t_client	*client;
+		char	*mac,*token;
+		s_config	*config = NULL;
+		char clientMacBuf[20]={0};
+		char wanipBuf[32]="0.0.0.0";
+		FILE *fh =NULL;
 							/* Re-direct them to auth server */
 		debug(LOG_WARNING, "Redirecting client browser to %s", url);
+		config = config_get_config();
+		if (!(mac = arp_get(r->clientAddr)))
+		{
+			strcpy(clientMacBuf,"00:00:00:00:00:00");
+		}
+		else
+		{
+			strcpy(clientMacBuf,mac);
+		}
+		if ((fh = fopen("/tmp/wanipaddr", "r"))) 
+		{
+			fscanf(fh, "%s", wanipBuf);
+			fclose(fh);
+		}
+		safe_asprintf(&header, "HTTP_AP_MAC: %s",config->gw_id);
+		safe_asprintf(&header, "HTTP_AP_IP: %s",wanipBuf);
+		safe_asprintf(&header, "HTTP_CLIENT_MAC: %s",clientMacBuf);
+		safe_asprintf(&header, "HTTP_CLIENT_IP: %s",r->clientAddr);
 		safe_asprintf(&header, "Location: %s",
 			url
 		);

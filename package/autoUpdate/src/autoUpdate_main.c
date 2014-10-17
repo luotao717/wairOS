@@ -126,11 +126,11 @@ int main(int argc,char *argv[])
        {
            if(ret == 0)
            {
-                system("echo status:1 > /etc/config/wifidogbindstatus");
+                system("echo 1 > /etc/autoupflag");
            }
            else
            {
-                system("echo status:2 > /etc/config/wifidogbindstatus");
+                system("echo 0 > /etc/autoupflag");
            }
        }
        else
@@ -138,11 +138,11 @@ int main(int argc,char *argv[])
             
             if(ret == 0)
             {
-                 system("echo status:2 > /etc/config/wifidogbindstatus");
+                 system("echo 1 > /etc/autoupgradeOkflag");
             }
             else
             {
-                 system("echo status:1 > /etc/config/wifidogbindstatus");
+                 system("echo 0 > /etc/autoupgradeOkflag");
             }
        }
 	return ret;

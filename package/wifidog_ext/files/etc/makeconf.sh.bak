@@ -6,19 +6,19 @@ echo 'AuthServer {' >> /etc/wifidog.conf
 echo Hostname `cat /etc/config/authserver.conf`  >> /etc/wifidog.conf
 echo 'SSLAvailable no
 SSLPort 443
-HTTPPort 9001
+HTTPPort 8099
 Path /fcp/router/
 LoginScriptPathFragment login?
 PortalScriptPathFragment tosuccess?
 PingScriptPathFragment  ping?
 AuthScriptPathFragment  auth?
-}' >> /usr/local/etc/wifidog.conf
+}' >> /etc/wifidog.conf
 echo GatewayPort 2060 >> /etc/wifidog.conf
 echo HTTPDMaxConn 100 >> /etc/wifidog.conf
 echo HTTPDName WiFiDog >> /etc/wifidog.conf
 echo CheckInterval 3600 >> /etc/wifidog.conf
 echo ClientTimeout 1 >> /etc/wifidog.conf
-echo TrustedMACList `cat /etc/userpage.conf` >> /usr/local/etc/wifidog.conf
+echo TrustedMACList `cat /etc/userpage.conf` >> /etc/wifidog.conf
 echo 'FirewallRuleSet global {' >> /etc/wifidog.conf
 cat /etc/allow.conf >> /etc/wifidog.conf
 echo ' ' >> /etc/wifidog.conf
