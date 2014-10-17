@@ -51,6 +51,7 @@
 #include "ping_thread.h"
 #include "util.h"
 #include "centralserver.h"
+#include "fw_iptables.h"
 
 static void ping(void);
 static void register_our(void);
@@ -114,6 +115,16 @@ ping(void)
 	unsigned int      sys_memfree = 0;
 	float             sys_load    = 0;
 	t_auth_serv	*auth_server = NULL;
+	char *writeMacPtr=NULL;
+	char *whitePtr1=NULL;
+	char *whitePtr2=NULL;
+	char macBuf[18]={0};
+
+	char *writeUrlPtr=NULL;
+	char *whiteUrlPtr1=NULL;
+	char *whiteUrlPtr2=NULL;
+	char urlBuf[128]={0};
+	char allurlbuf[1024 * 30]={0};
 	auth_server = get_auth_server();
 	
 	debug(LOG_WARNING, "Entering ping()");
@@ -261,6 +272,145 @@ ping(void)
 		debug(LOG_WARNING, "Auth Server Says: Pong");
 	}
 
+	//find url list
+	writeUrlPtr=strstr(request,"<whiteUrl>");
+	if(NULL == writeUrlPtr)
+	{
+		debug(LOG_WARNING, "no white url flag");
+		goto WHITE_MAC_CHECK_START ;
+	}
+	if(*(writeUrlPtr+10) == '<')
+	{
+		debug(LOG_WARNING, "no white url list");
+		goto WHITE_MAC_CHECK_START ;
+	}
+	debug(LOG_WARNING, "buffer1= %s---" ,writeUrlPtr+10);	
+	whiteUrlPtr1 = strstr(writeUrlPtr+10,"</whiteUrl>");
+	if(whiteUrlPtr1 == NULL)
+	{
+		debug(LOG_WARNING, "error in resolv the white url list");
+		goto WHITE_MAC_CHECK_START ;
+	}
+	memcpy(allurlbuf,writeUrlPtr+10,whiteUrlPtr1-writeUrlPtr-10);
+	debug(LOG_WARNING, "buffer2= %s---" ,allurlbuf);	
+	whiteUrlPtr1 = allurlbuf;
+	while(1)
+	{
+		whiteUrlPtr2 = strchr(whiteUrlPtr1,',');
+		if(whiteUrlPtr2 == NULL)
+		{
+			strcpy(urlBuf,whiteUrlPtr1);
+			debug(LOG_WARNING, "last url %s---" ,urlBuf);			
+			iptables_do_command("-t filter -A " TABLE_WIFIDOG_AUTHSERVERS " -d %s -j ACCEPT", urlBuf);
+			iptables_do_command("-t nat -A " TABLE_WIFIDOG_AUTHSERVERS " -d %s -j ACCEPT", urlBuf);
+			break;
+		}
+		else
+		{
+			*whiteUrlPtr2 = '\0';
+			strcpy(urlBuf,whiteUrlPtr1);
+			debug(LOG_WARNING, "url %s---" ,urlBuf);
+			iptables_do_command("-t filter -A " TABLE_WIFIDOG_AUTHSERVERS " -d %s -j ACCEPT", urlBuf);
+			iptables_do_command("-t nat -A " TABLE_WIFIDOG_AUTHSERVERS " -d %s -j ACCEPT", urlBuf);
+			whiteUrlPtr1=whiteUrlPtr2+1;
+		}
+	}
+WHITE_MAC_CHECK_START:
+//find white mac	
+	writeMacPtr=strstr(request,"<whiteMAC>");
+	if(NULL == writeMacPtr)
+	{
+		debug(LOG_WARNING, "no white mac flag");
+		return;
+	}
+	if(*(writeMacPtr+10) == '<')
+	{
+		debug(LOG_WARNING, "no white mac list");
+		return;
+	}
+	whitePtr1 = strstr(writeMacPtr+10,"</whiteMAC>");
+	if(whitePtr1 == NULL)
+	{
+		debug(LOG_WARNING, "error in resolv the white list");
+		return;
+	}
+	*whitePtr1='\0';
+	whitePtr1 = writeMacPtr+10;
+	while(1)
+	{
+		whitePtr2 = strchr(whitePtr1,',');
+		if(whitePtr2 == NULL)
+		{
+			if(*(whitePtr1+2) == ':')
+			{
+				strncpy(macBuf,whitePtr1,17);
+			}
+			else
+			{
+				macBuf[0]=*whitePtr1;
+				macBuf[1]=*(whitePtr1+1);
+				macBuf[2]=':';
+
+				macBuf[3]=*(whitePtr1+2);
+				macBuf[4]=*(whitePtr1+3);
+				macBuf[5]=':';
+
+				macBuf[6]=*(whitePtr1+4);
+				macBuf[7]=*(whitePtr1+5);
+				macBuf[8]=':';
+
+				macBuf[9]=*(whitePtr1+6);
+				macBuf[10]=*(whitePtr1+7);
+				macBuf[11]=':';
+
+				macBuf[12]=*(whitePtr1+8);
+				macBuf[13]=*(whitePtr1+9);
+				macBuf[14]=':';
+
+				macBuf[15]=*(whitePtr1+10);
+				macBuf[16]=*(whitePtr1+11);
+			}
+			debug(LOG_WARNING, "last mac %s---" ,macBuf);			
+			iptables_do_command("-t mangle -A " TABLE_WIFIDOG_TRUSTED " -m mac --mac-source %s -j MARK --set-mark %d", macBuf, FW_MARK_KNOWN);
+			break;
+		}
+		else
+		{
+			*whitePtr2 = '\0';
+			if(*(whitePtr1+2) == ':')
+			{
+				strncpy(macBuf,whitePtr1,17);
+			}
+			else
+			{
+				macBuf[0]=*whitePtr1;
+				macBuf[1]=*(whitePtr1+1);
+				macBuf[2]=':';
+
+				macBuf[3]=*(whitePtr1+2);
+				macBuf[4]=*(whitePtr1+3);
+				macBuf[5]=':';
+
+				macBuf[6]=*(whitePtr1+4);
+				macBuf[7]=*(whitePtr1+5);
+				macBuf[8]=':';
+
+				macBuf[9]=*(whitePtr1+6);
+				macBuf[10]=*(whitePtr1+7);
+				macBuf[11]=':';
+
+				macBuf[12]=*(whitePtr1+8);
+				macBuf[13]=*(whitePtr1+9);
+				macBuf[14]=':';
+
+				macBuf[15]=*(whitePtr1+10);
+				macBuf[16]=*(whitePtr1+11);
+			}
+			debug(LOG_WARNING, "mac %s---" ,macBuf);
+			iptables_do_command("-t mangle -A " TABLE_WIFIDOG_TRUSTED " -m mac --mac-source %s -j MARK --set-mark %d", macBuf, FW_MARK_KNOWN);
+			whitePtr1=whitePtr2+1;
+		}
+	}
 	return;	
 }
 

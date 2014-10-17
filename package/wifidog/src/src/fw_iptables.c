@@ -48,7 +48,7 @@
 #include "util.h"
 #include "client_list.h"
 
-static int iptables_do_command(const char *format, ...);
+int iptables_do_command(const char *format, ...);
 static char *iptables_compile(const char *, const char *, const t_firewall_rule *);
 static void iptables_load_ruleset(const char *, const char *, const char *);
 
@@ -91,7 +91,7 @@ iptables_insert_gateway_id(char **input)
 
 /** @internal 
  * */
-static int
+int
 iptables_do_command(const char *format, ...)
 {
 	va_list vlist;

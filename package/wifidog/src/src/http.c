@@ -114,15 +114,16 @@ http_callback_404(httpd *webserver, request *r)
 		if (!(mac = arp_get(r->clientAddr))) {
 			/* We could not get their MAC address */
 			debug(LOG_INFO, "Failed to retrieve MAC address for ip %s, so not putting in the login request", r->clientAddr);
-			safe_asprintf(&urlFragment, "%sgw_address=%s&gw_port=%d&gw_id=%s&url=%s",
+			safe_asprintf(&urlFragment, "%sgw_address=%s&gw_port=%d&gw_id=%s&url=%s&SN=%s",
 				auth_server->authserv_login_script_path_fragment,
 				config->gw_address,
 				config->gw_port, 
 				config->gw_id,
-				url);
+				url,
+				config->gw_id);
 		} else {			
 			debug(LOG_INFO, "Got client MAC address for ip %s: %s", r->clientAddr, mac);
-			safe_asprintf(&urlFragment, "%sgw_address=%s&gw_port=%d&gw_id=%s&mac=%s&clientMac=%s&routerMac=%s&url=%s",
+			safe_asprintf(&urlFragment, "%sgw_address=%s&gw_port=%d&gw_id=%s&mac=%s&clientMac=%s&routerMac=%s&url=%s&SN=%s",
 				auth_server->authserv_login_script_path_fragment,
 				config->gw_address,
 				config->gw_port, 
@@ -130,7 +131,8 @@ http_callback_404(httpd *webserver, request *r)
 				mac,
 				mac,
 				config->gw_id,
-				url);
+				url,
+				config->gw_id);
 		}
 
 		debug(LOG_INFO, "Captured %s requesting [%s] and re-directing them to login page", r->clientAddr, url);
@@ -358,12 +360,13 @@ http_callback_wxLogin(httpd *webserver, request *r)
              {
 			/* We have their MAC address */
                     char *urlFragment;
-			safe_asprintf(&urlFragment, "%sweixin=%s&opt=%s&gw_id=%s&clientMac=%s&routerMac=%s",
+			safe_asprintf(&urlFragment, "%sweixin=%s&opt=%s&gw_id=%s&clientMac=%s&routerMac=%s&SN=%s",
 				"authAccess?",
 				weixin->value,
 				optmode->value, 
 				config->gw_id,
 				mac,
+				config->gw_id,
 				config->gw_id);
                     http_send_redirect_to_wxLogin(r, urlFragment, "Redirect to wxlogin page");
 		      free(urlFragment);

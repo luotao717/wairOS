@@ -355,6 +355,301 @@ init_signals(void)
 	}
 }
 
+
+static int main_bound_status(void)
+{
+	char tmpbuf[512]={0};
+	FILE *tempfp=NULL;
+
+	if(tempfp=fopen("/etc/wifidog/bindstatus","r") == NULL)
+	{
+		printf("\r\n no bind so exit auth");
+		return -1;
+	}
+	fgets(tmpbuf,sizeof(tmpbuf),tempfp);
+	if(strstr(tmpbuf,"status:1")== NULL)
+	{
+		printf("\r\n bind error so exit auth");
+		fclose(tempfp);
+		return -1;
+	}
+	fclose(tempfp);
+	return 1;
+}
+
+static void main_register_our(void)
+{
+        ssize_t			numbytes;
+        size_t	        	totalbytes;
+	int			sockfd, nfds, done;
+	char			request[MAX_BUF];
+	fd_set			readfds;
+	struct timeval		timeout;
+	FILE * fh;
+	unsigned long int sys_uptime  = 0;
+	unsigned int      sys_memfree = 0;
+	float             sys_load    = 0;
+      char myssid[128]={0};
+      char wanmode[24]={0};
+	t_auth_serv	*auth_server = NULL;
+	auth_server = get_auth_server();
+	
+	debug(LOG_WARNING, "Entering regiser_our()");
+
+      if ((fh = popen("uci get wireless.ra0.ssid","r"))) 
+       {
+		fscanf(fh, "%s", myssid);
+		fclose(fh);
+	}
+        if ((fh = popen("uci get network.wan.proto","r"))) 
+       {
+		fscanf(fh, "%s", wanmode);
+		fclose(fh);
+	}
+    
+	/*
+	 * The ping thread does not really try to see if the auth server is actually
+	 * working. Merely that there is a web server listening at the port. And that
+	 * is done by connect_auth_server() internally.
+	 */
+	sockfd = connect_auth_server();
+	if (sockfd == -1) {
+		/*
+		 * No auth servers for me to talk to
+		 */
+		return;
+	}
+        //if ((fh = fopen("/etc/gwid.conf", "r"))) {
+		//fscanf(fh, "%s", &sys_uptime);
+		//fclose(fh);
+	//}
+	/*
+	 * Populate uptime, memfree and load
+	 */
+	
+	/*
+	 * Prep & send request
+	 */
+	snprintf(request, sizeof(request) - 1,
+			"GET %s%smac=%s&fmVersion=%s&cpu=%s&wireless_chip=%s&ssid=%s&connModel=%s HTTP/1.0\r\n"
+			"User-Agent: WiFiDog %s\r\n"
+			"Host: %s\r\n"
+			"\r\n",
+			auth_server->authserv_path,
+			"register?",
+			config_get_config()->gw_id,
+			"1001",
+			"7620",
+			"2880",
+			myssid,
+			wanmode,
+			"v10",
+			auth_server->authserv_hostname);
+
+	debug(LOG_WARNING, "HTTP Request to Server: [%s]", request);
+	
+	send(sockfd, request, strlen(request), 0);
+
+	debug(LOG_WARNING, "Reading response");
+	
+	numbytes = totalbytes = 0;
+	done = 0;
+	do {
+		FD_ZERO(&readfds);
+		FD_SET(sockfd, &readfds);
+		timeout.tv_sec = 30; /* XXX magic... 30 second */
+		timeout.tv_usec = 0;
+		nfds = sockfd + 1;
+
+		nfds = select(nfds, &readfds, NULL, NULL, &timeout);
+
+		if (nfds > 0) {
+			/** We don't have to use FD_ISSET() because there
+			 *  was only one fd. */
+			numbytes = read(sockfd, request + totalbytes, MAX_BUF - (totalbytes + 1));
+			if (numbytes < 0) {
+				debug(LOG_ERR, "An error occurred while reading from auth server: %s", strerror(errno));
+				/* FIXME */
+				close(sockfd);
+				return;
+			}
+			else if (numbytes == 0) {
+				done = 1;
+			}
+			else {
+				totalbytes += numbytes;
+				debug(LOG_WARNING, "Read %d bytes, total now %d", numbytes, totalbytes);
+			}
+		}
+		else if (nfds == 0) {
+			debug(LOG_ERR, "Timed out reading data via select() from auth server");
+			/* FIXME */
+			close(sockfd);
+			return;
+		}
+		else if (nfds < 0) {
+			debug(LOG_ERR, "Error reading data via select() from auth server: %s", strerror(errno));
+			/* FIXME */
+			close(sockfd);
+			return;
+		}
+	} while (!done);
+	close(sockfd);
+
+	debug(LOG_WARNING, "Done reading reply, total %d bytes", totalbytes);
+
+	request[totalbytes] = '\0';
+
+	debug(LOG_WARNING, "HTTP Response from Server: [%s]", request);
+	
+	if (strstr(request, "<code>1</code>") == 0) {
+		debug(LOG_WARNING, "REGISTER error");
+		/* FIXME */
+	}
+	else {
+		debug(LOG_WARNING, "regsster ok!");
+	}
+
+	return;	
+}
+
+
+static int main_bindcheck_our(void)
+{
+        ssize_t			numbytes;
+        size_t	        	totalbytes;
+	int			sockfd, nfds, done;
+	char			request[MAX_BUF];
+	fd_set			readfds;
+	struct timeval		timeout;
+	FILE * fh;
+	unsigned long int sys_uptime  = 0;
+	unsigned int      sys_memfree = 0;
+	float             sys_load    = 0;
+      char myssid[128]={0};
+      char wanmode[24]={0};
+      int checkFlag=0;
+	t_auth_serv	*auth_server = NULL;
+	auth_server = get_auth_server();
+	
+	debug(LOG_WARNING, "Entering regiser_our()");
+
+      if ((fh = popen("uci get wireless.ra0.ssid","r"))) 
+       {
+		fscanf(fh, "%s", myssid);
+		fclose(fh);
+	}
+        if ((fh = popen("uci get network.wan.proto","r"))) 
+       {
+		fscanf(fh, "%s", wanmode);
+		fclose(fh);
+	}
+    
+	/*
+	 * The ping thread does not really try to see if the auth server is actually
+	 * working. Merely that there is a web server listening at the port. And that
+	 * is done by connect_auth_server() internally.
+	 */
+	sockfd = connect_auth_server();
+	if (sockfd == -1) {
+		/*
+		 * No auth servers for me to talk to
+		 */
+		return -1;
+	}
+        //if ((fh = fopen("/etc/gwid.conf", "r"))) {
+		//fscanf(fh, "%s", &sys_uptime);
+		//fclose(fh);
+	//}
+	/*
+	 * Populate uptime, memfree and load
+	 */
+	
+	/*
+	 * Prep & send request
+	 */
+	snprintf(request, sizeof(request) - 1,
+			"GET %s%smac=%s HTTP/1.0\r\n"
+			"User-Agent: WiFiDog %s\r\n"
+			"Host: %s\r\n"
+			"\r\n",
+			auth_server->authserv_path,
+			"boundStatus?",
+			config_get_config()->gw_id,
+			"v10",
+			auth_server->authserv_hostname);
+
+	debug(LOG_WARNING, "HTTP Request to Server: [%s]", request);
+	
+	send(sockfd, request, strlen(request), 0);
+
+	debug(LOG_WARNING, "Reading response");
+	
+	numbytes = totalbytes = 0;
+	done = 0;
+	do {
+		FD_ZERO(&readfds);
+		FD_SET(sockfd, &readfds);
+		timeout.tv_sec = 30; /* XXX magic... 30 second */
+		timeout.tv_usec = 0;
+		nfds = sockfd + 1;
+
+		nfds = select(nfds, &readfds, NULL, NULL, &timeout);
+
+		if (nfds > 0) {
+			/** We don't have to use FD_ISSET() because there
+			 *  was only one fd. */
+			numbytes = read(sockfd, request + totalbytes, MAX_BUF - (totalbytes + 1));
+			if (numbytes < 0) {
+				debug(LOG_ERR, "An error occurred while reading from auth server: %s", strerror(errno));
+				/* FIXME */
+				close(sockfd);
+				return -1;
+			}
+			else if (numbytes == 0) {
+				done = 1;
+			}
+			else {
+				totalbytes += numbytes;
+				debug(LOG_WARNING, "Read %d bytes, total now %d", numbytes, totalbytes);
+			}
+		}
+		else if (nfds == 0) {
+			debug(LOG_ERR, "Timed out reading data via select() from auth server");
+			/* FIXME */
+			close(sockfd);
+			return -1;
+		}
+		else if (nfds < 0) {
+			debug(LOG_ERR, "Error reading data via select() from auth server: %s", strerror(errno));
+			/* FIXME */
+			close(sockfd);
+			return -1;
+		}
+	} while (!done);
+	close(sockfd);
+
+	debug(LOG_WARNING, "Done reading reply, total %d bytes", totalbytes);
+
+	request[totalbytes] = '\0';
+
+	debug(LOG_WARNING, "HTTP Response from Server: [%s]", request);
+	
+	if (strstr(request, "<code>1</code>") == 0) {
+		debug(LOG_WARNING, "bind error");
+              checkFlag = 0;
+		/* FIXME */
+	}
+	else {
+                checkFlag = 1;
+                system("echo status:1 > /etc/config/wifidogbindstatus");
+		debug(LOG_WARNING, "bind ok!");
+	}
+
+	return checkFlag;	
+}
+
+
 /**@internal
  * Main execution loop 
  */
@@ -367,6 +662,15 @@ main_loop(void)
 	request *r;
 	void **params;
 
+	main_register_our();
+        if(main_bindcheck_our() !=1 )
+        {
+        	if(main_bound_status() != 1)
+        	{
+        		printf("\r\nno bound so exit it");
+        		exit(0);
+        	}
+        }
     /* Set the time when wifidog started */
 	if (!started_time) {
 		debug(LOG_INFO, "Setting started_time");

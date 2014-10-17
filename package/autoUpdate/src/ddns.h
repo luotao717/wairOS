@@ -36,10 +36,10 @@
 #define ORANGELINK_REQUEST "/devservice/dev_get_status.asp"
 #define ORANGELINK_MAX_INTERVAL (25*24*3600)
 
-#define FANSUPBOUND_NAME "fansupBound"
+#define FANSUPBOUND_NAME "fpUpCheck"
 #define FANSUPBOUND_DEFAULT_SERVER "apapi.fansup.net"
 #define FANSUPBOUND_DEFAULT_PORT 9001
-#define FANSUPBOUND_REQUEST "/fcp/router/bound"
+#define FANSUPBOUND_REQUEST "/fcp/router/getUpgradeCommand"
 #define FANSUPBOUND_MAX_INTERVAL (25*24*3600)
 
 

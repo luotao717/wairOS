@@ -68,12 +68,12 @@ int main(int argc,char *argv[])
 		return -1;
 	}
 
-	if(strcmp(argv[1],"-s") && strcmp(argv[1],"-m")&& strcmp(argv[1],"-o")&& strcmp(argv[1],"-f")) {
+	if(strcmp(argv[1],"-s") && strcmp(argv[1],"-m")&& strcmp(argv[1],"-o")&& strcmp(argv[1],"-a")) {
 		usage();
 		return -1;
 	}
 	sprintf(line, "%d\n", getpid());
-	if ((getFp = fopen("/var/run/httpsend.pid", "w")) != NULL)
+	if ((getFp = fopen("/var/run/autoUpdate.pid", "w")) != NULL)
 	{
 		fwrite(line, strlen(line), 1, getFp);
 		fclose(getFp);
@@ -98,7 +98,7 @@ int main(int argc,char *argv[])
         	strcpy(info.usrpwd, "admin");
 		strcpy(info.backmx, devsn);
 	}
-        else if(!strcmp(argv[1],"-f")) 
+        else if(!strcmp(argv[1],"-a")) 
 	{
              //printf("\r\ndsadas");
               strcpy(info.host, argv[3]);

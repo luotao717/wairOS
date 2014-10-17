@@ -56,13 +56,13 @@ function dev_bind()
 		end
 	end
 
-	if not nixio.fs.access("/etc/wifidog/bindstatus" ) then
+	if not nixio.fs.access("/etc/config/wifidogbindstatus" ) then
 		bind = "2"; 
 		luci.template.render("wifidog/dev_bind", {bind=bind, Status_Message = Status_Message})
 		return
 	end
 
-	local info = nixio.fs.readfile("/etc/wifidog/bindstatus")
+	local info = nixio.fs.readfile("/etc/config/wifidogbindstatus")
 	local status = info:match("status:([^\n]+)")
 
 	if status == "1" then -- Bind
@@ -94,13 +94,13 @@ function dev_unbind()
 		end
 	end
 
-	if not nixio.fs.access("/etc/wifidog/bindstatus" ) then
+	if not nixio.fs.access("/etc/config/wifidogbindstatus" ) then
 		bind = "2"; 
 		luci.template.render("wifidog/dev_unbind", {bind=bind, Status_Message = Status_Message})
 		return
 	end
 
-	local info = nixio.fs.readfile("/etc/wifidog/bindstatus")
+	local info = nixio.fs.readfile("/etc/config/wifidogbindstatus")
 	local status = info:match("status:([^\n]+)")
 
 	if status == "1" then -- Bind
