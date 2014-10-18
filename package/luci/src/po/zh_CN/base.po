@@ -2668,6 +2668,9 @@ msgstr "请填写从\""
 msgid "RippleTek Cloud Management Platform"
 msgstr "Fansup 云管理平台"
 
+msgid "Cloud Management Platform"
+msgstr "云端平台"
+
 msgid "\"->\"device management\", fill and operate device bind."
 msgstr "\"->‘设备管理’上获取的设备帐号和密码，进行绑定操作"
 
@@ -2717,7 +2720,7 @@ msgid "SSID Index"
 msgstr "SSID索引"
 
 msgid "Enable SSID"
-msgstr "使能SSID"
+msgstr "开启SSID"
 
 msgid "Hidden SSID"
 msgstr "隐藏SSID"
@@ -2833,6 +2836,9 @@ msgstr "on"
 
 msgid "routed"
 msgstr "路由守护"
+
+msgid "Intelligent wireless router"
+msgstr "无线智能路由器"
 
 msgid "tagged"
 msgstr "已标记"

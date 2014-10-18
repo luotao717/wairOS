@@ -96,6 +96,17 @@ $Id$
 	end
 
 	local system, model = luci.sys.sysinfo()
+
+	local is_odm = false
+	if luci.config.main.mediaurlbase == "/luci-static/bootstrap_ODM" then
+		is_odm = true
+        end	
+
+	hostname = luci.sys.hostname()
+	if is_odm then 
+		hostname = "smart Router"
+		model = "WL7620"
+	end
 -%>
 
 <%+header%>
@@ -465,7 +476,7 @@ $Id$
 	<legend><%:System%></legend>
 
 	<table width="100%" cellspacing="10">
-		<tr><td width="33%"><%:Router Name%></td><td><%=luci.sys.hostname() or "?"%></td></tr>
+		<tr><td width="33%"><%:Router Name%></td><td><%=hostname or "?"%></td></tr>
 		<tr><td width="33%"><%:Router Model%></td><td><%=pcdata(model or "?")%></td></tr>
 		<tr><td width="33%"><%:Firmware Version%></td><td>
 				1.0.0

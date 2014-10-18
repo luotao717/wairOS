@@ -1,0 +1,7 @@
+#!/bin/sh
+uci batch <<-EOF
+	set luci.themes.Bootstrap_ODM=/luci-static/bootstrap_ODM
+	set luci.main.mediaurlbase=/luci-static/bootstrap_ODM
+	commit luci
+EOF
+exit 0

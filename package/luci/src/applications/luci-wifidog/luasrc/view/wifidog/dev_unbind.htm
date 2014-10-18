@@ -11,13 +11,23 @@ You may obtain a copy of the License at
 $Id$
 
 -%>
+<%-
+	local is_odm = false
+	if luci.config.main.mediaurlbase == "/luci-static/bootstrap_ODM" then
+		is_odm = true
+        end	
+-%>
 
 <%+header%>
 <form method="post" action="<%=pcdata(luci.http.getenv("REQUEST_URI"))%>">
 	<div class="cbi-map">
 		<h2><a id="content" name="content"><%:Bind Device%></a></h2>
 		<div class="cbi-map-descr">
-			<%:Please get account and password from "%><a href="http://cloud.fansup.net"><%:RippleTek Cloud Management Platform%></a><%:"->"device management", fill and operate device unbind.%>
+			<%- if is_odm then -%>
+				<%:Please get account and password from "%><%:Cloud Management Platform%><%:"->"device management", fill and operate device unbind.%>
+			<%- else -%>
+				<%:Please get account and password from "%><a href="http://cloud.fansup.net"><%:RippleTek Cloud Management Platform%></a><%:"->"device management", fill and operate device unbind.%>
+			<%- end -%>
 		</div>
 		<fieldset class="cbi-section">
 			<legend><%:Bind Device%></legend>
