@@ -39,7 +39,7 @@ $Id$
 
 			<br style="clear:both" /><br />
 			<div style="width:30%; float:left;">
-				<input type="submit" value="<%:Unbind%>" class="cbi-button cbi-button-apply" />
+				<input type="submit" value="<%:Unbind%>" <%- if status == "2" then -%> disabled="disabled"  <%- end -%> class="cbi-button cbi-button-apply" />
 			</div>
 
 		</fieldset>

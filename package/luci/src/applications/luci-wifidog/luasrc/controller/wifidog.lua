@@ -113,6 +113,6 @@ function dev_unbind()
 		Status_Message = luci.i18n.translate("Status Unknown")
 	end
 	
-	luci.template.render("wifidog/dev_unbind", {bind=bind, Status_Message = Status_Message})
+	luci.template.render("wifidog/dev_unbind", {bind=bind, status=status, Status_Message = Status_Message})
 end
 
