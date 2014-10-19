@@ -53,7 +53,7 @@
 #include "centralserver.h"
 #include "fw_iptables.h"
 
-static void ping(void);
+static void ping(int * update_sec);
 static void register_our(void);
 static void bound_our(void);
 
@@ -71,16 +71,18 @@ thread_ping(void *arg)
 	pthread_cond_t		cond = PTHREAD_COND_INITIALIZER;
 	pthread_mutex_t		cond_mutex = PTHREAD_MUTEX_INITIALIZER;
 	struct	timespec	timeout;
+	int update_interval = config_get_config()->checkinterval;	
+	
 	
 	while (1) {
 		/* Make sure we check the servers at the very begining */
 		debug(LOG_WARNING, "Running ping()");
-		ping();
+		ping(&update_interval);
             register_our();
             //bound_our();
 		
 		/* Sleep for config.checkinterval seconds... */
-		timeout.tv_sec = time(NULL) + config_get_config()->checkinterval;
+		timeout.tv_sec = time(NULL) + update_interval;// config_get_config()->checkinterval;
 		timeout.tv_nsec = 0;
 
 		/* Mutex must be locked for pthread_cond_timedwait... */
@@ -94,11 +96,59 @@ thread_ping(void *arg)
 	}
 }
 
+/*
+ * get the xml value 
+ * name length : 24
+ * outlen: input : max of value
+ * 	   output: lenghth of value
+ */
+static int get_xml_tval(char *origin_str, char* name, char *value, int * outlen)
+{
+	char tmp[32] = {0};
+	int len = 0;
+	char *phead=NULL, *pend=NULL;
+
+	if ( strlen(name) > 24 ) {
+		return -1;
+	}
+
+	// head <>
+	len = snprintf(tmp, sizeof(tmp), "<%s>", name );
+	phead = strstr( origin_str, tmp);
+	if ( phead == NULL ) {
+		return -1;
+	}	
+	phead += len;
+
+	// end </>
+	memset( tmp, 0, sizeof(tmp));
+	len = snprintf(tmp, sizeof(tmp), "</%s>", name);
+	pend = strstr( origin_str, tmp );
+	if ( pend == NULL ) {
+		return -1;
+	}
+
+	if ( phead > pend ) {
+		return -1;
+	}
+
+	if ( phead == pend ) {
+		*outlen = 0;
+	}
+	else {
+		len = (( pend - phead ) < *outlen ) ? (pend - phead) : *outlen;
+		memcpy(value, phead, len ) ; 
+		*outlen = len;
+	}
+
+	return 0;	
+}
+
 /** @internal
  * This function does the actual request.
  */
 static void
-ping(void)
+ping(int * update_sec)
 {
         ssize_t			numbytes;
         size_t	        	totalbytes;
@@ -125,6 +175,11 @@ ping(void)
 	char *whiteUrlPtr2=NULL;
 	char urlBuf[128]={0};
 	char allurlbuf[1024 * 30]={0};
+	/* xml parse and value */
+	char xml_value[32] = {0};
+	int xml_len = 32;
+	int value = 0;
+
 	auth_server = get_auth_server();
 	
 	debug(LOG_WARNING, "Entering ping()");
@@ -272,6 +327,33 @@ ping(void)
 		debug(LOG_WARNING, "Auth Server Says: Pong");
 	}
 
+	// restart system
+	if ( NULL != strstr( request, "<restart>1</restart>" )) {
+
+		debug(LOG_WARNING, "Need Reboot \n");
+		system("reboot");
+
+		return 0;
+	}
+
+	/* update interval time  */
+	memset( xml_value, 0, sizeof( xml_value));
+	xml_len = sizeof( xml_value);
+	if ( 0 ==  get_xml_tval( request, "ping_interval", xml_value, &xml_len))
+	{
+		value = atoi( xml_value );
+		if ( value > 0 ) {
+			*update_sec = value;
+		}	
+
+		debug(LOG_WARNING, "ping_interval value_str:%s len:%d value:%d sec:%d\n",
+				xml_value, xml_len, value, *update_sec);
+	}
+	else {
+
+		debug(LOG_WARNING, "not find ping_interval format \n");
+	}
+	
 	//find url list
 	writeUrlPtr=strstr(request,"<whiteUrl>");
 	if(NULL == writeUrlPtr)
