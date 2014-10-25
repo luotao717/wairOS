@@ -143,6 +143,7 @@ int main(int argc,char *argv[])
             else
             {
                  system("echo 0 > /etc/autoupgradeOkflag");
+				 system("rm -f /tmp/upcheckResult");
             }
        }
 	return ret;

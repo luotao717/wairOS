@@ -322,8 +322,10 @@ dhcp_add() {
 	echo $limit
 	eval "$(ipcalc.sh $ipaddr $netmask $start $limit)"
 	append args "--dhcp-range=lan,$START,$END,$NETMASK,$leasetime"
-	append args "--address=/ap9736.net/$ipaddr"
+	append args "--address=/fansup.lan/$ipaddr"
 	echo $args
+	echo 127.0.0.1 localhost. > /etc/hosts
+	echo $ipaddr ap9736.net. >> /etc/hosts
 #	dhcp_option_add "$cfg" "$networkid"
 	echo $args
 	echo hhhh

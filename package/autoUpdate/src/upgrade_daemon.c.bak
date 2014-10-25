@@ -218,14 +218,80 @@ int main(int argc,char **argv)
 	char devMac[36]={0};
 	char devSn[48]={0};
 	char devUserEmail[64]={0};
-       time_t timep;
-       struct tm *nowtime=NULL;
+  time_t timep;
+  struct tm *nowtime=NULL;
+  FILE *fh=NULL;
+  char gwidmac[36]={0};
+  char softVer[64]="1000";
+  int upCount=30;
+  int upgradeFlag=-1;
+  int wgetCount=30;
+  int upgradeFlag=-1;
+  int retUpEnable=0;
+  char retSoftVer[64]="1000";
+  char retUrl[256]={0};
+  char retMd5[65]={0};
+  unsigned long retSize=0;
+  int retIsFac=0;
+  char retCmdid[65]={0};
+  char wgetBuf[512]={0};
 	signal(SIGUSR1, nvramIrqHandler);
 	signal(SIGUSR2, nvramIrqHandler2);	
-	fd = pidfile_acquire("/var/run/passdaemon.pid");
+	fd = pidfile_acquire("/var/autoUpgradedaemon.pid");
 	pidfile_write_release(fd);
 	while (1) 
 	{
+		time(&timep);
+    nowtime=localtime(&timep);
+    //printf("\r\n now time = %d:%d:%d",nowtime->tm_hour,nowtime->tm_min,nowtime->tm_sec );
+    if(nowtime->tm_hour == 5)
+    {
+        if((nowtime->tm_min == 20) && (nowtime->tm_sec <= 51))
+        {
+        		if ((fh = fopen("/etc/gwid.conf", "r"))) 
+        		{
+							fscanf(fh, "%s", gwidmac);
+							fclose(fh);
+						}
+						if ((fh = fopen("/etc/config/softVersion", "r"))) 
+        		{
+							fscanf(fh, "%s", softVer);
+							fclose(fh);
+						}
+						sprintf(cmdbuf,"autoUpdate -a fpUpCheck %s %s admin 1 &",gwidmac,softVer);
+        		system(cmdbuf);
+        		for(i=0;i<upCount;i++)
+        		{
+        				sleep(10);
+        				if ((fh = fopen("/etc/autoupflag", "r"))) 
+        				{
+									fscanf(fh, "%d", upgradeFlag);
+									fclose(fh);
+									if(upgradeFlag != 1)
+										continue;
+									if ((fh = fopen("/tmp/upcheckResult", "r"))) 
+									{
+										fscanf(fh, "%d %s %s %s %lu %d %s", &retUpEnable,retSoftVer,retUrl.retMd5,&retSize,&retIsFac,retCmdid);
+										fclose(fh);
+										if(0==retUpEnable)
+										{
+											break;
+										}
+										system("rm -f /tmp/newfireware");
+										sprintf(wgetBuf,"wget %s -O /tmp/newfireware &",retUrl);
+										system(wgetBuf);
+										
+										
+									}
+								}
+								else
+								{
+									continue;
+								}
+        		}
+            system("reboot");
+        }
+    }
 		sleep(10);
 		for(i=0;i<254;i++)
 		{
@@ -252,16 +318,7 @@ int main(int argc,char **argv)
 				}
 			}
 		}
-             time(&timep);
-            nowtime=localtime(&timep);
-            //printf("\r\n now time = %d:%d:%d",nowtime->tm_hour,nowtime->tm_min,nowtime->tm_sec );
-            if(nowtime->tm_hour == 5)
-            {
-                if((nowtime->tm_min == 0) && (nowtime->tm_sec <= 31))
-                {
-                    system("reboot");
-                }
-            }
+            
 		
 	}
 	return 0;

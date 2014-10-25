@@ -125,7 +125,7 @@ int main(int argc,char **argv)
 							fscanf(fh, "%s", gwidmac);
 							fclose(fh);
 						}
-						if ((fh = fopen("/etc/config/softVersion", "r"))) 
+						if ((fh = fopen("/usr/bin/softVersion", "r"))) 
         		{
 							fscanf(fh, "%s", softVer);
 							fclose(fh);
@@ -135,16 +135,18 @@ int main(int argc,char **argv)
         		for(i=0;i<upCount;i++)
         		{
         				sleep(10);
+						printf("\r\n start upgrade %d",i);
         				if ((fh = fopen("/etc/autoupflag", "r"))) 
         				{
-									fscanf(fh, "%d", upgradeFlag);
+									fscanf(fh, "%d", &upgradeFlag);
 									fclose(fh);
 									if(upgradeFlag != 1)
 										continue;
 									if ((fh = fopen("/tmp/upcheckResult", "r"))) 
 									{
-										fscanf(fh,"%d %s %s %s %lu %d %s", &retUpEnable,retSoftVer,retUrl,retMd5,&retSize,&retIsFac,retCmdid);
+										fscanf(fh,"%d %s %s %lu %s %d %s", &retUpEnable,retSoftVer,retUrl,&retSize,retMd5,&retIsFac,retCmdid);
 										fclose(fh);
+										printf("\r\nuppara=%d %s %s %lu %s %d %s\r\n", retUpEnable,retSoftVer,retUrl,retSize,retMd5,retIsFac,retCmdid);
 										if(0==retUpEnable)
 										{
 											break;
@@ -155,6 +157,7 @@ int main(int argc,char **argv)
 										for(j=0;j<wgetCount;j++)
 										{
 											sleep(10);
+											//printf("\r\nfdsfsadfkkk---%d\r\n",j);
 											if(stat("/tmp/newfireware", &statbuf) == -1)
 											{
 												continue;
@@ -166,9 +169,26 @@ int main(int argc,char **argv)
 										}
 										if(j<wgetCount)
 										{
-											system("sysupgrade -n -q -d 10 /tmp/newfireware &");
+											//system("echo yyyy > /tmp/555555");
+											printf("\r\ndebug start upgrade\r\n");
+											if(retIsFac == 0)
+											{
+												system("sysupgrade -q -d 10 /tmp/newfireware &");
+												//system("sysupgrade -n -q -d 10 /tmp/newfireware &");
+											}
+											else
+											{
+												system("sysupgrade -n -q -d 10 /tmp/newfireware &");
+												
+											}
+											sleep(30);
+											//system("sysupgrade -n -q -d 10 /tmp/newfireware &");
 										}
 										
+									}
+									else
+									{
+										break;
 									}
 								}
 								else

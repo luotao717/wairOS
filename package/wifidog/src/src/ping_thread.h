@@ -31,5 +31,7 @@
 
 /** @brief Periodically checks on the auth server to see if it's alive. */
 void thread_ping(void *arg);
+void thread_authtime(void *arg);
+
 
 #endif

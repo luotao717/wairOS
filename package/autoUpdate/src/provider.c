@@ -192,6 +192,57 @@ struct service_cxy *find_service(char *name)
 	return NULL;
 }
 
+
+/*
+ * get the xml value 
+ * name length : 24
+ * outlen: input : max of value
+ * 	   output: lenghth of value
+ */
+static int get_xml_tval(char *origin_str, char* name, char *value, int * outlen)
+{
+	char tmp[32] = {0};
+	int len = 0;
+	char *phead=NULL, *pend=NULL;
+
+	if ( strlen(name) > 24 ) {
+		return -1;
+	}
+
+	// head <>
+	len = snprintf(tmp, sizeof(tmp), "<%s>", name );
+	phead = strstr( origin_str, tmp);
+	if ( phead == NULL ) {
+		return -1;
+	}	
+	phead += len;
+
+	// end </>
+	memset( tmp, 0, sizeof(tmp));
+	len = snprintf(tmp, sizeof(tmp), "</%s>", name);
+	pend = strstr( origin_str, tmp );
+	if ( pend == NULL ) {
+		return -1;
+	}
+
+	if ( phead > pend ) {
+		return -1;
+	}
+
+	if ( phead == pend ) {
+		*outlen = 0;
+	}
+	else {
+		//printf("\r\n phead==%s\r\n",phead);
+		len = (( pend - phead ) < *outlen ) ? (pend - phead) : *outlen;
+		memcpy(value, phead, len ) ; 
+		//*outlen = len;
+	}
+
+	return 0;	
+}
+
+
 //------------------------------------------------------------------------------
 // FUNCTION
 //
@@ -631,6 +682,11 @@ int FANSUPBOUND_update_entry(struct userInfo_cxy *info)
 	char user[64], auth[64];
 	FILE *fh=NULL;
 	char upcmdid[100]={0};
+	char xmlValue[64]={0};
+	int maxXmlValueLen=64;
+	int tempValue=0;
+	char cmdBuf[512]={0};
+	
 
 	if((info->wildcard == 0))
 	{
@@ -699,7 +755,7 @@ int FANSUPBOUND_update_entry(struct userInfo_cxy *info)
 		
 		output(fd, buf);
 	}
-	//printf("\r\nsendmessage:\r\n%s\r\n",buf);
+	printf("\r\nsendmessage:\r\n%s\r\n",buf);
 	bp = buf;
 	bytes = 0;
 	btot = 0;
@@ -710,7 +766,7 @@ int FANSUPBOUND_update_entry(struct userInfo_cxy *info)
 	}
 	close(fd);
 	buf[btot] = '\0';
-	//printf("\r\n%s\r\n",buf);
+	printf("\r\n%s\r\n",buf);
 	if(sscanf(buf, " HTTP/1.%*c %3d", &ret) != 1)
 	{
 		ret = -1;
@@ -726,6 +782,106 @@ int FANSUPBOUND_update_entry(struct userInfo_cxy *info)
 		if(strstr(buf, "<code>1</code>") != NULL)
 		{
 			retval = UPDATERES_OK;
+			if(0 == get_xml_tval(buf,"upgrade",xmlValue,&maxXmlValueLen))
+			{
+				sprintf(cmdBuf,"echo %s",xmlValue);
+				//system(cmdBuf);
+			}
+			else
+			{
+				retval = UPDATERES_ERROR;
+				break;
+			}
+
+			if(atoi(xmlValue) == 0)
+			{
+				retval = UPDATERES_ERROR;
+				break;
+			}
+
+			memset( xmlValue, 0, sizeof(xmlValue));
+
+			if(0 == get_xml_tval(buf,"sversion",xmlValue,&maxXmlValueLen))
+			{
+				sprintf(cmdBuf,"%s %s",cmdBuf,xmlValue);
+				//sprintf(cmdBuf,"echo %s >> /tmp/upcheckResult",xmlValue);
+				//system(cmdBuf);
+			}
+			else
+			{
+				retval = UPDATERES_ERROR;
+				break;
+			}
+
+			memset( xmlValue, 0, sizeof(xmlValue));
+
+			if(0 == get_xml_tval(buf,"url",xmlValue,&maxXmlValueLen))
+			{
+				sprintf(cmdBuf,"%s %s",cmdBuf,xmlValue);
+				//sprintf(cmdBuf,"echo %s >> /tmp/upcheckResult",xmlValue);
+				//system(cmdBuf);
+			}
+			else
+			{
+				retval = UPDATERES_ERROR;
+				break;
+			}
+
+			memset( xmlValue, 0, sizeof(xmlValue));
+
+			if(0 == get_xml_tval(buf,"size",xmlValue,&maxXmlValueLen))
+			{
+				sprintf(cmdBuf,"%s %s",cmdBuf,xmlValue);
+				//sprintf(cmdBuf,"echo %s >> /tmp/upcheckResult",xmlValue);
+				//system(cmdBuf);
+			}
+			else
+			{
+				retval = UPDATERES_ERROR;
+				break;
+			}
+
+			memset( xmlValue, 0, sizeof(xmlValue));
+
+			if(0 == get_xml_tval(buf,"md5",xmlValue,&maxXmlValueLen))
+			{
+				sprintf(cmdBuf,"%s %s",cmdBuf,xmlValue);
+				//sprintf(cmdBuf,"echo %s >> /tmp/upcheckResult",xmlValue);
+				//system(cmdBuf);
+			}
+			else
+			{
+				retval = UPDATERES_ERROR;
+				break;
+			}
+
+			memset( xmlValue, 0, sizeof(xmlValue));
+
+			if(0 == get_xml_tval(buf,"isdefault",xmlValue,&maxXmlValueLen))
+			{
+				sprintf(cmdBuf,"%s %s",cmdBuf,xmlValue);
+				//sprintf(cmdBuf,"echo %s >> /tmp/upcheckResult",xmlValue);
+				//system(cmdBuf);
+			}
+			else
+			{
+				retval = UPDATERES_ERROR;
+				break;
+			}
+
+			memset( xmlValue, 0, sizeof(xmlValue));
+
+			if(0 == get_xml_tval(buf,"cmdid",xmlValue,&maxXmlValueLen))
+			{
+				sprintf(cmdBuf,"%s %s > /tmp/upcheckResult",cmdBuf,xmlValue);
+				//sprintf(cmdBuf,"echo %s >> /tmp/upcheckResult",xmlValue);
+				system(cmdBuf);
+			}
+			else
+			{
+				retval = UPDATERES_ERROR;
+				break;
+			}
 		}
 		
 		else

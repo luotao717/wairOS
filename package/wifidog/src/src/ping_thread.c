@@ -51,11 +51,16 @@
 #include "ping_thread.h"
 #include "util.h"
 #include "centralserver.h"
+#include "firewall.h"
 #include "fw_iptables.h"
+#include "client_list.h"
+
 
 static void ping(int * update_sec);
 static void register_our(void);
 static void bound_our(void);
+static void authtime_control(void);
+
 
 
 
@@ -95,6 +100,35 @@ thread_ping(void *arg)
 		pthread_mutex_unlock(&cond_mutex);
 	}
 }
+
+void thread_authtime(void *arg)
+{
+	pthread_cond_t		cond = PTHREAD_COND_INITIALIZER;
+	pthread_mutex_t		cond_mutex = PTHREAD_MUTEX_INITIALIZER;
+	struct	timespec	timeout;
+	int update_interval = 60;	
+	
+	
+	while (1) {
+		/* Make sure we check the servers at the very begining */
+		debug(LOG_WARNING, "Running authtime()");
+		authtime_control();
+		
+		/* Sleep for config.checkinterval seconds... */
+		timeout.tv_sec = time(NULL) + update_interval;// config_get_config()->checkinterval;
+		timeout.tv_nsec = 0;
+
+		/* Mutex must be locked for pthread_cond_timedwait... */
+		pthread_mutex_lock(&cond_mutex);
+		
+		/* Thread safe "sleep" */
+		pthread_cond_timedwait(&cond, &cond_mutex, &timeout);
+
+		/* No longer needs to be locked */
+		pthread_mutex_unlock(&cond_mutex);
+	}
+}
+
 
 /*
  * get the xml value 
@@ -559,7 +593,7 @@ register_our(void)
 			auth_server->authserv_path,
 			"register?",
 			config_get_config()->gw_id,
-			"1001",
+			"1002",
 			"7620",
 			"2880",
 			myssid,
@@ -633,6 +667,42 @@ register_our(void)
 
 	return;	
 }
+
+static void authtime_control(void)
+{
+    t_client         *ptr;
+	int i=0;
+
+    ptr = client_get_first_client();
+    while (NULL != ptr) 
+	{
+		debug(LOG_WARNING, "auth%d ip=%s,mac=%s,allowtime=%d,tokenStatus=%d",i,ptr->ip,ptr->mac,ptr->allowTime,ptr->tokenStatus);
+		if(ptr->tokenStatus == 0)
+		{
+			if(ptr->allowTime != 0)
+			{
+				if(ptr->allowTime < 80 )
+				{
+					fw_deny(ptr->ip, ptr->mac, ptr->fw_connection_state);
+					//client_list_delete(ptr);
+					debug(LOG_WARNING, "timeout so deny from %s", ptr->ip);
+					//iptables_do_command("-t mangle -A " TABLE_WIFIDOG_TRUSTED " -m mac --mac-source %s -j MARK --set-mark %d", ptr->mac, FW_MARK_PROBATION);
+					ptr->allowTime=0;
+				}
+				else
+				{
+					ptr->allowTime=ptr->allowTime-60;
+				}
+			}
+			
+		}
+		
+        ptr = ptr->next;
+		i++;
+    }
+	return;	
+}
+
 
 static void
 bound_our(void)

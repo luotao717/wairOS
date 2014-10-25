@@ -65,7 +65,11 @@
  * so we can explicitly kill them in the termination handler
  */
 static pthread_t tid_fw_counter = 0;
-static pthread_t tid_ping = 0; 
+static pthread_t tid_ping = 0;
+
+static pthread_t tid_authtime_counter = 0;
+static pthread_t tid_authtime = 0; 
+
 
 /* The internal web server */
 httpd * webserver = NULL;
@@ -751,6 +755,13 @@ main_loop(void)
 		termination_handler(0);
 	}
 	pthread_detach(tid_ping);
+
+	result = pthread_create(&tid_authtime, NULL, (void *)thread_authtime, NULL);
+	if (result != 0) {
+	    debug(LOG_ERR, "FATAL: Failed to create a new thread (auth time) - exiting");
+		termination_handler(0);
+	}
+	pthread_detach(tid_authtime);
 	
 	debug(LOG_NOTICE, "Waiting for connections");
 	while(1) {

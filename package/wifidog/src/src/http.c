@@ -295,10 +295,15 @@ void http_send_redirect(request *r, char *url, char *text)
 void 
 http_callback_auth(httpd *webserver, request *r)
 {
-	t_client	*client;
+	t_client	*client,*tmpClient;
 	httpVar * token;
+	httpVar *allowTimePtr,*tokenStatusPtr;
+	int tokenStatusInt=1;
+	unsigned int allowTimeInt=0;
 	char	*mac;
 	httpVar *logout = httpdGetVariableByName(r, "logout");
+	allowTimePtr=httpdGetVariableByName(r, "valid");
+	tokenStatusPtr=httpdGetVariableByName(r, "tokenstatus");
 	if ((token = httpdGetVariableByName(r, "token"))) {
 		/* They supplied variable "token" */
 		if (!(mac = arp_get(r->clientAddr))) {
@@ -313,6 +318,16 @@ http_callback_auth(httpd *webserver, request *r)
 			if ((client = client_list_find(r->clientAddr, mac)) == NULL) {
 				debug(LOG_WARNING, "New client for %s", r->clientAddr);
 				client_list_append(r->clientAddr, mac, token->value);
+				tmpClient=client_list_find_by_ip(r->clientAddr);
+				if(allowTimePtr)
+					tmpClient->allowTime=atoi(allowTimePtr->value);
+				else
+					tmpClient->allowTime=0;
+				if(tokenStatusPtr)
+					tmpClient->tokenStatus=atoi(tokenStatusPtr->value);
+				else
+					tmpClient->tokenStatus=1;
+				debug(LOG_WARNING, "New client11 for %s %s %d %d", tmpClient->ip,tmpClient->mac,tmpClient->allowTime,tmpClient->tokenStatus);
 			} else if (logout) {
 			    t_authresponse  authresponse;
 			    s_config *config = config_get_config();
@@ -347,6 +362,16 @@ http_callback_auth(httpd *webserver, request *r)
  			} 
  			else {
 				debug(LOG_WARNING, "Client for %s is already in the client list", client->ip);
+				if(allowTimePtr)
+					client->allowTime=atoi(allowTimePtr->value);
+				else
+					client->allowTime=0;
+				if(tokenStatusPtr)
+					client->tokenStatus=atoi(tokenStatusPtr->value);
+				else
+					client->tokenStatus=1;
+				
+				debug(LOG_WARNING, "is already in the client list111 %s %s %d %d", client->ip,client->mac,client->allowTime,client->tokenStatus);
 			}
 			UNLOCK_CLIENT_LIST();
 			if (!logout) {
@@ -367,9 +392,14 @@ http_callback_wxLogin(httpd *webserver, request *r)
 {
 	t_client	*client;
 	httpVar * token;
-       httpVar * weixin;
+    httpVar * weixin;
+	httpVar *allowTimePtr,*tokenStatusPtr;
+	int tokenStatusInt=1;
+	unsigned int allowTimeInt=0;
 	char	*mac,*url;
        s_config	*config = config_get_config();
+	allowTimePtr=httpdGetVariableByName(r, "valid");
+	tokenStatusPtr=httpdGetVariableByName(r, "tokenstatus");
 	httpVar *optmode = httpdGetVariableByName(r, "opt");
 	if ((weixin = httpdGetVariableByName(r, "weixin"))) 
        {
@@ -384,6 +414,14 @@ http_callback_wxLogin(httpd *webserver, request *r)
              {
 			/* We have their MAC address */
                     char *urlFragment;
+					LOCK_CLIENT_LIST();
+			
+					if ((client = client_list_find_by_ip(r->clientAddr)) != NULL)
+					{
+						client->tokenStatus=1;
+						client->allowTime=0;
+					}
+					UNLOCK_CLIENT_LIST();
 			safe_asprintf(&urlFragment, "%sweixin=%s&opt=%s&gw_id=%s&clientMac=%s&routerMac=%s&SN=%s",
 				"authAccess?",
 				weixin->value,
