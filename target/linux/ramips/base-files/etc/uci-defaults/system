@@ -12,18 +12,22 @@ case "$board" in
 wifi-router) 
 	uci set system.@system[-1].hostname="Fansup" 
 #	set system.@system[-1].hwtype="FansupCM7620"
+	echo "WIFI-ZoneCM_NPO1_7620n" > /etc/hwinfo
 	;;
 wifi-router_v2) 
 	uci set system.@system[-1].hostname="Fansup" 
 #	set system.@system[-1].hwtype="FansupCM7620"
+	echo "WIFI-ZoneCM_NPO2_7620n" > /etc/hwinfo
 	;;
 wifi-router-poe) 
 	uci set system.@system[-1].hostname="Fansup" 
 #	set system.@system[-1].hwtype="FansupWL7620"
+	echo "WIFI-ZoneCL7620n" > /etc/hwinfo
 	;;
 wifi-router-wallpoe) 
 	uci set system.@system[-1].hostname="Fansup" 
 #	set system.@system[-1].hwtype="FansupCL7620"
+	echo "WIFI-ZoneWL7620n" > /etc/hwinfo
 	;;
 *)
 	;;

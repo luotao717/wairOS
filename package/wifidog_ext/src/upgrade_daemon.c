@@ -96,6 +96,7 @@ int main(int argc,char **argv)
   FILE *fh=NULL;
   char gwidmac[36]={0};
   char softVer[64]="1000";
+  char hwVer[128] = {0};
   int upCount=30;
   int upgradeFlag=-1;
   int wgetCount=30;
@@ -126,11 +127,19 @@ int main(int argc,char **argv)
 							fclose(fh);
 						}
 						if ((fh = fopen("/usr/bin/softVersion", "r"))) 
-        		{
+        					{
 							fscanf(fh, "%s", softVer);
 							fclose(fh);
 						}
-						sprintf(cmdbuf,"autoUpdate -a fpUpCheck %s %s admin 1 &",gwidmac,softVer);
+						if ( fh = fopen("/etc/hwinfo", "r")) 
+						{
+							fscanf(fh, "%s", hwVer );
+							fclose(fh);
+							if ( strlen(hwVer) == 0 ) {
+								snprintf(hwVer, sizeof(hwVer), "%s", "admin");
+							}
+						}	
+						sprintf(cmdbuf,"autoUpdate -a fpUpCheck %s %s %s 1 &",gwidmac,softVer, hwVer);
         		system(cmdbuf);
         		for(i=0;i<upCount;i++)
         		{
