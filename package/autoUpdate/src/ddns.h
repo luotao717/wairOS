@@ -116,7 +116,7 @@ enum {
 struct userInfo_cxy{
 	struct service_cxy *service;
 	char usrname[30];
-	char usrpwd[20];
+	char usrpwd[60];
 	char host[30];
 	char mx[30];
 	char backmx[30];
