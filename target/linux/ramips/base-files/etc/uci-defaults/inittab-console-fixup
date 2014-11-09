@@ -5,8 +5,14 @@
 
 enable_console_login() {
 	local cons=$1
-	local initline="$cons::askfirst:/bin/ash --login"
-#	local initline="$cons::respawn:/sbin/getty -L $cons 115200 vt100"
+	local freq=$2
+	local login=$3
+
+#	local initline="$cons::respawn:/sbin/getty -L $cons 57600 vt100"
+	local initline="$cons::respawn:/sbin/getty -L $cons $freq vt100"
+	if [ -z "$login" ]; then
+		initline="$cons::askfirst:/bin/ash --login"
+	fi	
 
 	grep -qs "^$initline" /etc/inittab || {
 		echo "$initline" >> /etc/inittab
@@ -19,7 +25,19 @@ inittab_console_fixup() {
 	for cons in ttyS0  ttyS1 ttyATH0; do
 		echo "fixup $cons"
 		grep -qs "console=$cons" /proc/cmdline && {
-			enable_console_login $cons
+			local login
+			local freq
+			grep -qs "console=$cons,57600" /proc/cmdline && { 
+				freq="57600"
+				login="true"
+			}
+
+			grep -qs "console=$cons,115200" /proc/cmdline && { 
+				freq="115200"
+				login="true"
+			}
+
+			enable_console_login $cons $freq $login
 		}
 	done
 }
