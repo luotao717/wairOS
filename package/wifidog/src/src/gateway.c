@@ -639,7 +639,8 @@ static int main_bindcheck_our(void)
 
 	debug(LOG_WARNING, "HTTP Response from Server: [%s]", request);
 	
-	if (strstr(request, "<code>1</code>") == 0) {
+/*	if (strstr(request, "<code>1</code>") == 0) {*/
+	if (strstr(request, "<bindingStatus>1</bindingStatus>") == 0) {
 		debug(LOG_WARNING, "bind error");
               checkFlag = 0;
 		/* FIXME */
