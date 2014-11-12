@@ -133,6 +133,7 @@ http_callback_404(httpd *webserver, request *r)
 				config->gw_id,
 				url,
 				config->gw_id);
+			free(mac);
 		}
 
 		debug(LOG_INFO, "Captured %s requesting [%s] and re-directing them to login page", r->clientAddr, url);
@@ -260,16 +261,17 @@ void http_send_redirect(request *r, char *url, char *text)
 		else
 		{
 			strcpy(clientMacBuf,mac);
+			free(mac);
 		}
 		if ((fh = fopen("/tmp/wanipaddr", "r"))) 
 		{
 			fscanf(fh, "%s", wanipBuf);
 			fclose(fh);
 		}
-		safe_asprintf(&header, "HTTP_AP_MAC: %s",config->gw_id);
-		safe_asprintf(&header, "HTTP_AP_IP: %s",wanipBuf);
-		safe_asprintf(&header, "HTTP_CLIENT_MAC: %s",clientMacBuf);
-		safe_asprintf(&header, "HTTP_CLIENT_IP: %s",r->clientAddr);
+		//safe_asprintf(&header, "HTTP_AP_MAC: %s",config->gw_id);
+		//safe_asprintf(&header, "HTTP_AP_IP: %s",wanipBuf);
+		//safe_asprintf(&header, "HTTP_CLIENT_MAC: %s",clientMacBuf);
+		//safe_asprintf(&header, "HTTP_CLIENT_IP: %s",r->clientAddr);
 		safe_asprintf(&header, "Location: %s",
 			url
 		);

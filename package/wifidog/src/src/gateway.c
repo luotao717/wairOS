@@ -640,15 +640,20 @@ static int main_bindcheck_our(void)
 	debug(LOG_WARNING, "HTTP Response from Server: [%s]", request);
 	
 /*	if (strstr(request, "<code>1</code>") == 0) {*/
-	if (strstr(request, "<bindingStatus>1</bindingStatus>") == 0) {
+	if (strstr(request, "<bindingStatus>1</bindingStatus>") == 0) 
+	{
 		debug(LOG_WARNING, "bind error");
               checkFlag = 0;
+	   // if (strstr(request, "<bindingStatus>0</bindingStatus>") != 0)
+	    //{
+	    //	system("echo status:2 > /etc/config/wifidogbindstatus");
+	    //}
 		/* FIXME */
 	}
 	else {
                 checkFlag = 1;
                 system("echo status:1 > /etc/config/wifidogbindstatus");
-		debug(LOG_WARNING, "bind ok!");
+				debug(LOG_WARNING, "bind ok!");
 	}
 
 	return checkFlag;	
