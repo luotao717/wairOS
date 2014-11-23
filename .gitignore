@@ -10,3 +10,4 @@ compile_*
 cscope.*
 tags
 *.swp
+make_cscope_ctags.sh

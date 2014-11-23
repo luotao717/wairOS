@@ -14,7 +14,8 @@ start() {
 	if ( ! has_root_pwd /etc/passwd && ! has_root_pwd /etc/shadow ) || \
 	   ( [ ! -x /usr/sbin/dropbear ] && [ ! -x /usr/sbin/sshd ] );
 	then
-		telnetd -l /bin/login.sh
+#		telnetd -l /bin/login.sh
+		telnetd -l /bin/login
 	fi
 }
 
