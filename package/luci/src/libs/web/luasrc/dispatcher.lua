@@ -154,8 +154,15 @@ function authenticator.htmlauth(validator, accs, default)
 
 	require("luci.i18n")
 	require("luci.template")
-	context.path = {}
-	luci.template.render("sysauth", {duser=default, fuser=user})
+	-- 解决非首页超时的跳转一直登录的问题
+	-- 非首页时，认证失败时，强行跳转到首页
+	if #context.path > 1 then -- admin/*
+		context.path = {}
+		luci.http.redirect(luci.dispatcher.build_url())
+	else 
+		context.path = {}
+		luci.template.render("sysauth", {duser=default, fuser=user})
+	end
 	return false
 
 end
